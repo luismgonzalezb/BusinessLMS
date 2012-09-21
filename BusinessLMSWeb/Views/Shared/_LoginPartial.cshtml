@@ -1,4 +1,16 @@
 ﻿@if (Request.IsAuthenticated) {
+    <span class="profile">
+		<a href="#" class="section">
+			<img class="image" src="images/img1.png" alt="image description" width="26" height="26" />
+			<span class="text-box">
+				Welcome
+				<strong class="name">Asif Aleem</strong>
+			</span>
+		</a>
+		<a href="#" class="opener">opener</a>
+	</span>
+	<a href="#" class="btn-on">On</a>
+    @*
     <text>
         Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
@@ -6,9 +18,23 @@
             <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
         }
     </text>
+    *@
 } else {
+    <span class="profile">
+		<a href="#" class="section">
+			<img class="image" src="images/img1.png" alt="image description" width="26" height="26" />
+			<span class="text-box">
+				Welcome
+				<strong class="name">Asif Aleem</strong>
+			</span>
+		</a>
+		<a href="#" class="opener">opener</a>
+	</span>
+	<a href="#" class="btn-on">On</a>
+    @*
     <ul>
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
+    *@
 }

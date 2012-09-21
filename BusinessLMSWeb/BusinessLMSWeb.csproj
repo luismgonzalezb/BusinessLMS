@@ -228,6 +228,11 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Images\bg-controls.png" />
+    <Content Include="Images\bg-shadow.png" />
+    <Content Include="Images\bg-wrapper.png" />
+    <Content Include="Images\img1.png" />
+    <Content Include="Images\sprite.png" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
