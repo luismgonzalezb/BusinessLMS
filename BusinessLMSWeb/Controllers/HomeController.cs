@@ -1,32 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using BusinessLMSWeb.Helpers;
+using BusinessLMSWeb.Models;
 
 namespace BusinessLMSWeb.Controllers
 {
-    public class HomeController : Controller
+
+    [Authorize]
+    public class HomeController : BaseWebController
     {
+
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Menu()
         {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
+            BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
+            List<Step> steps = client.Get<List<Step>>();
+            return PartialView(steps);
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

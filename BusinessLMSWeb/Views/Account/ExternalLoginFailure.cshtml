@@ -1,8 +1,19 @@
 ﻿@{
     ViewBag.Title = "Login Failure";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Unsuccessful login with service.</h2>
-</hgroup>
+<div class="metro-container-400">
+
+    <div class="title" style="margin-bottom:40px;">
+        <h1>@ViewBag.Title.</h1>
+    </div>
+    <p>
+        We were not able to get your information from Facebook or register on our sytem
+    </p>
+    <div class="metro-align-right" style="margin-top:20px;">
+        Please try again, Login @Html.ActionLink("Here", "Login")
+    </div>
+
+
+</div>

@@ -10,5 +10,8 @@ namespace BusinessLMS.Models
         public string title { get; set; }
         public string description { get; set; }
         public int stepOrder { get; set; }
+        public string iconClass { get; set; }
+        public string action { get; set; }
+        public string controller { get; set; }
     }
 }

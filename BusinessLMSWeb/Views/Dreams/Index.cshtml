@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Dreams";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="metro-info-icons">
+    <a href="#" class="help-link" title="Help">Help</a>
+</div>
+
+<div class="title" style="margin-bottom:40px;">
+    <h1>@ViewBag.Title.</h1>
+</div>
+
+@Html.Action("DreamList", "Dreams", new { id = 0})
+
+@{ Html.RenderPartial("_DreamsInfo"); }
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryupload")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/Scripts/Dreams/Index.js")
+}

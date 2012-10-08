@@ -1,11 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using BusinessLMSWeb.Helpers
+
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <title>@ViewBag.Title - Business LMS</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes/base/css")
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
@@ -15,9 +18,8 @@
 				    <div class="controls">
 					    <nav class="links">
 						    <ul>
-							    <li><a href="#" class="ico1">Messages <span class="num">26</span></a></li>
-							    <li><a href="#" class="ico2">Alerts <span class="num">5</span></a></li>
-							    <li><a href="#" class="ico3">Documents <span class="num">3</span></a></li>
+							    <li><a href="#" class="ico1">Followups <span class="num">1</span></a></li>
+                                <li><a href="#" class="ico2">Alerts <span class="num">1</span></a></li>
 						    </ul>
 					    </nav>
 					    <div class="profile-box">
@@ -27,56 +29,22 @@
                     <div id="body">
                         @RenderSection("featured", required: false)
                         <section class="content-wrapper main-content clear-fix">
-                            @RenderBody()
+                            <div class="metro">
+                                @RenderBody()
+                            </div>
                         </section>
                     </div>
 			    </div>
 		    </div>
 		    <aside id="sidebar">
 			    <strong class="logo"><a href="#">lg</a></strong>
-                <nav>
-			        <ul class="tabset buttons">
-				        <li class="active">
-					        <a href="#tab-1" class="ico1"><span>Dashboard</span><em></em></a>
-					        <span class="tooltip"><span>Dashboard</span></span>
-				        </li>
-				        <li>
-					        <a href="#tab-2" class="ico2"><span>Gallery</span><em></em></a>
-					        <span class="tooltip"><span>Gallery</span></span>
-				        </li>
-				        <li>
-					        <a href="#tab-3" class="ico3"><span>Pages</span><em></em></a>
-					        <span class="tooltip"><span>Pages</span></span>
-				        </li>
-				        <li>
-					        <a href="#tab-4" class="ico4"><span>Widgets</span><em></em></a>
-					        <span class="tooltip"><span>Widgets</span></span>
-				        </li>
-				        <li>
-					        <a href="#tab-5" class="ico5"><span>Archive</span><em></em></a>
-					        <span class="tooltip"><span>Archive</span></span>
-				        </li>
-				        <li>
-					        <a href="#tab-6" class="ico6">
-						        <span>Comments</span><em></em>
-					        </a>
-					        <span class="num">11</span>
-					        <span class="tooltip"><span>Comments</span></span>
-				        </li>
-				        <li>
-					        <a href="#tab-7" class="ico7"><span>Plug-in</span><em></em></a>
-					        <span class="tooltip"><span>Plug-in</span></span>
-				        </li>
-				        <li>
-					        <a href="#tab-8" class="ico8"><span>Settings</span><em></em></a>
-					        <span class="tooltip"><span>Settings</span></span>
-				        </li>
-			        </ul>
-                </nav>
+                @Html.Action("Menu","Home")
 			    <span class="shadow"></span>
 		    </aside>
 	    </div>
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/Scripts/Shared/_layout.js")
         @RenderSection("scripts", required: false)
+        @Html.RenderScripts()
     </body>
 </html>

@@ -9,8 +9,7 @@ namespace BusinessLMS.Models
         public int contactId { get; set; }
         public string IBONum { get; set; }
         public string method { get; set; }
+        public bool completed { get; set; }
         public System.DateTime datetime { get; set; }
-        public virtual Contact Contact { get; set; }
-        public virtual IBO IBO { get; set; }
     }
 }

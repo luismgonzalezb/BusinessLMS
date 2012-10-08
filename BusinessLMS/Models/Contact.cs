@@ -21,7 +21,6 @@ namespace BusinessLMS.Models
         public string preferred { get; set; }
         public string contactLevel { get; set; }
         public System.DateTime datetime { get; set; }
-        public virtual ContactType ContactType { get; set; }
-        public virtual IBO IBO { get; set; }
+        public bool isPublic { get; set; }
     }
 }

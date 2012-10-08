@@ -10,11 +10,12 @@ namespace BusinessLMS.Models
         public int languageId { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
-        public string password { get; set; }
+        public string accesstoken { get; set; }
         public string email { get; set; }
         public string facebookid { get; set; }
         public string twitter { get; set; }
+        public string picture { get; set; }
+        public int UserId { get; set; }
         public System.DateTime datetime { get; set; }
-        public virtual Language Language { get; set; }
     }
 }

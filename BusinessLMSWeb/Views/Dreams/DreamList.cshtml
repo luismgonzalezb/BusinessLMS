@@ -1,0 +1,38 @@
+﻿@using BusinessLMSWeb.Models
+@model Dictionary<Timeframe,Dream>
+
+<ul class="dreams">
+
+@foreach (var item in Model) {
+    if (item.Value != null) {
+        <li class="dream-bg" style="background-image: url(@item.Value.picture); background-repeat:no-repeat; background-position:top left;">
+            <div class="title">
+                @Html.DisplayFor(modelItem => item.Key.title)
+            </div>
+            <div class="wraper">
+                @Html.Action("DisplayDream", "Dreams", new { model = item.Value, last = item.Key.Equals((Timeframe)ViewBag.lastItem)})
+            </div>
+        </li>
+    } else {
+        <li>
+            <div class="title">
+                @Html.DisplayFor(modelItem => item.Key.title)
+            </div>
+            <div class="wraper">
+                <div>
+                    @Html.Action("NewDream", "Dreams", 
+                        new { 
+                            timeframeId = item.Key.timeframeId,
+                            days = item.Key.days,
+                            IBONum = ViewBag.IBONum, 
+                            dreamLevel = ViewBag.dreamLevel 
+                        })
+                </div>
+            </div>
+        </li>
+    }
+}
+
+</ul>
+
+@Html.Action("DreamList", "Dreams", new { id = @ViewBag.nextLevel})

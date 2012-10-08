@@ -7,6 +7,5 @@ namespace BusinessLMS.Models
     {
         public int languageId { get; set; }
         public string language1 { get; set; }
-
     }
 }

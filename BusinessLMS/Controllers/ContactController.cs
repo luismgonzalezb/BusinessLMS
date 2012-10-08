@@ -16,14 +16,12 @@ namespace BusinessLMS.Controllers
     {
         private BusinessLMSContext db = new BusinessLMSContext();
 
-        // GET api/Contact
         public IEnumerable<Contact> GetContacts()
         {
-            var contacts = db.Contacts.Include(c => c.ContactType).Include(c => c.IBO);
+            var contacts = (from cnt in db.Contacts where cnt.isPublic == true select cnt);
             return contacts.AsEnumerable();
         }
 
-        // GET api/Contact/5
         public Contact GetContact(int id)
         {
             Contact contact = db.Contacts.Find(id);
@@ -35,7 +33,6 @@ namespace BusinessLMS.Controllers
             return contact;
         }
 
-        // PUT api/Contact/5
         public HttpResponseMessage PutContact(int id, Contact contact)
         {
             if (ModelState.IsValid && id == contact.contactId)
@@ -59,7 +56,6 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // POST api/Contact
         public HttpResponseMessage PostContact(Contact contact)
         {
             if (ModelState.IsValid)
@@ -77,7 +73,6 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // DELETE api/Contact/5
         public HttpResponseMessage DeleteContact(int id)
         {
             Contact contact = db.Contacts.Find(id);

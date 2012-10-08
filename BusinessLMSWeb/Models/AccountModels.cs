@@ -11,7 +11,7 @@ namespace BusinessLMSWeb.Models
     public class UsersContext : DbContext
     {
         public UsersContext()
-            : base("DefaultConnection")
+            : base("BusinessLMSContext")
         {
         }
 
@@ -30,6 +30,7 @@ namespace BusinessLMSWeb.Models
     public class RegisterExternalLoginModel
     {
         [Required]
+        [RegularExpression(@"^[\S]*$", ErrorMessage = "The User Name is only alpha numeric, no spaces, numbers or special caracters allowed")]
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
@@ -51,7 +52,7 @@ namespace BusinessLMSWeb.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        //[Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -84,7 +85,31 @@ namespace BusinessLMSWeb.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        //[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
+    }
+
+    public class ForgotModel
+    {
+        [Required]
+        [Display(Name = "User name")]
+        public string UserName { get; set; }
+    }
+
+    public class ResetModel
+    {
+        [Required]
+        public string token { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Password")]
+        public string Password { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirm password")]
+        //[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 

@@ -19,6 +19,18 @@ namespace BusinessLMS.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(250);
 
+            this.Property(t => t.iconClass)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            this.Property(t => t.action)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            this.Property(t => t.controller)
+                .IsRequired()
+                .HasMaxLength(50);
+
             // Table & Column Mappings
             this.ToTable("Steps");
             this.Property(t => t.stepId).HasColumnName("stepId");
@@ -26,6 +38,9 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.title).HasColumnName("title");
             this.Property(t => t.description).HasColumnName("description");
             this.Property(t => t.stepOrder).HasColumnName("stepOrder");
+            this.Property(t => t.iconClass).HasColumnName("iconClass");
+            this.Property(t => t.action).HasColumnName("action");
+            this.Property(t => t.controller).HasColumnName("controller");
         }
     }
 }

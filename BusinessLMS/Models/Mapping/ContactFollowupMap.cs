@@ -19,6 +19,9 @@ namespace BusinessLMS.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
+            this.Property(t => t.completed)
+                .IsRequired();
+
             // Table & Column Mappings
             this.ToTable("ContactFollowups");
             this.Property(t => t.followupId).HasColumnName("followupId");
@@ -26,7 +29,7 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.IBONum).HasColumnName("IBONum");
             this.Property(t => t.method).HasColumnName("method");
             this.Property(t => t.datetime).HasColumnName("datetime");
-
+            this.Property(t => t.completed).HasColumnName("completed");
         }
     }
 }

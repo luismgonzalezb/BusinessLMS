@@ -20,6 +20,7 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.timeframeId).HasColumnName("timeframeId");
             this.Property(t => t.title).HasColumnName("title");
             this.Property(t => t.days).HasColumnName("days");
+            this.Property(t => t.timeLevel).HasColumnName("timeLevel");
         }
     }
 }

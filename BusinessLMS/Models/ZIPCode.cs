@@ -11,6 +11,5 @@ namespace BusinessLMS.Models
         public string Class { get; set; }
         public string City { get; set; }
         public string StateCode { get; set; }
-        public virtual State State { get; set; }
     }
 }

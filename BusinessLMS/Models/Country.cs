@@ -7,6 +7,5 @@ namespace BusinessLMS.Models
     {
         public int countryId { get; set; }
         public string country1 { get; set; }
-
     }
 }

@@ -1,0 +1,115 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web;
+using System.Web.Http;
+using BusinessLMS.Models;
+
+namespace BusinessLMS.Controllers
+{
+    public class IBOController : ApiController
+    {
+        private BusinessLMSContext db = new BusinessLMSContext();
+
+        public IEnumerable<IBO> GetIBOes()
+        {
+            var ibos = db.IBOs;
+            return ibos.AsEnumerable();
+        }
+
+        public IBO GetIBO(string id)
+        {
+            IBO ibo = db.IBOs.Find(id);
+            if (ibo == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return ibo;
+        }
+
+        public IBO GetIBOByUId(int id)
+        {
+            IBO ibo = (from u in db.IBOs where u.UserId == id select u).FirstOrDefault();
+            if (ibo == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return ibo;
+        }
+
+        public HttpResponseMessage PutIBO(string id, IBO ibo)
+        {
+            if (ModelState.IsValid && id == ibo.IBONum)
+            {
+                db.Entry(ibo).State = EntityState.Modified;
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
+        public HttpResponseMessage PostIBO(IBO ibo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.IBOs.Add(ibo);
+                db.SaveChanges();
+
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, ibo);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = ibo.IBONum }));
+                return response;
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
+        public HttpResponseMessage DeleteIBO(string id)
+        {
+            IBO ibo = db.IBOs.Find(id);
+            if (ibo == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            db.IBOs.Remove(ibo);
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, ibo);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            db.Dispose();
+            base.Dispose(disposing);
+        }
+    }
+}

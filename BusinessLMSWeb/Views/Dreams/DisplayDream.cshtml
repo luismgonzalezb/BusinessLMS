@@ -1,0 +1,28 @@
+﻿@model BusinessLMSWeb.Models.Dream
+
+<div class="dream-display">
+    <div class="text">
+        <div style="margin:10px">
+            My @ViewBag.area dream
+        </div>
+        <div style="margin:10px">
+            of @Html.DisplayFor(model => model.dream1)
+        </div>
+        <div style="margin:10px">
+            That I @ViewBag.completed
+        </div>
+        <div style="margin:10px">
+            @ViewBag.etaMsg @ViewBag.eta
+        </div>
+    </div>
+    <div class="actions">
+        <div style="margin:10px">
+           @Html.ActionLink("Edit", "Edit", new { id=Model.dreamId }, new { @class = "edit-link", title = "Edit" })
+        </div>
+        @if ((bool)ViewBag.last == true) {
+            <div style="margin:10px">
+                @Html.ActionLink("More Dreams", "MoreDreams", new { id = Model.dreamId }, new { @class = "submit-arrow-link", title = "Create more Dreams" })
+            </div>
+        }
+    </div>
+</div>

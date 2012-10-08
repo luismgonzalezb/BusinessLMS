@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace BusinessLMS.Models.Mapping
@@ -14,9 +13,6 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.IBONum)
                 .IsRequired()
                 .HasMaxLength(20);
-
-            this.Property(t => t.stepId)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
             // Table & Column Mappings
             this.ToTable("CompletedSteps");

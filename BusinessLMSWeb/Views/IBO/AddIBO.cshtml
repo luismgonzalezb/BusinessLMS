@@ -1,0 +1,107 @@
+﻿@model BusinessLMSWeb.Models.IBO
+
+@{
+    ViewBag.Title = "IBO Details";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<div class="metro-container-300">
+
+    <div class="title" style="margin-bottom:40px;">
+        <h1>@ViewBag.Title.</h1>
+    </div>
+
+@using (Html.BeginForm("AddIBO", "IBO", FormMethod.Post, new { @class = "metro-form", id = "createIBOForm" }))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <div class="metro-form-control">
+            ID
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.IBONum)
+                @Html.ValidationMessageFor(model => model.IBONum)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            First Name
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.firstName)
+                @Html.ValidationMessageFor(model => model.firstName)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            Last Name
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.lastName)
+                @Html.ValidationMessageFor(model => model.lastName)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            Language
+            <div class="metro-select-box">
+                @Html.DropDownListFor(model => model.languageId, (SelectList)ViewBag.languages)
+                @Html.ValidationMessageFor(model => model.languageId)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            Email
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            @Html.LabelFor(model => model.twitter)
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.twitter)
+                @Html.ValidationMessageFor(model => model.twitter)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            Sponsor
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.UPLine)
+                @Html.ValidationMessageFor(model => model.UPLine)
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.picture)
+
+    </fieldset>
+}
+    
+    Picture
+    <form action="/api/Files" method="post" enctype="multipart/form-data" id="file_upload" >
+        <div id = "filediv">
+            <input type="file" name="file"/>
+            <div id="status"></div>
+        </div>
+        <input type="submit" value="Upload" id="btnUpload" class="metro-button" />
+    </form>
+
+    <div class="metro-align-right">
+        <input type="button" value="Save" class="metro-button" onclick="submitform();" />
+    </div>
+    <div class="metro-align-right" style="margin-top:20px;">
+        Go back to 
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">Home</a>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryupload")
+    @Scripts.Render("~/Scripts/IBO/AddIBO.js")
+}

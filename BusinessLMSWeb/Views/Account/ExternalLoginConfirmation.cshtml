@@ -1,35 +1,43 @@
 ﻿@model BusinessLMSWeb.Models.RegisterExternalLoginModel
 @{
     ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Associate your @ViewBag.ProviderDisplayName account.</h2>
-</hgroup>
+<div class="metro-container-300">
 
-@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl })) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+    <div class="title" style="margin-bottom:40px;">
+        <h1>@ViewBag.Title.</h1>
+    </div>
 
-    <fieldset>
-        <legend>Association Form</legend>
-        <p>
-            You've successfully authenticated with <strong>@ViewBag.ProviderDisplayName</strong>.
-            Please enter a user name for this site below and click the Confirm button to finish
-            logging in.
-        </p>
-        <ol>
-            <li class="name">
+    @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "metro-form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend></legend>
+            <div class="metro-align-right" style="margin-bottom:20px;">
+                Just one more step... Let us know your user name
+            </div>
+            <div class="metro-form-control">
                 @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
-            </li>
-        </ol>
-        @Html.HiddenFor(m => m.ExternalLoginData)
-        <input type="submit" value="Register" />
-    </fieldset>
-}
+                <div class="metro-text-box">
+                    @Html.TextBoxFor(m => m.UserName)
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </div>
+            </div>
+            @Html.HiddenFor(m => m.ExternalLoginData)
+            <div class="metro-align-right">
+                <input type="submit" value="Register" class="metro-button"/>
+            </div>
+        </fieldset>
+        <div class="metro-align-right" style="margin-top:20px;">
+            Already registered, Login @Html.ActionLink("Here", "Login")
+        </div>
+    }
+
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -8,6 +8,5 @@ namespace BusinessLMS.Models
         public int toolId { get; set; }
         public string name { get; set; }
         public bool def { get; set; }
-
     }
 }

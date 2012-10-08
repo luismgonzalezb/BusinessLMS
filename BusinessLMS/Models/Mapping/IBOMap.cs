@@ -26,9 +26,9 @@ namespace BusinessLMS.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(50);
 
-            this.Property(t => t.password)
+            this.Property(t => t.accesstoken)
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(250);
 
             this.Property(t => t.email)
                 .IsRequired()
@@ -36,11 +36,17 @@ namespace BusinessLMS.Models.Mapping
 
             this.Property(t => t.facebookid)
                 .IsRequired()
-                .HasMaxLength(20);
+                .HasMaxLength(250);
 
             this.Property(t => t.twitter)
                 .IsRequired()
                 .HasMaxLength(20);
+
+            this.Property(t => t.picture)
+                .HasMaxLength(150);
+
+            this.Property(t => t.UserId)
+                .IsRequired();
 
             // Table & Column Mappings
             this.ToTable("IBOs");
@@ -49,12 +55,13 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.languageId).HasColumnName("languageId");
             this.Property(t => t.firstName).HasColumnName("firstName");
             this.Property(t => t.lastName).HasColumnName("lastName");
-            this.Property(t => t.password).HasColumnName("password");
+            this.Property(t => t.accesstoken).HasColumnName("accesstoken");
             this.Property(t => t.email).HasColumnName("email");
             this.Property(t => t.facebookid).HasColumnName("facebookid");
             this.Property(t => t.twitter).HasColumnName("twitter");
             this.Property(t => t.datetime).HasColumnName("datetime");
-
+            this.Property(t => t.picture).HasColumnName("picture");
+            this.Property(t => t.UserId).HasColumnName("UserId");
         }
     }
 }

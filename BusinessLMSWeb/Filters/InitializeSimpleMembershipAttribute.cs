@@ -25,24 +25,25 @@ namespace BusinessLMSWeb.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
-
-                try
+                if (WebSecurity.Initialized == false)
                 {
-                    using (var context = new UsersContext())
+                    Database.SetInitializer<UsersContext>(null);
+                    try
                     {
-                        if (!context.Database.Exists())
+                        using (var context = new UsersContext())
                         {
-                            // Create the SimpleMembership database without Entity Framework migration schema
-                            ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
+                            if (!context.Database.Exists())
+                            {
+                                // Create the SimpleMembership database without Entity Framework migration schema
+                                ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
+                            }
                         }
+                        WebSecurity.InitializeDatabaseConnection("BusinessLMSContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                     }
-
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
-                }
-                catch (Exception ex)
-                {
-                    throw new InvalidOperationException("The ASP.NET Simple Membership database could not be initialized. For more information, please see http://go.microsoft.com/fwlink/?LinkId=256588", ex);
+                    catch (Exception ex)
+                    {
+                        throw new InvalidOperationException("The ASP.NET Simple Membership database could not be initialized. For more information, please see http://go.microsoft.com/fwlink/?LinkId=256588", ex);
+                    }
                 }
             }
         }

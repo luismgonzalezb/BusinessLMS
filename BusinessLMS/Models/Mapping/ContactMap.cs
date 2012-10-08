@@ -51,6 +51,8 @@ namespace BusinessLMS.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(20);
 
+            this.Property(t => t.isPublic);
+
             // Table & Column Mappings
             this.ToTable("Contacts");
             this.Property(t => t.contactId).HasColumnName("contactId");
@@ -69,7 +71,7 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.preferred).HasColumnName("preferred");
             this.Property(t => t.contactLevel).HasColumnName("contactLevel");
             this.Property(t => t.datetime).HasColumnName("datetime");
-
+            this.Property(t => t.isPublic).HasColumnName("isPublic");
         }
     }
 }

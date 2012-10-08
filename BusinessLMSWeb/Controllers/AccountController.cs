@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using BusinessLMSWeb.Filters;
+using BusinessLMSWeb.Helpers;
+using BusinessLMSWeb.Models;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using BusinessLMSWeb.Filters;
-using BusinessLMSWeb.Models;
 
 namespace BusinessLMSWeb.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
-    public class AccountController : Controller
+    public class AccountController : BaseWebController
     {
+
         //
         // GET: /Account/Login
 
@@ -93,6 +94,57 @@ namespace BusinessLMSWeb.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
+        public ActionResult Forgot()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Forgot(ForgotModel model)
+        {
+            if (WebSecurity.GetUserId(model.UserName) > -1 && (WebSecurity.IsConfirmed(model.UserName)))
+            {
+                string token = WebSecurity.GeneratePasswordResetToken(model.UserName, 1200);
+                EmailHelper resertEmail = new EmailHelper();
+                resertEmail.SendResetMail("luismgonzalezb@gmail.com", token);
+            }
+            else
+            {
+                ModelState.AddModelError(String.Empty, "The user name was not found");
+            }
+            return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult PasswordReset(string token)
+        {
+            ViewBag.isPasswordReset = false;
+            ResetModel reset = new ResetModel();
+            reset.token = token;
+            return View(reset);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult PasswordReset(ResetModel model)
+        {
+            bool result = WebSecurity.ResetPassword(model.token, model.Password);
+            if (result == true)
+            {
+                ViewBag.isPasswordReset = true;
+            }
+            else
+            {
+                ViewBag.isPasswordReset = false;
+                ModelState.AddModelError(String.Empty, "The Reset token has expired.");
+            }
+            return View();
+            
+        }
         //
         // POST: /Account/Disassociate
 
@@ -218,12 +270,14 @@ namespace BusinessLMSWeb.Controllers
         public ActionResult ExternalLoginCallback(string returnUrl)
         {
             AuthenticationResult result = OAuthWebSecurity.VerifyAuthentication(Url.Action("ExternalLoginCallback", new { ReturnUrl = returnUrl }));
+            FacebookId = result.ExtraData["id"];
+            AccessToken = result.ExtraData["accesstoken"];
             if (!result.IsSuccessful)
             {
                 return RedirectToAction("ExternalLoginFailure");
             }
 
-            if (OAuthWebSecurity.Login(result.Provider, result.ProviderUserId, createPersistentCookie: false))
+            if (OAuthWebSecurity.Login(result.Provider, result.ProviderUserId, createPersistentCookie: true))
             {
                 return RedirectToLocal(returnUrl);
             }
@@ -270,8 +324,10 @@ namespace BusinessLMSWeb.Controllers
                     if (user == null)
                     {
                         // Insert name into the profile table
-                        db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
-                        db.SaveChanges();
+                        //db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
+                        //db.SaveChanges();
+                        string password = Membership.GeneratePassword(10, 1);
+                        WebSecurity.CreateUserAndAccount(model.UserName, password);
 
                         OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
                         OAuthWebSecurity.Login(provider, providerUserId, createPersistentCookie: false);
@@ -303,8 +359,25 @@ namespace BusinessLMSWeb.Controllers
         [ChildActionOnly]
         public ActionResult ExternalLoginsList(string returnUrl)
         {
+            List<AuthenticationClientData> clientData = new List<AuthenticationClientData>();
+            if (WebSecurity.IsAuthenticated)
+            {
+                List<string> accounts = (from account in OAuthWebSecurity.GetAccountsFromUserName(User.Identity.Name) select account.Provider).ToList();
+                ICollection<AuthenticationClientData> allClients = OAuthWebSecurity.RegisteredClientData;
+                foreach (AuthenticationClientData client in allClients)
+                {
+                    if (accounts.Contains(client.AuthenticationClient.ProviderName) == false)
+                    {
+                        clientData.Add(client);
+                    }
+                }
+            }
+            else
+            {
+                clientData = OAuthWebSecurity.RegisteredClientData.ToList();
+            }
             ViewBag.ReturnUrl = returnUrl;
-            return PartialView("_ExternalLoginsListPartial", OAuthWebSecurity.RegisteredClientData);
+            return PartialView("_ExternalLoginsListPartial", clientData);
         }
 
         [ChildActionOnly]
@@ -315,7 +388,6 @@ namespace BusinessLMSWeb.Controllers
             foreach (OAuthAccount account in accounts)
             {
                 AuthenticationClientData clientData = OAuthWebSecurity.GetOAuthClientData(account.Provider);
-
                 externalLogins.Add(new ExternalLogin
                 {
                     Provider = account.Provider,
@@ -323,7 +395,6 @@ namespace BusinessLMSWeb.Controllers
                     ProviderUserId = account.ProviderUserId,
                 });
             }
-
             ViewBag.ShowRemoveButton = externalLogins.Count > 1 || OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             return PartialView("_RemoveExternalLoginsPartial", externalLogins);
         }
