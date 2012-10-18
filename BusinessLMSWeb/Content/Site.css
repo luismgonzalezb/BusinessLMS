@@ -357,7 +357,7 @@ form, fieldset
         background-position: 0px 0px;
     }
 
-    .buttons .active .ico1
+    .buttons .ico1.active
     {
         background: url(../images/sprite.png) no-repeat 9999px 0px;
         background-position: 0px -23px;
@@ -369,7 +369,7 @@ form, fieldset
         background-position: -1px -47px;
     }
 
-    .buttons .active .ico2
+    .buttons .ico2.active
     {
         background: url(../images/sprite.png) no-repeat 9999px 0px;
         background-position: -2px -73px;
@@ -381,7 +381,7 @@ form, fieldset
         background-position: -2px -97px;
     }
 
-    .buttons .active .ico3
+    .buttons .ico3.active 
     {
         background: url(../images/sprite.png) no-repeat 9999px 0px;
         background-position: -2px -126px;
@@ -393,7 +393,7 @@ form, fieldset
         background-position: -2px -153px;
     }
 
-    .buttons .active .ico4
+    .buttons .ico4.active
     {
         background: url(../images/sprite.png) no-repeat 9999px 0px;
         background-position: -2px -178px;
@@ -405,7 +405,7 @@ form, fieldset
         background-position: -1px -206px;
     }
 
-    .buttons .active .ico5
+    .buttons .ico5.active
     {
         background: url(../images/sprite.png) no-repeat 9999px 0px;
         background-position: -2px -232px;
@@ -417,7 +417,7 @@ form, fieldset
         background-position: -2px -262px;
     }
 
-    .buttons .active .ico6
+    .buttons .ico6.active
     {
         background: url(../images/sprite.png) no-repeat 9999px 0px;
         background-position: -3px -291px;
@@ -429,7 +429,7 @@ form, fieldset
         background-position: -4px -321px;
     }
 
-    .buttons .active .ico7
+    .buttons .ico7.active
     {
         background: url(../images/sprite.png) no-repeat 9999px 0px;
         background-position: -4px -352px;
@@ -441,10 +441,22 @@ form, fieldset
         background-position: -4px -380px;
     }
 
-    .buttons .active .ico8
+    .buttons .ico8.active 
     {
         background: url(../images/sprite.png) no-repeat 9999px 0px;
         background-position: -4px -415px;
+    }
+
+    .buttons .ico9
+    {
+        background: url(../images/Menu/infoMenu.png) no-repeat 0px 0px;
+        /*background-position: -4px -380px;*/
+    }
+
+    .buttons .ico9.active 
+    {
+        background: url(../images/Menu/infoMenuSel.png) no-repeat 0px 0px;
+        /*background-position: -4px -415px;*/
     }
 
 /* General hover styles */
@@ -453,11 +465,6 @@ form, fieldset
 .buttons a:hover {
 	text-decoration:none;
 	background:#505967;
-	/* CSS outer glow with the box-shadow property
-	-moz-box-shadow:0 0 5px #EEE;
-	-webkit-box-shadow:0 0 5px #EEE;
-	box-shadow:0 0 5px #EEE; */
-
 }
 
 .logout-btn

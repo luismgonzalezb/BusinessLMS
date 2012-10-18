@@ -11,7 +11,6 @@
         <h1>@ViewBag.Title.</h1>
     </div>
 
-
 @using (Html.BeginForm("Update","IBO", FormMethod.Post, new { @class = "metro-form", id = "createIBOForm" })) {
     @Html.ValidationSummary(true)
 
@@ -59,6 +58,14 @@
         </div>
 
         <div class="metro-form-control">
+            Birthday
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.birthday)
+                @Html.ValidationMessageFor(model => model.birthday)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
             @Html.LabelFor(model => model.twitter)
             <div class="metro-text-box">
                 @Html.EditorFor(model => model.twitter)
@@ -98,11 +105,11 @@
             <a href="javascript:document.getElementById('logoutForm').submit()">Home</a>
         }
     </div>
-
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/jqueryupload")
     @Scripts.Render("~/Scripts/IBO/AddIBO.js")
 }

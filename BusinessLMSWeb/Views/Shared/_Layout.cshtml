@@ -1,4 +1,5 @@
 ﻿@using BusinessLMSWeb.Helpers
+@using BusinessLMSWeb.Models
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +39,7 @@
 		    </div>
 		    <aside id="sidebar">
 			    <strong class="logo"><a href="#">lg</a></strong>
-                @Html.Action("Menu","Home")
+                @Html.Partial("Menu",(List<Step>)ViewBag.MenuItems)
 			    <span class="shadow"></span>
 		    </aside>
 	    </div>

@@ -1,6 +1,8 @@
 ﻿
 $(document).ready(function () {
     
+    $("#birthday").datepicker();
+
     $('#file_upload').ajaxForm({
         beforeSubmit: function (a, f, o) {
             o.dataType = 'json';

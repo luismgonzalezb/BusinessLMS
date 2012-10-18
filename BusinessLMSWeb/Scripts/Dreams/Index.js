@@ -9,7 +9,7 @@ $(document).ready(function () {
         modal: true
     });
 
-    $(".help-link").click(function () {
+    $(".help-link-action").click(function () {
         $("#info-modal").dialog("open");
         return false;
     });

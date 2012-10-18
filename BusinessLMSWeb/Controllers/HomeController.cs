@@ -15,12 +15,5 @@ namespace BusinessLMSWeb.Controllers
             return View();
         }
 
-        public ActionResult Menu()
-        {
-            BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
-            List<Step> steps = client.Get<List<Step>>();
-            return PartialView(steps);
-        }
-
     }
 }

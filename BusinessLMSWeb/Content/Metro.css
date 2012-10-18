@@ -2528,6 +2528,74 @@ html[xmlns] .clearfix
         {
             background: #000 !important;
         }
+
+        /*Datetime type Added*/
+        .metro .metro-form .metro-form-control .metro-text-box input[type=datetime]
+        {
+            background: #d2d2d2;
+            border: 2px #d2d2d2 solid;
+            color: #646464;
+            border-radius: 0;
+            font-size: 11pt;
+            padding: 5px 8px;
+            width: 100%;
+            outline: 0;
+            display: inline-block;
+        }
+
+            .metro .metro-form .metro-form-control .metro-text-box input[type=datetime]:focus
+            {
+                background: #fff;
+                border-color: #fff;
+                color: #000;
+            }
+
+            .metro .metro-form .metro-form-control .metro-text-box input[type=datetime]:disabled
+            {
+                background: #1d1d1d;
+                border: 2px #777777 solid;
+            }
+
+            .metro .metro-form .metro-form-control .metro-text-box input[type=datetime]:not(:focus):not(:disabled):hover
+            {
+                background: #e2e2e2;
+            }
+
+            .metro .metro-form .metro-form-control .metro-text-box input[type=datetime] + .helper::before
+            {
+                display: inline-block;
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                background: #ccc;
+                top: 3px;
+                right: 4px;
+                visibility: hidden;
+                content: "\00d7";
+                font-size: 15pt;
+                font-weight: bold;
+                color: #000;
+                cursor: pointer;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            .metro .metro-form .metro-form-control .metro-text-box input[type=datetime]:focus + .helper::before
+            {
+                visibility: visible;
+            }
+
+        .metro .metro-form .metro-form-control .metro-text-box:hover input[type=datetime] + .helper:before
+        {
+            background: #dedede !important;
+        }
+
+        .metro .metro-form .metro-form-control .metro-text-box:active input[type=datetime] + .helper:before
+        {
+            background: #000 !important;
+        }
+
+
     /*End of password type*/
 
     .metro .metro-form .metro-form-control .metro-select-box

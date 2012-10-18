@@ -17,5 +17,6 @@ namespace BusinessLMS.Models
         public string picture { get; set; }
         public int UserId { get; set; }
         public System.DateTime datetime { get; set; }
+        public Nullable<System.DateTime> birthday { get; set; }
     }
 }

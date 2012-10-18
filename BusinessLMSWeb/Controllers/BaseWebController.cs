@@ -44,6 +44,7 @@ namespace BusinessLMSWeb.Controllers
                             ViewBag.IBOName = String.Concat(ibo.firstName, " ", ibo.lastName);
                             ViewBag.IBONum = ibo.IBONum;
                             ViewBag.IBOPicture = ibo.picture != String.Empty ? ibo.picture : "~/Images/noProfilePicture.png";
+                            ViewBag.MenuItems = menuItems;
                         }
                         else
                         {
@@ -56,6 +57,7 @@ namespace BusinessLMSWeb.Controllers
                 }
             }
             catch { }
+            ViewBag.controllerName = controllerName;
             base.OnActionExecuted(filterContext);
         }
 
@@ -129,7 +131,8 @@ namespace BusinessLMSWeb.Controllers
         }
 
         public IBO ibo { 
-            get {
+            get 
+            {
                 IBO _ibo = (IBO)Session["IBO"];
                 if (_ibo == null)
                 {
@@ -138,6 +141,21 @@ namespace BusinessLMSWeb.Controllers
                     Session["IBO"] = _ibo;
                 }
                 return _ibo;
+            }
+        }
+
+        public List<Step> menuItems
+        {
+            get
+            {
+                List<Step> _menuItems = (List<Step>)Session["menuItems"];
+                if (_menuItems == null)
+                {
+                    BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
+                    _menuItems = client.Get<List<Step>>();
+                    Session["menuItems"] = _menuItems;
+                }
+                return _menuItems;
             }
         }
 

@@ -12,7 +12,7 @@
             <li>@Html.ActionLink("Update IBO Details", "Update", "IBO")</li>
             <li>@Html.ActionLink("Change Password", "Manage", "Account")</li>
         </ul>
-	</div>
+	</div> 
     <span class="logout-btn">
         @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
             @Html.AntiForgeryToken()
