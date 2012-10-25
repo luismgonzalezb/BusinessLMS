@@ -1,7 +1,11 @@
 ﻿
 $(document).ready(function () {
-    
-    $("#birthday").datepicker();
+
+    $(".date-picker").datepicker({
+        yearRange: "-90:+0",
+        changeMonth: true,
+        changeYear: true
+    });
 
     $('#file_upload').ajaxForm({
         beforeSubmit: function (a, f, o) {

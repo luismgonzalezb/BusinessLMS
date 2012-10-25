@@ -19,7 +19,7 @@
         <legend></legend>
 
         <div class="metro-form-control">
-            ID
+            <label for="IBONum">ID</label>
             <div class="metro-text-box">
                 @Html.EditorFor(model => model.IBONum)
                 @Html.ValidationMessageFor(model => model.IBONum)
@@ -27,7 +27,7 @@
         </div>
 
         <div class="metro-form-control">
-            First Name
+            <label for="firstName">First Name</label>
             <div class="metro-text-box">
                 @Html.EditorFor(model => model.firstName)
                 @Html.ValidationMessageFor(model => model.firstName)
@@ -35,7 +35,7 @@
         </div>
 
         <div class="metro-form-control">
-            Last Name
+            <label for="lastName">Last Name</label>
             <div class="metro-text-box">
                 @Html.EditorFor(model => model.lastName)
                 @Html.ValidationMessageFor(model => model.lastName)
@@ -43,7 +43,7 @@
         </div>
 
         <div class="metro-form-control">
-            Language
+            <label for="languageId">Language</label>
             <div class="metro-select-box">
                 @Html.DropDownListFor(model => model.languageId, (SelectList)ViewBag.languages)
                 @Html.ValidationMessageFor(model => model.languageId)
@@ -51,7 +51,7 @@
         </div>
 
         <div class="metro-form-control">
-            Email
+            <label for="email">Email</label>
             <div class="metro-text-box">
                 @Html.EditorFor(model => model.email)
                 @Html.ValidationMessageFor(model => model.email)
@@ -59,7 +59,15 @@
         </div>
 
         <div class="metro-form-control">
-            @Html.LabelFor(model => model.twitter)
+            <label for="birthday">Birthday</label> (mm/dd/yyyy)
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.birthday)
+                @Html.ValidationMessageFor(model => model.birthday)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            <label for="twitter">Twitter</label>
             <div class="metro-text-box">
                 @Html.EditorFor(model => model.twitter)
                 @Html.ValidationMessageFor(model => model.twitter)
@@ -67,7 +75,7 @@
         </div>
 
         <div class="metro-form-control">
-            Sponsor
+            <label for="UPLine">Sponsor</label>
             <div class="metro-text-box">
                 @Html.EditorFor(model => model.UPLine)
                 @Html.ValidationMessageFor(model => model.UPLine)
@@ -77,6 +85,7 @@
         @Html.HiddenFor(model => model.picture)
 
     </fieldset>
+    
 }
     
     Picture
