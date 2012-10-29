@@ -20,7 +20,7 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.goal1).HasColumnName("goal");
             this.Property(t => t.completed).HasColumnName("completed");
             this.Property(t => t.datetime).HasColumnName("datetime");
-
+            this.Property(t => t.picture).HasColumnName("picture");
         }
     }
 }

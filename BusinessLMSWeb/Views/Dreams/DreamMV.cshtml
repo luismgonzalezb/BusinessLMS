@@ -1,0 +1,57 @@
+﻿@model BusinessLMSWeb.Models.DreamMV
+@using BusinessLMSWeb.Helpers
+
+<div class="metro-container-990">
+
+@using (Html.BeginForm("DreamMV", "Dreams", FormMethod.Post, new { @class = "metro-form" }))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <div class="metro-form-control">
+            <label for="mission">Mission</label>
+            <div class="metro-text-transbox">
+                @Html.EditorFor(model => model.mission)
+                @Html.ValidationMessageFor(model => model.mission)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            <label for="vision">Vision</label>
+            <div class="metro-text-transbox">
+                @Html.EditorFor(model => model.vision)
+                @Html.ValidationMessageFor(model => model.vision)
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.dreamMVId)
+
+    </fieldset>
+}
+
+</div>
+
+@Html.Script(
+    @<script type="text/javascript">
+         $(document).ready(function () {
+             $("#mission").watermark("Enter your Mission statement");
+             $('#mission').change(function () {
+                 $.post($(this.form).attr("action"), $(this.form).serialize(), function (data) {
+                     if (data.success == true) {
+                         $('#dreamMVId').val(data.id);
+                     }
+                 });
+             });
+             $("#vision").watermark("Enter your Vision statement");
+             $('#vision').change(function () {
+                 $.post($(this.form).attr("action"), $(this.form).serialize(), function (data) {
+                     if (data.success == true) {
+                         $('#dreamMVId').val(data.id);
+                     }
+                 });
+             });
+         });
+    </script>
+)

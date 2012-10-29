@@ -11,9 +11,13 @@
     <h1>@ViewBag.Title.</h1>
 </div>
 
+@Html.Action("DreamMV")
+
 @Html.Action("DreamList", "Dreams", new { id = 0})
 
 @{ Html.RenderPartial("_DreamsInfo"); }
+
+<div id="modalWindow"></div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

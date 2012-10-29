@@ -37,7 +37,7 @@ namespace BusinessLMSWeb.Helpers
             }
         }
 
-        public T Get<T>(int id)
+        public T Get<T>(string id)
         {
             using (HttpClient httpClient = NewHttpClient())
             {

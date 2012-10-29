@@ -17,7 +17,7 @@
     </div>
     <div class="actions">
         <div style="margin:10px">
-           @Html.ActionLink("Edit", "Edit", new { id=Model.dreamId }, new { @class = "edit-link", title = "Edit" })
+           <a href="javascript:openEditWindow(@(Model.dreamId))" class="edit-link">Edit</a>
         </div>
         @if ((bool)ViewBag.last == true) {
             <div style="margin:10px">

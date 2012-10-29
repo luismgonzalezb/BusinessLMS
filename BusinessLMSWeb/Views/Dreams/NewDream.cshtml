@@ -5,13 +5,14 @@
 
 @using (Html.BeginForm("NewDream", "Dreams", FormMethod.Post, new { @class = "metro-form", id = ViewBag.formName }))
 {
+    
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend></legend>
 
         <div class="metro-form-control">
-            Describe your Dream
+            <label for="dream1">Describe your Dream</label>
             <div class="metro-text-box">
                 @Html.EditorFor(model => model.dream1)
                 @Html.ValidationMessageFor(model => model.dream1)
@@ -19,7 +20,7 @@
         </div>
 
         <div class="metro-form-control">
-            What is your Dream related to
+            <label for="areaId">What is your Dream related to</label>
             <div class="metro-select-box">
                 @Html.DropDownListFor(model => model.areaId, (SelectList)ViewBag.areas)
                 @Html.ValidationMessageFor(model => model.areaId)
@@ -33,6 +34,7 @@
         @Html.HiddenFor(model => model.picture)
 
     </fieldset>
+    
 }
 
     Picture
@@ -49,8 +51,3 @@
     </div>
 
 </div>
-
-@*@Html.Script(
-    @<script type="text/javascript">
-    </script>
-)*@

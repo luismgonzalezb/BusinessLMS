@@ -137,7 +137,7 @@ namespace BusinessLMSWeb.Controllers
                 if (_ibo == null)
                 {
                     BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
-                    _ibo = client.Get<IBO>(WebSecurity.CurrentUserId);
+                    _ibo = client.Get<IBO>(WebSecurity.CurrentUserId.ToString());
                     Session["IBO"] = _ibo;
                 }
                 return _ibo;

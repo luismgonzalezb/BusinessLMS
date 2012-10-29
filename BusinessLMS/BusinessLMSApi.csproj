@@ -94,9 +94,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\DeleteController.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\DreamMVController.cs" />
     <Compile Include="Controllers\DreamsController.cs" />
+    <Compile Include="Controllers\GoalsController.cs" />
     <Compile Include="Controllers\IBOController.cs" />
     <Compile Include="Controllers\ListsController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactFollowup.cs" />
     <Compile Include="Models\ContactType.cs" />
+    <Compile Include="Models\DreamMV.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Dream.cs" />
     <Compile Include="Models\Goal.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Models\Mapping\ContactFollowupMap.cs" />
     <Compile Include="Models\Mapping\ContactMap.cs" />
     <Compile Include="Models\Mapping\ContactTypeMap.cs" />
+    <Compile Include="Models\Mapping\DreamMVMap.cs" />
     <Compile Include="Models\Mapping\CountryMap.cs" />
     <Compile Include="Models\Mapping\DreamMap.cs" />
     <Compile Include="Models\Mapping\GoalMap.cs" />

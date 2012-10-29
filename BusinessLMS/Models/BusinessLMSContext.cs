@@ -23,6 +23,7 @@ namespace BusinessLMS.Models
         public DbSet<ContactType> ContactTypes { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Dream> Dreams { get; set; }
+        public DbSet<DreamMV> DreamsMV { get; set; }
         public DbSet<Goal> Goals { get; set; }
         public DbSet<IBO> IBOs { get; set; }
         public DbSet<Language> Languages { get; set; }
@@ -42,6 +43,7 @@ namespace BusinessLMS.Models
             modelBuilder.Configurations.Add(new ContactTypeMap());
             modelBuilder.Configurations.Add(new CountryMap());
             modelBuilder.Configurations.Add(new DreamMap());
+            modelBuilder.Configurations.Add(new DreamMVMap());
             modelBuilder.Configurations.Add(new GoalMap());
             modelBuilder.Configurations.Add(new IBOMap());
             modelBuilder.Configurations.Add(new LanguageMap());

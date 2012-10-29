@@ -10,7 +10,11 @@ namespace BusinessLMSWeb
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery.kwicks*",
-                        "~/Scripts/jquery.easing*"));
+                        "~/Scripts/jquery.easing*",
+                        "~/Scripts/jquery.simplemodal*",
+                        "~/Scripts/jquery.tipTip*",
+                        "~/Scripts/jquery.watermark*",
+                        "~/Scripts/DataTables-1.9.4/media/js/jquery*"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));

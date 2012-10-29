@@ -18,8 +18,7 @@ namespace BusinessLMSWeb.Controllers
         {
             get
             {
-                BaseClient client = new BaseClient(baseApiUrl, "Lists", "GetAreas");
-                return client.Get<List<Area>>();
+                return ControllersHelper.GetAreas(baseApiUrl);
             }
         }
 
@@ -42,10 +41,12 @@ namespace BusinessLMSWeb.Controllers
                 {
                     ViewBag.dreamLevel = id;
                     ViewBag.nextLevel = id + 1;
+                    parms = new NameValueCollection(){{ "id", ibo.IBONum }, { "level", (id + 1).ToString()}};
+                    List<Dream> dreamsLevel = client.Get<List<Dream>>(parms);
                     Dictionary<Timeframe, Dream> timeframeDreams = new Dictionary<Timeframe, Dream>();
-                    List<Timeframe> timeframes = GetTimeFrames(id);
+                    List<Timeframe> timeframes = ControllersHelper.GetTimeFrames(id, baseApiUrl);
                     Timeframe last = timeframes.Last();
-                    ViewBag.lastItem = last;
+                    if (dreamsLevel.Count < 1) ViewBag.lastItem = last;
                     foreach (Timeframe time in timeframes)
                     {
                         Dream dream = (from d in dreams
@@ -64,7 +65,7 @@ namespace BusinessLMSWeb.Controllers
             ViewBag.area = (from area in areas where area.areaId == model.areaId select area.title).FirstOrDefault();
             ViewBag.completed = model.achieved == true ? "Acieved" : " I'm working on ";
             ViewBag.etaMsg = model.achieved == true ? " Before " : " Until ";
-            ViewBag.eta = String.Format("{0:dddd MMMM yyyy}", model.datetime);
+            ViewBag.eta = String.Format("{0:dddd dd MMMM yyyy}", model.datetime);
             ViewBag.last = last;
             return PartialView(model);
         }
@@ -99,18 +100,10 @@ namespace BusinessLMSWeb.Controllers
             try
             {
                 BaseClient client = new BaseClient(baseApiUrl, "Dreams", "GetDream");
-                Dream dream = client.Get<Dream>(id);
+                Dream dream = client.Get<Dream>(id.ToString());
                 if (dream != null)
                 {
-                    Dream newDream = new Dream();
-                    newDream.IBONum = dream.IBONum;
-                    newDream.dream1 = dream.dream1;
-                    newDream.achieved = dream.achieved;
-                    newDream.areaId = dream.areaId;
-                    newDream.datetime = dream.datetime;
-                    newDream.picture = dream.picture;
-                    newDream.dreamLevel = dream.dreamLevel + 1;
-                    newDream.timeframeId = dream.timeframeId + 1;
+                    Dream newDream = ModelParser.ParseDream(dream);
                     client = new BaseClient(baseApiUrl, "Dreams", "PostDream");
                     string result = client.Post<Dream>(newDream);
                 }
@@ -119,16 +112,66 @@ namespace BusinessLMSWeb.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult EditDream()
+        public ActionResult EditDream(int id)
         {
-            ViewBag.areas = areas;
-            return PartialView();
+            ViewBag.areas = new SelectList(areas, "areaId", "title");
+            BaseClient client = new BaseClient(baseApiUrl, "Dreams", "GetDream");
+            Dream dream = client.Get<Dream>(id.ToString());
+            return PartialView(dream);
         }
 
-        public List<Timeframe> GetTimeFrames(int level)
+        [HttpPost]
+        public ActionResult EditDream(Dream model)
         {
-            BaseClient client = new BaseClient(baseApiUrl, "Lists", "GetTimeframesLevel");
-            return client.Get<List<Timeframe>>(level);
+            try
+            {
+                BaseClient client = new BaseClient(baseApiUrl, "Dreams", "PutDream");
+                string result = client.Put<Dream>(model.dreamId.ToString(),model);
+                return Json(new { success = true });
+            }
+            catch
+            {
+                return Json(new { success = false });
+            }
+
+        }
+
+        public ActionResult DreamMV()
+        {
+            BaseClient client = new BaseClient(baseApiUrl, "DreamMV", "GetDreamMV");
+            DreamMV dream = client.Get<DreamMV>(ibo.IBONum);
+            return PartialView(dream);
+        }
+
+        [HttpPost]
+        public ActionResult DreamMV(DreamMV dream)
+        {
+            try
+            {
+                DreamMV dreammv = new DreamMV();
+                dreammv.IBONum = ibo.IBONum;
+                dreammv.vision = dream.vision;
+                dreammv.mission = dream.mission;
+                BaseClient client;
+                if (dream.dreamMVId == 0)
+                {
+                    client = new BaseClient(baseApiUrl, "DreamMV", "PostDreamMV");
+                    string result = client.Post<DreamMV>(dreammv);
+                    client = new BaseClient(baseApiUrl, "DreamMV", "GetDreamMV");
+                    dreammv = client.Get<DreamMV>(ibo.IBONum);
+                }
+                else
+                {
+                    dreammv.dreamMVId = dream.dreamMVId;
+                    client = new BaseClient(baseApiUrl, "DreamMV", "PutDreamMV");
+                    string result = client.Put<DreamMV>(dreammv.dreamMVId.ToString(), dreammv);
+                }
+                return Json(new { success = true, id = dreammv.dreamMVId });
+            }
+            catch
+            {
+                return Json(new { success = false, id = 0 });
+            } 
         }
 
     }

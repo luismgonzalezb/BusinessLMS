@@ -46,7 +46,7 @@ namespace BusinessLMSWeb.Controllers
         public ActionResult Update()
         {
             BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
-            IBO ibo = client.Get<IBO>(WebSecurity.CurrentUserId);
+            IBO ibo = client.Get<IBO>(WebSecurity.CurrentUserId.ToString());
             ViewBag.languages = languages;
             return View(ibo);
         }

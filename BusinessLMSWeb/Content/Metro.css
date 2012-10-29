@@ -2596,7 +2596,91 @@ html[xmlns] .clearfix
         }
 
 
-    /*End of password type*/
+        .metro .metro-form .metro-form-control .metro-text-date
+        {
+            position:relative;
+            margin-top:-25px;
+            margin-left:90%;
+        }
+
+    /* Transparent */
+    .metro .metro-form .metro-form-control .metro-text-transbox
+    {
+        position: relative;
+        width: 100%;
+    }
+
+        .metro .metro-form .metro-form-control .metro-text-transbox input[type=text]
+        {
+            background: transparent;
+            border: none;
+            color: #646464;
+            border-radius: 0;
+            font-size: 16pt;
+            padding: 5px 8px;
+            width: 100%;
+            outline: 0;
+            display: inline-block;
+        }
+
+            .metro .metro-form .metro-form-control .metro-text-transbox input[type=text]:focus
+            {
+                background: #fff;
+                border-color: #fff;
+                color: #000;
+            }
+
+            .metro .metro-form .metro-form-control .metro-text-transbox input[type=text]:disabled
+            {
+                background: #1d1d1d;
+                border: 2px #777777 solid;
+            }
+
+            .metro .metro-form .metro-form-control .metro-text-transbox input[type=text]:not(:focus):not(:disabled):hover
+            {
+                background: #e2e2e2;
+            }
+
+        .metro .metro-form .metro-form-control .metro-text-transbox .helper
+        {
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .metro .metro-form .metro-form-control .metro-text-transbox input[type=text] + .helper::before
+        {
+            display: inline-block;
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: #ccc;
+            top: 3px;
+            right: 4px;
+            visibility: hidden;
+            content: "\00d7";
+            font-size: 15pt;
+            font-weight: bold;
+            color: #000;
+            cursor: pointer;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .metro .metro-form .metro-form-control .metro-text-transbox input[type=text]:focus + .helper::before
+        {
+            visibility: visible;
+        }
+
+        .metro .metro-form .metro-form-control .metro-text-transbox:hover input[type=text] + .helper:before
+        {
+            background: #dedede !important;
+        }
+
+        .metro .metro-form .metro-form-control .metro-text-transbox:active input[type=text] + .helper:before
+        {
+            background: #000 !important;
+        }
+
 
     .metro .metro-form .metro-form-control .metro-select-box
     {
@@ -3275,6 +3359,13 @@ html[xmlns] .clearfix
         margin: 0px auto;
     }
 
+    .metro .metro-container-990
+    {
+        width: 990px;
+        margin: 0px 0px;
+    }
+
+
 .metro-align-right
 {
     width: 100%;
@@ -3395,6 +3486,18 @@ html[xmlns] .clearfix
         font-size: 14px;
     }
 
+.dreams .wraperGoals
+{
+    margin: 0px 0px 0px 110px;
+    min-height: 400px;
+}
+
+    .dreams .wraperGoals *
+    {
+        color: #ffffff;
+        font-size: 14px;
+    }
+
 .dream-display
 {
     width: 100%;
@@ -3461,4 +3564,38 @@ html[xmlns] .clearfix
     right:10px;
 }
 
+.dataTable
+{
+    width:100%;
+}
 
+.dataTables_info
+{
+    width:40%;
+    float:left;
+}
+
+.dataTables_filter
+{
+    width:40%;
+    float:right;
+    text-align: right;
+}
+
+.dataTables_length
+{
+    width:40%;
+    float:left;
+}
+
+.dataTables_paginate
+{
+    width:40%;
+    float:right;
+    text-align:right;
+}
+
+.dataTables_processing
+{
+
+}

@@ -267,6 +267,93 @@ namespace BusinessLMS.Controllers
 
         #endregion
 
+        #region Tools
+
+        // GET api/Delete
+        public IEnumerable<Tool> GetTools()
+        {
+            return db.Tools.AsEnumerable();
+        }
+
+        // GET api/Delete/5
+        public Tool GetTool(int id)
+        {
+            Tool tool = db.Tools.Find(id);
+            if (tool == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return tool;
+        }
+
+        // PUT api/Delete/5
+        public HttpResponseMessage PutTool(int id, Tool tool)
+        {
+            if (ModelState.IsValid && id == tool.toolId)
+            {
+                db.Entry(tool).State = EntityState.Modified;
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
+        // POST api/Delete
+        public HttpResponseMessage PostTool(Tool tool)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Tools.Add(tool);
+                db.SaveChanges();
+
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, tool);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = tool.toolId }));
+                return response;
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
+        // DELETE api/Delete/5
+        public HttpResponseMessage DeleteTool(int id)
+        {
+            Tool tool = db.Tools.Find(id);
+            if (tool == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            db.Tools.Remove(tool);
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, tool);
+        }
+
+        #endregion
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BusinessLMSWeb.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="title" style="margin-bottom:40px;">
+    <h1>@ViewBag.Title.</h1>
+</div>
+
+<div class="metro-container-990">
+    <table id="contacts-table">
+        <thead>
+            <tr>
+                <th>Contact Type</th>
+                <th>Language</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Cell</th>
+                <th>Preferred</th>
+                <th>Contact Level</th>
+                <th>Public</th>
+                <th></th>
+            </tr>
+        </thead>
+    @foreach (var item in Model) {
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.contactTypeId)</td>
+                <td>@Html.DisplayFor(modelItem => item.languageId)</td>
+                <td>@Html.DisplayFor(modelItem => item.firstName)</td>
+                <td>@Html.DisplayFor(modelItem => item.lastName)</td>
+                <td>@Html.DisplayFor(modelItem => item.email)</td>
+                <td>@Html.DisplayFor(modelItem => item.phone)</td>
+                <td>@Html.DisplayFor(modelItem => item.cell)</td>
+                <td>@Html.DisplayFor(modelItem => item.preferred)</td>
+                <td>@Html.DisplayFor(modelItem => item.contactLevel)</td>
+                <td>@Html.DisplayFor(modelItem => item.isPublic)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.contactId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.contactId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.contactId })
+                </td>
+            </tr>
+        </tbody>
+    }
+    </table>
+</div>
+
+<div id="contactInfo"></div>
+
+<div id="modalWindow"></div>
+
+@{ Html.RenderPartial("_ContactsInfo"); }
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/Scripts/Contacts/Index.js")
+}

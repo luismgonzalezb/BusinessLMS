@@ -39,6 +39,11 @@ namespace BusinessLMS.Controllers
             return (from dream in db.Dreams where dream.IBONum == id && dream.dreamLevel == level orderby dream.timeframeId select dream);
         }
 
+        public IEnumerable<Dream> GetDreamsUser(string id)
+        {
+            return (from dream in db.Dreams where dream.IBONum == id orderby dream.timeframeId select dream);
+        }
+
         // PUT api/Dreams/5
         public HttpResponseMessage PutDream(int id, Dream dream)
         {
