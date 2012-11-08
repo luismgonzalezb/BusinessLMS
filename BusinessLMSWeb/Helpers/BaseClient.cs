@@ -80,7 +80,7 @@ namespace BusinessLMSWeb.Helpers
             }
         }
 
-        public string Delete(int id)
+        public string Delete(string id)
         {
             using (HttpClient httpClient = NewHttpClient())
             {

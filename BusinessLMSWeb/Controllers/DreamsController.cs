@@ -152,6 +152,7 @@ namespace BusinessLMSWeb.Controllers
                 dreammv.IBONum = ibo.IBONum;
                 dreammv.vision = dream.vision;
                 dreammv.mission = dream.mission;
+                dreammv.purpose = dream.purpose;
                 BaseClient client;
                 if (dream.dreamMVId == 0)
                 {

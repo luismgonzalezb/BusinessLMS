@@ -19,6 +19,7 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.IBONum).HasColumnName("IBONum");
             this.Property(t => t.mission).HasColumnName("mission");
             this.Property(t => t.vision).HasColumnName("vision");
+            this.Property(t => t.purpose).HasColumnName("purpose");
         }
     }
 }

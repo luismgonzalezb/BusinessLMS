@@ -22,5 +22,6 @@ namespace BusinessLMS.Models
         public string contactLevel { get; set; }
         public System.DateTime datetime { get; set; }
         public bool isPublic { get; set; }
+        public System.DateTime birthday { get; set; }
     }
 }

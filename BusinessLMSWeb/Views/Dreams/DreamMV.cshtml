@@ -11,6 +11,14 @@
         <legend></legend>
 
         <div class="metro-form-control">
+            <label for="vision">Vision</label>
+            <div class="metro-text-transbox">
+                @Html.EditorFor(model => model.vision)
+                @Html.ValidationMessageFor(model => model.vision)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
             <label for="mission">Mission</label>
             <div class="metro-text-transbox">
                 @Html.EditorFor(model => model.mission)
@@ -19,10 +27,10 @@
         </div>
 
         <div class="metro-form-control">
-            <label for="vision">Vision</label>
+            <label for="purpose">Purpose</label>
             <div class="metro-text-transbox">
-                @Html.EditorFor(model => model.vision)
-                @Html.ValidationMessageFor(model => model.vision)
+                @Html.EditorFor(model => model.purpose)
+                @Html.ValidationMessageFor(model => model.purpose)
             </div>
         </div>
 
@@ -37,15 +45,9 @@
     @<script type="text/javascript">
          $(document).ready(function () {
              $("#mission").watermark("Enter your Mission statement");
-             $('#mission').change(function () {
-                 $.post($(this.form).attr("action"), $(this.form).serialize(), function (data) {
-                     if (data.success == true) {
-                         $('#dreamMVId').val(data.id);
-                     }
-                 });
-             });
              $("#vision").watermark("Enter your Vision statement");
-             $('#vision').change(function () {
+             $("#purpose").watermark("Enter your Purpose statement");
+             $('#mission,#vision,#purpose').change(function () {
                  $.post($(this.form).attr("action"), $(this.form).serialize(), function (data) {
                      if (data.success == true) {
                          $('#dreamMVId').val(data.id);

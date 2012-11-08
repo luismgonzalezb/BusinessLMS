@@ -27,5 +27,17 @@ namespace BusinessLMSWeb.Helpers
             return client.Get<List<Tool>>();
         }
 
+        public static List<Language> GetLanguages(string baseApiUrl)
+        {
+            BaseClient client = new BaseClient(baseApiUrl, "Lists", "GetLanguages");
+            return client.Get<List<Language>>();
+        }
+
+        public static List<ContactType> GetContactTypes(string baseApiUrl)
+        {
+            BaseClient client = new BaseClient(baseApiUrl, "Lists", "GetContactTypes");
+            return client.Get<List<ContactType>>();
+        }
+
     }
 }

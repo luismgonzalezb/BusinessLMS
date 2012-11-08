@@ -15,14 +15,12 @@ namespace BusinessLMSWeb.Controllers
         {
             get
             {
-                BaseClient client = new BaseClient(baseApiUrl, "Lists", "GetLanguages");
-                return new SelectList(client.Get<List<Language>>(), "languageId", "language1");
+                return new SelectList(ControllersHelper.GetLanguages(baseApiUrl), "languageId", "language1");
             }
         }
 
         public ActionResult AddIBO()
         {
-
             ViewBag.languages = languages;
             return View();
         }

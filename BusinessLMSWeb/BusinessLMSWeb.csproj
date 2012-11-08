@@ -172,6 +172,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseWebController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DreamsController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
@@ -316,7 +317,11 @@
     <Content Include="Images\confirm\button.gif" />
     <Content Include="Images\confirm\header.gif" />
     <Content Include="Images\Date.png" />
+    <Content Include="Images\DeleteSmB.png" />
+    <Content Include="Images\DeleteSmBS.png" />
     <Content Include="Images\Edit.png" />
+    <Content Include="Images\EditSmB.png" />
+    <Content Include="Images\EditSmBS.png" />
     <Content Include="Images\facebook.png" />
     <Content Include="Images\Help.png" />
     <Content Include="Images\Information.png" />
@@ -390,7 +395,7 @@
     <Content Include="Scripts\jquery.simplemodal-1.4.3.js" />
     <Content Include="Scripts\jquery.simplemodal.1.4.3.min.js" />
     <Content Include="Scripts\jquery.tipTip.js" />
-    <Content Include="Scripts\jquery.tipTip.minified.js" />
+    <Content Include="Scripts\jquery.tipTip.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -454,6 +459,8 @@
     <Content Include="Views\Goals\EditGoal.cshtml" />
     <Content Include="Views\Contacts\_ContactsInfo.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\Book\Index.cshtml" />
+    <Content Include="Views\Contacts\NewContact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

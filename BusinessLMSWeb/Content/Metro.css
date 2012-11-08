@@ -2392,78 +2392,9 @@ html[xmlns] .clearfix
         width: 100%;
     }
 
-        .metro .metro-form .metro-form-control .metro-text-box input[type=text]
-        {
-            background: #d2d2d2;
-            border: 2px #d2d2d2 solid;
-            color: #646464;
-            border-radius: 0;
-            font-size: 11pt;
-            padding: 5px 8px;
-            width: 100%;
-            outline: 0;
-            display: inline-block;
-        }
-
-            .metro .metro-form .metro-form-control .metro-text-box input[type=text]:focus
-            {
-                background: #fff;
-                border-color: #fff;
-                color: #000;
-            }
-
-            .metro .metro-form .metro-form-control .metro-text-box input[type=text]:disabled
-            {
-                background: #1d1d1d;
-                border: 2px #777777 solid;
-            }
-
-            .metro .metro-form .metro-form-control .metro-text-box input[type=text]:not(:focus):not(:disabled):hover
-            {
-                background: #e2e2e2;
-            }
-
-        .metro .metro-form .metro-form-control .metro-text-box .helper
-        {
-            cursor: pointer;
-            z-index: 100;
-        }
-
-        .metro .metro-form .metro-form-control .metro-text-box input[type=text] + .helper::before
-        {
-            display: inline-block;
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background: #ccc;
-            top: 3px;
-            right: 4px;
-            visibility: hidden;
-            content: "\00d7";
-            font-size: 15pt;
-            font-weight: bold;
-            color: #000;
-            cursor: pointer;
-            text-align: center;
-            vertical-align: middle;
-        }
-
-        .metro .metro-form .metro-form-control .metro-text-box input[type=text]:focus + .helper::before
-        {
-            visibility: visible;
-        }
-
-        .metro .metro-form .metro-form-control .metro-text-box:hover input[type=text] + .helper:before
-        {
-            background: #dedede !important;
-        }
-
-        .metro .metro-form .metro-form-control .metro-text-box:active input[type=text] + .helper:before
-        {
-            background: #000 !important;
-        }
-
-        /*Password type Added*/
+        .metro .metro-form .metro-form-control .metro-text-box input[type=text],
+        .metro .metro-form .metro-form-control .metro-text-box input[type=email],
+        .metro .metro-form .metro-form-control .metro-text-box input[type=tel],
         .metro .metro-form .metro-form-control .metro-text-box input[type=password]
         {
             background: #d2d2d2;
@@ -2477,6 +2408,9 @@ html[xmlns] .clearfix
             display: inline-block;
         }
 
+            .metro .metro-form .metro-form-control .metro-text-box input[type=text]:focus,
+            .metro .metro-form .metro-form-control .metro-text-box input[type=email]:focus,
+            .metro .metro-form .metro-form-control .metro-text-box input[type=tel]:focus,
             .metro .metro-form .metro-form-control .metro-text-box input[type=password]:focus
             {
                 background: #fff;
@@ -2484,17 +2418,26 @@ html[xmlns] .clearfix
                 color: #000;
             }
 
+            .metro .metro-form .metro-form-control .metro-text-box input[type=text]:disabled,
+            .metro .metro-form .metro-form-control .metro-text-box input[type=email]:disabled,
+            .metro .metro-form .metro-form-control .metro-text-box input[type=tel]:disabled,
             .metro .metro-form .metro-form-control .metro-text-box input[type=password]:disabled
             {
                 background: #1d1d1d;
                 border: 2px #777777 solid;
             }
 
+            .metro .metro-form .metro-form-control .metro-text-box input[type=text]:not(:focus):not(:disabled):hover,
+            .metro .metro-form .metro-form-control .metro-text-box input[type=email]:not(:focus):not(:disabled):hover,
+            .metro .metro-form .metro-form-control .metro-text-box input[type=tel]:not(:focus):not(:disabled):hover,
             .metro .metro-form .metro-form-control .metro-text-box input[type=password]:not(:focus):not(:disabled):hover
             {
                 background: #e2e2e2;
             }
 
+            .metro .metro-form .metro-form-control .metro-text-box input[type=text] + .helper::before,
+            .metro .metro-form .metro-form-control .metro-text-box input[type=email] + .helper::before,
+            .metro .metro-form .metro-form-control .metro-text-box input[type=tel] + .helper::before,
             .metro .metro-form .metro-form-control .metro-text-box input[type=password] + .helper::before
             {
                 display: inline-block;
@@ -2514,19 +2457,34 @@ html[xmlns] .clearfix
                 vertical-align: middle;
             }
 
+            .metro .metro-form .metro-form-control .metro-text-box input[type=text]:focus + .helper::before,
+            .metro .metro-form .metro-form-control .metro-text-box input[type=email]:focus + .helper::before,
+            .metro .metro-form .metro-form-control .metro-text-box input[type=tel]:focus + .helper::before,
             .metro .metro-form .metro-form-control .metro-text-box input[type=password]:focus + .helper::before
             {
                 visibility: visible;
             }
 
-        .metro .metro-form .metro-form-control .metro-text-box:hover input[type=password] + .helper:before
-        {
-            background: #dedede !important;
-        }
+            .metro .metro-form .metro-form-control .metro-text-box:hover input[type=text] + .helper:before,
+            .metro .metro-form .metro-form-control .metro-text-box:hover input[type=email] + .helper:before,
+            .metro .metro-form .metro-form-control .metro-text-box:hover input[type=tel] + .helper:before,
+            .metro .metro-form .metro-form-control .metro-text-box:hover input[type=password] + .helper:before
+            {
+                background: #dedede !important;
+            }
 
-        .metro .metro-form .metro-form-control .metro-text-box:active input[type=password] + .helper:before
+            .metro .metro-form .metro-form-control .metro-text-box:active input[type=text] + .helper:before,
+            .metro .metro-form .metro-form-control .metro-text-box:active input[type=email] + .helper:before,
+            .metro .metro-form .metro-form-control .metro-text-box:active input[type=tel] + .helper:before,
+            .metro .metro-form .metro-form-control .metro-text-box:active input[type=password] + .helper:before
+            {
+                background: #000 !important;
+            }
+
+        .metro .metro-form .metro-form-control .metro-text-box .helper
         {
-            background: #000 !important;
+            cursor: pointer;
+            z-index: 100;
         }
 
         /*Datetime type Added*/
@@ -3362,7 +3320,7 @@ html[xmlns] .clearfix
     .metro .metro-container-990
     {
         width: 990px;
-        margin: 0px 0px;
+        margin: 0px auto;
     }
 
 
@@ -3432,6 +3390,7 @@ html[xmlns] .clearfix
 .dreams
 {
     width: 1000px;
+    margin:0px auto;
 }
 
 .dreams li
@@ -3538,6 +3497,34 @@ html[xmlns] .clearfix
     height:32px;
     width:32px;    
 }
+
+.edit-link-sm-black
+{
+    background: url(/Images/EditSmB.png) no-repeat top left;
+    text-indent:-9999px;
+    display:inline-block;
+    height:16px;
+    width:16px;
+}
+
+    .edit-link-sm-black:hover
+    {
+        background: url(/Images/EditSmBS.png) no-repeat top left;
+    }
+
+.del-link-sm-black
+{
+    background: url(/Images/DeleteSmB.png) no-repeat top left;
+    text-indent:-9999px;
+    display:inline-block;
+    height:16px;
+    width:16px;
+}
+
+    .del-link-sm-black:hover
+    {
+        background: url(/Images/DeleteSmBS.png) no-repeat top left;
+    }
 
 .help-link
 {

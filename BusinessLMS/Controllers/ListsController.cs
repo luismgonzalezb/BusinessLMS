@@ -354,6 +354,88 @@ namespace BusinessLMS.Controllers
 
         #endregion
 
+        #region Contact Type
+
+        public IEnumerable<ContactType> GetContactTypes()
+        {
+            return db.ContactTypes.AsEnumerable();
+        }
+
+        public ContactType GetContactType(int id)
+        {
+            ContactType contacttype = db.ContactTypes.Find(id);
+            if (contacttype == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return contacttype;
+        }
+
+        public HttpResponseMessage PutContactType(int id, ContactType contacttype)
+        {
+            if (ModelState.IsValid && id == contacttype.contactTypeId)
+            {
+                db.Entry(contacttype).State = EntityState.Modified;
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
+        public HttpResponseMessage PostContactType(ContactType contacttype)
+        {
+            if (ModelState.IsValid)
+            {
+                db.ContactTypes.Add(contacttype);
+                db.SaveChanges();
+
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, contacttype);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = contacttype.contactTypeId }));
+                return response;
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
+        public HttpResponseMessage DeleteContactType(int id)
+        {
+            ContactType contacttype = db.ContactTypes.Find(id);
+            if (contacttype == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            db.ContactTypes.Remove(contacttype);
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, contacttype);
+        }
+
+        #endregion
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

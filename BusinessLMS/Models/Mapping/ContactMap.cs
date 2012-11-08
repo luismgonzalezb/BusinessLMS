@@ -72,6 +72,7 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.contactLevel).HasColumnName("contactLevel");
             this.Property(t => t.datetime).HasColumnName("datetime");
             this.Property(t => t.isPublic).HasColumnName("isPublic");
+            this.Property(t => t.birthday).HasColumnName("birthday");
         }
     }
 }
