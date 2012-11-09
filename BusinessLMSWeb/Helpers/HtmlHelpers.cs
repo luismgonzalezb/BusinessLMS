@@ -22,6 +22,7 @@ namespace BusinessLMSWeb.Helpers
             string propertyName = metadata.PropertyName;
             bool required = metadata.IsRequired;
             bool validate = metadata.RequestValidationEnabled;
+            bool checkedd = metadata.Model != null ? (bool)metadata.Model : false;
             //Create tag
             TagBuilder divTag = new TagBuilder("label");
             divTag.MergeAttributes(new RouteValueDictionary(htmlAttributes), true);
@@ -37,6 +38,10 @@ namespace BusinessLMSWeb.Helpers
             if (validate == true)
             {
                 inputTag.Append(string.Concat(" data-val=\"true\" "));
+            }
+            if (checkedd == true)
+            {
+                inputTag.Append(string.Concat(" checked "));
             }
             inputTag.Append(string.Concat(" value=\"true\" >"));
             inputTag.Append(string.Concat("<span>",displayName,"</span>"));

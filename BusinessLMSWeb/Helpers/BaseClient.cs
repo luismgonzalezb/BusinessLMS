@@ -64,7 +64,7 @@ namespace BusinessLMSWeb.Helpers
                 requestMessage.Method = HttpMethod.Post;
                 requestMessage.Content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
                 HttpResponseMessage result = httpClient.PostAsync(_endpoint, requestMessage.Content).Result;
-                return result.Content.ToString();
+                return result.Headers.Location.Segments[3].ToString();
             }
         }
 

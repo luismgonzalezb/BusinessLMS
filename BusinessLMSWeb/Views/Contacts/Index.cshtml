@@ -36,8 +36,7 @@
                 <td>@Html.DisplayFor(modelItem => item.contactLevel)</td>
                 <td>@Html.DisplayFor(modelItem => item.isPublic)</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.contactId }, 
-                        new { @class = "edit-link-sm-black", title = "Edit Contact" })
+                    <a href="javascript:editContact(@(item.contactId));" class = "edit-link-sm-black editlink">Edit</a>
                     @Html.ActionLink("Delete", "DeleteContactAjax", new { id=item.contactId }, 
                         new { @class = "del-link-sm-black deletelink", title = "Delete Contact" })
                 </td>

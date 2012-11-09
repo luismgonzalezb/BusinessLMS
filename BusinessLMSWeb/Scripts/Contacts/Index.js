@@ -25,7 +25,7 @@ $(document).ready(function () {
     $('.deletelink').click(function () {
         deleteLinkObj = $(this);  //for future use
         $('#delete-dialog').dialog('open');
-        return false; // prevents the default behaviour
+        return false; 
     });
 
     $('#delete-dialog').dialog({
@@ -35,11 +35,7 @@ $(document).ready(function () {
                 $.post(deleteLinkObj[0].href, function (data) {  //Post to action
                     if (data.success == true) {
                         deleteLinkObj.closest("tr").hide('fast'); //Hide Row
-                        //(optional) Display Confirmation
-                    }
-                    else {
-                        //(optional) Display Error
-                    }
+                    } else { }
                 });
                 $(this).dialog("close");
             },
@@ -54,6 +50,11 @@ $(document).ready(function () {
 function AddNewContact() {
     $("#contactInfo").hide("slow");
     $("#contactInfo").load('/Contacts/NewContact').show("slow");
+}
+
+function editContact(id) {
+    $("#contactInfo").hide("slow");
+    $("#contactInfo").load('/Contacts/EditContact/' + id).show("slow");
 }
 
 function CancelContact() {
@@ -81,6 +82,17 @@ function submitform(frm) {
         }
     });
     return false;
+}
+
+function submitupdateform(frm) {
+    if (!$(frm).valid()) { return false; }
+    $.post($(frm).attr("action"), $(frm).serialize(), function (data) {
+        if (data.success == true) {
+            document.location.reload(true);
+        } else {
+            $("#contactInfo").hide("slow");
+        }
+    });
 }
 
 function publicColumn(isPublic) {

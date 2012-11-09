@@ -461,6 +461,7 @@
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Book\Index.cshtml" />
     <Content Include="Views\Contacts\NewContact.cshtml" />
+    <Content Include="Views\Contacts\EditContact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

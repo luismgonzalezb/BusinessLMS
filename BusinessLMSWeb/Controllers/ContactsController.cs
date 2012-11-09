@@ -57,6 +57,14 @@ namespace BusinessLMSWeb.Controllers
                 {
                     BaseClient client = new BaseClient(baseApiUrl, "Contacts", "PostContact");
                     string result = client.Post<Contact>(model);
+                    ContactFollowup followup = new ContactFollowup();
+                    followup.contactId = int.Parse(result);
+                    followup.IBONum = ibo.IBONum;
+                    followup.method = model.preferred;
+                    followup.datetime = DateTime.Now.AddDays(1);
+                    followup.completed = false;
+                    client = new BaseClient(baseApiUrl, "ContactFollowup", "PostContactFollowup");
+                    result = client.Post<ContactFollowup>(followup);
                     return Json(model);
                 }
                 catch
@@ -72,6 +80,8 @@ namespace BusinessLMSWeb.Controllers
 
         public ActionResult EditContact(string id)
         {
+            ViewBag.languages = languages;
+            ViewBag.contacttypes = contacttypes;
             BaseClient client = new BaseClient(baseApiUrl, "Contacts", "GetContact");
             Contact contact = client.Get<Contact>(id);
             return PartialView(contact);
@@ -82,16 +92,9 @@ namespace BusinessLMSWeb.Controllers
         {
             if (ModelState.IsValid == true)
             {
-                try
-                {
-                    BaseClient client = new BaseClient(baseApiUrl, "Contacts", "PutContact");
-                    string result = client.Put<Contact>(model.contactId.ToString(), model);
-                    return Json(new { success = true });
-                }
-                catch
-                {
-                    return Json(new { success = false });
-                }
+                BaseClient client = new BaseClient(baseApiUrl, "Contacts", "PutContact");
+                string result = client.Put<Contact>(model.contactId.ToString(), model);
+                return Json(new { success = true });
             }
             else
             {
