@@ -8,16 +8,22 @@ namespace BusinessLMSWeb
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
+                        //"~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery.kwicks*",
                         "~/Scripts/jquery.easing*",
                         "~/Scripts/jquery.simplemodal*",
-                        "~/Scripts/jquery.tipTip*",
                         "~/Scripts/jquery.watermark*",
                         "~/Scripts/DataTables-1.9.4/media/js/jquery*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/calendar").Include(
+                        "~/Scripts/fullcalendar*",
+                        "~/Scripts/gcal*"));
+
+            /*
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
-                        "~/Scripts/jquery-ui-{version}.js"));
+                        "~/Scripts/jquery-ui-{version}.js"
+                        ));
+            */
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
@@ -30,12 +36,16 @@ namespace BusinessLMSWeb
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/*.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                        "~/Content/Metro.css",
+                        "~/Content/Site.css",
+                        "~/Content/fullcalendar.css"
+                        ));
 
             bundles.Add(new StyleBundle("~/Content/themes/custom/css").Include(
                         "~/Content/themes/custom-theme/jquery.ui.css"));
 
-            BundleTable.EnableOptimizations = false;
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

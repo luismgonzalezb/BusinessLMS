@@ -15,12 +15,12 @@ $(document).ready(function () {
         modal: true
     });
 
-    $("#contactInfo").hide();
-
     $(".help-link-action").click(function () {
         $("#info-modal").dialog("open");
         return false;
     });
+
+    $("#contactInfo").hide();
 
     $('.deletelink').click(function () {
         deleteLinkObj = $(this);  //for future use

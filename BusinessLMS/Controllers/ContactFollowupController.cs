@@ -22,6 +22,12 @@ namespace BusinessLMS.Controllers
             return db.ContactFollowups.AsEnumerable();
         }
 
+        public IEnumerable<ContactFollowup> GetIBOFollowup(string id)
+        {
+            return (from cf in db.ContactFollowups join c in db.Contacts on cf.contactId equals c.contactId 
+                    where cf.completed == false && c.IBONum == id select cf);
+        }
+
         // GET api/ContactFollowup/5
         public ContactFollowup GetContactFollowup(int id)
         {
