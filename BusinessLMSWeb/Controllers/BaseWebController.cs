@@ -164,9 +164,24 @@ namespace BusinessLMSWeb.Controllers
             get { return ConfigurationManager.AppSettings["ApiUrl"]; }
         }
 
-        public string orginizerId { get; }
+        public long eventbriteOrginizerId
+        {
+            get 
+            {
+                string oId = ConfigurationManager.AppSettings["EventbriteOrginizerId"];
+                return long.Parse(oId); 
+            }
+        }
 
-        public string eventbriteApiKey { get; }
+        public string eventbriteUserKey 
+        {
+            get { return ConfigurationManager.AppSettings["EventbriteUserKey"]; }
+        }
+
+        public string eventbriteApiKey
+        {
+            get { return ConfigurationManager.AppSettings["EventbriteApiKey"]; }
+        }
 
         #endregion
 

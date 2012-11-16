@@ -34,6 +34,7 @@ namespace BusinessLMS.Models
         public DbSet<Tool> Tools { get; set; }
         public DbSet<ZIPCode> ZIPCodes { get; set; }
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new AreaMap());
