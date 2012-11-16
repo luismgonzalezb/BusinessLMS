@@ -2570,6 +2570,21 @@
             </summary>
             <param name="asyncResult">An <see cref="T:System.IAsyncResult"/> that references the pending asynchronous operation.</param>
         </member>
+        <member name="M:Microsoft.WindowsAzure.Storage.Blob.ICloudBlob.GetSharedAccessSignature(Microsoft.WindowsAzure.Storage.Blob.SharedAccessBlobPolicy)">
+            <summary>
+            Returns a shared access signature for the blob.
+            </summary>
+            <param name="policy">The access policy for the shared access signature.</param>
+            <returns>A shared access signature.</returns>
+        </member>
+        <member name="M:Microsoft.WindowsAzure.Storage.Blob.ICloudBlob.GetSharedAccessSignature(Microsoft.WindowsAzure.Storage.Blob.SharedAccessBlobPolicy,System.String)">
+            <summary>
+            Returns a shared access signature for the blob.
+            </summary>
+            <param name="policy">The access policy for the shared access signature.</param>
+            <param name="groupPolicyIdentifier">A container-level access policy.</param>
+            <returns>A shared access signature.</returns>
+        </member>
         <member name="P:Microsoft.WindowsAzure.Storage.Blob.ICloudBlob.Name">
             <summary>
             Gets the blob item's name.
@@ -15256,6 +15271,181 @@
             Gets or sets the default service version.
             </summary>
             <value>The default service version identifier.</value>
+        </member>
+        <member name="T:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings">
+            <summary>
+            Provides error code strings that are common to all storage services.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.UnsupportedHttpVerb">
+            <summary>
+            The specified HTTP verb is not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.MissingContentLengthHeader">
+            <summary>
+            The Content-Length header is required for this request.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.MissingRequiredHeader">
+            <summary>
+            A required header was missing.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.MissingRequiredXmlNode">
+            <summary>
+            A required XML node was missing.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.UnsupportedHeader">
+            <summary>
+            One or more header values are not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.UnsupportedXmlNode">
+            <summary>
+            One or more XML nodes are not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.InvalidHeaderValue">
+            <summary>
+            One or more header values are invalid.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.InvalidXmlNodeValue">
+            <summary>
+            One or more XML node values are invalid.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.MissingRequiredQueryParameter">
+            <summary>
+            A required query parameter is missing.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.UnsupportedQueryParameter">
+            <summary>
+            One or more query parameters is not supported.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.InvalidQueryParameterValue">
+            <summary>
+            One or more query parameters are invalid.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.OutOfRangeQueryParameterValue">
+            <summary>
+            One or more query parameters are out of range.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.InvalidUri">
+            <summary>
+            The URI is invalid.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.InvalidHttpVerb">
+            <summary>
+            The HTTP verb is invalid.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.EmptyMetadataKey">
+            <summary>
+            The metadata key is empty.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.RequestBodyTooLarge">
+            <summary>
+            The request body is too large.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.InvalidXmlDocument">
+            <summary>
+            The specified XML document is invalid.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.InternalError">
+            <summary>
+            An internal error occurred.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.AuthenticationFailed">
+            <summary>
+            Authentication failed.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.Md5Mismatch">
+            <summary>
+            The specified MD5 hash does not match the server value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.InvalidMd5">
+            <summary>
+            The specified MD5 hash is invalid.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.OutOfRangeInput">
+            <summary>
+            The input is out of range.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.InvalidInput">
+            <summary>
+            The input is invalid.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.OperationTimedOut">
+            <summary>
+            The operation timed out.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.ResourceNotFound">
+            <summary>
+            The specified resource was not found.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.InvalidMetadata">
+            <summary>
+            The specified metadata is invalid.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.MetadataTooLarge">
+            <summary>
+            The specified metadata is too large.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.ConditionNotMet">
+            <summary>
+            The specified condition was not met.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.InvalidRange">
+            <summary>
+            The specified range is invalid.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.ContainerNotFound">
+            <summary>
+            The specified container was not found.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.ContainerAlreadyExists">
+            <summary>
+            The specified container already exists.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.ContainerDisabled">
+            <summary>
+            The specified container is disabled.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.ContainerBeingDeleted">
+            <summary>
+            The specified container is being deleted.
+            </summary>
+        </member>
+        <member name="F:Microsoft.WindowsAzure.Storage.Shared.Protocol.StorageErrorCodeStrings.ServerBusy">
+            <summary>
+            The server is busy.
+            </summary>
         </member>
     </members>
 </doc>
