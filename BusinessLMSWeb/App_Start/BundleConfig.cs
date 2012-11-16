@@ -45,7 +45,7 @@ namespace BusinessLMSWeb
             bundles.Add(new StyleBundle("~/Content/themes/custom/css").Include(
                         "~/Content/themes/custom-theme/jquery.ui.css"));
 
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
