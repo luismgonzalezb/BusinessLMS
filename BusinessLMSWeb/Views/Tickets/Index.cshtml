@@ -1,0 +1,76 @@
+﻿@model IEnumerable<BusinessLMSWeb.Models.Ticket>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ticketType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IBONum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datetime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.solved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.developer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.impact)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ticketType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IBONum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datetime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.priority)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.solved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.developer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.impact)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ticketId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ticketId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ticketId })
+        </td>
+    </tr>
+}
+
+</table>

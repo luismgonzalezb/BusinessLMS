@@ -33,7 +33,7 @@ namespace BusinessLMS.Models
         public DbSet<Timeframe> Timeframes { get; set; }
         public DbSet<Tool> Tools { get; set; }
         public DbSet<ZIPCode> ZIPCodes { get; set; }
-
+        public DbSet<Ticket> Tickets { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -54,6 +54,7 @@ namespace BusinessLMS.Models
             modelBuilder.Configurations.Add(new TimeframeMap());
             modelBuilder.Configurations.Add(new ToolMap());
             modelBuilder.Configurations.Add(new ZIPCodeMap());
+            modelBuilder.Configurations.Add(new TicketMap());
         }
     }
 }

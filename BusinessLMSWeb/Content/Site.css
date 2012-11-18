@@ -459,6 +459,18 @@ form, fieldset
         /*background-position: -4px -415px;*/
     }
 
+    .buttons .ico10
+    {
+        background: url(../images/Menu/Messages.png) no-repeat 0px 0px;
+        /*background-position: -4px -380px;*/
+    }
+
+    .buttons .ico10.active 
+    {
+        background: url(../images/Menu/Messages.png) no-repeat 0px 0px;
+        /*background-position: -4px -415px;*/
+    }
+
 /* General hover styles */
 
 .buttons a:hover .menu-text{ width:auto; padding:0 20px; overflow:visible; background:#505967; }

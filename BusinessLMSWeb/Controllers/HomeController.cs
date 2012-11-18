@@ -6,7 +6,7 @@ using BusinessLMSWeb.Models;
 namespace BusinessLMSWeb.Controllers
 {
 
-    [Authorize]
+    
     public class HomeController : BaseWebController
     {
 

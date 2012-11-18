@@ -40,9 +40,12 @@
 			    <span class="shadow"></span>
 		    </aside>
 	    </div>
+        <div id="ticketModal"></div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> @*CDN Lattest Jquery*@
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/Scripts/Tickets/_layout.js")
         @Scripts.Render("~/Scripts/Shared/_layout.js")
         @RenderSection("scripts", required: false)
         @Html.RenderScripts() @*Render Partial View Scripts Last*@
