@@ -22,9 +22,14 @@ namespace BusinessLMS.Controllers
             return db.Goals.AsEnumerable();
         }
 
-        public IEnumerable<Goal> GetIBOGoals(string id, int level)
+        public IEnumerable<Goal> GetIBOLevelGoals(string id, int level)
         {
             return (from g in db.Goals join d in db.Dreams on g.dreamId equals d.dreamId where g.goalLevel == level && d.IBONum == id select g);
+        }
+
+        public IEnumerable<Goal> GetIBOGoals(string id)
+        {
+            return (from g in db.Goals join d in db.Dreams on g.dreamId equals d.dreamId where d.IBONum == id select g);
         }
 
         // GET api/Goals/5

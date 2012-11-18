@@ -209,6 +209,7 @@
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DreamsController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
+    <Compile Include="Controllers\FollowupController.cs" />
     <Compile Include="Controllers\GoalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IBOController.cs" />

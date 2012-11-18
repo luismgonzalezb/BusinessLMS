@@ -42,7 +42,7 @@ namespace BusinessLMSWeb.Controllers
 
             if (ibo != null)
             {
-                BaseClient client = new BaseClient(baseApiUrl, "Goals", "GetIBOGoals");
+                BaseClient client = new BaseClient(baseApiUrl, "Goals", "GetIBOLevelGoals");
                 NameValueCollection parms = new NameValueCollection(){
                     { "id", ibo.IBONum }, 
                     { "level", id.ToString()} 
