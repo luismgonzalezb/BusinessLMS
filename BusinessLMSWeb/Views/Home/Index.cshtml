@@ -3,6 +3,128 @@
     Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
 
-@section featured {
+<div class="main-container">
 
+    <div class="container1">
+        
+        <div id="mySlides">
+            <div id="slide1">
+                <img src="images/Home/slider1.jpg" alt="" />
+                <span><b class="slideheading">First Featured Slide</b><br />
+                    Featured Text.....<a href="#" title="Coolness" class="readmore">Read More!</a></span>
+            </div>
+            <div id="slide2">
+                <img src="images/Home/slider2.jpg" alt="" />
+                <span><b class="slideheading">Second Featured Slide</b><br />
+                    Featured Text.....<a href="#" title="Coolness" class="readmore">Read More!</a></span>
+            </div>
+            <div id="slide3">
+                <img src="images/Home/slider3.jpg" alt="" />
+                <span><b class="slideheading">Third Featured Slide</b><br />
+                    Featured Text.....<a href="#" title="Coolness" class="readmore">Read More!</a></span>
+            </div>
+            <div id="slide4">
+                <img src="images/Home/slider4.jpg" alt="" />
+                <span><b class="slideheading">Third Featured Slide</b><br />
+                    Featured Text.....<a href="#" title="Coolness" class="readmore">Read More!</a></span>
+            </div>
+        </div>
+
+        <div id="myController">
+            <span class="jFlowControl"></span>
+            <span class="jFlowControl"></span>
+            <span class="jFlowControl"></span>
+            <span class="jFlowControl"></span>
+        </div>
+
+        <section class="jFlowPrev">
+            <div></div>
+        </section>
+        <section class="jFlowNext">
+            <div></div>
+        </section>
+
+        <br />
+        <br />
+
+        <article class="box" id="home_featured21">
+            <div class="block">
+                <h2>Mission</h2>
+                <p>
+                    Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur. Dapiensociis temper donec auctortortis cumsan et curabitur condis lorem loborttis leo. Ipsumcommodo libero nunc at in velis tincidunt pellentum tincidunt vel lorem.<br />
+                    <a href="#" class="read_more">Read More</a>
+                </p>
+            </div>
+            <div class="block">
+                <h2>Vision</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tristique posuere pellentesque. Duis id quam non sapien pellentesque congue. Etiam enim augue, viverra sed tincidunt eu, euismod id dolor. Vestibulum nec neque ut lectus vestibulum auctor. Phasellus vulputate elementum dolor quis lobortis.
+                    <br />
+                    <a href="#" class="read_more">Read More</a>
+                </p>
+            </div>
+            <div class="block last">
+                <h2>Purpose</h2>
+                <p>
+                    Temperinte interdum sempus odio urna eget curabitur semper convallis nunc laoreet. Nullain convallis ris elis vest liberos nis diculis feugiat in rutrum. Suspendreristibulumfaucibulum lobortor quis tortortor ris sapien sce enim et volutpat sus. Urnaretiumorci orci fauctor leo justo nulla cras ridiculum eu id vitae.
+                    <br />
+                    <a href="#" class="read_more">Read More</a>
+                </p>
+            </div>
+            <div class="clear"></div>
+        </article>
+
+    </div>
+</div>
+
+    <div class="callout">
+        <div class="calloutcontainer">
+            <div class="container_12">
+                <div class="grid">
+                    <div class="alignleft">
+                        <h3>Ready to have a debt free and full of time life?... !</h3>
+                        <p>Join us Here... <a href="@Url.Action("Register","Account")">Register</a></p>
+                    </div>
+                    <a href="@Url.Action("Register","Account")" class="more" target="_blank">Register</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="calloutoverlay"></div>
+            <div class="calloutoverlaybottom"></div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+
+<div class="main-container">
+</div>
+
+@section featured {
+    <div class="container2">
+        <article id="home_featured2">
+            <ul>
+                <li>
+                    <div class="imgholder"><a href="http://www.youtube.com/watch?v=mvgr64Oy-po&feature=share&list=PLDAF5E4A21035B5C5" data-gal="prettyPhoto[featured]" title="First Featured Title">
+                        <img src="images/Home/featured1.jpg" width="275" height="145" alt="" /></a></div>
+                    <h4>Informacion Importante</h4>
+                    <p>Orciint erdum condimen terdum nulla mcorper elit nam curabitur laoreet met prae senean et iac ulum. Metridiculis cons eque quis iaculum aenean nunc aenean.</p>
+                </li>
+                <li>
+                    <div class="imgholder"><a href="http://www.youtube.com/watch?v=mvgr64Oy-po&feature=share&list=PLDAF5E4A21035B5C5" data-gal="prettyPhoto[featured]" title="Second Featured Title">
+                        <img src="images/Home/featured2.jpg" width="275" height="145" alt="" /></a></div>
+                    <h4>Link para video</h4>
+                    <p>Orciint erdum condimen terdum nulla mcorper elit nam curabitur laoreet met prae senean et iac ulum. Metridiculis cons eque quis iaculum aenean nunc aenean.</p>
+                </li>
+                <li class="last">
+                    <div class="imgholder"><a href="http://www.youtube.com/watch?v=mvgr64Oy-po&feature=share&list=PLDAF5E4A21035B5C5" data-gal="prettyPhoto[featured]" title="Third Featured Title">
+                        <img src="images/Home/featured3.jpg" width="275" height="145" alt="" /></a></div>
+                    <h4>Otro Video y Link</h4>
+                    <p>Orciint erdum condimen terdum nulla mcorper elit nam curabitur laoreet met prae senean et iac ulum. Metridiculis cons eque quis iaculum aenean nunc aenean.</p>
+                </li>
+            </ul>
+            <br class="clear" />
+        </article>
+    </div>
 }

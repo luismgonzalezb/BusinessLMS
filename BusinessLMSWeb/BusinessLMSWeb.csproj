@@ -505,6 +505,7 @@
     <Content Include="Images\Home\slider1.jpg" />
     <Content Include="Images\Home\slider2.jpg" />
     <Content Include="Images\Home\slider3.jpg" />
+    <Content Include="Images\Home\slider4.jpg" />
     <Content Include="Images\Home\textured-light-bg.gif" />
     <Content Include="Images\Home\thumb.jpg" />
     <Content Include="Images\Home\thumb2.jpg" />
@@ -570,11 +571,6 @@
     <Content Include="Content\DataTables-1.9.4\extras\TableTools\media\images\psd\file_types.psd" />
     <Content Include="Content\DataTables-1.9.4\extras\TableTools\media\images\psd\copy document.psd" />
     <Content Include="Content\DataTables-1.9.4\extras\TableTools\media\images\psd\collection.psd" />
-    <Content Include="Content\main\fonts\Artifika-Regular.ttf" />
-    <Content Include="Content\main\fonts\Artifika-Regular.woff" />
-    <Content Include="Content\main\fonts\Chunkfive.eot" />
-    <Content Include="Content\main\fonts\Chunkfive.otf" />
-    <Content Include="Content\main\fonts\Chunkfive.woff" />
     <None Include="Properties\PublishProfiles\businesslmsweb - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\businesslmsweb - Web Deploy.pubxml" />
     <Content Include="Scripts\DataTables-1.9.4\extras\TableTools\media\js\TableTools.min.js.gz" />
@@ -666,6 +662,7 @@
     <Content Include="Views\Tickets\CreateTicket.cshtml" />
     <Content Include="Views\Tickets\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
