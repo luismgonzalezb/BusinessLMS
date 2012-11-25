@@ -42,6 +42,10 @@ namespace BusinessLMSWeb
                         "~/Content/fullcalendar.css"
                         ));
 
+            bundles.Add(new ScriptBundle("~/Content/main/css").Include(
+                        "~/Content/main/main.css"));
+
+
             bundles.Add(new StyleBundle("~/Content/themes/custom/css").Include(
                         "~/Content/themes/custom-theme/jquery.ui.css"));
 

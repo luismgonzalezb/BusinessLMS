@@ -38,7 +38,7 @@ namespace BusinessLMSWeb.Controllers
                 BaseClient client = new BaseClient(baseApiUrl, "IBO", "PostIBO");
                 string result = client.Post<IBO>(ibo);
             } catch { }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dashboard");
         }
 
         public ActionResult Update()
@@ -63,7 +63,7 @@ namespace BusinessLMSWeb.Controllers
                 string result = client.Put<IBO>(model.IBONum,ibo);
             }
             catch { }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Dashboard");
         }
     }
 }
