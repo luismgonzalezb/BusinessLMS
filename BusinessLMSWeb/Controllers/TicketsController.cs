@@ -54,6 +54,25 @@ namespace BusinessLMSWeb.Controllers
                 return Json(new { success = false });
             }
         }
-
+        public ActionResult EditTicket(string id)
+        {
+            ViewBag.ticketTypes = new SelectList(ticketTypes, "Key", "Value");
+            BaseClient client = new BaseClient(baseApiUrl, "Tickets", "GetTicket");
+            Ticket ticket = client.Get<Ticket>(id);
+            return PartialView(ticket);
+        }
+         public ActionResult EditTicketAjax(Ticket model)
+        {
+            if (ModelState.IsValid == true)
+            {
+                BaseClient client = new BaseClient(baseApiUrl, "Tickets", "PutTicket");
+                string result = client.Put<Ticket>(model.ticketId.ToString(), model);
+                return Json(new { success = true });
+            }
+            else
+            {
+                return Json(new { success = false });
+            }
+        }
     }
 }

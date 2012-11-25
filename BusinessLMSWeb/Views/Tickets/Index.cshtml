@@ -65,12 +65,17 @@
         <td>
             @Html.DisplayFor(modelItem => item.impact)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ticketId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ticketId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ticketId })
+         <td>
+            <a href="javascript:editTicket(@(item.ticketId));">Edit</a>
         </td>
     </tr>
 }
 
 </table>
+
+<div id="ticketInfo"></div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Tickets/Index.js")
+}
