@@ -188,6 +188,7 @@
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactFollowup.cs" />
     <Compile Include="Models\ContactType.cs" />
+    <Compile Include="Models\Promotion.cs" />
     <Compile Include="Models\DreamMV.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Dream.cs" />
