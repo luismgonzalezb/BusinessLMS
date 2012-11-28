@@ -389,14 +389,14 @@ form, fieldset
 
     .buttons .ico4
     {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -2px -153px;
+        background: url(../images/Menu/contactMenu.png) no-repeat 0px 0px;
+        /*background-position: -2px -153px;*/
     }
 
     .buttons .ico4.active
     {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -2px -178px;
+        background: url(../images/Menu/contactMenuSel.png) no-repeat 0px 0px;
+        /*background-position: -2px -178px;*/
     }
 
     .buttons .ico5
@@ -413,73 +413,86 @@ form, fieldset
 
     .buttons .ico6
     {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -2px -262px;
+        background: url(../images/Menu/meetingMenu.png) no-repeat 0px 0px;
+        /*background-position: -2px -262px;*/
     }
 
     .buttons .ico6.active
     {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -3px -291px;
+        background: url(../images/Menu/meetingMenuSel.png) no-repeat 0px 0px;
+        /*background-position: -3px -291px;*/
     }
 
     .buttons .ico7
     {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -4px -321px;
+        background: url(../images/Menu/followMenu.png) no-repeat 0px 0px;
+        /*background-position: -4px -321px;*/
     }
 
     .buttons .ico7.active
     {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -4px -352px;
+        background: url(../images/Menu/followMenuSel.png) no-repeat 0px 0px;
+        /*background-position: -4px -352px;*/
     }
 
     .buttons .ico8
     {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -4px -380px;
+        background: url(../images/Menu/progressMenu.png) no-repeat 0px 0px;
+        /*background-position: -4px -380px;*/
     }
 
     .buttons .ico8.active 
     {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -4px -415px;
+        background: url(../images/Menu/progressMenuSel.png) no-repeat 0px 0px;
+        /* background-position: -4px -415px; */
     }
 
     .buttons .ico9
     {
-        background: url(../images/Menu/infoMenu.png) no-repeat 0px 0px;
+        background: url(../images/Menu/univMenu.png) no-repeat 0px 0px;
         /*background-position: -4px -380px;*/
     }
 
     .buttons .ico9.active 
     {
-        background: url(../images/Menu/infoMenuSel.png) no-repeat 0px 0px;
+        background: url(../images/Menu/univMenuSel.png) no-repeat 0px 0px;
         /*background-position: -4px -415px;*/
     }
 
     .buttons .ico10
     {
-        background: url(../images/Menu/feedMenu.png) no-repeat 0px 0px;
+        background: url(../images/Menu/productMenu.png) no-repeat 0px 0px;
         /*background-position: -4px -380px;*/
     }
 
     .buttons .ico10.active 
     {
-        background: url(../images/Menu/feedMenuSel.png) no-repeat 0px 0px;
+        background: url(../images/Menu/productMenuSel.png) no-repeat 0px 0px;
         /*background-position: -4px -415px;*/
     }
 
+
     .buttons .ico11
     {
-        background: url(../images/Menu/productMenu.png) no-repeat 0px 0px;
+        background: url(../images/Menu/infoMenu.png) no-repeat 0px 0px;
         /*background-position: -4px -380px;*/
     }
 
     .buttons .ico11.active 
     {
-        background: url(../images/Menu/productMenuSel.png) no-repeat 0px 0px;
+        background: url(../images/Menu/infoMenuSel.png) no-repeat 0px 0px;
+        /*background-position: -4px -415px;*/
+    }
+
+    .buttons .ico12
+    {
+        background: url(../images/Menu/feedMenu.png) no-repeat 0px 0px;
+        /*background-position: -4px -380px;*/
+    }
+
+    .buttons .ico12.active 
+    {
+        background: url(../images/Menu/feedMenuSel.png) no-repeat 0px 0px;
         /*background-position: -4px -415px;*/
     }
 
