@@ -27,10 +27,18 @@
             </div>
         </div>
 
+        <div class="metro-form-control">
+            <label for="datetime">You will be there before</label> (mm/dd/yyyy)
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.datetime)
+                @Html.ValidationMessageFor(model => model.datetime)
+            </div>
+            <div class="metro-text-date"><img src="~/Images/Date.png" /></div>
+        </div>
+
         @Html.HiddenFor(model => model.IBONum)
         @Html.HiddenFor(model => model.timeframeId)
         @Html.HiddenFor(model => model.dreamLevel)
-        @Html.HiddenFor(model => model.datetime)
         @Html.HiddenFor(model => model.picture)
 
     </fieldset>

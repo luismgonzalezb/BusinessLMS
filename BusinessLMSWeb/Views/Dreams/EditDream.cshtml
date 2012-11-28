@@ -4,7 +4,7 @@
 <div class="metro">
     <div class="metro-container-300">
 
-    @using (Html.BeginForm("EditDream", "Dreams", FormMethod.Post, new { @class = "metro-form", id = "createIBOFormEdit" }))
+    @using (Html.BeginForm("EditDream", "Dreams", FormMethod.Post, new { @class = "metro-form", id = "editDreamForm" }))
     {
     
         @Html.ValidationSummary(true)
@@ -28,11 +28,19 @@
                 </div>
             </div>
 
+            <div class="metro-form-control">
+                <label for="datetime">You will be there before</label> (mm/dd/yyyy)
+                <div class="metro-text-box">
+                    @Html.EditorFor(model => model.datetime)
+                    @Html.ValidationMessageFor(model => model.datetime)
+                </div>
+                <div class="metro-text-date"><img src="~/Images/Date.png" /></div>
+            </div>
+
             @Html.HiddenFor(model => model.dreamId)
             @Html.HiddenFor(model => model.IBONum)
             @Html.HiddenFor(model => model.timeframeId)
             @Html.HiddenFor(model => model.dreamLevel)
-            @Html.HiddenFor(model => model.datetime)
             @Html.HiddenFor(model => model.picture)
 
         </fieldset>
@@ -54,3 +62,14 @@
 
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse("#editDreamForm");
+        $(".date-picker").datepicker({
+            yearRange: "-0:+30",
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+</script>

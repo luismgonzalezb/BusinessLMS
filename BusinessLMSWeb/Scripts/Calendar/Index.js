@@ -48,7 +48,13 @@ $(document).ready(function () {
             }
             calendar.fullCalendar('unselect');
         },
-        events: "/Calendar/GetEvents/All"
+        events: "/Calendar/GetEvents/All",
+        loading: function (bool) {
+            if (bool)
+                console.log("Loading Started...");
+            else
+                console.log("Loading Done...");
+        }
     });
 
 

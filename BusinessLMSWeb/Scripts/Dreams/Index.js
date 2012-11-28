@@ -3,6 +3,12 @@ var edit;
 
 $(document).ready(function () {
 
+    $(".date-picker").datepicker({
+        yearRange: "-0:+30",
+        changeMonth: true,
+        changeYear: true
+    });
+
     $("#info-modal").dialog({
         autoOpen: false,
         show: "blind",
@@ -48,10 +54,10 @@ function setFileUpload() {
             $out.html('<img src="' + file.Location + '" style="max-width: 250px; max-height: 200px; " />');
             $(currentForm).closest(".metro-container-300").find("#picture").val(file.Location);
             if (edit) {
-                $("#modalWindow-content").animate({ height: 500 });
+                $("#modalWindow-content").animate({ height: 570 });
             } else {
-                $(currentForm).closest("ul").css("height", "550px");
-                $(currentForm).closest("ul").find("li").animate({ height: 550 });
+                $(currentForm).closest("ul").css("height", "570px");
+                $(currentForm).closest("ul").find("li").animate({ height: 570 });
             }
         }
     });
@@ -67,7 +73,7 @@ function openEditWindow(id) {
         setFileUpload();
         $("#modalWindow").modal({
             closeHTML: "<a href='#' title='Close' class='modal-close'>x</a>",
-            position: ["20%", ],
+            position: ["10px", ],
             overlayId: 'modalWindow-overlay',
             containerId: 'modalWindow-content',
             onOpen: function (dialog) {
@@ -94,7 +100,7 @@ function closePopup() {
 }
 
 function submitPopupForm(btn) {
-    frm = $(btn).closest(".metro-container-300").find("[id^=createIBOForm]");
+    frm = $(btn).closest(".metro-container-300").find("[id^=editDreamForm]");
     if (!$(frm).valid()) {
         return false;
     }

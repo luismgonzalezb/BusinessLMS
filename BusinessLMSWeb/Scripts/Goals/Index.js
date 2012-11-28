@@ -4,7 +4,7 @@ var edit;
 $(document).ready(function () {
 
     $(".date-picker").datepicker({
-        yearRange: "-90:+0",
+        yearRange: "-0:+30",
         changeMonth: true,
         changeYear: true
     });
@@ -73,7 +73,7 @@ function openEditWindow(id) {
         setFileUpload();
         $("#modalWindow").modal({
             closeHTML: "<a href='#' title='Close' class='modal-close'>x</a>",
-            position: ["20%", ],
+            position: ["10px", ],
             overlayId: 'modalWindow-overlay',
             containerId: 'modalWindow-content',
             onOpen: function (dialog) {
@@ -100,7 +100,7 @@ function closePopup() {
 }
 
 function submitPopupForm(btn) {
-    frm = $(btn).closest(".metro-container-300").find("[id^=createIBOForm]");
+    frm = $(btn).closest(".metro-container-300").find("[id^=editGoalForm]");
     if (!$(frm).valid()) {
         return false;
     }

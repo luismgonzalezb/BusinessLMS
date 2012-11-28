@@ -78,6 +78,7 @@ namespace BusinessLMS.Controllers
         public HttpResponseMessage DeleteContact(int id)
         {
             Contact contact = db.Contacts.Find(id);
+            
             if (contact == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
