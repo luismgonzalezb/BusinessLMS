@@ -78,12 +78,20 @@ namespace BusinessLMS.Controllers
         public HttpResponseMessage DeleteContact(int id)
         {
             Contact contact = db.Contacts.Find(id);
-            
             if (contact == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
+            List<ContactFollowup> followups = db.ContactFollowups.Where(f => f.contactId == contact.contactId).ToList();
+            if (followups.Count > 0)
+            {
+                foreach (ContactFollowup followup in followups)
+                {
+                    db.ContactFollowups.Remove(followup);
+                }
+                db.SaveChanges();
+            }
             db.Contacts.Remove(contact);
 
             try

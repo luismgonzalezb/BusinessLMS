@@ -51,9 +51,9 @@ $(document).ready(function () {
         events: "/Calendar/GetEvents/All",
         loading: function (bool) {
             if (bool)
-                console.log("Loading Started...");
+                $("#wrapper").showLoading({ vPos: "top" });
             else
-                console.log("Loading Done...");
+                $("#wrapper").hideLoading();
         }
     });
 

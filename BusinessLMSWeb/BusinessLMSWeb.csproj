@@ -646,6 +646,8 @@
     <Content Include="Scripts\jquery.easing.1.3.js" />
     <Content Include="Scripts\jquery.kwicks.js" />
     <Content Include="Scripts\jquery.kwicks.min.js" />
+    <Content Include="Scripts\jquery.showLoading.js" />
+    <Content Include="Scripts\jquery.showLoading.min.js" />
     <Content Include="Scripts\jquery.simplemodal-1.4.3.js" />
     <Content Include="Scripts\jquery.simplemodal.1.4.3.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
