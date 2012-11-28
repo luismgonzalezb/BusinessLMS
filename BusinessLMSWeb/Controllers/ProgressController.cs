@@ -6,12 +6,11 @@ using System.Web.Mvc;
 
 namespace BusinessLMSWeb.Controllers
 {
-
     [Authorize]
-    public class FollowupController : BaseWebController
+    public class ProgressController : BaseWebController
     {
         //
-        // GET: /Followup/
+        // GET: /Progress/
 
         public ActionResult Index()
         {

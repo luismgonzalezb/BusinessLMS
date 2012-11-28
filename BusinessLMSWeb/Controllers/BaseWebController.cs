@@ -57,6 +57,7 @@ namespace BusinessLMSWeb.Controllers
                 }
             }
             catch { }
+            ViewBag.actionName = actionName;
             ViewBag.controllerName = controllerName;
             base.OnActionExecuted(filterContext);
         }
