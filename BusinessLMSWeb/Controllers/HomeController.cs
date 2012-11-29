@@ -24,5 +24,15 @@ namespace BusinessLMSWeb.Controllers
             return View();
         }
 
+        public ActionResult Register()
+        {
+            return PartialView();
+        }
+
+        public ActionResult _Register()
+        {
+            return PartialView();
+        }
+
     }
 }

@@ -18,20 +18,26 @@ namespace BusinessLMSWeb.Models
         public int languageId { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
         public string firstName { get; set; }
 
         [Required]
+        [Display(Name = "Last Name")]
         public string lastName { get; set; }
 
+        [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
         public string email { get; set; }
 
+        [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
         public string phone { get; set; }
 
+        [Display(Name = "Cell Number")]
         [DataType(DataType.PhoneNumber)]
         public string cell { get; set; }
 
+        [Display(Name = "Address")]
         public string address { get; set; }
 
         public string state { get; set; }

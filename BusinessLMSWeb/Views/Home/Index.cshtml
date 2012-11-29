@@ -93,9 +93,11 @@
                 <div class="grid">
                     <div class="alignleft">
                         <h3>Ready to have a debt free and full of time life?... !</h3>
-                        <p>Join us Here... <a href="@Url.Action("Register","Account")">Register</a></p>
+                        <p>Join us Here... @*<a href="@Url.Action("Register","Home")">Register</a>*@ </p>
                     </div>
-                    <a href="@Url.Action("Register","Account")" class="more" target="_blank">Register</a>
+                    <div class="alignright">
+                        @{ Html.RenderPartial("_Register"); }
+                    </div>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -114,22 +116,22 @@
         <article id="home_featured2">
             <ul>
                 <li>
-                    <div class="imgholder"><a href="http://www.youtube.com/watch?v=mvgr64Oy-po&feature=share&list=PLDAF5E4A21035B5C5" data-gal="prettyPhoto[featured]" title="First Featured Title">
-                        <img src="images/Home/featured1.jpg" width="275" height="145" alt="" /></a></div>
-                    <h4>Informacion Importante</h4>
-                    <p>Orciint erdum condimen terdum nulla mcorper elit nam curabitur laoreet met prae senean et iac ulum. Metridiculis cons eque quis iaculum aenean nunc aenean.</p>
+                    <div class="imgholder"><a href="http://www.youtube.com/watch?v=MpOZkdJoWa8" data-gal="prettyPhoto[featured]" title="First Featured Title">
+                        <img src="http://img.youtube.com/vi/MpOZkdJoWa8/1.jpg" width="275" height="145" alt="" /></a></div>
+                    <h4>What The Numbers Mean</h4>
+                    <p></p>
                 </li>
                 <li>
-                    <div class="imgholder"><a href="http://www.youtube.com/watch?v=mvgr64Oy-po&feature=share&list=PLDAF5E4A21035B5C5" data-gal="prettyPhoto[featured]" title="Second Featured Title">
-                        <img src="images/Home/featured2.jpg" width="275" height="145" alt="" /></a></div>
-                    <h4>Link para video</h4>
-                    <p>Orciint erdum condimen terdum nulla mcorper elit nam curabitur laoreet met prae senean et iac ulum. Metridiculis cons eque quis iaculum aenean nunc aenean.</p>
+                    <div class="imgholder"><a href="http://www.youtube.com/watch?v=qNNHKdC4lhg" data-gal="prettyPhoto[featured]" title="Second Featured Title">
+                        <img src="http://img.youtube.com/vi/qNNHKdC4lhg/1.jpg" width="275" height="145" alt="" /></a></div>
+                    <h4>The Amway Oportunity</h4>
+                    <p></p>
                 </li>
                 <li class="last">
-                    <div class="imgholder"><a href="http://www.youtube.com/watch?v=mvgr64Oy-po&feature=share&list=PLDAF5E4A21035B5C5" data-gal="prettyPhoto[featured]" title="Third Featured Title">
-                        <img src="images/Home/featured3.jpg" width="275" height="145" alt="" /></a></div>
-                    <h4>Otro Video y Link</h4>
-                    <p>Orciint erdum condimen terdum nulla mcorper elit nam curabitur laoreet met prae senean et iac ulum. Metridiculis cons eque quis iaculum aenean nunc aenean.</p>
+                    <div class="imgholder"><a href="http://www.youtube.com/watch?v=OZNaL9HASDQ" data-gal="prettyPhoto[featured]" title="Third Featured Title">
+                        <img src="http://img.youtube.com/vi/OZNaL9HASDQ/1.jpg" width="275" height="145" alt="" /></a></div>
+                    <h4>Principles of Our Founders</h4>
+                    <p></p>
                 </li>
             </ul>
             <br class="clear" />

@@ -864,7 +864,7 @@ p
     list-style-type: upper-roman;
 }
 
-input[type=text], input[type=email], input[type=url], textarea
+input[type=text], input[type=email], input[type=url], input[type=tel], input[type=date], textarea
 {
     background: rgba(206, 205, 205, 0.6);
     border: 2px solid #666;
@@ -885,7 +885,7 @@ textarea
     overflow: auto;
 }
 
-input[type=text], input[type=email], input[type=url]
+input[type=text], input[type=email], input[type=url], input[type=tel], input[type=date]
 {
     height: 23px;
     width: 200px;
@@ -1294,6 +1294,8 @@ a:focus > .sf-sub-indicator, a:hover > .sf-sub-indicator, a:active > .sf-sub-ind
 form, fieldset, legend
 {
     border: none;
+    display: inline-block;
+    float: right;
     margin: 0;
     padding: 0;
 }
@@ -2875,4 +2877,10 @@ div.dark_rounded #pp_full_res .pp_inline, div.dark_square #pp_full_res .pp_inlin
 .pp_fade, .pp_gallery li.default a img
 {
     display: none;
+}
+
+.alignright
+{
+    display:inline-block;
+    float:right;
 }
