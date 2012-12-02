@@ -1,49 +1,56 @@
 ﻿@model BusinessLMSWeb.Models.Contact
 
 <div class="main-container">
+    
     <div class="container1">
     @using (Html.BeginForm()) {
         @Html.ValidationSummary(true)
+        <div class="block">
+            <div class="editor-label">Who told you about us?</div>
+            <div class="editor-field"><input type="text" name="iboName" value="" /></div>
+            <div class="editor-label">IBO Number</div>
+            <div class="editor-field">101010</div>
+            <div class="editor-label">Email</div>
+            <div class="editor-field">luismgonzalezb@gmail.com</div>
+            <div class="editor-label">Phone</div>
+            <div class="editor-field">479-685-4687</div>
+        </div>
+        <div class="block">
+            <fieldset>
+                <legend>Contact</legend>
 
-        <fieldset>
-            <legend>Contact</legend>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.firstName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.firstName)
+                    @Html.ValidationMessageFor(model => model.firstName)
+                </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.firstName)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.firstName)
-                @Html.ValidationMessageFor(model => model.firstName)
-            </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.lastName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.lastName)
+                    @Html.ValidationMessageFor(model => model.lastName)
+                </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.lastName)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.lastName)
-                @Html.ValidationMessageFor(model => model.lastName)
-            </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.email)
+                    @Html.ValidationMessageFor(model => model.email)
+                </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.email)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.email)
-                @Html.ValidationMessageFor(model => model.email)
-            </div>
-
-            <div class="editor-label">
-                Who told you about us?
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.IBONum)
-                @Html.ValidationMessageFor(model => model.IBONum)
-            </div>
-
-            <div class="alignright">
-                <input type="submit" value="Register" />
-            </div>
-        </fieldset>
+                <div class="alignright">
+                    <input type="submit" value="Register" />
+                </div>
+            </fieldset>
+        </div>
+        
+        @Html.HiddenFor(model => model.IBONum)
+        
     }
     </div>
 </div>
