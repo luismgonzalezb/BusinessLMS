@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BusinessLMSWeb.Models
 {
+    [Serializable]
     public class Step
     {
       

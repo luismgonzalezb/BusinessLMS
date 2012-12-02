@@ -50,11 +50,11 @@ namespace BusinessLMSWeb.Models
         [DataType(DataType.MultilineText)]
         public string address { get; set; }
 
-        [Display(Name = "state")]
+        [Display(Name = "State")]
         [DataType(DataType.Text)]
         public string state { get; set; }
 
-        [Display(Name= "city")]
+        [Display(Name= "City")]
         [DataType(DataType.Text)]
         public string city { get; set; }
 
@@ -63,7 +63,7 @@ namespace BusinessLMSWeb.Models
         public string zipcode { get; set; }
 
         [Required]
-        [Display(Name = "Preferred location")]
+        [Display(Name = "Preferred Contact Method")]
         [DataType(DataType.Text)]
         public string preferred { get; set; }
 

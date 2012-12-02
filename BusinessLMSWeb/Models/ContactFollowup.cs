@@ -25,11 +25,13 @@ namespace BusinessLMSWeb.Models
         public string method { get; set; }
 
         [Required]
-        [Display(Name = "completed")]
+        [Display(Name = "Completed")]
         [DataType(DataType.Text)]
         public bool completed { get; set; }
 
-
+        [Required]
+        [Display(Name = "Follow up Date")]
+        [DataType(DataType.DateTime)]
         public System.DateTime datetime { get; set; }
     }
 }

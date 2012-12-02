@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Helpers.MobileRedirect;
 using BusinessLMSWeb.Models;
+using Newtonsoft.Json;
 using WebMatrix.WebData;
 
 namespace BusinessLMSWeb.Controllers
@@ -50,6 +51,7 @@ namespace BusinessLMSWeb.Controllers
                         {
                             if ((actionName != "AddIBO") && (controllerName != "IBO"))
                             {
+                                ibo = null;
                                 filterContext.Result = RedirectToAction("AddIBO", "IBO");
                             }
                         }
@@ -93,18 +95,18 @@ namespace BusinessLMSWeb.Controllers
                 string value = "";
                 SimpleAES crypto = new SimpleAES();
                 string name = crypto.EncryptToString("fid");
-                HttpCookie fbCookie = Request.Cookies[name];
-                if (fbCookie != null)  value = fbCookie.Value != null ? crypto.DecryptString(fbCookie.Value) : "";
+                HttpCookie cookie = Request.Cookies[name];
+                if (cookie != null)  value = cookie.Value != null ? crypto.DecryptString(cookie.Value) : "";
                 return value;
             }
             set
             {
                 SimpleAES crypto = new SimpleAES();
                 string name = crypto.EncryptToString("fid");
-                HttpCookie fbCookie = new HttpCookie(name);
-                fbCookie.Value = crypto.EncryptToString(value);
-                fbCookie.Expires = DateTime.Now.AddDays(365);
-                Response.Cookies.Add(fbCookie);
+                HttpCookie cookie = new HttpCookie(name);
+                cookie.Value = crypto.EncryptToString(value);
+                cookie.Expires = DateTime.Now.AddDays(365);
+                Response.Cookies.Add(cookie);
             }
         }
 
@@ -115,33 +117,94 @@ namespace BusinessLMSWeb.Controllers
                 string value = "";
                 SimpleAES crypto = new SimpleAES();
                 string name = crypto.EncryptToString("at");
-                HttpCookie fbCookie = Request.Cookies[name];
-                if (fbCookie != null) 
-                    value = fbCookie.Value != null ? crypto.DecryptString(fbCookie.Value) : "";
+                HttpCookie cookie = Request.Cookies[name];
+                if (cookie != null) 
+                    value = cookie.Value != null ? crypto.DecryptString(cookie.Value) : "";
                 return value;
             }
             set
             {
                 SimpleAES crypto = new SimpleAES();
                 string name = crypto.EncryptToString("at");
-                HttpCookie fbCookie = new HttpCookie(name);
-                fbCookie.Value = crypto.EncryptToString(value);
-                fbCookie.Expires = DateTime.Now.AddDays(365);
-                Response.Cookies.Add(fbCookie);
+                HttpCookie cookie = new HttpCookie(name);
+                cookie.Value = crypto.EncryptToString(value);
+                cookie.Expires = DateTime.Now.AddDays(365);
+                Response.Cookies.Add(cookie);
+            }
+        }
+
+        private IBO _ibo {
+            get
+            {
+                IBO value = null;
+                SimpleAES crypto = new SimpleAES();
+                string name = crypto.EncryptToString("iboinfo");
+                HttpCookie cookie = Request.Cookies[name];
+                if (cookie != null)
+                {
+                    if (cookie.Value != null)
+                    {
+                        string temp = crypto.DecryptString(cookie.Value);
+                        value = JsonConvert.DeserializeObject<IBO>(temp);
+                    }
+                }
+                return value;
+            }
+            set
+            {
+                SimpleAES crypto = new SimpleAES();
+                string name = crypto.EncryptToString("iboinfo");
+                HttpCookie cookie = new HttpCookie(name);
+                string temp = JsonConvert.SerializeObject(value);
+                cookie.Value = crypto.EncryptToString(temp);
+                cookie.Expires = DateTime.Now.AddDays(365);
+                Response.Cookies.Add(cookie);
             }
         }
 
         public IBO ibo { 
             get 
             {
-                IBO _ibo = (IBO)Session["IBO"];
-                if (_ibo == null)
+                IBO __ibo = _ibo;
+                if (__ibo == null)
                 {
                     BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
-                    _ibo = client.Get<IBO>(WebSecurity.CurrentUserId.ToString());
-                    Session["IBO"] = _ibo;
+                    __ibo = client.Get<IBO>(WebSecurity.CurrentUserId.ToString());
+                    _ibo = __ibo;
                 }
-                return _ibo;
+                return __ibo;
+            }
+            set
+            {
+                _ibo = null;
+            }
+        }
+
+        private List<Step> _menuItems
+        {
+            get
+            {
+                List<Step> value = null;
+                string name = "menuItems";
+                HttpCookie cookie = Request.Cookies[name];
+                if (cookie != null)
+                {
+                    if (cookie.Value != null)
+                    {
+                        string temp = cookie.Value;
+                        value = JsonConvert.DeserializeObject<List<Step>>(temp);
+                    }
+                }
+                return value;
+            }
+            set
+            {
+                string name = "menuItems";
+                HttpCookie cookie = new HttpCookie(name);
+                string temp = JsonConvert.SerializeObject(value);
+                cookie.Value = temp;
+                cookie.Expires = DateTime.Now.AddDays(365);
+                Response.Cookies.Add(cookie);
             }
         }
 
@@ -149,14 +212,14 @@ namespace BusinessLMSWeb.Controllers
         {
             get
             {
-                List<Step> _menuItems = (List<Step>)Session["menuItems"];
-                if (_menuItems == null)
+                List<Step> __menuItems = _menuItems;
+                if (__menuItems == null)
                 {
                     BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
-                    _menuItems = client.Get<List<Step>>();
-                    Session["menuItems"] = _menuItems;
+                    __menuItems = client.Get<List<Step>>();
+                    _menuItems = __menuItems;
                 }
-                return _menuItems;
+                return __menuItems;
             }
         }
 

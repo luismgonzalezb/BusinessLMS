@@ -63,6 +63,7 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.picture).HasColumnName("picture");
             this.Property(t => t.UserId).HasColumnName("UserId");
             this.Property(t => t.birthday).HasColumnName("birthday");
+            this.Property(t => t.phone).HasColumnName("phone");
         }
     }
 }

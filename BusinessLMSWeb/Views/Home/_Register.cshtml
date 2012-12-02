@@ -1,4 +1,5 @@
 ﻿@model BusinessLMSWeb.Models.Contact
+@using BusinessLMSWeb.Helpers
 
 <div class="main-container">
     
@@ -7,13 +8,13 @@
         @Html.ValidationSummary(true)
         <div class="block">
             <div class="editor-label">Who told you about us?</div>
-            <div class="editor-field"><input type="text" name="iboName" value="" /></div>
-            <div class="editor-label">IBO Number</div>
-            <div class="editor-field">101010</div>
-            <div class="editor-label">Email</div>
-            <div class="editor-field">luismgonzalezb@gmail.com</div>
-            <div class="editor-label">Phone</div>
-            <div class="editor-field">479-685-4687</div>
+            <div id="divIboName"><input type="text" name="iboName" id="iboName" value="@ViewBag.iboName" /></div>
+            <div class="editor-label"><h2>IBO Number</h2></div>
+            <div id="iboNum">@ViewBag.IBONum</div>
+            <div class="editor-label"><h2>Email</h2></div>
+            <div id="iboEmail">@ViewBag.email</div>
+            <div class="editor-label"><h2>Phone</h2></div>
+            <div id="iboPhone">@ViewBag.phone</div>
         </div>
         <div class="block">
             <fieldset>
@@ -55,6 +56,6 @@
     </div>
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+@Html.Script(
+    @<script type="text/javascript" src="~/Scripts/Home/Register.js"></script>
+)

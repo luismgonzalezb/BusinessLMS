@@ -645,6 +645,7 @@
     <Content Include="Scripts\gcal.js" />
     <Content Include="Scripts\Goals\Index.js" />
     <Content Include="Scripts\Home\Index.js" />
+    <Content Include="Scripts\Home\Register.js" />
     <Content Include="Scripts\IBO\AddIBO.js" />
     <Content Include="Content\DataTables-1.9.4\media\images\Sorting icons.psd" />
     <Content Include="Content\DataTables-1.9.4\extras\TableTools\media\images\psd\printer.psd" />
@@ -665,8 +666,10 @@
     <Content Include="Scripts\jquery-ui-1.9.2.js" />
     <Content Include="Scripts\jquery-ui-1.9.2.min.js" />
     <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.flow.1.2.js" />
     <Content Include="Scripts\jquery.kwicks.js" />
     <Content Include="Scripts\jquery.kwicks.min.js" />
+    <Content Include="Scripts\jquery.prettyPhoto.js" />
     <Content Include="Scripts\jquery.showLoading.js" />
     <Content Include="Scripts\jquery.showLoading.min.js" />
     <Content Include="Scripts\jquery.simplemodal-1.4.3.js" />

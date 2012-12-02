@@ -1,7 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using BusinessLMSWeb.Helpers
+
+<!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
     <title>@ViewBag.Title - Business LMS</title>
+    <link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet"/>
     @Styles.Render("~/Content/main/css")
     @Scripts.Render("~/bundles/modernizr")
     <!--[if IE]><style>#header h1 a:hover{font-size:75px;}</style><![endif]-->
@@ -13,10 +16,7 @@
             <p id="tagline"><strong>Learn to be an Independent Business Owner</strong></p>
         </header>
     </div>
-    <div class="main-container">
-        <div id="sub-headline">
-        </div>
-    </div>
+    <div class="main-container"><div id="sub-headline"></div></div>
     <div class="main-container">
         <div id="nav-container">
             <nav>
@@ -77,7 +77,6 @@
     </div>
     <footer>
         <p class="tagline_left">Copyright &copy; 2012 - All Rights Reserved - <a href="ibovirtual.com">ibovirtual.com</a></p>
-        @*<p class="tagline_right">Design by <a href="http://www.priteshgupta.com/" title="Pritesh Gupta" target="_blank">PriteshGupta.com</a></p>*@
         <br class="clear" />
     </footer>
 
@@ -85,11 +84,14 @@
     <br />
 
     @*CDN Lattest Jquery*@
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> @*CDN Lattest Jquery*@
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    @Scripts.Render("~/Scripts/jquery.prettyPhoto.js")
+    @Scripts.Render("~/Scripts/jquery.flow.1.2.js")
     @Scripts.Render("~/Scripts/Home/Index.js")
     @RenderSection("scripts", required: false)
+    @Html.RenderScripts() 
 
 </body>
-
 </html>

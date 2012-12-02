@@ -58,6 +58,14 @@
         </div>
 
         <div class="metro-form-control">
+            <label for="phone">Phone Number</label>
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.phone)
+                @Html.ValidationMessageFor(model => model.phone)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
             <label for="birthday">Birthday</label> (mm/dd/yyyy)
             <div class="metro-text-box">
                 @Html.EditorFor(model => model.birthday)

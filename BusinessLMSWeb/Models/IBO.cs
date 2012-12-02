@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BusinessLMSWeb.Models
 {
+
+    [Serializable]
     public class IBO
     {
         [Required]
@@ -25,5 +27,6 @@ namespace BusinessLMSWeb.Models
         public System.DateTime datetime { get; set; }
         [Required]
         public Nullable<System.DateTime> birthday { get; set; }
+        public string phone { get; set; }        
     }
 }

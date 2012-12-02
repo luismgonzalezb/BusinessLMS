@@ -22,6 +22,15 @@ namespace BusinessLMS.Controllers
             return ibos.AsEnumerable();
         }
 
+        public IEnumerable<IBO> GetIBOByTerm(string id)
+        {
+            List<IBO> ibos = (from ibo in db.IBOs 
+                              where ibo.firstName.ToUpper().Contains(id.ToUpper()) 
+                              || ibo.lastName.ToUpper().Contains(id.ToUpper()) 
+                              || ibo.IBONum.Contains(id) select ibo).ToList();
+            return ibos;
+        }
+
         public IBO GetIBO(string id)
         {
             IBO ibo = db.IBOs.Find(id);

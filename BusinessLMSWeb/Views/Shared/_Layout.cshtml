@@ -3,51 +3,51 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - Business LMS</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Styles.Render("~/Content/themes/custom/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <div id="wrapper">
-		    <div id="content">
-			    <div class="c1">
-				    <div class="controls">
-					    <nav class="links">
-						    @Html.Partial("_TopControls")
-					    </nav>
-					    <div class="profile-box">
-                            @Html.Partial("_LoginPartial")
-					    </div>
-				    </div>
-                    <div id="body">
-                        @RenderSection("featured", required: false)
-                        <section class="content-wrapper main-content clear-fix">
-                            <div class="metro">
-                                @RenderBody()
-                            </div>
-                        </section>
-                    </div>
-			    </div>
-		    </div>
-		    <aside id="sidebar">
-			    <strong class="logo"><a href="#">lg</a></strong>
-                @Html.Partial("Menu",(List<Step>)ViewBag.MenuItems)
-			    <span class="shadow"></span>
-		    </aside>
-	    </div>
-        <div id="ticketModal"></div>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> @*CDN Lattest Jquery*@
-        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryval")
-        @Scripts.Render("~/Scripts/Tickets/_layout.js")
-        @Scripts.Render("~/Scripts/Shared/_layout.js")
-        @RenderSection("scripts", required: false)
-        @Html.RenderScripts() @*Render Partial View Scripts Last*@
-    </body>
+	<head>
+		<meta charset="utf-8" />
+		<title>@ViewBag.Title - Business LMS</title>
+		<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width" />
+		@Styles.Render("~/Content/css")
+		@Styles.Render("~/Content/themes/custom/css")
+		@Scripts.Render("~/bundles/modernizr")
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="content">
+				<div class="c1">
+					<div class="controls">
+						<nav class="links">
+							@Html.Partial("_TopControls")
+						</nav>
+						<div class="profile-box">
+							@Html.Partial("_LoginPartial")
+						</div>
+					</div>
+					<div id="body">
+						@RenderSection("featured", required: false)
+						<section class="content-wrapper main-content clear-fix">
+							<div class="metro">
+								@RenderBody()
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+			<aside id="sidebar">
+				<strong class="logo"><a href="#">lg</a></strong>
+				@Html.Partial("Menu",(List<Step>)ViewBag.MenuItems)
+				<span class="shadow"></span>
+			</aside>
+		</div>
+		<div id="ticketModal"></div>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> @*CDN Lattest Jquery*@
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+		@Scripts.Render("~/bundles/jquery")
+		@Scripts.Render("~/bundles/jqueryval")
+		@Scripts.Render("~/Scripts/Tickets/_layout.js")
+		@Scripts.Render("~/Scripts/Shared/_layout.js")
+		@RenderSection("scripts", required: false)
+		@Html.RenderScripts() @*Render Partial View Scripts Last*@
+	</body>
 </html>
