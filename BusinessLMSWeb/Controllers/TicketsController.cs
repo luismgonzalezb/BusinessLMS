@@ -28,6 +28,9 @@ namespace BusinessLMSWeb.Controllers
         public ActionResult CreateTicket()
         {
             ViewBag.ticketTypes = new SelectList(ticketTypes, "Key", "Value");
+            BaseClient client = new BaseClient(baseApiUrl, "Tickets", "GetMyTickets");
+            List<Ticket> TicketList = client.Get<List<Ticket>>(ibo.IBONum);
+            ViewBag.TicketList = TicketList;
             Ticket ticket = new Ticket();
             ticket.IBONum = ibo.IBONum;
             ticket.datetime = DateTime.Now;
@@ -52,7 +55,7 @@ namespace BusinessLMSWeb.Controllers
             Ticket ticket = client.Get<Ticket>(id);
             return PartialView(ticket);
         }
-         public ActionResult EditTicketAjax(Ticket model)
+        public ActionResult EditTicketAjax(Ticket model)
         {
             if (ModelState.IsValid == true)
             {

@@ -1,45 +1,74 @@
 ﻿@model BusinessLMSWeb.Models.Ticket
 
 <div class="metro">
-<div class="metro-container-300">
+    <div class="metro-container-300">
 
-@using (Html.BeginForm("CreateTicket", "Tickets", FormMethod.Post, new { @class = "metro-form", id = "ticketForm" }))
-{
-    @Html.ValidationSummary(true)
+        @using (Html.BeginForm("CreateTicket", "Tickets", FormMethod.Post, new { @class = "metro-form", id = "ticketForm" }))
+        {
+            @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend></legend>
+            <fieldset>
+                <legend></legend>
 
-        <div class="metro-form-control">
-            <label for="ticketType">Ticket Type</label>
-            <div class="metro-select-box">
-                @Html.DropDownListFor(model => model.ticketType, (SelectList)ViewBag.ticketTypes)
-                @Html.ValidationMessageFor(model => model.ticketType)
-            </div>
-        </div>
+                <div class="metro-form-control">
+                    <label for="ticketType">Ticket Type</label>
+                    <div class="metro-select-box">
+                        @Html.DropDownListFor(model => model.ticketType, (SelectList)ViewBag.ticketTypes)
+                        @Html.ValidationMessageFor(model => model.ticketType)
+                    </div>
+                </div>
 
-        <div class="metro-form-control">
-            <label for="description">Description</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.description)
-                @Html.ValidationMessageFor(model => model.description)
-            </div>
-        </div>
+                <div class="metro-form-control">
+                    <label for="description">Description</label>
+                    <div class="metro-text-box">
+                        @Html.EditorFor(model => model.description)
+                        @Html.ValidationMessageFor(model => model.description)
+                    </div>
+                </div>
 
-        @Html.HiddenFor(model => model.IBONum)
-        @Html.HiddenFor(model => model.datetime)
-        @Html.HiddenFor(model => model.developer)
-        @Html.HiddenFor(model => model.impact)
-        @Html.HiddenFor(model => model.priority)
-        @Html.HiddenFor(model => model.solved)
+                @Html.HiddenFor(model => model.IBONum)
+                @Html.HiddenFor(model => model.datetime)
+                @Html.HiddenFor(model => model.developer)
+                @Html.HiddenFor(model => model.impact)
+                @Html.HiddenFor(model => model.priority)
+                @Html.HiddenFor(model => model.solved)
 
-        <div class="metro-align-right">
-            <input type="button" value="Create" class="metro-button" onclick="submitTicketForm(this.form);" />
-        </div>
-    </fieldset>
-}
+                <div class="metro-align-right">
+                    <input type="button" value="Create" class="metro-button" onclick="submitTicketForm(this.form);" />
+                </div>
+                <table border="1", title="My tickets">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ticketType)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.description)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.datetime)
+                        </th>
+                        <th></th>
+                    </tr>
 
-</div>
+                    @foreach (var item in (List<BusinessLMSWeb.Models.Ticket>)ViewBag.TicketList)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ticketType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.description)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.datetime)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </fieldset>
+        }
+
+    </div>
 </div>
 
 <script type="text/javascript">
