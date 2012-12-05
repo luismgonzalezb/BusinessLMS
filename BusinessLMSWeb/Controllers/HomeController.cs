@@ -37,6 +37,11 @@ namespace BusinessLMSWeb.Controllers
                 }
                 ViewBag.ibo = ibo;
             }
+            Contact contact = new Contact();
+            contact.contactLevel = "";
+            contact.datetime = DateTime.Now;
+            contact.isPublic = true;
+            ViewBag.contact = contact;
             return View();
         }
 

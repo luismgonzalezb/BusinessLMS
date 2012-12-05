@@ -1,500 +1,500 @@
 ﻿html
 {
-    background-color: #eeeeee;
-    margin: 0;
-    padding: 0;
+	background-color: #eeeeee;
+	margin: 0;
+	padding: 0;
 }
 
 body
 {
-    margin: 0;
-    font: 12px/15px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    color: #000000;
-    min-width: 1000px;
+	margin: 0;
+	font: 12px/15px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #000000;
+	min-width: 1000px;
 }
 
 #body
 {
-    margin-left: 40px;
-    height: 100%;
+	margin-left: 40px;
+	height: 100%;
 }
 
 a:hover
 {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 input,
 textarea,
 select
 {
-    font: 100% arial,sans-serif;
-    vertical-align: middle;
-    color: #8a8a8a;
+	font: 100% arial,sans-serif;
+	vertical-align: middle;
+	color: #8a8a8a;
 }
 
 form, fieldset
 {
-    margin: 0;
-    padding: 0;
-    border: none;
+	margin: 0;
+	padding: 0;
+	border: none;
 }
 
 #wrapper
 {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-    background: url(../images/bg-wrapper.png) repeat-y;
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	background: url(../images/bg-wrapper.png) repeat-y;
 }
 
 #content
 {
-    float: left;
-    width: 100%;
+	float: left;
+	width: 100%;
 }
 
 .c1
 {
-    margin: 0 0 0 77px;
+	margin: 0 0 0 77px;
 }
 
 .controls
 {
-    height: 40px;
-    padding: 26px 13px 0 34px;
-    background: #606977;
+	height: 40px;
+	padding: 26px 13px 0 34px;
+	background: #606977;
 }
 
 .links
 {
-    float: left;
+	float: left;
 }
 
-    .links ul
-    {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        float: left;
-    }
+	.links ul
+	{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		float: left;
+	}
 
-    .links li
-    {
-        float: left;
-        margin: 0 3px 0 0;
-        position: relative;
-    }
+	.links li
+	{
+		float: left;
+		margin: 0 3px 0 0;
+		position: relative;
+	}
 
-    .links a
-    {
-        float: left;
-        border: 1px solid #dde2e8;
-        background: #fff;
-        -webkit-border-radius: 1px 1px 0 0;
-        -moz-border-radius: 1px 1px 0 0;
-        border-radius: 1px 1px 0 0;
-        color: #1f252a;
-        font-size: 13px;
-        line-height: 15px;
-        height: 28px;
-        text-decoration: none;
-        padding: 9px 19px 0 35px;
-    }
+	.links a
+	{
+		float: left;
+		border: 1px solid #dde2e8;
+		background: #fff;
+		-webkit-border-radius: 1px 1px 0 0;
+		-moz-border-radius: 1px 1px 0 0;
+		border-radius: 1px 1px 0 0;
+		color: #1f252a;
+		font-size: 13px;
+		line-height: 15px;
+		height: 28px;
+		text-decoration: none;
+		padding: 9px 19px 0 35px;
+	}
 
-        .links a:hover
-        {
-            text-decoration: underline;
-        }
+		.links a:hover
+		{
+			text-decoration: underline;
+		}
 
-    .links .num
-    {
-        position: absolute;
-        right: -3px;
-        top: -8px;
-        color: #fff;
-        font: bold 10px/18px Arial, Helvetica, sans-serif;
-        width: 20px;
-        height: 20px;
-        background: #4c95cd;
-        text-align: center;
-        -webkit-border-radius: 12px;
-        -moz-border-radius: 12px;
-        border-radius: 12px;
-    }
+	.links .num
+	{
+		position: absolute;
+		right: -3px;
+		top: -8px;
+		color: #fff;
+		font: bold 10px/18px Arial, Helvetica, sans-serif;
+		width: 20px;
+		height: 20px;
+		background: #4c95cd;
+		text-align: center;
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 12px;
+		border-radius: 12px;
+	}
 
-    .links .ico1
-    {
-        background: #fff url(../images/sprite.png) no-repeat 14px -445px;
-    }
+	.links .ico1
+	{
+		background: #fff url(../images/sprite.png) no-repeat 14px -445px;
+	}
 
-    .links .ico2
-    {
-        background: #fff url(../images/sprite.png) no-repeat 13px -528px;
-    }
+	.links .ico2
+	{
+		background: #fff url(../images/sprite.png) no-repeat 13px -528px;
+	}
 
-    .links .ico3
-    {
-        background: #fff url(../images/sprite.png) no-repeat 11px -637px;
-    }
+	.links .ico3
+	{
+		background: #fff url(../images/sprite.png) no-repeat 11px -637px;
+	}
 
 .profile-box
 {
-    float: right;
+	float: right;
 }
 
 .btn-on
 {
-    background: url(../images/sprite.png) no-repeat -230px -5px;
-    width: 35px;
-    height: 39px;
-    overflow: hidden;
-    text-indent: -9999px;
-    float: left;
-    margin: 0 0 0 7px;
+	background: url(../images/sprite.png) no-repeat -230px -5px;
+	width: 35px;
+	height: 39px;
+	overflow: hidden;
+	text-indent: -9999px;
+	float: left;
+	margin: 0 0 0 7px;
 }
 
 .profile-box .profile
 {
-    float: left;
-    border: 1px solid #dde2e8;
-    background: #fff;
-    -webkit-border-radius: 1px 1px 0 0;
-    -moz-border-radius: 1px 1px 0 0;
-    border-radius: 1px 1px 0 0;
-    height: 37px;
+	float: left;
+	border: 1px solid #dde2e8;
+	background: #fff;
+	-webkit-border-radius: 1px 1px 0 0;
+	-moz-border-radius: 1px 1px 0 0;
+	border-radius: 1px 1px 0 0;
+	height: 37px;
 }
 
-    .profile-box .profile .image
-    {
-        float: left;
-        margin: -1px 12px 0 0;
-        border: 0px;
-    }
+	.profile-box .profile .image
+	{
+		float: left;
+		margin: -1px 12px 0 0;
+		border: 0px;
+	}
 
-    .profile-box .profile a
-    {
-        border: 0px;
-    }
+	.profile-box .profile a
+	{
+		border: 0px;
+	}
 
 .profile-box a
 {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .profile-box .text-box
 {
-    float: left;
-    overflow: hidden;
-    color: #a0a0a0;
-    font-size: 10px;
-    line-height: 12px;
+	float: left;
+	overflow: hidden;
+	color: #a0a0a0;
+	font-size: 10px;
+	line-height: 12px;
 }
 
 .profile-box .section
 {
-    padding: 4px 33px 0 7px;
-    float: left;
+	padding: 4px 33px 0 7px;
+	float: left;
 }
 
 .profile-box a.section
 {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .profile-box .name
 {
-    display: block;
-    font-size: 12px;
-    line-height: 15px;
-    color: #4f5f6f;
-    font-weight: normal;
+	display: block;
+	font-size: 12px;
+	line-height: 15px;
+	color: #4f5f6f;
+	font-weight: normal;
 }
 
 .profile-box .opener
 {
-    float: left;
-    background: url(../images/sprite.png) no-repeat -39px -58px;
-    width: 32px;
-    height: 37px;
-    overflow: hidden;
-    text-indent: -9999px;
-    border-left: 1px solid #dde2e8;
+	float: left;
+	background: url(../images/sprite.png) no-repeat -39px -58px;
+	width: 32px;
+	height: 37px;
+	overflow: hidden;
+	text-indent: -9999px;
+	border-left: 1px solid #dde2e8;
 }
 
 #sidebar
 {
-    float: left;
-    margin: 0 0 0 -100%;
-    width: 75px;
-    padding: 18px 1px 0;
+	float: left;
+	margin: 0 0 0 -100%;
+	width: 75px;
+	padding: 18px 1px 0;
 }
 
-    #sidebar .shadow
-    {
-        background: url(../images/bg-shadow.png) no-repeat;
-        width: 5px;
-        height: 9999px;
-        overflow: hidden;
-        text-indent: -9999px;
-        position: absolute;
-        left: 72px;
-        top: 0;
-    }
+	#sidebar .shadow
+	{
+		background: url(../images/bg-shadow.png) no-repeat;
+		width: 5px;
+		height: 9999px;
+		overflow: hidden;
+		text-indent: -9999px;
+		position: absolute;
+		left: 72px;
+		top: 0;
+	}
 
 .logo
 {
-    /*background:url(../images/sprite.png) no-repeat -53px 0;*/
-    width: 36px;
-    height: 44px;
-    overflow: hidden;
-    text-indent: -9999px;
-    display: block;
-    margin: 0 auto 23px;
-    position: relative;
-    left: 1px;
+	/*background:url(../images/sprite.png) no-repeat -53px 0;*/
+	width: 36px;
+	height: 44px;
+	overflow: hidden;
+	text-indent: -9999px;
+	display: block;
+	margin: 0 auto 23px;
+	position: relative;
+	left: 1px;
 }
 
-    .logo a
-    {
-        display: block;
-        height: 100%;
-    }
+	.logo a
+	{
+		display: block;
+		height: 100%;
+	}
 
 .buttons
 {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    z-index: 2;
-    font: bold 11px/13px Arial, Helvetica, sans-serif;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	z-index: 2;
+	font: bold 11px/13px Arial, Helvetica, sans-serif;
 }
 
-    .buttons li
-    {
-        vertical-align: top;
-        margin: 0 0 1px;
-        position: relative;
-    }
+	.buttons li
+	{
+		vertical-align: top;
+		margin: 0 0 1px;
+		position: relative;
+	}
 
-    .buttons .menu-text {
-	    /* Container properties */
-	    width:0;
-	    left:75px;
-	    padding:0;
-	    overflow:hidden;
-        position:absolute;
-        display: inline-block;
+	.buttons .menu-text {
+		/* Container properties */
+		width:0;
+		left:75px;
+		padding:0;
+		overflow:hidden;
+		position:absolute;
+		display: inline-block;
 
-        color:#FFF;
-	    background-color:#616A78;
+		color:#FFF;
+		background-color:#616A78;
 
-	    /* Text properties */
-	    font-size:18px;
-	    font-weight:bold;
-	    letter-spacing:0.6px;
-	    white-space:nowrap;
-	    line-height:39px;
+		/* Text properties */
+		font-size:18px;
+		font-weight:bold;
+		letter-spacing:0.6px;
+		white-space:nowrap;
+		line-height:39px;
 	
-	    /* CSS3 Transition: */
-	    -webkit-transition: 0.25s;
+		/* CSS3 Transition: */
+		-webkit-transition: 0.25s;
 	
-	    /* Future proofing (these do not work yet): */
-	    -moz-transition: 0.25s;
-	    transition: 0.25s;
-    }
+		/* Future proofing (these do not work yet): */
+		-moz-transition: 0.25s;
+		transition: 0.25s;
+	}
 
-    .buttons a
-    {
-        width: 75px;
-        height: 40px;
-        display: block;
-        cursor: pointer;
-        vertical-align: top;
-        background: #616a78;
-        position: relative;
-    }
+	.buttons a
+	{
+		width: 75px;
+		height: 40px;
+		display: block;
+		cursor: pointer;
+		vertical-align: top;
+		background: #616a78;
+		position: relative;
+	}
 
-    .buttons em
-    {
-        top: 0;
-        right: 0;
-        width: 4px;
-        height: 100%;
-        overflow: hidden;
-        position: absolute;
-        text-indent: -9999px;
-        background: url(../images/bg-shadow.png) repeat-y;
-    }
+	.buttons em
+	{
+		top: 0;
+		right: 0;
+		width: 4px;
+		height: 100%;
+		overflow: hidden;
+		position: absolute;
+		text-indent: -9999px;
+		background: url(../images/bg-shadow.png) repeat-y;
+	}
 
-    .buttons li:hover em
-    {
-        background: none;
-    }
+	.buttons li:hover em
+	{
+		background: none;
+	}
 
-    .buttons a .ico
-    {
-        width: 20px;
-        height: 20px;
-        display: inline-block;
-        overflow: hidden;
-        margin: 11px 0px 0px 25px;
-    }
+	.buttons a .ico
+	{
+		width: 20px;
+		height: 20px;
+		display: inline-block;
+		overflow: hidden;
+		margin: 11px 0px 0px 25px;
+	}
 
-    .buttons .num
-    {
-        color: #fff;
-        display: block;
-        text-align: center;
-        background: #950707;
-        border-top: 2px solid #b01919;
-    }
+	.buttons .num
+	{
+		color: #fff;
+		display: block;
+		text-align: center;
+		background: #950707;
+		border-top: 2px solid #b01919;
+	}
 
-    .buttons .ico1
-    {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: 0px 0px;
-    }
+	.buttons .ico1
+	{
+		background: url(../images/sprite.png) no-repeat 9999px 0px;
+		background-position: 0px 0px;
+	}
 
-    .buttons .ico1.active
-    {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: 0px -23px;
-    }
+	.buttons .ico1.active
+	{
+		background: url(../images/sprite.png) no-repeat 9999px 0px;
+		background-position: 0px -23px;
+	}
 
-    .buttons .ico2
-    {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -1px -47px;
-    }
+	.buttons .ico2
+	{
+		background: url(../images/sprite.png) no-repeat 9999px 0px;
+		background-position: -1px -47px;
+	}
 
-    .buttons .ico2.active
-    {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -2px -73px;
-    }
+	.buttons .ico2.active
+	{
+		background: url(../images/sprite.png) no-repeat 9999px 0px;
+		background-position: -2px -73px;
+	}
 
-    .buttons .ico3
-    {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -2px -97px;
-    }
+	.buttons .ico3
+	{
+		background: url(../images/sprite.png) no-repeat 9999px 0px;
+		background-position: -2px -97px;
+	}
 
-    .buttons .ico3.active 
-    {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -2px -126px;
-    }
+	.buttons .ico3.active 
+	{
+		background: url(../images/sprite.png) no-repeat 9999px 0px;
+		background-position: -2px -126px;
+	}
 
-    .buttons .ico4
-    {
-        background: url(../images/Menu/contactMenu.png) no-repeat 0px 0px;
-        /*background-position: -2px -153px;*/
-    }
+	.buttons .ico4
+	{
+		background: url(../images/Menu/contactMenu.png) no-repeat 0px 0px;
+		/*background-position: -2px -153px;*/
+	}
 
-    .buttons .ico4.active
-    {
-        background: url(../images/Menu/contactMenuSel.png) no-repeat 0px 0px;
-        /*background-position: -2px -178px;*/
-    }
+	.buttons .ico4.active
+	{
+		background: url(../images/Menu/contactMenuSel.png) no-repeat 0px 0px;
+		/*background-position: -2px -178px;*/
+	}
 
-    .buttons .ico5
-    {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -1px -206px;
-    }
+	.buttons .ico5
+	{
+		background: url(../images/sprite.png) no-repeat 9999px 0px;
+		background-position: -1px -206px;
+	}
 
-    .buttons .ico5.active
-    {
-        background: url(../images/sprite.png) no-repeat 9999px 0px;
-        background-position: -2px -232px;
-    }
+	.buttons .ico5.active
+	{
+		background: url(../images/sprite.png) no-repeat 9999px 0px;
+		background-position: -2px -232px;
+	}
 
-    .buttons .ico6
-    {
-        background: url(../images/Menu/meetingMenu.png) no-repeat 0px 0px;
-        /*background-position: -2px -262px;*/
-    }
+	.buttons .ico6
+	{
+		background: url(../images/Menu/meetingMenu.png) no-repeat 0px 0px;
+		/*background-position: -2px -262px;*/
+	}
 
-    .buttons .ico6.active
-    {
-        background: url(../images/Menu/meetingMenuSel.png) no-repeat 0px 0px;
-        /*background-position: -3px -291px;*/
-    }
+	.buttons .ico6.active
+	{
+		background: url(../images/Menu/meetingMenuSel.png) no-repeat 0px 0px;
+		/*background-position: -3px -291px;*/
+	}
 
-    .buttons .ico7
-    {
-        background: url(../images/Menu/followMenu.png) no-repeat 0px 0px;
-        /*background-position: -4px -321px;*/
-    }
+	.buttons .ico7
+	{
+		background: url(../images/Menu/followMenu.png) no-repeat 0px 0px;
+		/*background-position: -4px -321px;*/
+	}
 
-    .buttons .ico7.active
-    {
-        background: url(../images/Menu/followMenuSel.png) no-repeat 0px 0px;
-        /*background-position: -4px -352px;*/
-    }
+	.buttons .ico7.active
+	{
+		background: url(../images/Menu/followMenuSel.png) no-repeat 0px 0px;
+		/*background-position: -4px -352px;*/
+	}
 
-    .buttons .ico8
-    {
-        background: url(../images/Menu/progressMenu.png) no-repeat 0px 0px;
-        /*background-position: -4px -380px;*/
-    }
+	.buttons .ico8
+	{
+		background: url(../images/Menu/progressMenu.png) no-repeat 0px 0px;
+		/*background-position: -4px -380px;*/
+	}
 
-    .buttons .ico8.active 
-    {
-        background: url(../images/Menu/progressMenuSel.png) no-repeat 0px 0px;
-        /* background-position: -4px -415px; */
-    }
+	.buttons .ico8.active 
+	{
+		background: url(../images/Menu/progressMenuSel.png) no-repeat 0px 0px;
+		/* background-position: -4px -415px; */
+	}
 
-    .buttons .ico9
-    {
-        background: url(../images/Menu/univMenu.png) no-repeat 0px 0px;
-        /*background-position: -4px -380px;*/
-    }
+	.buttons .ico9
+	{
+		background: url(../images/Menu/univMenu.png) no-repeat 0px 0px;
+		/*background-position: -4px -380px;*/
+	}
 
-    .buttons .ico9.active 
-    {
-        background: url(../images/Menu/univMenuSel.png) no-repeat 0px 0px;
-        /*background-position: -4px -415px;*/
-    }
+	.buttons .ico9.active 
+	{
+		background: url(../images/Menu/univMenuSel.png) no-repeat 0px 0px;
+		/*background-position: -4px -415px;*/
+	}
 
-    .buttons .ico10
-    {
-        background: url(../images/Menu/productMenu.png) no-repeat 0px 0px;
-        /*background-position: -4px -380px;*/
-    }
+	.buttons .ico10
+	{
+		background: url(../images/Menu/productMenu.png) no-repeat 0px 0px;
+		/*background-position: -4px -380px;*/
+	}
 
-    .buttons .ico10.active 
-    {
-        background: url(../images/Menu/productMenuSel.png) no-repeat 0px 0px;
-        /*background-position: -4px -415px;*/
-    }
+	.buttons .ico10.active 
+	{
+		background: url(../images/Menu/productMenuSel.png) no-repeat 0px 0px;
+		/*background-position: -4px -415px;*/
+	}
 
 
-    .buttons .ico11
-    {
-        background: url(../images/Menu/infoMenu.png) no-repeat 0px 0px;
-        /*background-position: -4px -380px;*/
-    }
+	.buttons .ico11
+	{
+		background: url(../images/Menu/infoMenu.png) no-repeat 0px 0px;
+		/*background-position: -4px -380px;*/
+	}
 
-    .buttons .ico11.active 
-    {
-        background: url(../images/Menu/infoMenuSel.png) no-repeat 0px 0px;
-        /*background-position: -4px -415px;*/
-    }
+	.buttons .ico11.active 
+	{
+		background: url(../images/Menu/infoMenuSel.png) no-repeat 0px 0px;
+		/*background-position: -4px -415px;*/
+	}
 
-    .buttons .ico12
-    {
-        background: url(../images/Menu/feedMenu.png) no-repeat 0px 0px;
-        /*background-position: -4px -380px;*/
-    }
+	.buttons .ico12
+	{
+		background: url(../images/Menu/feedMenu.png) no-repeat 0px 0px;
+		/*background-position: -4px -380px;*/
+	}
 
-    .buttons .ico12.active 
-    {
-        background: url(../images/Menu/feedMenuSel.png) no-repeat 0px 0px;
-        /*background-position: -4px -415px;*/
-    }
+	.buttons .ico12.active 
+	{
+		background: url(../images/Menu/feedMenuSel.png) no-repeat 0px 0px;
+		/*background-position: -4px -415px;*/
+	}
 
 /* General hover styles */
 
@@ -506,9 +506,9 @@ form, fieldset
 
 .logout-btn
 {
-    position: relative;
-    display: inline-block;
-    float: left;
+	position: relative;
+	display: inline-block;
+	float: left;
 }
 
 /*style the profile sub menu*/
@@ -532,7 +532,7 @@ form, fieldset
 
 .profile ul li a:hover {
 	background-color:#606977;
-    color:#FFF;
+	color:#FFF;
 }
 
 .profile li {
@@ -555,17 +555,17 @@ form, fieldset
 }
 
 #modalWindow {
-    margin:0px 0px;
-    padding:20px 20px;
+	margin:0px 0px;
+	padding:20px 20px;
 }
 
 /* Overlay */
 #modalWindow-overlay {
-    background-color: #000;
+	background-color: #000;
 }
 
 #modalWindow-content {
-    background-color: #EEE;
+	background-color: #EEE;
 }
 
 #modalWindow-content a.modal-close,
@@ -575,7 +575,7 @@ form, fieldset
 #modalWindow-content a.modal-close:hover {color:#ccc;}
 
 #simplemodal-container {
-    overflow-y:scroll;
+	overflow-y:scroll;
 }
 
 #simplemodal-container .header {height:30px; line-height:30px; width:99%; background:url(../images/confirm/header.gif) repeat-x; color:#fff; font-weight:bold; padding:0;}

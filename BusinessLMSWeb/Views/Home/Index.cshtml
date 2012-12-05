@@ -9,27 +9,27 @@
 		
 		<div id="mySlides">
 			<div id="slide1">
-				<a href="http://www.amway.com/start-a-business/become-a-business-owner" target="_blank">
+				<a href="https://www.amway.com/about-amway/our-company" target="_blank">
 					<img src="/images/Home/slider1.jpg" alt="Become a business owner" />
 				</a>
 			</div>
 			<div id="slide2">
-				<a href="http://www.amway.com/start-a-business/your-success-rewarded" target="_blank">
+				<a href="https://www.amway.com/about-amway/whats-new" target="_blank">
 					<img src="/images/Home/slider2.jpg" alt="Your success rewarded" />
 				</a>
 			</div>
 			<div id="slide3">
-				<a href="http://www.amway.com/start-a-business/exceptional-products" target="_blank">
+				<a href="https://www.amway.com/about-amway/family-of-brands" target="_blank">
 					<img src="/images/Home/slider3.jpg" alt="Exceptional products" />
 				</a>
 			</div>
 			<div id="slide4">
-				<a href="http://www.amway.com/start-a-business/low-risk-low-cost" target="_blank">
+				<a href="https://www.amway.com/about-amway/business-opportunity" target="_blank">
 					<img src="/images/Home/slider4.jpg" alt="Low risk low cost" />
 				</a>
 			</div>
 			<div id="slide5">
-				<a href="http://www.amway.com/start-a-business/business-support" target="_blank">
+				<a href="https://www.amway.com/about-amway/citizenship/amway-one-by-onet" target="_blank">
 					<img src="/images/Home/slider5.jpg" alt="Business support" />
 				</a>
 			</div>
@@ -58,7 +58,7 @@
 					o hablar, de una oportunidad de negocio, a una persona o mil en
 					cualquier parte del mundo.
 					<br />
-					<a href="#" class="read_more">Read More</a>
+					@*<a href="#" class="read_more">Read More</a>*@
 				</p>
 			</div>
 			<div class="block">
@@ -69,7 +69,6 @@
 					sabemos por, experiencia propia que lo que es fácil, de hacer
 					también es fácil de no hacer.
 					<br />
-					<a href="#" class="read_more">Read More</a>
 				</p>
 			</div>
 			<div class="block last">
@@ -80,7 +79,6 @@
 					“Si tú, no tienes un propósito por el cual estés dispuesto a morir.”
 					“No tienes una razón por la cual vivir.”
 					<br />
-					<a href="#" class="read_more">Read More</a>
 				</p>
 			</div>
 			<div class="clear"></div>
@@ -98,7 +96,7 @@
 						<p>Join us Here...  </p>
 					</div>
 					<div class="alignright">
-						@{ Html.RenderPartial("_Register"); }
+						@{ Html.RenderPartial("_Register", (BusinessLMSWeb.Models.Contact)ViewBag.contact); }
 					</div>
 				</div>
 				<div class="clear"></div>

@@ -885,7 +885,7 @@ input[type=text], input[type=email], input[type=url], input[type=tel], input[typ
     height: 23px;
 }
 
-input[type=submit], input[type=reset]
+input[type=submit], input[type=reset], input[type=button]
 {
     padding: 14px 20px;
     border-color: transparent;
@@ -911,12 +911,12 @@ input[type=submit], input[type=reset]
     transition: all 100ms linear;
 }
 
-#sub-headline input[type=submit]
+#sub-headline input[type=submit], #sub-headline input[type=button]
 {
     height: 35px;
 }
 
-input[type=submit]:hover, input[type=reset]:hover
+input[type=submit]:hover, input[type=reset]:hover, input[type=button]:hover
 {
     -moz-border-radius: 0 10px 0 10px;
     -webkit-border-radius: 0 10px 0 10px;

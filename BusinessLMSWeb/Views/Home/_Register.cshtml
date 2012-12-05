@@ -3,23 +3,23 @@
 
 <div class="main-container">
     
-    <div class="container1">
-    @using (Html.BeginForm()) {
+    <div class="container1" id="divRegisterForm">
+    @using (Html.BeginForm("RegisterAjax", "Home", FormMethod.Post, new { id = "current_form" }))
+    { 
         @Html.ValidationSummary(true)
         <div class="block">
             <div class="editor-label">Who told you about us?</div>
             <div id="divIboName"><input type="text" name="iboName" id="iboName" value="@ViewBag.iboName" /></div>
             <div class="editor-label"><h2>IBO Number</h2></div>
-            <div id="iboNum">@ViewBag.IBONum</div>
+            <div id="divIboNum">@ViewBag.IBONum</div>
             <div class="editor-label"><h2>Email</h2></div>
-            <div id="iboEmail">@ViewBag.email</div>
+            <div id="divIboEmail">@ViewBag.email</div>
             <div class="editor-label"><h2>Phone</h2></div>
-            <div id="iboPhone">@ViewBag.phone</div>
+            <div id="divIboPhone">@ViewBag.phone</div>
         </div>
         <div class="block">
             <fieldset>
                 <legend>Contact</legend>
-
                 <div class="editor-label">
                     @Html.LabelFor(model => model.firstName)
                 </div>
@@ -43,14 +43,16 @@
                     @Html.EditorFor(model => model.email)
                     @Html.ValidationMessageFor(model => model.email)
                 </div>
-
                 <div class="alignright">
-                    <input type="submit" value="Register" />
+                    <input type="button" value="Register" onclick="sendRegister(this.form);" />
                 </div>
             </fieldset>
         </div>
         
         @Html.HiddenFor(model => model.IBONum)
+        @Html.HiddenFor(model => model.isPublic)
+        @Html.HiddenFor(model => model.contactLevel)
+        @Html.HiddenFor(model => model.datetime)
         
     }
     </div>
