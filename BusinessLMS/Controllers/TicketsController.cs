@@ -22,6 +22,12 @@ namespace BusinessLMS.Controllers
             return db.Tickets.AsEnumerable();
         }
 
+        public IEnumerable<Ticket> GetMyTickets(string id)
+        {
+            List<Ticket> tickets = (from ticket in db.Tickets where ticket.IBONum == id select ticket).ToList();
+            return tickets;
+        }
+
         // GET api/Tickets/5
         public Ticket GetTicket(int id)
         {

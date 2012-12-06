@@ -277,85 +277,6 @@ html[xmlns] .clearfix
     position: relative;
 }
 
-    .metro .layout .commands-list
-    {
-        margin: 0;
-        padding: 0;
-        margin-top: 30px;
-        list-style: none;
-    }
-
-        .metro .layout .commands-list li
-        {
-            display: inline-block;
-            float: left;
-            margin-right: 20px;
-            margin-left: 20px;
-        }
-
-            .metro .layout .commands-list li .command
-            {
-                display: block;
-                text-align: center;
-                float: left;
-                cursor: pointer;
-                text-decoration: none;
-            }
-
-                .metro .layout .commands-list li .command img
-                {
-                    height: 32px;
-                    width: 32px;
-                }
-
-                .metro .layout .commands-list li .command span
-                {
-                    display: block;
-                    font-size: 9pt;
-                    font-family: 'Open Sans',sans-serif;
-                }
-
-            .metro .layout .commands-list li.divider
-            {
-                width: 1px;
-                border-right: 1px #c3c3c3 solid;
-                height: 48px;
-            }
-
-        .metro .layout .commands-list.margin-10 li
-        {
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-
-        .metro .layout .commands-list.margin-20 li
-        {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-
-        .metro .layout .commands-list.margin-30 li
-        {
-            margin-left: 15px;
-            margin-right: 15px;
-        }
-
-        .metro .layout .commands-list.margin-40 li
-        {
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-
-        .metro .layout .commands-list.place-left
-        {
-            margin-left: 20px;
-        }
-
-        .metro .layout .commands-list.place-right
-        {
-            margin-right: 20px;
-        }
-
     .metro .layout .header
     {
         position: fixed;
@@ -3551,6 +3472,8 @@ html[xmlns] .clearfix
     right:10px;
 }
 
+/*  DATA TABLE STYLES */
+
 .dataTable
 {
     width:100%;
@@ -3585,4 +3508,16 @@ html[xmlns] .clearfix
 .dataTables_processing
 {
 
+}
+
+.top-margin {
+    margin:20px auto;
+}
+
+table.thin-borders
+{
+    border-width: 0 0 1px 1px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-style: solid;
 }

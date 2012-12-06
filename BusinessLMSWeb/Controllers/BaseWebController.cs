@@ -44,7 +44,7 @@ namespace BusinessLMSWeb.Controllers
                         {
                             ViewBag.IBOName = String.Concat(ibo.firstName, " ", ibo.lastName);
                             ViewBag.IBONum = ibo.IBONum;
-                            ViewBag.IBOPicture = ibo.picture != String.Empty ? ibo.picture : "Images/noProfilePicture.png";
+                            ViewBag.IBOPicture = ibo.picture != String.Empty ? ibo.picture : Url.Content("~/Images/noProfilePicture.png");
                             ViewBag.MenuItems = menuItems;
                         }
                         else

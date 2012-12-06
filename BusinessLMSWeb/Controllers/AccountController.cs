@@ -24,6 +24,7 @@ namespace BusinessLMSWeb.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            ibo = null;
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

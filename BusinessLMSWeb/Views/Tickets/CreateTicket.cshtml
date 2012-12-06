@@ -1,5 +1,9 @@
 ﻿@model BusinessLMSWeb.Models.Ticket
 
+@{
+    List<BusinessLMSWeb.Models.Ticket> myTikets = (List<BusinessLMSWeb.Models.Ticket>)ViewBag.TicketList;
+}
+
 <div class="metro">
     <div class="metro-container-300">
 
@@ -36,36 +40,27 @@
                 <div class="metro-align-right">
                     <input type="button" value="Create" class="metro-button" onclick="submitTicketForm(this.form);" />
                 </div>
-                <table border="1", title="My tickets">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ticketType)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.description)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.datetime)
-                        </th>
-                        <th></th>
-                    </tr>
+                
+            </fieldset>
+        }
 
-                    @foreach (var item in (List<BusinessLMSWeb.Models.Ticket>)ViewBag.TicketList)
+        @if (myTikets.Count > 0) { 
+            <div class="top-margin">
+                <h3>My Tickets</h3>
+                <table class="thin-borders">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.description)</th>
+                        <th>@Html.DisplayNameFor(model => model.datetime)</th>
+                    </tr>
+                    @foreach (var item in myTikets)
                     {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ticketType)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.description)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.datetime)
-                            </td>
+                            <td>@Html.DisplayFor(modelItem => item.description)</td>
+                            <td>@Html.DisplayFor(modelItem => item.datetime)</td>
                         </tr>
                     }
                 </table>
-            </fieldset>
+            </div>
         }
 
     </div>
