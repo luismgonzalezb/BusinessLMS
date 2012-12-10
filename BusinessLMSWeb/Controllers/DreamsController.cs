@@ -32,9 +32,9 @@ namespace BusinessLMSWeb.Controllers
             if (ibo != null)
             {
                 BaseClient client = new BaseClient(baseApiUrl, "Dreams", "GetDreamsUserLevel");
-                NameValueCollection parms = new NameValueCollection(){
+                NameValueCollection parms = new NameValueCollection() {
                     { "id", ibo.IBONum }, 
-                    { "level", id.ToString()} 
+                    { "level", id.ToString() } 
                 };
                 List<Dream> dreams = client.Get<List<Dream>>(parms);
                 if ((dreams.Count > 0) || (id == 0))
