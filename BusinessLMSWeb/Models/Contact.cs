@@ -86,6 +86,6 @@ namespace BusinessLMSWeb.Models
 
         [Display(Name = "Prefered Contact Time")]
         [DataType(DataType.Text)]
-        public string PreferedTime { get; set; }
+        public string preferedTime { get; set; }
     }
 }

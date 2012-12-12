@@ -40,6 +40,8 @@
 publish
 
 # Others
+bin/
+obj/
 [Bb]in
 [Oo]bj
 sql

@@ -23,6 +23,6 @@ namespace BusinessLMS.Models
         public System.DateTime datetime { get; set; }
         public bool isPublic { get; set; }
         public System.DateTime birthday { get; set; }
-        public string preferedtime { get; set; }
+        public string preferedTime { get; set; }
     }
 }

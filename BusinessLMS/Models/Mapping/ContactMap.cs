@@ -53,7 +53,7 @@ namespace BusinessLMS.Models.Mapping
 
             this.Property(t => t.isPublic);
 
-            this.Property(t => t.preferedtime)
+            this.Property(t => t.preferedTime)
                 .HasMaxLength(50);
 
             // Table & Column Mappings
@@ -76,6 +76,7 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.datetime).HasColumnName("datetime");
             this.Property(t => t.isPublic).HasColumnName("isPublic");
             this.Property(t => t.birthday).HasColumnName("birthday");
+            this.Property(t => t.preferedTime).HasColumnName("preferedTime");
         }
     }
 }

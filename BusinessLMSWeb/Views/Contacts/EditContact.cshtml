@@ -60,6 +60,14 @@
         </div>
 
         <div class="metro-form-control">
+            <label for="firstName">Prefered Contact Time</label>
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.preferedTime)
+                @Html.ValidationMessageFor(model => model.preferedTime)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
             <label for="contactLevel">Contact Level</label>
             <div class="metro-text-box">
                 @Html.EditorFor(model => model.contactLevel)
@@ -131,14 +139,6 @@
                 @Html.ValidationMessageFor(model => model.zipcode)
             </div>
         </div>
-
-         <div class="metro-form-control">
-            <label for="firstName">Prefered Contact Time</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.PreferedTime)
-                @Html.ValidationMessageFor(model => model.PreferedTime)
-            </div>
-        </div
 
         <div class="metro-form-control">
             <label for="isPublic">Make Public</label>
