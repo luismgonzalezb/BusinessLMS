@@ -10,6 +10,8 @@ function openTicketWindow() {
     $("#ticketModal").load('/Tickets/CreateTicket' , function () {
         $("#ticketModal").modal({
             closeHTML: "<a href='#' title='Close' class='modal-close'>x</a>",
+            minWidth: 600,
+            minHeight: 400,
             position: ["20%", ],
             overlayId: 'modalWindow-overlay',
             containerId: 'modalWindow-content',

@@ -44,27 +44,27 @@
             </fieldset>
         }
 
-        @if (myTikets.Count > 0) { 
-            <div class="top-margin">
-                <h3>My Tickets</h3>
-                <table class="thin-borders">
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.description)</th>
-                        <th>@Html.DisplayNameFor(model => model.datetime)</th>
-                    </tr>
-                    @foreach (var item in myTikets)
-                    {
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem => item.description)</td>
-                            <td>@Html.DisplayFor(modelItem => item.datetime)</td>
-                        </tr>
-                    }
-                </table>
-            </div>
-        }
-
     </div>
 </div>
+
+@if (myTikets.Count > 0) { 
+    <div class="top-margin">
+        <h3>My Tickets</h3>
+        <table class="thin-borders" border="1">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.description)</th>
+                <th>@Html.DisplayNameFor(model => model.datetime)</th>
+            </tr>
+            @foreach (var item in myTikets)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.datetime)</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
 
 <script type="text/javascript">
     $(document).ready(function () {

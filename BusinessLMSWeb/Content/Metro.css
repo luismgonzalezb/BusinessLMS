@@ -2316,7 +2316,8 @@ html[xmlns] .clearfix
         .metro .metro-form .metro-form-control .metro-text-box input[type=text],
         .metro .metro-form .metro-form-control .metro-text-box input[type=email],
         .metro .metro-form .metro-form-control .metro-text-box input[type=tel],
-        .metro .metro-form .metro-form-control .metro-text-box input[type=password]
+        .metro .metro-form .metro-form-control .metro-text-box input[type=password],
+        .metro .metro-form .metro-form-control .metro-text-box textarea
         {
             background: #d2d2d2;
             border: 2px #d2d2d2 solid;
@@ -2332,7 +2333,8 @@ html[xmlns] .clearfix
             .metro .metro-form .metro-form-control .metro-text-box input[type=text]:focus,
             .metro .metro-form .metro-form-control .metro-text-box input[type=email]:focus,
             .metro .metro-form .metro-form-control .metro-text-box input[type=tel]:focus,
-            .metro .metro-form .metro-form-control .metro-text-box input[type=password]:focus
+            .metro .metro-form .metro-form-control .metro-text-box input[type=password]:focus,
+            .metro .metro-form .metro-form-control .metro-text-box textarea:focus
             {
                 background: #fff;
                 border-color: #fff;
@@ -2342,7 +2344,8 @@ html[xmlns] .clearfix
             .metro .metro-form .metro-form-control .metro-text-box input[type=text]:disabled,
             .metro .metro-form .metro-form-control .metro-text-box input[type=email]:disabled,
             .metro .metro-form .metro-form-control .metro-text-box input[type=tel]:disabled,
-            .metro .metro-form .metro-form-control .metro-text-box input[type=password]:disabled
+            .metro .metro-form .metro-form-control .metro-text-box input[type=password]:disabled,
+            .metro .metro-form .metro-form-control .metro-text-box textarea:disabled
             {
                 background: #1d1d1d;
                 border: 2px #777777 solid;
@@ -2351,7 +2354,8 @@ html[xmlns] .clearfix
             .metro .metro-form .metro-form-control .metro-text-box input[type=text]:not(:focus):not(:disabled):hover,
             .metro .metro-form .metro-form-control .metro-text-box input[type=email]:not(:focus):not(:disabled):hover,
             .metro .metro-form .metro-form-control .metro-text-box input[type=tel]:not(:focus):not(:disabled):hover,
-            .metro .metro-form .metro-form-control .metro-text-box input[type=password]:not(:focus):not(:disabled):hover
+            .metro .metro-form .metro-form-control .metro-text-box input[type=password]:not(:focus):not(:disabled):hover,
+            .metro .metro-form .metro-form-control .metro-text-box textarea:not(:focus):not(:disabled):hover
             {
                 background: #e2e2e2;
             }
@@ -2360,6 +2364,7 @@ html[xmlns] .clearfix
             .metro .metro-form .metro-form-control .metro-text-box input[type=email] + .helper::before,
             .metro .metro-form .metro-form-control .metro-text-box input[type=tel] + .helper::before,
             .metro .metro-form .metro-form-control .metro-text-box input[type=password] + .helper::before
+            .metro .metro-form .metro-form-control .metro-text-box textarea + .helper::before
             {
                 display: inline-block;
                 position: absolute;
@@ -2381,7 +2386,8 @@ html[xmlns] .clearfix
             .metro .metro-form .metro-form-control .metro-text-box input[type=text]:focus + .helper::before,
             .metro .metro-form .metro-form-control .metro-text-box input[type=email]:focus + .helper::before,
             .metro .metro-form .metro-form-control .metro-text-box input[type=tel]:focus + .helper::before,
-            .metro .metro-form .metro-form-control .metro-text-box input[type=password]:focus + .helper::before
+            .metro .metro-form .metro-form-control .metro-text-box input[type=password]:focus + .helper::before,
+            .metro .metro-form .metro-form-control .metro-text-box textarea:focus + .helper::before
             {
                 visibility: visible;
             }
@@ -2389,7 +2395,8 @@ html[xmlns] .clearfix
             .metro .metro-form .metro-form-control .metro-text-box:hover input[type=text] + .helper:before,
             .metro .metro-form .metro-form-control .metro-text-box:hover input[type=email] + .helper:before,
             .metro .metro-form .metro-form-control .metro-text-box:hover input[type=tel] + .helper:before,
-            .metro .metro-form .metro-form-control .metro-text-box:hover input[type=password] + .helper:before
+            .metro .metro-form .metro-form-control .metro-text-box:hover input[type=password] + .helper:before,
+            .metro .metro-form .metro-form-control .metro-text-box:hover textarea + .helper:before
             {
                 background: #dedede !important;
             }
@@ -2397,7 +2404,8 @@ html[xmlns] .clearfix
             .metro .metro-form .metro-form-control .metro-text-box:active input[type=text] + .helper:before,
             .metro .metro-form .metro-form-control .metro-text-box:active input[type=email] + .helper:before,
             .metro .metro-form .metro-form-control .metro-text-box:active input[type=tel] + .helper:before,
-            .metro .metro-form .metro-form-control .metro-text-box:active input[type=password] + .helper:before
+            .metro .metro-form .metro-form-control .metro-text-box:active input[type=password] + .helper:before,
+            .metro .metro-form .metro-form-control .metro-text-box:active textarea + .helper:before
             {
                 background: #000 !important;
             }
@@ -3516,7 +3524,17 @@ html[xmlns] .clearfix
 
 table.thin-borders
 {
-    border-width: 0 0 1px 1px;
+    width:100%;
+    border-width: 1px 1px 1px 1px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-style: solid;
+}
+
+table.thin-borders tr,
+table.thin-borders td
+{
+    border-width: 1px 1px 1px 1px;
     border-spacing: 0;
     border-collapse: collapse;
     border-style: solid;

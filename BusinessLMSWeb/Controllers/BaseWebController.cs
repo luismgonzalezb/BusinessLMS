@@ -96,7 +96,7 @@ namespace BusinessLMSWeb.Controllers
                 SimpleAES crypto = new SimpleAES();
                 string name = crypto.EncryptToString("fid");
                 HttpCookie cookie = Request.Cookies[name];
-                if (cookie != null)  value = cookie.Value != null ? crypto.DecryptString(cookie.Value) : "";
+                if (cookie != null) value = cookie.Value != null ? cookie.Value : ""; 
                 return value;
             }
             set
@@ -104,7 +104,7 @@ namespace BusinessLMSWeb.Controllers
                 SimpleAES crypto = new SimpleAES();
                 string name = crypto.EncryptToString("fid");
                 HttpCookie cookie = new HttpCookie(name);
-                cookie.Value = crypto.EncryptToString(value);
+                cookie.Value = value; 
                 cookie.Expires = DateTime.Now.AddDays(365);
                 Response.Cookies.Add(cookie);
             }
@@ -118,8 +118,7 @@ namespace BusinessLMSWeb.Controllers
                 SimpleAES crypto = new SimpleAES();
                 string name = crypto.EncryptToString("at");
                 HttpCookie cookie = Request.Cookies[name];
-                if (cookie != null) 
-                    value = cookie.Value != null ? crypto.DecryptString(cookie.Value) : "";
+                if (cookie != null) value = cookie.Value != null ? cookie.Value : "";
                 return value;
             }
             set
@@ -144,7 +143,7 @@ namespace BusinessLMSWeb.Controllers
                 {
                     if (cookie.Value != null)
                     {
-                        string temp = crypto.DecryptString(cookie.Value);
+                        string temp = cookie.Value;
                         value = JsonConvert.DeserializeObject<IBO>(temp);
                     }
                 }
@@ -156,7 +155,7 @@ namespace BusinessLMSWeb.Controllers
                 string name = crypto.EncryptToString("iboinfo");
                 HttpCookie cookie = new HttpCookie(name);
                 string temp = JsonConvert.SerializeObject(value);
-                cookie.Value = crypto.EncryptToString(temp);
+                cookie.Value = temp;
                 cookie.Expires = DateTime.Now.AddDays(365);
                 Response.Cookies.Add(cookie);
             }
