@@ -83,5 +83,9 @@ namespace BusinessLMSWeb.Models
         [Display(Name = "Birthdat")]
         [DataType(DataType.DateTime)]
         public System.DateTime birthday { get; set; }
+
+        [Display(Name = "Prefered Contact Time")]
+        [DataType(DataType.Text)]
+        public string PreferedTime { get; set; }
     }
 }

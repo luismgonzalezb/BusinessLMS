@@ -53,6 +53,9 @@ namespace BusinessLMS.Models.Mapping
 
             this.Property(t => t.isPublic);
 
+            this.Property(t => t.preferedtime)
+                .HasMaxLength(50);
+
             // Table & Column Mappings
             this.ToTable("Contacts");
             this.Property(t => t.contactId).HasColumnName("contactId");

@@ -133,6 +133,14 @@
         </div>
 
         <div class="metro-form-control">
+            <label for="firstName">Prefered Contact Time</label>
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.PreferedTime)
+                @Html.ValidationMessageFor(model => model.PreferedTime)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
             <label for="isPublic">Make Public</label>
             <div class="metro-text-box">
                 @Html.CheckBoxMetroFor(model => model.isPublic, new { @class = "metro-check" })
