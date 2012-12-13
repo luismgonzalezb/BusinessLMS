@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
+using BusinessLMS.ActionFilters;
 using BusinessLMS.Models;
 
 namespace BusinessLMS.Controllers
 {
+    [BasicAuthentication]
     public class ListsController : ApiController
     {
         private BusinessLMSContext db = new BusinessLMSContext();
@@ -269,13 +269,11 @@ namespace BusinessLMS.Controllers
 
         #region Tools
 
-        // GET api/Delete
         public IEnumerable<Tool> GetTools()
         {
             return db.Tools.AsEnumerable();
         }
 
-        // GET api/Delete/5
         public Tool GetTool(int id)
         {
             Tool tool = db.Tools.Find(id);
@@ -287,7 +285,6 @@ namespace BusinessLMS.Controllers
             return tool;
         }
 
-        // PUT api/Delete/5
         public HttpResponseMessage PutTool(int id, Tool tool)
         {
             if (ModelState.IsValid && id == tool.toolId)
@@ -311,7 +308,6 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // POST api/Delete
         public HttpResponseMessage PostTool(Tool tool)
         {
             if (ModelState.IsValid)
@@ -329,7 +325,6 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // DELETE api/Delete/5
         public HttpResponseMessage DeleteTool(int id)
         {
             Tool tool = db.Tools.Find(id);

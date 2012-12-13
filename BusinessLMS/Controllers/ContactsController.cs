@@ -6,10 +6,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using BusinessLMS.ActionFilters;
 using BusinessLMS.Models;
 
 namespace BusinessLMS.Controllers
 {
+    [BasicAuthentication]
     public class ContactsController : ApiController
     {
         private BusinessLMSContext db = new BusinessLMSContext();
@@ -63,6 +65,17 @@ namespace BusinessLMS.Controllers
             if (ModelState.IsValid)
             {
                 db.Contacts.Add(contact);
+                db.SaveChanges();
+
+                /* Business Loginc to add first followup to new contacts */                
+                ContactFollowup followup = new ContactFollowup();
+                followup.contactId = contact.contactId;
+                followup.IBONum = contact.IBONum;
+                followup.method = contact.preferred;
+                followup.datetime = DateTime.Now.AddDays(1);
+                followup.completed = false;
+
+                db.ContactFollowups.Add(followup);
                 db.SaveChanges();
 
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, contact);

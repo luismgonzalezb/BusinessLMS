@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Web;
+using BusinessLMS.Helpers;
 
-namespace BusinessLMS.Filters
+namespace BusinessLMS.ActionFilters
 {
-    public class BasicAuthenticationAttribute : System.Web.Http.Filters.ActionFilterAttribute
+    public class BasicAuthentication : System.Web.Http.Filters.ActionFilterAttribute
     {
         public override void OnActionExecuting(System.Web.Http.Controllers.HttpActionContext actionContext)
         {
@@ -18,11 +16,9 @@ namespace BusinessLMS.Filters
             {
                 string authToken = actionContext.Request.Headers.Authorization.Parameter;
                 string decodedToken = Encoding.UTF8.GetString(Convert.FromBase64String(authToken));
- 
-                string username = decodedToken.Substring(0, decodedToken.IndexOf(":"));
-                string password = decodedToken.Substring(decodedToken.IndexOf(":") + 1);
-
-                if (true == true)
+                string apiName = decodedToken.Substring(0, decodedToken.IndexOf(":"));
+                string apiKey = decodedToken.Substring(decodedToken.IndexOf(":") + 1);
+                if (Helper.Authorize(apiName, apiKey) == true)
                 {
                     base.OnActionExecuting(actionContext);
                 }
@@ -30,10 +26,7 @@ namespace BusinessLMS.Filters
                 {
                     actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
                 }
-
-
             }
-
         }
     }
 }

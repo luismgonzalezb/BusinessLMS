@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
+using BusinessLMS.ActionFilters;
 using BusinessLMS.Models;
 
 namespace BusinessLMS.Controllers
 {
+    [BasicAuthentication]
     public class GoalsController : ApiController
     {
         private BusinessLMSContext db = new BusinessLMSContext();
 
-        // GET api/Goals
         public IEnumerable<Goal> GetGoals()
         {
             return db.Goals.AsEnumerable();
@@ -32,7 +31,6 @@ namespace BusinessLMS.Controllers
             return (from g in db.Goals join d in db.Dreams on g.dreamId equals d.dreamId where d.IBONum == id select g);
         }
 
-        // GET api/Goals/5
         public Goal GetGoal(int id)
         {
             Goal goal = db.Goals.Find(id);
@@ -44,7 +42,6 @@ namespace BusinessLMS.Controllers
             return goal;
         }
 
-        // PUT api/Goals/5
         public HttpResponseMessage PutGoal(int id, Goal goal)
         {
             if (ModelState.IsValid && id == goal.goalId)
@@ -68,7 +65,6 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // POST api/Goals
         public HttpResponseMessage PostGoal(Goal goal)
         {
             if (ModelState.IsValid)
@@ -86,7 +82,6 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // DELETE api/Goals/5
         public HttpResponseMessage DeleteGoal(int id)
         {
             Goal goal = db.Goals.Find(id);

@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
+using BusinessLMS.ActionFilters;
 using BusinessLMS.Models;
 
 namespace BusinessLMS.Controllers
 {
+    [BasicAuthentication]
     public class TicketsController : ApiController
     {
         private BusinessLMSContext db = new BusinessLMSContext();
 
-        // GET api/Tickets
         public IEnumerable<Ticket> GetTickets()
         {
             return db.Tickets.AsEnumerable();
@@ -28,7 +27,6 @@ namespace BusinessLMS.Controllers
             return tickets;
         }
 
-        // GET api/Tickets/5
         public Ticket GetTicket(int id)
         {
             Ticket ticket = db.Tickets.Find(id);
@@ -40,7 +38,6 @@ namespace BusinessLMS.Controllers
             return ticket;
         }
 
-        // PUT api/Tickets/5
         public HttpResponseMessage PutTicket(int id, Ticket ticket)
         {
             if (ModelState.IsValid && id == ticket.ticketId)
@@ -64,7 +61,6 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // POST api/Tickets
         public HttpResponseMessage PostTicket(Ticket ticket)
         {
             if (ModelState.IsValid)
@@ -82,7 +78,6 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // DELETE api/Tickets/5
         public HttpResponseMessage DeleteTicket(int id)
         {
             Ticket ticket = db.Tickets.Find(id);

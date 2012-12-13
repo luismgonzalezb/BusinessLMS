@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
+using BusinessLMS.ActionFilters;
 using BusinessLMS.Models;
 
 namespace BusinessLMS.Controllers
 {
+    [BasicAuthentication]
     public class ContactFollowupController : ApiController
     {
         private BusinessLMSContext db = new BusinessLMSContext();
 
-        // GET api/ContactFollowup
         public IEnumerable<ContactFollowup> GetContactFollowups()
         {
             return db.ContactFollowups.AsEnumerable();
@@ -28,7 +27,6 @@ namespace BusinessLMS.Controllers
                     where cf.completed == false && c.IBONum == id select cf);
         }
 
-        // GET api/ContactFollowup/5
         public ContactFollowup GetContactFollowup(int id)
         {
             ContactFollowup contactfollowup = db.ContactFollowups.Find(id);
@@ -36,17 +34,14 @@ namespace BusinessLMS.Controllers
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
-
             return contactfollowup;
         }
 
-        // PUT api/ContactFollowup/5
         public HttpResponseMessage PutContactFollowup(int id, ContactFollowup contactfollowup)
         {
             if (ModelState.IsValid && id == contactfollowup.followupId)
             {
                 db.Entry(contactfollowup).State = EntityState.Modified;
-
                 try
                 {
                     db.SaveChanges();
@@ -55,7 +50,6 @@ namespace BusinessLMS.Controllers
                 {
                     return Request.CreateResponse(HttpStatusCode.NotFound);
                 }
-
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
             else
@@ -64,14 +58,12 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // POST api/ContactFollowup
         public HttpResponseMessage PostContactFollowup(ContactFollowup contactfollowup)
         {
             if (ModelState.IsValid)
             {
                 db.ContactFollowups.Add(contactfollowup);
                 db.SaveChanges();
-
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, contactfollowup);
                 response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = contactfollowup.followupId }));
                 return response;
@@ -82,7 +74,6 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // DELETE api/ContactFollowup/5
         public HttpResponseMessage DeleteContactFollowup(int id)
         {
             ContactFollowup contactfollowup = db.ContactFollowups.Find(id);

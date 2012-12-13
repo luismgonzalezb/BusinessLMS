@@ -1,28 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
+using BusinessLMS.ActionFilters;
 using BusinessLMS.Models;
 
 namespace BusinessLMS.Controllers
 {
+    [BasicAuthentication]
     public class DreamsController : ApiController
     {
         private BusinessLMSContext db = new BusinessLMSContext();
 
-        // GET api/Dreams
         public IEnumerable<Dream> GetDreams()
         {
             return db.Dreams.AsEnumerable();
         }
 
-        // GET api/Dreams/5
         public Dream GetDream(int id)
         {
             Dream dream = db.Dreams.Find(id);
@@ -44,7 +42,6 @@ namespace BusinessLMS.Controllers
             return (from dream in db.Dreams where dream.IBONum == id orderby dream.timeframeId select dream);
         }
 
-        // PUT api/Dreams/5
         public HttpResponseMessage PutDream(int id, Dream dream)
         {
             if (ModelState.IsValid && id == dream.dreamId)
@@ -68,7 +65,6 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // POST api/Dreams
         public HttpResponseMessage PostDream(Dream dream)
         {
             if (ModelState.IsValid)
@@ -86,7 +82,6 @@ namespace BusinessLMS.Controllers
             }
         }
 
-        // DELETE api/Dreams/5
         public HttpResponseMessage DeleteDream(int id)
         {
             Dream dream = db.Dreams.Find(id);

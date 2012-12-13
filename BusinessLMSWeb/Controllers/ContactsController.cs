@@ -54,14 +54,6 @@ namespace BusinessLMSWeb.Controllers
                 {
                     BaseClient client = new BaseClient(baseApiUrl, "Contacts", "PostContact");
                     string result = client.Post<Contact>(model);
-                    ContactFollowup followup = new ContactFollowup();
-                    followup.contactId = int.Parse(result);
-                    followup.IBONum = ibo.IBONum;
-                    followup.method = model.preferred;
-                    followup.datetime = DateTime.Now.AddDays(1);
-                    followup.completed = false;
-                    client = new BaseClient(baseApiUrl, "ContactFollowup", "PostContactFollowup");
-                    result = client.Post<ContactFollowup>(followup);
                     return Json(model);
                 }
                 catch

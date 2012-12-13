@@ -86,23 +86,21 @@ namespace BusinessLMSWeb.Controllers
             }
         }
 
-        #region generalProperties
+        #region General Properties
 
         public string FacebookId
         {
             get
             {
                 string value = "";
-                SimpleAES crypto = new SimpleAES();
-                string name = crypto.EncryptToString("fid");
+                string name = "fid";
                 HttpCookie cookie = Request.Cookies[name];
                 if (cookie != null) value = cookie.Value != null ? cookie.Value : ""; 
                 return value;
             }
             set
             {
-                SimpleAES crypto = new SimpleAES();
-                string name = crypto.EncryptToString("fid");
+                string name = "fid";
                 HttpCookie cookie = new HttpCookie(name);
                 cookie.Value = value; 
                 cookie.Expires = DateTime.Now.AddDays(365);
@@ -115,18 +113,16 @@ namespace BusinessLMSWeb.Controllers
             get
             {
                 string value = "";
-                SimpleAES crypto = new SimpleAES();
-                string name = crypto.EncryptToString("at");
+                string name = "at";
                 HttpCookie cookie = Request.Cookies[name];
                 if (cookie != null) value = cookie.Value != null ? cookie.Value : "";
                 return value;
             }
             set
             {
-                SimpleAES crypto = new SimpleAES();
-                string name = crypto.EncryptToString("at");
+                string name = "at";
                 HttpCookie cookie = new HttpCookie(name);
-                cookie.Value = crypto.EncryptToString(value);
+                cookie.Value = value;
                 cookie.Expires = DateTime.Now.AddDays(365);
                 Response.Cookies.Add(cookie);
             }
@@ -136,8 +132,7 @@ namespace BusinessLMSWeb.Controllers
             get
             {
                 IBO value = null;
-                SimpleAES crypto = new SimpleAES();
-                string name = crypto.EncryptToString("iboinfo");
+                string name = "iboinfo";
                 HttpCookie cookie = Request.Cookies[name];
                 if (cookie != null)
                 {
@@ -151,13 +146,20 @@ namespace BusinessLMSWeb.Controllers
             }
             set
             {
-                SimpleAES crypto = new SimpleAES();
-                string name = crypto.EncryptToString("iboinfo");
-                HttpCookie cookie = new HttpCookie(name);
-                string temp = JsonConvert.SerializeObject(value);
-                cookie.Value = temp;
-                cookie.Expires = DateTime.Now.AddDays(365);
-                Response.Cookies.Add(cookie);
+                string name = "iboinfo";
+                if (value != null)
+                {
+                    HttpCookie cookie = new HttpCookie(name);
+                    string temp = JsonConvert.SerializeObject(value);
+                    cookie.Value = temp;
+                    cookie.Expires = DateTime.Now.AddDays(365);
+                    Response.Cookies.Add(cookie);
+                }
+                else
+                {
+                    Response.Cookies.Remove(name);
+                }
+
             }
         }
 
