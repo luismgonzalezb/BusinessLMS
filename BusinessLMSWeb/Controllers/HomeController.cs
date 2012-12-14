@@ -35,12 +35,14 @@ namespace BusinessLMSWeb.Controllers
                     ViewBag.email = ibo.email;
                     ViewBag.phone = ibo.phone;
                 }
-                ViewBag.ibo = ibo;
             }
             Contact contact = new Contact();
-            contact.contactLevel = "";
+            contact.contactLevel = "0";
             contact.datetime = DateTime.Now;
+            contact.birthday = DateTime.Now;
             contact.isPublic = true;
+            contact.contactTypeId = 2;
+            contact.languageId = 1;
             ViewBag.contact = contact;
             return View();
         }
@@ -69,7 +71,15 @@ namespace BusinessLMSWeb.Controllers
         [HttpPost]
         public ActionResult RegisterAjax(Contact model)
         {
-            return Json(new { success = true });
+            try
+            {
+                BaseClient client = new BaseClient(baseApiUrl, "Contacts", "PostContact");
+                string result = client.Post<Contact>(model);
+                return Json(new { success = true });
+            }
+            catch
+            { }
+            return Json(new { success = false });
         }
 
         [HttpGet]

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace BusinessLMSWeb.Models
@@ -34,6 +32,7 @@ namespace BusinessLMSWeb.Models
         [DataType(DataType.Text)]
         public string lastName { get; set; }
 
+        [Required]
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
         public string email { get; set; }

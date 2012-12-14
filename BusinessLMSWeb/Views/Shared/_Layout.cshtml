@@ -41,8 +41,7 @@
 			</aside>
 		</div>
 		<div id="ticketModal"></div>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> @*CDN Lattest Jquery*@
-		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+		@{ Html.RenderPartial("_jquerycdn"); }
 		@Scripts.Render("~/bundles/jquery")
 		@Scripts.Render("~/bundles/jqueryval")
 		@Scripts.Render("~/Scripts/Tickets/_layout.js")

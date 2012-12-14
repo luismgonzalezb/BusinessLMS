@@ -18,9 +18,6 @@ namespace BusinessLMSWeb.Controllers
     public class AccountController : BaseWebController
     {
 
-        //
-        // GET: /Account/Login
-
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -28,9 +25,6 @@ namespace BusinessLMSWeb.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
-
-        //
-        // POST: /Account/Login
 
         [HttpPost]
         [AllowAnonymous]
@@ -47,9 +41,6 @@ namespace BusinessLMSWeb.Controllers
             return View(model);
         }
 
-        //
-        // POST: /Account/LogOff
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
@@ -59,17 +50,12 @@ namespace BusinessLMSWeb.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //
-        // GET: /Account/Register
-
+        
         [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
-
-        //
-        // POST: /Account/Register
 
         [HttpPost]
         [AllowAnonymous]
@@ -109,8 +95,16 @@ namespace BusinessLMSWeb.Controllers
             if (WebSecurity.GetUserId(model.UserName) > -1 && (WebSecurity.IsConfirmed(model.UserName)))
             {
                 string token = WebSecurity.GeneratePasswordResetToken(model.UserName, 1200);
-                EmailHelper resertEmail = new EmailHelper();
-                resertEmail.SendResetMail("luismgonzalezb@gmail.com", token);
+                /* Get IBO Email */
+                BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
+                IBO ibo = client.Get<IBO>(WebSecurity.GetUserId(model.UserName).ToString());
+                /* Set And Send Email Reset Request */
+                ResertEmailContact contact = new ResertEmailContact();
+                contact.name = model.UserName;
+                contact.email = ibo.email;
+                contact.token = token;
+                client = new BaseClient(baseApiUrl, "Email", "PostResetEmail");
+                string result = client.Post<ResertEmailContact>(contact);
             }
             else
             {
@@ -146,8 +140,6 @@ namespace BusinessLMSWeb.Controllers
             return View();
             
         }
-        //
-        // POST: /Account/Disassociate
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -175,9 +167,6 @@ namespace BusinessLMSWeb.Controllers
             return RedirectToAction("Manage", new { Message = message });
         }
 
-        //
-        // GET: /Account/Manage
-
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -189,9 +178,6 @@ namespace BusinessLMSWeb.Controllers
             ViewBag.ReturnUrl = Url.Action("Manage");
             return View();
         }
-
-        //
-        // POST: /Account/Manage
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -253,9 +239,6 @@ namespace BusinessLMSWeb.Controllers
             return View(model);
         }
 
-        //
-        // POST: /Account/ExternalLogin
-
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -263,9 +246,6 @@ namespace BusinessLMSWeb.Controllers
         {
             return new ExternalLoginResult(provider, Url.Action("ExternalLoginCallback", new { ReturnUrl = returnUrl }));
         }
-
-        //
-        // GET: /Account/ExternalLoginCallback
 
         [AllowAnonymous]
         public ActionResult ExternalLoginCallback(string returnUrl)
@@ -298,9 +278,6 @@ namespace BusinessLMSWeb.Controllers
                 return View("ExternalLoginConfirmation", new RegisterExternalLoginModel { UserName = result.UserName, ExternalLoginData = loginData });
             }
         }
-
-        //
-        // POST: /Account/ExternalLoginConfirmation
 
         [HttpPost]
         [AllowAnonymous]
@@ -346,9 +323,6 @@ namespace BusinessLMSWeb.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View(model);
         }
-
-        //
-        // GET: /Account/ExternalLoginFailure
 
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()

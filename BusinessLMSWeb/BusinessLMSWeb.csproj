@@ -786,6 +786,7 @@
     <Content Include="Views\University\Index.cshtml" />
     <Content Include="Views\Home\_Register.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Shared\_jquerycdn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

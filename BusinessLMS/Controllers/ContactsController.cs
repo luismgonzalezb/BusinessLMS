@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BusinessLMS.ActionFilters;
+using BusinessLMS.Helpers;
 using BusinessLMS.Models;
 
 namespace BusinessLMS.Controllers
@@ -67,16 +68,24 @@ namespace BusinessLMS.Controllers
                 db.Contacts.Add(contact);
                 db.SaveChanges();
 
-                /* Business Loginc to add first followup to new contacts */                
-                ContactFollowup followup = new ContactFollowup();
-                followup.contactId = contact.contactId;
-                followup.IBONum = contact.IBONum;
-                followup.method = contact.preferred;
-                followup.datetime = DateTime.Now.AddDays(1);
-                followup.completed = false;
+                if (contact.email != string.Empty)
+                {
+                    EmailHelper mail = new EmailHelper();
+                    mail.SendEmail(string.Concat(contact.firstName," ",contact.lastName), contact.email, null, EmailHelper.EmailType.subscription);
+                }
 
-                db.ContactFollowups.Add(followup);
-                db.SaveChanges();
+                if (contact.IBONum != string.Empty)
+                {
+                    /* Business Loginc to add first followup to new contacts */
+                    ContactFollowup followup = new ContactFollowup();
+                    followup.contactId = contact.contactId;
+                    followup.IBONum = contact.IBONum;
+                    followup.method = contact.preferred != null ? contact.preferred : "email";
+                    followup.datetime = DateTime.Now.AddDays(1);
+                    followup.completed = false;
+                    db.ContactFollowups.Add(followup);
+                    db.SaveChanges();
+                }
 
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, contact);
                 response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = contact.contactId }));
@@ -124,5 +133,6 @@ namespace BusinessLMS.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
     }
 }

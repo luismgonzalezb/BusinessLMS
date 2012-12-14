@@ -2893,3 +2893,8 @@ div.dark_rounded #pp_full_res .pp_inline, div.dark_square #pp_full_res .pp_inlin
     display: inline-block;
     float: right;
 }
+
+.field-validation-error
+{
+    color: #A3443E;
+}

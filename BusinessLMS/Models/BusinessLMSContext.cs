@@ -1,5 +1,4 @@
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using BusinessLMS.Models.Mapping;
 
 namespace BusinessLMS.Models
