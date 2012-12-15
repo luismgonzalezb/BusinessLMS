@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 using BusinessLMS.ActionFilters;
 using BusinessLMS.Models;
+using BusinessLMS.ModelsView;
 
 namespace BusinessLMS.Controllers
 {
@@ -23,8 +24,50 @@ namespace BusinessLMS.Controllers
 
         public IEnumerable<ContactFollowup> GetIBOFollowup(string id)
         {
-            return (from cf in db.ContactFollowups join c in db.Contacts on cf.contactId equals c.contactId 
-                    where cf.completed == false && c.IBONum == id select cf);
+            return (from cf in db.ContactFollowups
+                    join c in db.Contacts on cf.contactId equals c.contactId
+                    where cf.completed == false && c.IBONum == id
+                    select cf);
+        }
+
+        public IEnumerable<ContactFollowup> GetIBOCompFollowup(string id)
+        {
+            return (from cf in db.ContactFollowups
+                    join c in db.Contacts on cf.contactId equals c.contactId
+                    where cf.completed == true && c.IBONum == id
+                    select cf);
+        }
+
+        public IEnumerable<FollowupView> GetIBOFollowupView(string id)
+        {
+            List<FollowupView> followups = new List<FollowupView>();
+            followups = (from cf in db.ContactFollowups
+                         join c in db.Contacts on cf.contactId equals c.contactId
+                         where cf.completed == false && c.IBONum == id
+                         select new FollowupView
+                         {
+                             followupId = cf.followupId,
+                             ContactName = string.Concat(c.firstName, " ", c.lastName),
+                             Method = cf.method,
+                             datetime = cf.datetime
+                         }).ToList();
+            return followups;
+        }
+
+        public IEnumerable<FollowupView> GetIBOCompFollowupView(string id)
+        {
+            List<FollowupView> followups = new List<FollowupView>();
+            followups = (from cf in db.ContactFollowups
+                         join c in db.Contacts on cf.contactId equals c.contactId
+                         where cf.completed == true && c.IBONum == id
+                         select new FollowupView
+                         {
+                             followupId = cf.followupId,
+                             ContactName = string.Concat(c.firstName, " ", c.lastName),
+                             Method = cf.method,
+                             datetime = cf.datetime
+                         }).ToList();
+            return followups;
         }
 
         public ContactFollowup GetContactFollowup(int id)

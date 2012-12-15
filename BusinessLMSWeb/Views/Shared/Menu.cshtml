@@ -1,40 +1,40 @@
 ﻿@model IEnumerable<BusinessLMSWeb.Models.Step>
 <nav>
 @foreach (var item in Model) {
-    if (string.Concat(ViewBag.controllerName,ViewBag.actionName) == string.Concat(item.controller,item.action))
-    {
-        ViewBag.selected = "active";
-    }
-    else
-    {
-        ViewBag.selected = "";
-    }
+	if (string.Concat(ViewBag.controllerName,ViewBag.actionName) == string.Concat(item.controller,item.action))
+	{
+		ViewBag.selected = "active";
+	}
+	else
+	{
+		ViewBag.selected = "";
+	}
 	<ul class="buttons @ViewBag.selected">
 		<li>
-            
+			
 			<a href="@Url.Action(item.action,item.controller)"> 
-                <span class="ico @item.iconClass @ViewBag.selected" ></span>
-                <span class="menu-text">@item.title</span>
-                <em></em>
+				<span class="ico @item.iconClass @ViewBag.selected" ></span>
+				<span class="menu-text">@item.title</span>
+				<em></em>
 			</a>
 		</li>
 	</ul>
 }
-    <ul class="buttons">
+	<ul class="buttons">
 		<li>
 			<a href="#" class="help-link-action"> 
-                <span class="ico ico11" ></span>
-                <span class="menu-text">Help</span>
-                <em></em>
+				<span class="ico ico11" ></span>
+				<span class="menu-text">Help</span>
+				<em></em>
 			</a>
 		</li>
 	</ul>
-    <ul class="buttons">
+	<ul class="buttons">
 		<li>
 			<a href="#" class="feed-link-action"> 
-                <span class="ico ico12" ></span>
-                <span class="menu-text">Feedback</span>
-                <em></em>
+				<span class="ico ico12" ></span>
+				<span class="menu-text">Feedback</span>
+				<em></em>
 			</a>
 		</li>
 	</ul>

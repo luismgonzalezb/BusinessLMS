@@ -284,6 +284,7 @@
     <Compile Include="Models\Tool.cs" />
     <Compile Include="Models\ZIPCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ModelsView\FollowupView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

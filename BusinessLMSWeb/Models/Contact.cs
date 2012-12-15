@@ -53,7 +53,7 @@ namespace BusinessLMSWeb.Models
         [DataType(DataType.Text)]
         public string state { get; set; }
 
-        [Display(Name= "City")]
+        [Display(Name = "City")]
         [DataType(DataType.Text)]
         public string city { get; set; }
 
@@ -86,5 +86,11 @@ namespace BusinessLMSWeb.Models
         [Display(Name = "Prefered Contact Time")]
         [DataType(DataType.Text)]
         public string preferedTime { get; set; }
+
+        public string GetFullName()
+        {
+            return string.Concat(this.firstName, " ", this.lastName);
+        }
+
     }
 }

@@ -8,6 +8,7 @@ namespace BusinessLMSWeb.Models
         [DataType(DataType.Text)]
         public int followupId { get; set; }
 
+        [Required]
         [Display(Name = "Contact ID")]
         [DataType(DataType.Text)]
         public int contactId { get; set; }
