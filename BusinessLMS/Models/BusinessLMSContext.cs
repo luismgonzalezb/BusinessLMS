@@ -57,5 +57,7 @@ namespace BusinessLMS.Models
 			modelBuilder.Configurations.Add(new TicketMap());
 			modelBuilder.Configurations.Add(new ApiTokenMap());
 		}
+
+        public DbSet<Alert> Alerts { get; set; }
 	}
 }

@@ -1,0 +1,52 @@
+﻿@model BusinessLMSWeb.Models.Alert
+
+@{
+    ViewBag.Title = "CreateAlert";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<div class="metro">
+    <div class="metro-container-300">
+
+        @using (Html.BeginForm("CreateAlert", "Alerts", FormMethod.Post, new { @class = "metro-form", id = "AlertForm" }))
+        {
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend></legend>
+
+                <div class="metro-form-control">
+                    <label for="ticketType">Alert Message</label>
+                    <div class="metro-text-box">
+                        @Html.EditorFor(model => model.AlertMsg)
+                        @Html.ValidationMessageFor(model => model.AlertMsg)
+                    </div>
+                </div>
+
+                <div class="metro-form-control">
+                    <label for="ticketType">Alert Action</label>
+                    <div class="metro-text-box">
+                        @Html.EditorFor(model => model.action)
+                        @Html.ValidationMessageFor(model => model.action)
+                    </div>
+                </div>
+
+                <p>
+                    <input type="submit" value="Create" />
+                </p>
+            </fieldset>
+        }
+
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.validator.unobtrusive.parse("#AlertForm");
+        });
+    </script>
+}

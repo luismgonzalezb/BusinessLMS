@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BusinessLMSWeb.Models.Alert>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<h2>Index</h2>
+
+<a href="javascript:createAlert;">Create New</a>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AlertMsg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.action)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datetime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlertMsg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.action)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datetime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AlertId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AlertId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AlertId })
+        </td>
+    </tr>
+}
+
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Alerts/Index.js")
+}
