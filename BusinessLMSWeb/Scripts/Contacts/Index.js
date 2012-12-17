@@ -48,13 +48,11 @@ $(document).ready(function () {
 });
 
 function AddNewContact() {
-    $("#contactInfo").hide("slow");
-    $("#contactInfo").load('/Contacts/NewContact').show("slow");
+    $("#contactInfo").hide("slow").load('/Contacts/NewContact').show("slow");
 }
 
 function editContact(id) {
-    $("#contactInfo").hide("slow");
-    $("#contactInfo").load('/Contacts/EditContact/' + id).show("slow");
+    $("#contactInfo").hide("slow").load('/Contacts/EditContact/' + id).show("slow");
 }
 
 function CancelContact() {

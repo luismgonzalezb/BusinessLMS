@@ -1,12 +1,10 @@
 ﻿var deleteLinkObj;
 
 $(document).ready(function () {
-
     $('#data-table').dataTable({
         "bJQueryUI": true,
         "sPaginationType": "full_numbers"
     });
-
     $("#info-modal").dialog({
         autoOpen: false,
         show: "blind",
@@ -14,20 +12,16 @@ $(document).ready(function () {
         width: 800,
         modal: true
     });
-
     $(".help-link-action").click(function () {
         $("#info-modal").dialog("open");
         return false;
     });
-
     $("#followupInfo").hide();
-
     $('.deletelink').click(function () {
         deleteLinkObj = $(this);  //for future use
         $('#delete-dialog').dialog('open');
         return false; 
     });
-
     $('#delete-dialog').dialog({
         autoOpen: false, width: 400, resizable: false, modal: true, //Dialog options
         buttons: {
@@ -44,17 +38,14 @@ $(document).ready(function () {
             }
         }
     });
-
 });
 
 function AddNewItem() {
-    $("#followupInfo").hide("slow");
-    $("#followupInfo").load('/Followups/NewFollowup').show("slow");
+    $("#followupInfo").hide("slow").load('/Followups/NewFollowup').show("slow");
 }
 
 function EditItem(id) {
-    $("#followupInfo").hide("slow");
-    $("#followupInfo").load('/Followups/EditFollowup/' + id).show("slow");
+    $("#followupInfo").hide("slow").load('/Followups/EditFollowup/' + id).show("slow");
 }
 
 function CancelItem() {
@@ -64,17 +55,17 @@ function CancelItem() {
 function submitform(frm) {
     if (!$(frm).valid()) { return false; }
     $.post($(frm).attr("action"), $(frm).serialize(), function (data) {
-        if (data.contactId != null) {
-            $("#followupInfo").hide("slow");
-            $('#data-table').dataTable().fnAddData([
-                data.ContactName,
-                data.Method,
-                data.datetime,
-                actionsColumn(data.contactId)
-            ]);
+    	if (data.success == true) {
+    		$("#followupInfo").hide("slow", function () {
+    			location.reload(false);
+    		});
         } else {
-            console.log(data);
-            //$("#followupInfo").hide("slow");
+        	var noty_err = noty({
+        		type: "error",
+        		layout: 'bottom',
+        		text: data.message,
+        		timeout: 1000
+        	});
         }
     });
     return false;
@@ -89,12 +80,6 @@ function submitupdateform(frm) {
             $("#followupInfo").hide("slow");
         }
     });
-}
-
-function booleanColumn(value) {
-    checked = (value == true) ? "checked" : "";
-    result = ' <input class="check-box" type="checkbox" disabled="disabled" ' + checked + '> ';
-    return result;
 }
 
 function actionsColumn(id) {

@@ -1,15 +1,10 @@
 ﻿@model BusinessLMSWeb.Models.ContactFollowup
-
 <div class="metro-container-300">
-
 @using (Html.BeginForm("NewFollowupAjax", "Followups", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
 {
-    
     @Html.ValidationSummary(true)
-
     <fieldset>
         <legend></legend>
-
         <div class="metro-form-control">
             Contact
             <div class="metro-text-box">
@@ -17,7 +12,6 @@
                 @Html.ValidationMessageFor(model => model.contactId)
             </div>
         </div>
-
         <div class="metro-form-control">
             @Html.LabelFor(model => model.method)
             <div class="metro-text-box">
@@ -25,7 +19,6 @@
                 @Html.ValidationMessageFor(model => model.method)
             </div>
         </div>
-
         <div class="metro-form-control">
             @Html.LabelFor(model => model.datetime) (mm/dd/yyyy)
             <div class="metro-text-box">
@@ -34,22 +27,16 @@
             </div>
             <div class="metro-text-date"><img src="~/Images/Date.png" /></div>
         </div>
-
         @Html.HiddenFor(model => model.contactId)
         @Html.HiddenFor(model => model.IBONum)
         @Html.HiddenFor(model => model.completed)
-
-
         <div class="metro-align-right">
             <input type="button" value="Cancel" class="metro-button" onclick="CancelContact();" />
             <input type="button" value="Create" class="metro-button" onclick="submitform(this.form);" />
         </div>
-        
     </fieldset>
 }
-
 </div>
-
 <script type="text/javascript">
     $(document).ready(function () {
         $.validator.unobtrusive.parse("#current_form");
@@ -57,6 +44,14 @@
             yearRange: "-90:+0",
             changeMonth: true,
             changeYear: true
+        });
+        $("#contactName").autocomplete({
+        	source: "/Followups/SearchContact/",
+        	select: function (event, ui) {
+        		$("#contactName").val(ui.item.label);
+        		$("#contactId").val(ui.item.value);
+        		return false;
+        	}
         });
     });
 </script>

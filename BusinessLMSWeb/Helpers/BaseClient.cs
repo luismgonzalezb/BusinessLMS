@@ -19,7 +19,7 @@ namespace BusinessLMSWeb.Helpers
 
 		public BaseClient(string baseUrl, string controller, string action)
 		{
-			_endpoint = String.Concat(baseUrl,"/",controller,"/",action);
+			_endpoint = String.Concat(baseUrl, "/", controller, "/", action);
 		}
 
 		public T Get<T>(int top = 0, int skip = 0)
@@ -91,14 +91,14 @@ namespace BusinessLMSWeb.Helpers
 		protected HttpClient NewHttpClient()
 		{
 			HttpClient newClient = new HttpClient();
-			newClient.DefaultRequestHeaders.Authorization = 
-				new AuthenticationHeaderValue("Basic",System.Convert.ToBase64String(System.Text.UTF8Encoding.UTF8.GetBytes(string.Format("{0}:{1}",apiName, apiKey))));
+			newClient.DefaultRequestHeaders.Authorization =
+				new AuthenticationHeaderValue("Basic", System.Convert.ToBase64String(System.Text.UTF8Encoding.UTF8.GetBytes(string.Format("{0}:{1}", apiName, apiKey))));
 			return newClient;
 		}
 
 		protected string ToQueryString(NameValueCollection nvc)
 		{
-		  return "?" + string.Join("&", Array.ConvertAll(nvc.AllKeys, key => string.Format("{0}={1}", HttpUtility.UrlEncode(key), HttpUtility.UrlEncode(nvc[key]))));
+			return "?" + string.Join("&", Array.ConvertAll(nvc.AllKeys, key => string.Format("{0}={1}", HttpUtility.UrlEncode(key), HttpUtility.UrlEncode(nvc[key]))));
 		}
 
 	}
