@@ -7,11 +7,11 @@ namespace BusinessLMSWeb.Models
     public class Alert
     {
         [Display(Name = "Alert Id")]
-        public int AlertId { get; set; }
+        public string AlertId { get; set; }
 
         [Required]
         [Display(Name = "Alert Message")]
-        public int AlertMsg { get; set; }
+        public string AlertMsg { get; set; }
 
         [Display(Name = "Action")]
         public string action { get; set; }

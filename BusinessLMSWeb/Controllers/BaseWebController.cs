@@ -46,6 +46,7 @@ namespace BusinessLMSWeb.Controllers
                             ViewBag.IBONum = ibo.IBONum;
                             ViewBag.IBOPicture = ibo.picture != String.Empty ? ibo.picture : Url.Content("~/Images/noProfilePicture.png");
                             ViewBag.MenuItems = menuItems;
+                            ViewBag.AlertItems = listAlerts;
                         }
                         else
                         {
@@ -249,6 +250,16 @@ namespace BusinessLMSWeb.Controllers
         }
 
         #endregion
+
+        public List<Alert> listAlerts
+        {
+            get
+            {
+                BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlerts");
+                List<Alert> Alerts = client.Get<List<Alert>>();
+                return Alerts;
+            }
+        }
 
     }
 }

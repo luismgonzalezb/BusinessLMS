@@ -28,6 +28,7 @@ namespace BusinessLMS.Controllers
             Alert alert = db.Alerts.Find(id);
             if (alert == null)
             {
+
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
@@ -39,7 +40,6 @@ namespace BusinessLMS.Controllers
         {
             if (ModelState.IsValid && id == alert.AlertId)
             {
-                alert.AlertId = Guid.NewGuid().ToString();
                 db.Entry(alert).State = EntityState.Modified;
 
                 try
