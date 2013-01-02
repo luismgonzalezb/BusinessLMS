@@ -52,11 +52,4 @@ namespace BusinessLMSWeb.Helpers
 
 	}
 
-	[Serializable]
-	public class searchObject
-	{
-		public string label { get; set; }
-		public string value { get; set; }
-	}
-
 }

@@ -138,9 +138,9 @@ namespace BusinessLMSWeb.Controllers
 		[HttpGet]
 		public ActionResult SearchContact(string term)
 		{
-			List<searchObject> userNames = (from cnt in _contacts
+			List<SearchObject> userNames = (from cnt in _contacts
 											where cnt.firstName.ToUpper().Contains(term.ToUpper()) || cnt.lastName.ToUpper().Contains(term.ToUpper())
-											select new searchObject { label = cnt.GetFullName(), value = cnt.contactId.ToString() }).ToList();
+											select new SearchObject { label = cnt.GetFullName(), value = cnt.contactId.ToString() }).ToList();
 			return Json(userNames, JsonRequestBehavior.AllowGet);
 		}
 

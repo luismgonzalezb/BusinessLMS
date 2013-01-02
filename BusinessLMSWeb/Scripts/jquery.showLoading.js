@@ -11,24 +11,24 @@
 	jQuery.fn.showLoading = function(options) {
 		
 		var indicatorID;
-       		var settings = {
-       			'addClass': '',
-	       		'beforeShow': '', 
-       			'afterShow': '',
-       			'hPos': 'center', 
-	       		'vPos': 'center',
-       			'indicatorZIndex' : 5001, 
-       			'overlayZIndex': 5000, 
-	       		'parent': '',
-       			'marginTop': 0,
-       			'marginLeft': 0,
-	       		'overlayWidth': null,
-       			'overlayHeight': null
-	       	};
+			var settings = {
+				'addClass': '',
+				'beforeShow': '', 
+				'afterShow': '',
+				'hPos': 'center', 
+				'vPos': 'center',
+				'indicatorZIndex' : 5001, 
+				'overlayZIndex': 5000, 
+				'parent': '',
+				'marginTop': 0,
+				'marginLeft': 0,
+				'overlayWidth': null,
+				'overlayHeight': null
+			};
 
 		jQuery.extend(settings, options);
-       	
-       		var loadingDiv = jQuery('<div></div>');
+		
+			var loadingDiv = jQuery('<div></div>');
 		var overlayDiv = jQuery('<div></div>');
 
 		//
@@ -116,9 +116,9 @@
 		//
 		// Set any custom overlay CSS		
 		//
-       		if ( settings.overlayCSS ) {
-       			jQuery(overlayDiv).css ( settings.overlayCSS );
-       		}
+			if ( settings.overlayCSS ) {
+				jQuery(overlayDiv).css ( settings.overlayCSS );
+			}
 
 
 		//
@@ -186,9 +186,9 @@
 		//
 		// Set any custom css for loading indicator
 		//
-       		if ( settings.css ) {
-       			jQuery(loadingDiv).css ( settings.css );
-       		}
+			if ( settings.css ) {
+				jQuery(loadingDiv).css ( settings.css );
+			}
 
 		
 		//
@@ -226,15 +226,15 @@
 		}
 
 		return this;
-    	 };
+		 };
 
 
 	jQuery.fn.hideLoading = function(options) {
 		
 		
-       		var settings = {};
+			var settings = {};
 	
-       		jQuery.extend(settings, options);
+			jQuery.extend(settings, options);
 
 		if ( settings.indicatorID ) {
 			indicatorID = settings.indicatorID;
@@ -242,9 +242,9 @@
 		else {
 			indicatorID = jQuery(this).attr('id');
 		}
-       	
-   		jQuery(document.body).find('#loading-indicator-' + indicatorID ).remove();
+		
+		jQuery(document.body).find('#loading-indicator-' + indicatorID ).remove();
 		jQuery(document.body).find('#loading-indicator-' + indicatorID + '-overlay' ).remove();
 		
 		return this;
-     	};
+		};

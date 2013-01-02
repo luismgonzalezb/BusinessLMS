@@ -2,65 +2,66 @@
 @using BusinessLMSWeb.Helpers
 
 <div class="main-container">
-    
-    <div class="container1" id="divRegisterForm">
-    @using (Html.BeginForm("RegisterAjax", "Home", FormMethod.Post, new { id = "current_form" }))
-    { 
-        @Html.ValidationSummary(true)
-        <div class="block">
-            <div class="editor-label">Who told you about us?</div>
-            <div id="divIboName"><input type="text" name="iboName" id="iboName" value="@ViewBag.iboName" /></div>
-            <div class="editor-label"><h2>IBO Number</h2></div>
-            <div id="divIboNum">@ViewBag.IBONum</div>
-            <div class="editor-label"><h2>Email</h2></div>
-            <div id="divIboEmail">@ViewBag.email</div>
-            <div class="editor-label"><h2>Phone</h2></div>
-            <div id="divIboPhone">@ViewBag.phone</div>
-        </div>
-        <div class="block">
-            <fieldset>
-                <legend>Contact</legend>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.firstName)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.firstName) <br />
-                    @Html.ValidationMessageFor(model => model.firstName)
-                </div>
+	
+	<div class="container1" id="divRegisterForm">
+	@using (Html.BeginForm("RegisterAjax", "Home", FormMethod.Post, new { id = "current_form" }))
+	{ 
+		@Html.ValidationSummary(true)
+		<div class="block">
+			<div class="editor-label">Who told you about us?</div>
+			<div id="divIboName"><input type="text" name="iboName" id="iboName" value="@ViewBag.iboName" /></div>
+			<div id="divLoading"></div>
+			<div class="editor-label"><h2>IBO Number</h2></div>
+			<div id="divIboNum">@ViewBag.IBONum</div>
+			<div class="editor-label"><h2>Email</h2></div>
+			<div id="divIboEmail">@ViewBag.email</div>
+			<div class="editor-label"><h2>Phone</h2></div>
+			<div id="divIboPhone">@ViewBag.phone</div>
+		</div>
+		<div class="block">
+			<fieldset>
+				<legend>Contact</legend>
+				<div class="editor-label">
+					@Html.LabelFor(model => model.firstName)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.firstName) <br />
+					@Html.ValidationMessageFor(model => model.firstName)
+				</div>
 
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.lastName)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.lastName) <br />
-                    @Html.ValidationMessageFor(model => model.lastName)
-                </div>
+				<div class="editor-label">
+					@Html.LabelFor(model => model.lastName)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.lastName) <br />
+					@Html.ValidationMessageFor(model => model.lastName)
+				</div>
 
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.email)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.email) <br />
-                    @Html.ValidationMessageFor(model => model.email)
-                </div>
-                <div class="alignright">
-                    <input type="button" value="Register" onclick="sendRegister(this.form);" />
-                </div>
-            </fieldset>
-        </div>
-        
-        @Html.HiddenFor(model => model.IBONum)
-        @Html.HiddenFor(model => model.isPublic)
-        @Html.HiddenFor(model => model.contactLevel)
-        @Html.HiddenFor(model => model.datetime)
-        @Html.HiddenFor(model => model.birthday)
-        @Html.HiddenFor(model => model.contactTypeId)
-        @Html.HiddenFor(model => model.languageId)
+				<div class="editor-label">
+					@Html.LabelFor(model => model.email)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.email) <br />
+					@Html.ValidationMessageFor(model => model.email)
+				</div>
+				<div class="alignright">
+					<input type="button" value="Register" onclick="sendRegister(this.form);" />
+				</div>
+			</fieldset>
+		</div>
+		
+		@Html.HiddenFor(model => model.IBONum)
+		@Html.HiddenFor(model => model.isPublic)
+		@Html.HiddenFor(model => model.contactLevel)
+		@Html.HiddenFor(model => model.datetime)
+		@Html.HiddenFor(model => model.birthday)
+		@Html.HiddenFor(model => model.contactTypeId)
+		@Html.HiddenFor(model => model.languageId)
 
-    }
-    </div>
+	}
+	</div>
 </div>
 
 @Html.Script(
-    @<script type="text/javascript" src="~/Scripts/Home/Register.js"></script>
+	@<script type="text/javascript" src="~/Scripts/Home/Register.js"></script>
 )

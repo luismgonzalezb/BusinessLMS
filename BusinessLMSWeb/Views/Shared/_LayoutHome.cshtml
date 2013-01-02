@@ -2,94 +2,95 @@
 
 <!DOCTYPE html>
 <head>
-    <meta charset="utf-8" />
-    <title>@ViewBag.Title - Business LMS</title>
-    <link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet"/>
-    @Styles.Render("~/Content/main/css")
-    @Scripts.Render("~/bundles/modernizr")
-    <!--[if IE]><style>#header h1 a:hover{font-size:75px;}</style><![endif]-->
+	<meta charset="utf-8" />
+	<title>@ViewBag.Title - Business LMS</title>
+	<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet"/>
+	@Styles.Render("~/Content/main/css")
+	@Scripts.Render("~/bundles/modernizr")
+	<!--[if IE]><style>#header h1 a:hover{font-size:75px;}</style><![endif]-->
 </head>
 <body>
-    <div class="main-container">
-        <header>
-            <h1>IBO Virtual</h1>
-            <p id="tagline"><strong>Learn to be an Independent Business Owner</strong></p>
-        </header>
-    </div>
-    <div class="main-container"><div id="sub-headline"></div></div>
-    <div class="main-container">
-        <div id="nav-container">
-            <nav>
-                <ul class="nav">
-                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
-                    <li><a href="@Url.Action("About","Home")">About</a></li>
-                    <li><a href="@Url.Action("Contact","Home")">Contact</a></li>
-                    <li class="last"><a href="@Url.Action("Index","Dashboard")">Login</a></li>
-                </ul>
-            </nav>
-            <div class="clear"></div>
-        </div>
-    </div>
-    
-    @RenderBody()
+	<div class="main-container">
+		<header>
+			<h1>IBO Virtual</h1>
+			<p id="tagline"><strong>Learn to be an Independent Business Owner</strong></p>
+		</header>
+	</div>
+	<div class="main-container"><div id="sub-headline"></div></div>
+	<div class="main-container">
+		<div id="nav-container">
+			<nav>
+				<ul class="nav">
+					<li><a href="@Url.Action("Index","Home")">Home</a></li>
+					<li><a href="@Url.Action("About","Home")">About</a></li>
+					<li><a href="@Url.Action("Contact","Home")">Contact</a></li>
+					<li class="last"><a href="@Url.Action("Index","Dashboard")">Login</a></li>
+				</ul>
+			</nav>
+			<div class="clear"></div>
+		</div>
+	</div>
+	
+	@RenderBody()
 
-    @RenderSection("featured", required: false)
+	@RenderSection("featured", required: false)
 
-    <div class="callout">
-        <div class="calloutcontainer">
-            <div class="container_12">
-                <div class="grid">
-                    <article class="footbox">
-                        <h2>Latest News</h2>
-                        <ul>
-                            <li><a href="#">We are under Construction</a><br />
-                                Please be tuned to the updates, get in constantly, register and be sure to leave feedback.
-                            </li>
-                        </ul>
-                    </article>
-                    <article class="footbox last">
-                        <h2>Find us in...</h2>
-                        <div id="social">
-                            <a href="https://twitter.com/ibovirtual" class="s3d twitter" target="_blank">Follow Us <span class="icons twitter"></span></a>
-                            <a href="https://www.facebook.com/IboVirtual/" class="s3d facebook" target="_blank">Like Us<span class="icons facebook"></span></a>
-                        </div>
-                    </article>
-                    <article class="latestgallery">
-                        <h2></h2>
-                        <ul>
-                            <li><a href="http://www.youtube.com/watch?v=3vhFtoX0UEw" data-gal="prettyPhoto[gallery]" title="Title">
-                                <img src="http://img.youtube.com/vi/3vhFtoX0UEw/1.jpg" alt="" width="150" height="95" /></a></li>
-                            <li><a href="http://www.youtube.com/watch?v=cO8NCM3qM_0" data-gal="prettyPhoto[gallery]" title="Title">
-                                <img src="http://img.youtube.com/vi/cO8NCM3qM_0/1.jpg" alt="" width="150" height="95" /></a></li>
-                            <li><a href="http://www.youtube.com/watch?v=RL4nyq6w4zg" data-gal="prettyPhoto[gallery]" title="Title">
-                                <img src="http://img.youtube.com/vi/RL4nyq6w4zg/1.jpg" alt="" width="150" height="95" /></a></li>
-                            <li><a href="http://www.youtube.com/watch?v=yW1X8fdX9W8" data-gal="prettyPhoto[gallery]" title="Title">
-                                <img src="http://img.youtube.com/vi/yW1X8fdX9W8/1.jpg" alt="" width="150" height="95" /></a></li>
-                        </ul>
-                    </article>
+	<div class="callout">
+		<div class="calloutcontainer">
+			<div class="container_12">
+				<div class="grid">
+					<article class="footbox">
+						<h2>Latest News</h2>
+						<ul>
+							<li><a href="#">We are under Construction</a><br />
+								Please be tuned to the updates, get in constantly, register and be sure to leave feedback.
+							</li>
+						</ul>
+					</article>
+					<article class="footbox last">
+						<h2>Find us in...</h2>
+						<div id="social">
+							<a href="https://twitter.com/ibovirtual" class="s3d twitter" target="_blank">Follow Us <span class="icons twitter"></span></a>
+							<a href="https://www.facebook.com/IboVirtual/" class="s3d facebook" target="_blank">Like Us<span class="icons facebook"></span></a>
+						</div>
+					</article>
+					<article class="latestgallery">
+						<h2></h2>
+						<ul>
+							<li><a href="http://www.youtube.com/watch?v=3vhFtoX0UEw" data-gal="prettyPhoto[gallery]" title="Title">
+								<img src="http://img.youtube.com/vi/3vhFtoX0UEw/1.jpg" alt="" width="150" height="95" /></a></li>
+							<li><a href="http://www.youtube.com/watch?v=cO8NCM3qM_0" data-gal="prettyPhoto[gallery]" title="Title">
+								<img src="http://img.youtube.com/vi/cO8NCM3qM_0/1.jpg" alt="" width="150" height="95" /></a></li>
+							<li><a href="http://www.youtube.com/watch?v=RL4nyq6w4zg" data-gal="prettyPhoto[gallery]" title="Title">
+								<img src="http://img.youtube.com/vi/RL4nyq6w4zg/1.jpg" alt="" width="150" height="95" /></a></li>
+							<li><a href="http://www.youtube.com/watch?v=yW1X8fdX9W8" data-gal="prettyPhoto[gallery]" title="Title">
+								<img src="http://img.youtube.com/vi/yW1X8fdX9W8/1.jpg" alt="" width="150" height="95" /></a></li>
+						</ul>
+					</article>
 
-                    <div class="clear"></div>
-                </div>
-                <div class="calloutoverlay"></div>
-                <div class="calloutoverlaybottom"></div>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <p class="tagline_left">Copyright &copy; 2012 - All Rights Reserved - <a href="ibovirtual.com">ibovirtual.com</a></p>
-        <br class="clear" />
-    </footer>
+					<div class="clear"></div>
+				</div>
+				<div class="calloutoverlay"></div>
+				<div class="calloutoverlaybottom"></div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p class="tagline_left">Copyright &copy; 2012 - All Rights Reserved - <a href="ibovirtual.com">ibovirtual.com</a></p>
+		<br class="clear" />
+	</footer>
 
-    <br />
-    <br />
+	<br />
+	<br />
 
-    @{ Html.RenderPartial("_jquerycdn"); }
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/jquery.prettyPhoto.js")
-    @Scripts.Render("~/Scripts/jquery.flow.1.2.js")
-    @Scripts.Render("~/Scripts/Home/Index.js")
-    @RenderSection("scripts", required: false)
-    @Html.RenderScripts() 
+	@{ Html.RenderPartial("_jquerycdn"); }
+	@Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/Scripts/jquery.prettyPhoto.js")
+	@Scripts.Render("~/Scripts/jquery.flow.1.2.js")
+	@Scripts.Render("~/Scripts/jquery.showLoading.js")
+	@Scripts.Render("~/Scripts/Home/Index.js")
+	@RenderSection("scripts", required: false)
+	@Html.RenderScripts() 
 
 </body>
 </html>
