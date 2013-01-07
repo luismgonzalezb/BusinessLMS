@@ -18,7 +18,7 @@
 				<div class="c1">
 					<div class="controls">
 						<nav class="links">
-							@Html.Partial("_TopControls")
+							@Html.Partial("_TopControls", (IEnumerable<BusinessLMSWeb.Models.Alert>)ViewBag.AlertItems)
 						</nav>
 						<div class="profile-box">
 							@Html.Partial("_LoginPartial")
