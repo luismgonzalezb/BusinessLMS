@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.Web;
 using System.Web.Mvc;
+using BusinessLMS.Helpers;
 using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Helpers.MobileRedirect;
 using BusinessLMSWeb.Models;
-using Newtonsoft.Json;
 using WebMatrix.WebData;
 
 namespace BusinessLMSWeb.Controllers
@@ -89,23 +88,21 @@ namespace BusinessLMSWeb.Controllers
 
 		#region General Properties
 
+		public System.Web.HttpContext _context { get { return System.Web.HttpContext.Current; } }
+
 		public string FacebookId
 		{
 			get
 			{
 				string value = "";
-				string name = "fid";
-				HttpCookie cookie = Request.Cookies[name];
-				if (cookie != null) value = cookie.Value != null ? cookie.Value : "";
+				CookieHelper cookie = new CookieHelper(_context, "fid", 365);
+				value = cookie.GetCookie<string>();
 				return value;
 			}
 			set
 			{
-				string name = "fid";
-				HttpCookie cookie = new HttpCookie(name);
-				cookie.Value = value;
-				cookie.Expires = DateTime.Now.AddDays(365);
-				Response.Cookies.Add(cookie);
+				CookieHelper cookie = new CookieHelper(_context, "fid", 365);
+				if (value != null) cookie.SetCookie<string>(value); else cookie.Remove();
 			}
 		}
 
@@ -114,18 +111,14 @@ namespace BusinessLMSWeb.Controllers
 			get
 			{
 				string value = "";
-				string name = "at";
-				HttpCookie cookie = Request.Cookies[name];
-				if (cookie != null) value = cookie.Value != null ? cookie.Value : "";
+				CookieHelper cookie = new CookieHelper(_context, "at", 365);
+				value = cookie.GetCookie<string>();
 				return value;
 			}
 			set
 			{
-				string name = "at";
-				HttpCookie cookie = new HttpCookie(name);
-				cookie.Value = value;
-				cookie.Expires = DateTime.Now.AddDays(365);
-				Response.Cookies.Add(cookie);
+				CookieHelper cookie = new CookieHelper(_context, "at", 365);
+				if (value != null) cookie.SetCookie<string>(value); else cookie.Remove();
 			}
 		}
 
@@ -134,34 +127,14 @@ namespace BusinessLMSWeb.Controllers
 			get
 			{
 				IBO value = null;
-				string name = "iboinfo";
-				HttpCookie cookie = Request.Cookies[name];
-				if (cookie != null)
-				{
-					if (cookie.Value != null)
-					{
-						string temp = cookie.Value;
-						value = JsonConvert.DeserializeObject<IBO>(temp);
-					}
-				}
+				CookieHelper cookie = new CookieHelper(_context, "iboinfo", 365);
+				value = cookie.GetCookie<IBO>();
 				return value;
 			}
 			set
 			{
-				string name = "iboinfo";
-				if (value != null)
-				{
-					HttpCookie cookie = new HttpCookie(name);
-					string temp = JsonConvert.SerializeObject(value);
-					cookie.Value = temp;
-					cookie.Expires = DateTime.Now.AddDays(365);
-					Response.Cookies.Add(cookie);
-				}
-				else
-				{
-					Response.Cookies.Remove(name);
-				}
-
+				CookieHelper cookie = new CookieHelper(_context, "iboinfo", 365);
+				if (value != null) cookie.SetCookie<IBO>(value); else cookie.Remove();
 			}
 		}
 
@@ -189,26 +162,14 @@ namespace BusinessLMSWeb.Controllers
 			get
 			{
 				List<Step> value = null;
-				string name = "menuItems";
-				HttpCookie cookie = Request.Cookies[name];
-				if (cookie != null)
-				{
-					if (cookie.Value != null)
-					{
-						string temp = cookie.Value;
-						value = JsonConvert.DeserializeObject<List<Step>>(temp);
-					}
-				}
+				CookieHelper cookie = new CookieHelper(_context, "menuItems", 365);
+				value = cookie.GetCookie<List<Step>>();
 				return value;
 			}
 			set
 			{
-				string name = "menuItems";
-				HttpCookie cookie = new HttpCookie(name);
-				string temp = JsonConvert.SerializeObject(value);
-				cookie.Value = temp;
-				cookie.Expires = DateTime.Now.AddDays(365);
-				Response.Cookies.Add(cookie);
+				CookieHelper cookie = new CookieHelper(_context, "menuItems", 365);
+				if (value != null) cookie.SetCookie<List<Step>>(value); else cookie.Remove();
 			}
 		}
 

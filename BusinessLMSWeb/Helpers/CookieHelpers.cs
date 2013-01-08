@@ -9,9 +9,11 @@ namespace BusinessLMS.Helpers
 
 		private string _name;
 		private HttpCookie _cookie;
+		private HttpContext _context;
 
-		public CookieHelper(string name, double exprires)
+		public CookieHelper(HttpContext current, string name, double exprires)
 		{
+			_context = current;
 			_name = name;
 			_cookie = new HttpCookie(_name);
 			_cookie.Expires = DateTime.Now.AddDays(exprires);
@@ -23,15 +25,23 @@ namespace BusinessLMS.Helpers
 			return false;
 		}
 
-		public void SetCookie<T>(HttpResponseBase Response, T value)
+		public void Remove()
+		{
+			_cookie = _context.Request.Cookies[_name];
+			_cookie.Expires = DateTime.Now.AddDays(-1);
+			_context.Response.Cookies.Add(_cookie);
+		}
+
+		public void SetCookie<T>(T value)
 		{
 			string temp = JsonConvert.SerializeObject(value);
 			_cookie.Value = temp;
-			Response.Cookies.Add(_cookie);
+			_context.Response.Cookies.Add(_cookie);
 		}
 
 		public T GetCookie<T>()
 		{
+			_cookie = _context.Request.Cookies[_name];
 			if (this.Exists() == true)
 			{
 				string temp = _cookie.Value;

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using BusinessLMS.Helpers;
 using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using BusinessLMSWeb.ModelsView;
-using Newtonsoft.Json;
 
 namespace BusinessLMSWeb.Controllers
 {
@@ -20,34 +18,14 @@ namespace BusinessLMSWeb.Controllers
 			get
 			{
 				List<Contact> value = null;
-				string name = "contactList";
-				HttpCookie cookie = Request.Cookies[name];
-				if (cookie != null)
-				{
-					if (cookie.Value != null)
-					{
-						string temp = cookie.Value;
-						value = JsonConvert.DeserializeObject<List<Contact>>(temp);
-					}
-				}
+				CookieHelper cookie = new CookieHelper(_context, "contactList", 0.5);
+				value = cookie.GetCookie<List<Contact>>();
 				return value;
 			}
 			set
 			{
-				string name = "contactList";
-				if (value != null)
-				{
-					HttpCookie cookie = new HttpCookie(name);
-					string temp = JsonConvert.SerializeObject(value);
-					cookie.Value = temp;
-					cookie.Expires = DateTime.Now.AddDays(0.5);
-					Response.Cookies.Add(cookie);
-				}
-				else
-				{
-					Response.Cookies.Remove(name);
-				}
-
+				CookieHelper cookie = new CookieHelper(_context, "contactList", 0.5);
+				if (value != null) cookie.SetCookie<List<Contact>>(value); else cookie.Remove();
 			}
 		}
 
