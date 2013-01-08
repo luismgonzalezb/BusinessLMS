@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Web.Mvc;
+using BusinessLMS.Helpers;
 using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using BusinessLMSWeb.ModelsView;
@@ -11,6 +13,24 @@ namespace BusinessLMSWeb.Controllers
 
 	public class HomeController : Controller
 	{
+
+		private System.Web.HttpContext _context { get { return System.Web.HttpContext.Current; } }
+
+		private List<SearchObject> _userNames
+		{
+			get
+			{
+				List<SearchObject> value = null;
+				CookieHelper cookie = new CookieHelper(_context, "ibosearchlist", 0.1);
+				value = cookie.GetCookie<List<SearchObject>>();
+				return value;
+			}
+			set
+			{
+				CookieHelper cookie = new CookieHelper(_context, "ibosearchlist", 0.1);
+				if (value != null) cookie.SetCookie<List<SearchObject>>(value); else cookie.Remove();
+			}
+		}
 
 		private string baseApiUrl
 		{
@@ -93,8 +113,19 @@ namespace BusinessLMSWeb.Controllers
 		[HttpGet]
 		public ActionResult SearchIBO(string term)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetSearchIBO");
-			List<SearchObject> userNames = client.Get<List<SearchObject>>();
+			List<SearchObject> userNames = _userNames;
+			if (userNames == null)
+			{
+				BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetSearchIBO");
+				userNames = client.Get<List<SearchObject>>();
+				_userNames = userNames;
+			}
+			if ((userNames != null) && (userNames.Count > 0))
+			{
+				userNames = (from usr in userNames
+							 where usr.label.ToUpper().Contains(term.ToUpper())
+							 select usr).ToList();
+			}
 			return Json(userNames, JsonRequestBehavior.AllowGet);
 		}
 
