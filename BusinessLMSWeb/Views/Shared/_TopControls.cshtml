@@ -1,12 +1,13 @@
 @model IEnumerable<BusinessLMSWeb.Models.Alert>
 
+
 <ul>
     <li><a href="@Url.Action("Index","Calendar")" class="ico1">Follow up <span class="num">1</span></a></li>
-    <li><a href="#" class="ico2">Alerts <span class="num">@{ Model.Count(); }</span></a></li>
+    <li><a href="#" class="ico2" data-dropdown="#dropdownAlert">Alerts <span class="num">@Model.Count()</span></a></li>
 </ul>
 
 <div id="dropdownAlert" class="dropdown-menu has-tip">
-    <ul style="display:list-item">
+    <ul>
         @foreach (var item in Model)
         {
             <li><label><input type="checkbox">@item.AlertMsg</label></li>

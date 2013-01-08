@@ -51,6 +51,9 @@ namespace BusinessLMSWeb
             bundles.Add(new ScriptBundle("~/Content/main/css").Include(
                         "~/Content/main/main.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/dropdown").Include(
+                "~/Scripts/jquery.dropdown*"
+                ));
 
             bundles.Add(new StyleBundle("~/Content/themes/custom/css").Include(
                         "~/Content/themes/custom-theme/jquery.ui.css"));
