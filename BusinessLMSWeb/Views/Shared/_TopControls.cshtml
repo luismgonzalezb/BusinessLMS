@@ -3,17 +3,15 @@
 @*<script type="text/javascript" src="jquery.js"></script>*@
 
 <ul>
-    <li><a href="@Url.Action("Index","Calendar")" class="ico1">Follow up <span class="num">@ViewBag.FollowupsCount</span></a></li>
-    <li><a href="#" class="ico2" data-dropdown="#dropdownAlert">Alerts <span class="num">@Model.Count()</span></a></li>
+	<li><a href="@Url.Action("Index","Calendar")" class="ico1">Follow up <span class="num">@ViewBag.FollowupsCount</span></a></li>
+	<li><a href="#" class="ico2" data-dropdown="#dropdownAlert">Alerts <span class="num">@Model.Count()</span></a></li>
 </ul>
 
 <div id="dropdownAlert" class="dropdown-menu has-tip">
-    <ul>
-        @foreach (var item in Model)
-        {
-            <li class="contAlert"><label><a href="javascript:readedAlert(@item.AlertId,@ViewBag.IBONum)" class="delete"><img src="~/Images/checkmark.jpg" class="delete" />@item.AlertMsg</a></label></li>
-        }
-    </ul>
+	<ul>
+		@foreach (var item in Model)
+		{
+			<li class="contAlert"><label><a href="javascript:readedAlert('@item.AlertId','@ViewBag.IBONum');" class="delete"><img src="~/Images/checkmark.jpg" class="delete" />@item.AlertMsg</a></label></li>
+		}
+	</ul>
 </div>
-
-		

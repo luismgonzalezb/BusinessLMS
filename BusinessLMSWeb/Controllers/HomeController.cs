@@ -129,15 +129,16 @@ namespace BusinessLMSWeb.Controllers
 			return Json(userNames, JsonRequestBehavior.AllowGet);
 		}
 
-        public ActionResult ReadedAlertAjax(object data)
-        {
-            if (data != null)
-            {
-                BaseClient client = new BaseClient(baseApiUrl, "AlertsIBO", "PostAlertIBO");
-                string result = client.Post<object>(data);
-            }
-            return Json(new { success = true }); 
-        }
+		public ActionResult ReadedAlertAjax(AlertIBO model)
+		{
+			if (model != null)
+			{
+				model.datetime = DateTime.Now;
+				BaseClient client = new BaseClient(baseApiUrl, "AlertsIBO", "PostAlertIBO");
+				string result = client.Post<AlertIBO>(model);
+			}
+			return Json(new { success = true });
+		}
 
 	}
 }

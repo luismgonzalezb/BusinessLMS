@@ -34,6 +34,8 @@ namespace BusinessLMS.Models
 		public DbSet<ZIPCode> ZIPCodes { get; set; }
 		public DbSet<Ticket> Tickets { get; set; }
 		public DbSet<ApiToken> ApiTokens { get; set; }
+		public DbSet<Alert> Alerts { get; set; }
+		public DbSet<AlertIBO> AlertsIBO { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -56,10 +58,10 @@ namespace BusinessLMS.Models
 			modelBuilder.Configurations.Add(new ZIPCodeMap());
 			modelBuilder.Configurations.Add(new TicketMap());
 			modelBuilder.Configurations.Add(new ApiTokenMap());
+			modelBuilder.Configurations.Add(new AlertsMap());
+			modelBuilder.Configurations.Add(new AlertsIBOMap());
 		}
 
-        public DbSet<Alert> Alerts { get; set; }
 
-        public DbSet<AlertIBO> AlertsIBO { get; set; }
 	}
 }
