@@ -20,6 +20,5 @@ namespace BusinessLMSWeb.Models
         [Display(Name = "Date and Time of the alert")]
         [DataType(DataType.DateTime)]
         public DateTime datetime { get; set; }
-
     }
 }

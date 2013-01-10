@@ -1,5 +1,6 @@
 @model IEnumerable<BusinessLMSWeb.Models.Alert>
 
+@*<script type="text/javascript" src="jquery.js"></script>*@
 
 <ul>
     <li><a href="@Url.Action("Index","Calendar")" class="ico1">Follow up <span class="num">1</span></a></li>
@@ -10,7 +11,9 @@
     <ul>
         @foreach (var item in Model)
         {
-            <li><label><input type="checkbox">@item.AlertMsg</label></li>
+            <li class="contAlert"><label><a href="javascript:readedAlert(@item.AlertId,@ViewBag.IBONum)" class="delete"><img src="~/Images/checkmark.jpg" class="delete" />@item.AlertMsg</a></label></li>
         }
     </ul>
 </div>
+
+		

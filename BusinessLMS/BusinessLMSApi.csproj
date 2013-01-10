@@ -226,6 +226,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlertsController.cs" />
+    <Compile Include="Controllers\AlertsIBOController.cs" />
     <Compile Include="Controllers\ContactFollowupController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DreamMVController.cs" />
@@ -254,8 +255,10 @@
     <Compile Include="Models\ContactType.cs" />
     <Compile Include="Models\ApiToken.cs" />
     <Compile Include="Models\Alert.cs" />
+    <Compile Include="Models\AlertIBO.cs" />
     <Compile Include="Models\Mapping\ApiTokenMap.cs" />
     <Compile Include="Models\Mapping\AlertsMap.cs" />
+    <Compile Include="Models\Mapping\AlertsIBOMap.cs" />
     <Compile Include="Models\Promotion.cs" />
     <Compile Include="Models\DreamMV.cs" />
     <Compile Include="Models\Country.cs" />

@@ -520,6 +520,7 @@
     <Content Include="Images\bg-controls.png" />
     <Content Include="Images\bg-shadow.png" />
     <Content Include="Images\bg-wrapper.png" />
+    <Content Include="Images\checkmark.jpg" />
     <Content Include="Images\confirm\button.gif" />
     <Content Include="Images\confirm\header.gif" />
     <Content Include="Images\Date.png" />

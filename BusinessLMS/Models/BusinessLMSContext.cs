@@ -59,5 +59,7 @@ namespace BusinessLMS.Models
 		}
 
         public DbSet<Alert> Alerts { get; set; }
+
+        public DbSet<AlertIBO> AlertsIBO { get; set; }
 	}
 }
