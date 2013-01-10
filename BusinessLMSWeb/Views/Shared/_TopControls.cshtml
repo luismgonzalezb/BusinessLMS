@@ -3,7 +3,7 @@
 @*<script type="text/javascript" src="jquery.js"></script>*@
 
 <ul>
-    <li><a href="@Url.Action("Index","Calendar")" class="ico1">Follow up <span class="num">1</span></a></li>
+    <li><a href="@Url.Action("Index","Calendar")" class="ico1">Follow up <span class="num">@ViewBag.FollowupsCount</span></a></li>
     <li><a href="#" class="ico2" data-dropdown="#dropdownAlert">Alerts <span class="num">@Model.Count()</span></a></li>
 </ul>
 

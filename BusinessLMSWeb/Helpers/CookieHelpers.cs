@@ -28,8 +28,11 @@ namespace BusinessLMS.Helpers
 		public void Remove()
 		{
 			_cookie = _context.Request.Cookies[_name];
-			_cookie.Expires = DateTime.Now.AddDays(-1);
-			_context.Response.Cookies.Add(_cookie);
+			if (this.Exists() == true)
+			{
+				_cookie.Expires = DateTime.Now.AddDays(-1);
+				_context.Response.Cookies.Add(_cookie);
+			}
 		}
 
 		public void SetCookie<T>(T value)

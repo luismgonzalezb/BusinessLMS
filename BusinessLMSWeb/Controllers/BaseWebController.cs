@@ -46,6 +46,7 @@ namespace BusinessLMSWeb.Controllers
 							ViewBag.IBOPicture = ibo.picture != String.Empty ? ibo.picture : Url.Content("~/Images/noProfilePicture.png");
 							ViewBag.MenuItems = menuItems;
 							ViewBag.AlertItems = listAlerts;
+							ViewBag.FollowupsCount = Followups.Count;
 						}
 						else
 						{
@@ -219,6 +220,16 @@ namespace BusinessLMSWeb.Controllers
 				BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlerts");
 				List<Alert> Alerts = client.Get<List<Alert>>();
 				return Alerts;
+			}
+		}
+
+		public List<ContactFollowup> Followups
+		{
+			get
+			{
+				BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
+				List<ContactFollowup> followups = client.Get<List<ContactFollowup>>(ibo.IBONum);
+				return followups;
 			}
 		}
 
