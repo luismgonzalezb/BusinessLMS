@@ -33,8 +33,17 @@ namespace BusinessLMS.Controllers
 			return alert;
 		}
 
-		// PUT api/Alerts/5
-		public HttpResponseMessage PutAlert(string id, Alert alert)
+        public IEnumerable<Alert>GetAlertsIBO(string id)
+        {
+
+            return (from a in db.Alerts
+                    join aIBO in db.AlertsIBO on a.AlertId equals aIBO.AlertId
+                    where aIBO.IBONum == id
+                    select a);
+        }
+
+        // PUT api/Alerts/5
+        public HttpResponseMessage PutAlert(string id, Alert alert)
 		{
 			if (ModelState.IsValid && id == alert.AlertId)
 			{
