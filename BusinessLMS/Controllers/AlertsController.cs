@@ -33,17 +33,19 @@ namespace BusinessLMS.Controllers
 			return alert;
 		}
 
-        public IEnumerable<Alert>GetAlertsIBO(string id)
-        {
+		public IEnumerable<Alert> GetAlertsIBO(string id)
+		{
+			List<String> alertibos = (from alert in db.AlertsIBO
+									  where alert.IBONum == id
+									  select alert.AlertId).ToList();
+			List<Alert> alerts = (from alert in db.Alerts
+								  where !alertibos.Contains(alert.AlertId)
+								  select alert).ToList();
+			return alerts;
+		}
 
-            return (from a in db.Alerts
-                    //join aIBO in db.AlertsIBO on a.AlertId equals aIBO.AlertId
-                    //where aIBO.IBONum != id
-                    select a);
-        }
-
-        // PUT api/Alerts/5
-        public HttpResponseMessage PutAlert(string id, Alert alert)
+		// PUT api/Alerts/5
+		public HttpResponseMessage PutAlert(string id, Alert alert)
 		{
 			if (ModelState.IsValid && id == alert.AlertId)
 			{
