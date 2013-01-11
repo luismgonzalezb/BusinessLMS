@@ -37,8 +37,8 @@ namespace BusinessLMS.Controllers
         {
 
             return (from a in db.Alerts
-                    join aIBO in db.AlertsIBO on a.AlertId equals aIBO.AlertId
-                    where aIBO.IBONum == id
+                    //join aIBO in db.AlertsIBO on a.AlertId equals aIBO.AlertId
+                    //where aIBO.IBONum != id
                     select a);
         }
 
