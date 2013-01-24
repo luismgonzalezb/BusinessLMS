@@ -47,6 +47,9 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.UserId)
                 .IsRequired();
 
+            this.Property(t => t.level)
+                .IsRequired();
+
             // Table & Column Mappings
             this.ToTable("IBOs");
             this.Property(t => t.IBONum).HasColumnName("IBONum");
@@ -63,6 +66,7 @@ namespace BusinessLMS.Models.Mapping
             this.Property(t => t.UserId).HasColumnName("UserId");
             this.Property(t => t.birthday).HasColumnName("birthday");
             this.Property(t => t.phone).HasColumnName("phone");
+            this.Property(t => t.level).HasColumnName("level");
         }
     }
 }

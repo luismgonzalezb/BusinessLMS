@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BusinessLMSWeb.Models.Book>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.ibolevel >= 25 && ViewBag.BookCount<10)
+{ 
+    <p>
+        @Html.ActionLink("Create New", "CreateBook")
+    </p>
+}
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IBONum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Autor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Link1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Link2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Link3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priority)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IBONum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td>
+                <a href="@item.Link1" id="@item.BookId" class="Count">@item.Link1</a>
+            </td>
+            <td>
+                <a href="@item.Link2" id="@item.BookId" class="Count">@item.Link2</a>
+            </td>
+            <td>
+                <a href="@item.Link3"id="@item.BookId" class="Count">@item.Link3</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priority)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteBookAjax", new { id = item.BookId })
+            </td>
+        </tr>
+    }
+
+</table>

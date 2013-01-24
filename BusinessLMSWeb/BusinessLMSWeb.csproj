@@ -303,7 +303,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlertsController.cs" />
     <Compile Include="Controllers\BaseWebController.cs" />
-    <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -341,6 +341,7 @@
     <Compile Include="Models\ContactFollowup.cs" />
     <Compile Include="Models\ContactType.cs" />
     <Compile Include="Models\Alert.cs" />
+    <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Dream.cs" />
     <Compile Include="Models\DreamMV.cs" />
@@ -816,6 +817,8 @@
     <Content Include="Views\Followups\EditFollowup.cshtml" />
     <Content Include="Views\Alerts\Index.cshtml" />
     <Content Include="Views\Alerts\CreateAlert.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\Books\CreateBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

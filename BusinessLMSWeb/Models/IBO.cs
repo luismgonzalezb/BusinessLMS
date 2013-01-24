@@ -26,6 +26,7 @@ namespace BusinessLMSWeb.Models
         public System.DateTime datetime { get; set; }
         [Required]
         public Nullable<System.DateTime> birthday { get; set; }
-        public string phone { get; set; }        
+        public string phone { get; set; }
+        public int level { get; set; }
     }
 }

@@ -3,52 +3,52 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>@ViewBag.Title - Business LMS</title>
-		<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-		<meta name="viewport" content="width=device-width" />
-		@Styles.Render("~/Content/css")
-		@Styles.Render("~/Content/themes/custom/css")
-		@Scripts.Render("~/bundles/modernizr")
-	</head>
-	<body>
-		<div id="wrapper">
-			<div id="content">
-				<div class="c1">
-					<div class="controls">
-						<nav class="links">
-							@Html.Partial("_TopControls", (IEnumerable<BusinessLMSWeb.Models.Alert>)ViewBag.AlertItems)
-						</nav>
-						<div class="profile-box">
-							@Html.Partial("_LoginPartial")
-						</div>
-					</div>
-					<div id="body">
-						@RenderSection("featured", required: false)
-						<section class="content-wrapper main-content clear-fix">
-							<div class="metro">
-								@RenderBody()
-							</div>
-						</section>
-					</div>
-				</div>
-			</div>
-			<aside id="sidebar">
-				<strong class="logo"><a href="#">lg</a></strong>
-				@Html.Partial("Menu",(List<Step>)ViewBag.MenuItems)
-				<span class="shadow"></span>
-			</aside>
-		</div>
-		<div id="ticketModal"></div>
-		@{ Html.RenderPartial("_jquerycdn"); }
-		@Scripts.Render("~/bundles/jquery")
-		@Scripts.Render("~/bundles/jqueryval")
-		@Scripts.Render("~/bundles/noty")
-		@Scripts.Render("~/Scripts/Tickets/_layout.js")
-		@Scripts.Render("~/Scripts/Shared/_layout.js")
-		@Scripts.Render("~/bundles/dropdown")
-		@RenderSection("scripts", required: false)
-		@Html.RenderScripts() @*Render Partial View Scripts Last*@
-	</body>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Business LMS</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/custom/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="wrapper">
+        <div id="content">
+            <div class="c1">
+                <div class="controls">
+                    <nav class="links">
+                        @Html.Partial("_TopControls", (IEnumerable<BusinessLMSWeb.Models.Alert>)ViewBag.AlertItems)
+                    </nav>
+                    <div class="profile-box">
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+                <div id="body">
+                    @RenderSection("featured", required: false)
+                    <section class="content-wrapper main-content clear-fix">
+                        <div class="metro">
+                            @RenderBody()
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <aside id="sidebar">
+            <strong class="logo"><a href="#">lg</a></strong>
+            @Html.Partial("Menu", (List<Step>)ViewBag.MenuItems)
+            <span class="shadow"></span>
+        </aside>
+    </div>
+    <div id="ticketModal"></div>
+    @{ Html.RenderPartial("_jquerycdn"); }
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/noty")
+    @Scripts.Render("~/Scripts/Tickets/_layout.js")
+    @Scripts.Render("~/Scripts/Shared/_layout.js")
+    @Scripts.Render("~/bundles/dropdown")
+    @RenderSection("scripts", required: false)
+    @Html.RenderScripts() @*Render Partial View Scripts Last*@
+</body>
 </html>

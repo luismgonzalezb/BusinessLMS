@@ -1,0 +1,80 @@
+﻿@model BusinessLMSWeb.Models.Book
+
+@{
+    ViewBag.Title = "CreateBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CreateBook</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Book</legend>
+
+        <div class="metro-form-control">
+            <label for="Title">Title</label>
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            <label for="Autor">Autor</label>
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.Autor)
+                @Html.ValidationMessageFor(model => model.Autor)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            <label for="Link1">Link 1</label>
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.Link1)
+                @Html.ValidationMessageFor(model => model.Link1)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            <label for="Link2">Link 2</label>
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.Link2)
+                @Html.ValidationMessageFor(model => model.Link2)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            <label for="Link3">Link 3</label>
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.Link3)
+                @Html.ValidationMessageFor(model => model.Link3)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
+            <label for="Priority">Priority</label>
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.priority)
+                @Html.ValidationMessageFor(model => model.priority)
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.BookId)
+        @Html.HiddenFor(model => model.IBONum)
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

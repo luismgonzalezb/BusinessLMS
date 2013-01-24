@@ -32,6 +32,7 @@ namespace BusinessLMSWeb.Controllers
             ibo.datetime = DateTime.Now;
             ibo.facebookid = FacebookId != null ? FacebookId : "";
             ibo.accesstoken = AccessToken != null ? AccessToken : "";
+            ibo.level = model.level;
             try
             {
                 BaseClient client = new BaseClient(baseApiUrl, "IBO", "PostIBO");
@@ -56,6 +57,7 @@ namespace BusinessLMSWeb.Controllers
             ibo.datetime = DateTime.Now;
             ibo.facebookid = FacebookId != null ? FacebookId : "";
             ibo.accesstoken = AccessToken != null ? AccessToken : "";
+            ibo.level = model.level;
             try
             {
                 BaseClient client = new BaseClient(baseApiUrl, "IBO", "PutIBO");

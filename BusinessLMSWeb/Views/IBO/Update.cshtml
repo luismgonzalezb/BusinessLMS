@@ -75,6 +75,14 @@
         </div>
 
         <div class="metro-form-control">
+            <label for="level">Level</label>
+            <div class="metro-text-box">
+                @Html.EditorFor(model => model.level)
+                @Html.ValidationMessageFor(model => model.level)
+            </div>
+        </div>
+
+        <div class="metro-form-control">
             <label for="twitter">Twitter</label>
             <div class="metro-text-box">
                 @Html.EditorFor(model => model.twitter)

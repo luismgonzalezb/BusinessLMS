@@ -12,6 +12,8 @@ namespace BusinessLMSWeb.Models
         }
 
         public DbSet<UserProfile> UserProfiles { get; set; }
+
+        public DbSet<Book> Books { get; set; }
     }
 
     [Table("UserProfile")]

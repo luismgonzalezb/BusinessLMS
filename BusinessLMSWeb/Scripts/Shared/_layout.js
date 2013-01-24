@@ -1,4 +1,4 @@
-﻿
+﻿var CountAlert;
 $(document).ready(function () {
 	$.ajaxSetup({
 		cache: false
@@ -12,13 +12,37 @@ $(document).ready(function () {
 
 $(document).ready(function(){
 	$(".contAlert .delete").click(function () {
-		$(this).parents(".contAlert").animate({ opacity: 'hide' }, "slow");
+	    $(this).parents(".contAlert").animate({ opacity: 'hide' }, "slow");
 
 	});
 });
+
+function setValue(newvalue) {
+    count = newvalue;
+}
 
 function readedAlert(aId, iId) {
 	$.post("/Home/ReadedAlertAjax", { AlertId: aId, IBONum: iId, datetime : null }, function (data) {
 
 	});
+	CountAlert -= 1;
+	$("#Cont").html(CountAlert);
+	
 }
+
+//function CountBook(bId) {
+//    $.post("/Books/UpCount", { id:bId }, function (data) {
+     
+//    });
+//}
+
+$(document).ready(function () {
+    $('.Count').click(function () {
+        bId=$(this).attr("id")
+        $.post("/Books/UpCount", { id:bId }, function (data) {
+     
+                });
+
+    });
+});
+
