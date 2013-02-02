@@ -54,7 +54,7 @@ namespace BusinessLMS.Controllers
             {
                 id = (from x in db.IBOs
                       where x.IBONum == id
-                      select x.UPLine).First();
+                      select x.UPLine).FirstOrDefault();
                 if (id != null && id != "")
                 {
                     BooksIBO.AddRange((from b in db.Books

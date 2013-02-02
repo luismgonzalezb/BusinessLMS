@@ -1,65 +1,57 @@
 ﻿@model IEnumerable<BusinessLMSWeb.Models.Contact>
-
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="title" style="margin-bottom:40px;">
-    <h1>@ViewBag.Title.</h1>
+	<h1>@ViewBag.Title.</h1>
 </div>
-
 <div class="metro-container-990">
-    <table id="contacts-table">
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Cell</th>
-                <th>Preferred</th>
-                <th>Contact Level</th>
-                <th>Public</th>
-                <th></th>
-            </tr>
-        </thead>
-    @foreach (var item in Model) {
-        <tbody>
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.firstName)</td>
-                <td>@Html.DisplayFor(modelItem => item.lastName)</td>
-                <td>@Html.DisplayFor(modelItem => item.email)</td>
-                <td>@Html.DisplayFor(modelItem => item.phone)</td>
-                <td>@Html.DisplayFor(modelItem => item.cell)</td>
-                <td>@Html.DisplayFor(modelItem => item.preferred)</td>
-                <td>@Html.DisplayFor(modelItem => item.contactLevel)</td>
-                <td>@Html.DisplayFor(modelItem => item.isPublic)</td>
-                <td>
-                    <a href="javascript:editContact(@(item.contactId));" class = "edit-link-sm-black editlink">Edit</a>
-                    @Html.ActionLink("Delete", "DeleteContactAjax", new { id=item.contactId }, 
-                        new { @class = "del-link-sm-black deletelink", title = "Delete Contact" })
-                </td>
-            </tr>
-        </tbody>
-    }
-    </table>
-    <div class="metro-align-right">
-        <input type="button" value="Add New" class="metro-button" onclick="AddNewContact();" />
-    </div>
+	<table id="contacts-table">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Cell</th>
+				<th>Preferred</th>
+				<th>Contact Level</th>
+				<th>Public</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		@foreach (var item in Model) {
+			<tr>
+				<td>@Html.DisplayFor(modelItem => item.firstName)</td>
+				<td>@Html.DisplayFor(modelItem => item.lastName)</td>
+				<td>@Html.DisplayFor(modelItem => item.email)</td>
+				<td>@Html.DisplayFor(modelItem => item.phone)</td>
+				<td>@Html.DisplayFor(modelItem => item.cell)</td>
+				<td>@Html.DisplayFor(modelItem => item.preferred)</td>
+				<td>@Html.DisplayFor(modelItem => item.contactLevel)</td>
+				<td>@Html.DisplayFor(modelItem => item.isPublic)</td>
+				<td>
+					<a href="javascript:editContact(@(item.contactId));" class = "edit-link-sm-black editlink">Edit</a>
+					@Html.ActionLink("Delete", "DeleteContactAjax", new { id=item.contactId }, 
+						new { @class = "del-link-sm-black deletelink", title = "Delete Contact" })
+				</td>
+			</tr>
+		}
+		</tbody>
+	</table>
+	<div class="metro-align-right">
+		<input type="button" value="Add New" class="metro-button" onclick="AddNewContact();" />
+	</div>
 </div>
-
 <div id="contactInfo"></div>
-
 <div id="modalWindow"></div>
-
 <div id="delete-dialog" title="Confirmation">
-    <p>Are you sure you want to delete this contact?</p>
+	<p>Are you sure you want to delete this contact?</p>
 </div>
-
 @{ Html.RenderPartial("_ContactsInfo"); }
-
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/Contacts/Index.js")
+	@Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/Scripts/Contacts/Index.js")
 }

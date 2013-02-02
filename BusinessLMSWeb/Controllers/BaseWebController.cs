@@ -39,6 +39,11 @@ namespace BusinessLMSWeb.Controllers
 				{
 					if ((WebSecurity.IsAuthenticated) && (actionName != "LogOff"))
 					{
+						if (ClearCookies == true)
+						{
+							CookieHelper cookies = new CookieHelper(_context);
+							cookies.CleanCookies();
+						}
 						if (ibo != null)
 						{
 							ViewBag.IBOName = String.Concat(ibo.firstName, " ", ibo.lastName);
@@ -96,13 +101,13 @@ namespace BusinessLMSWeb.Controllers
 			get
 			{
 				string value = "";
-				CookieHelper cookie = new CookieHelper(_context, "fid", 365);
+				CookieHelper cookie = new CookieHelper(_context, "fid");
 				value = cookie.GetCookie<string>();
 				return value;
 			}
 			set
 			{
-				CookieHelper cookie = new CookieHelper(_context, "fid", 365);
+				CookieHelper cookie = new CookieHelper(_context, "fid");
 				if (value != null) cookie.SetCookie<string>(value); else cookie.Remove();
 			}
 		}
@@ -112,13 +117,13 @@ namespace BusinessLMSWeb.Controllers
 			get
 			{
 				string value = "";
-				CookieHelper cookie = new CookieHelper(_context, "at", 365);
+				CookieHelper cookie = new CookieHelper(_context, "at");
 				value = cookie.GetCookie<string>();
 				return value;
 			}
 			set
 			{
-				CookieHelper cookie = new CookieHelper(_context, "at", 365);
+				CookieHelper cookie = new CookieHelper(_context, "at");
 				if (value != null) cookie.SetCookie<string>(value); else cookie.Remove();
 			}
 		}
@@ -128,13 +133,13 @@ namespace BusinessLMSWeb.Controllers
 			get
 			{
 				IBO value = null;
-				CookieHelper cookie = new CookieHelper(_context, "iboinfo", 365);
+				CookieHelper cookie = new CookieHelper(_context, "iboinfo");
 				value = cookie.GetCookie<IBO>();
 				return value;
 			}
 			set
 			{
-				CookieHelper cookie = new CookieHelper(_context, "iboinfo", 365);
+				CookieHelper cookie = new CookieHelper(_context, "iboinfo");
 				if (value != null) cookie.SetCookie<IBO>(value); else cookie.Remove();
 			}
 		}
@@ -163,13 +168,13 @@ namespace BusinessLMSWeb.Controllers
 			get
 			{
 				List<Step> value = null;
-				CookieHelper cookie = new CookieHelper(_context, "menuItems", 365);
+				CookieHelper cookie = new CookieHelper(_context, "menuItems", 1);
 				value = cookie.GetCookie<List<Step>>();
 				return value;
 			}
 			set
 			{
-				CookieHelper cookie = new CookieHelper(_context, "menuItems", 365);
+				CookieHelper cookie = new CookieHelper(_context, "menuItems", 1);
 				if (value != null) cookie.SetCookie<List<Step>>(value); else cookie.Remove();
 			}
 		}
@@ -186,6 +191,36 @@ namespace BusinessLMSWeb.Controllers
 					_menuItems = __menuItems;
 				}
 				return __menuItems;
+			}
+		}
+
+		public List<Alert> listAlerts
+		{
+			get
+			{
+				BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlertsIBO");
+				List<Alert> Alerts = client.Get<List<Alert>>(ibo.IBONum);
+				return Alerts;
+			}
+		}
+
+		public List<ContactFollowup> Followups
+		{
+			get
+			{
+				BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
+				List<ContactFollowup> followups = client.Get<List<ContactFollowup>>(ibo.IBONum);
+				return followups;
+			}
+		}
+
+		public bool ClearCookies
+		{
+			get
+			{
+				BaseClient client = new BaseClient(baseApiUrl, "ClearSystemCookies", "GetClearSystemCookies");
+				bool clear = client.Get<bool>();
+				return clear;
 			}
 		}
 
@@ -211,26 +246,6 @@ namespace BusinessLMSWeb.Controllers
 		public string eventbriteApiKey
 		{
 			get { return ConfigurationManager.AppSettings["EventbriteApiKey"]; }
-		}
-
-		public List<Alert> listAlerts
-		{
-			get
-			{
-                BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlertsIBO");
-                List<Alert> Alerts = client.Get<List<Alert>>(ibo.IBONum);
-				return Alerts;
-			}
-		}
-
-		public List<ContactFollowup> Followups
-		{
-			get
-			{
-				BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
-				List<ContactFollowup> followups = client.Get<List<ContactFollowup>>(ibo.IBONum);
-				return followups;
-			}
 		}
 
 		#endregion

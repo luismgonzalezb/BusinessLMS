@@ -461,13 +461,13 @@ form, fieldset
 
 	.buttons .ico10
 	{
-		background: url(../images/Menu/productMenu.png) no-repeat 0px 0px;
+		background: url(../images/Menu/bookMenu.png) no-repeat 0px 0px;
 		/*background-position: -4px -380px;*/
 	}
 
 	.buttons .ico10.active 
 	{
-		background: url(../images/Menu/productMenuSel.png) no-repeat 0px 0px;
+		background: url(../images/Menu/bookMenuSel.png) no-repeat 0px 0px;
 		/*background-position: -4px -415px;*/
 	}
 
@@ -619,7 +619,7 @@ form, fieldset
 
 .dropdown-menu.has-tip {
 	margin-top: 8px;
-    width:0px;
+	width:0px;
 }
 
 .dropdown-menu.has-tip:before {
@@ -638,7 +638,7 @@ form, fieldset
 .dropdown-menu.has-tip.anchor-right:before {
 	left: auto;
 	right: 9px;
-    
+	
 }
 
 .dropdown-menu.has-tip:after {

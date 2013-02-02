@@ -26,7 +26,7 @@ namespace BusinessLMSWeb.Controllers
             {
                 BaseClient client = new BaseClient(baseApiUrl, "Dreams", "GetDreamsUser");
                 List<Dream> dreams = client.Get<List<Dream>>(ibo.IBONum);
-                dreams = dreams.GroupBy(d => d.dream1).Select(d => d.First()).ToList();
+                dreams = dreams.GroupBy(d => d.dream1).Select(d => d.FirstOrDefault()).ToList();
                 return dreams;
             }
         }
