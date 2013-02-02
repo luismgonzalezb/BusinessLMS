@@ -307,6 +307,7 @@
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\InvitesController.cs" />
     <Compile Include="Controllers\DreamsController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\FollowupsController.cs" />
@@ -819,6 +820,7 @@
     <Content Include="Views\Alerts\CreateAlert.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Books\CreateBook.cshtml" />
+    <Content Include="Views\Invites\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,42 @@
+﻿@model List<BusinessLMSWeb.Controllers.InviteEvent>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+<table class="thin-borders" border="1">
+    <tr>
+        <th>Title</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.title)</td>
+            <td>@Html.DisplayFor(modelItem => item.start)</td>
+            <td>@Html.DisplayFor(modelItem => item.end)</td>
+            <td>
+                <a href="@item.url">Details</a>
+                @* @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @* FALTA EL DEL SHARE *@
+                <a name="sharebutton" type="button" href="http://www.facebook.com/sharer.php">Share</a>  
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php"
+           type="text/javascript">
+</script>
