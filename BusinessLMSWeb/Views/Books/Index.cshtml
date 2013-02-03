@@ -10,7 +10,7 @@
 </div>
 
 <div class="metro-container-990">
-	<table>
+	<table id="books-table">
 		<thead>
 			<tr>
 				<th>@Html.DisplayNameFor(model => model.Title)</th>
@@ -38,7 +38,8 @@
 				</td>
 				<td>
 					@if (item.IBONum == ViewBag.IBONum) {
-						Html.ActionLink("Delete", "DeleteBookAjax", new { id = item.BookId });
+						 Html.ActionLink("Delete", "DeleteBookAjax", new { id = item.BookId },
+						 new { @class = "del-link-sm-black deletelink", title = "Delete Book" });
 					}
 				</td>
 			</tr>
@@ -48,7 +49,7 @@
 	@if (ViewBag.ibolevel >= 25 && ViewBag.BookCount<10)
 	{ 
 		<div class="metro-align-right">
-			<input type="button" value="Add New" class="metro-button" onclick="" />
+			<input type="button" value="Add New" class="metro-button" onclick="AddNewBook();" />
 		</div>
 	}
 
@@ -62,5 +63,5 @@
 @{ Html.RenderPartial("_BooksInfo"); }
 @section Scripts {
 	@Scripts.Render("~/bundles/jqueryval")
-	@Scripts.Render("~/Scripts/Contacts/Index.js")
+	@Scripts.Render("~/Scripts/Books/Index.js")
 }
