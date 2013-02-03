@@ -57,7 +57,6 @@ namespace BusinessLMSWeb.Controllers
 						{
 							if ((actionName != "AddIBO") && (controllerName != "IBO"))
 							{
-								ibo = null;
 								filterContext.Result = RedirectToAction("AddIBO", "IBO");
 							}
 						}
@@ -128,54 +127,13 @@ namespace BusinessLMSWeb.Controllers
 			}
 		}
 
-		private IBO _ibo
-		{
-			get
-			{
-				IBO value = null;
-				CookieHelper cookie = new CookieHelper(_context, "iboinfo");
-				value = cookie.GetCookie<IBO>();
-				return value;
-			}
-			set
-			{
-				CookieHelper cookie = new CookieHelper(_context, "iboinfo");
-				if (value != null) cookie.SetCookie<IBO>(value); else cookie.Remove();
-			}
-		}
-
 		public IBO ibo
 		{
 			get
 			{
-				IBO __ibo = _ibo;
-				if (__ibo == null)
-				{
-					BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
-					__ibo = client.Get<IBO>(WebSecurity.CurrentUserId.ToString());
-					_ibo = __ibo;
-				}
-				return __ibo;
-			}
-			set
-			{
-				_ibo = null;
-			}
-		}
-
-		private List<Step> _menuItems
-		{
-			get
-			{
-				List<Step> value = null;
-				CookieHelper cookie = new CookieHelper(_context, "menuItems", 1);
-				value = cookie.GetCookie<List<Step>>();
-				return value;
-			}
-			set
-			{
-				CookieHelper cookie = new CookieHelper(_context, "menuItems", 1);
-				if (value != null) cookie.SetCookie<List<Step>>(value); else cookie.Remove();
+				BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
+				IBO _ibo = client.Get<IBO>(WebSecurity.CurrentUserId.ToString());
+				return _ibo;
 			}
 		}
 
@@ -183,14 +141,9 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				List<Step> __menuItems = _menuItems;
-				if (__menuItems == null)
-				{
-					BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
-					__menuItems = client.Get<List<Step>>();
-					_menuItems = __menuItems;
-				}
-				return __menuItems;
+				BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
+				List<Step> _menuItems = client.Get<List<Step>>();
+				return _menuItems;
 			}
 		}
 

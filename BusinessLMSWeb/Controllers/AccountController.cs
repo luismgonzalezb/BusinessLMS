@@ -21,7 +21,6 @@ namespace BusinessLMSWeb.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ibo = null;
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -46,7 +45,6 @@ namespace BusinessLMSWeb.Controllers
         public ActionResult LogOff()
         {
             WebSecurity.Logout();
-            ibo = null;
             return RedirectToAction("Index", "Home");
         }
 

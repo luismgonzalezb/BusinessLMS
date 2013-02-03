@@ -691,3 +691,10 @@ text-decoration: underline;
 	margin: 5px 1px;
 	overflow: hidden;
 }
+
+.add-item {
+	position: relative;
+	margin-top: -28px;
+	margin-left: 102%;
+	cursor:pointer;
+}

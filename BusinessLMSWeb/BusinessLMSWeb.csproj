@@ -521,6 +521,8 @@
     <Content Include="Content\tipTip\tipTip.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\AddSmB.png" />
+    <Content Include="Images\AddSmBS.png" />
     <Content Include="Images\bg-controls.png" />
     <Content Include="Images\bg-shadow.png" />
     <Content Include="Images\bg-wrapper.png" />
