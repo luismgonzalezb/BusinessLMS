@@ -13,13 +13,9 @@
 	<table>
 		<thead>
 			<tr>
-				<th>@Html.DisplayNameFor(model => model.IBONum)</th>
 				<th>@Html.DisplayNameFor(model => model.Title)</th>
 				<th>@Html.DisplayNameFor(model => model.Autor)</th>
-				<th>@Html.DisplayNameFor(model => model.Link1)</th>
-				<th>@Html.DisplayNameFor(model => model.Link2)</th>
-				<th>@Html.DisplayNameFor(model => model.Link3)</th>
-				<th>@Html.DisplayNameFor(model => model.priority)</th>
+				<th>Buy Links</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -27,14 +23,24 @@
 		@foreach (var item in Model)
 		{
 			<tr>
-				<td>@Html.DisplayFor(modelItem => item.IBONum)</td>
 				<td>@Html.DisplayFor(modelItem => item.Title)</td>
 				<td>@Html.DisplayFor(modelItem => item.Autor)</td>
-				<td><a href="@item.Link1" id="@item.BookId" class="Count">@item.Link1</a></td>
-				<td><a href="@item.Link2" id="@item.BookId" class="Count">@item.Link2</a></td>
-				<td><a href="@item.Link3" id="@item.BookId" class="Count">@item.Link3</a></td>
-				<td>@Html.DisplayFor(modelItem => item.priority)</td>
-				<td>@Html.ActionLink("Delete", "DeleteBookAjax", new { id = item.BookId })</td>
+				<td>
+					@if (!string.IsNullOrEmpty(item.Link1)) { 
+						<a href="@item.Link1" class="">@item.Link1</a>
+					}
+					@if (!string.IsNullOrEmpty(item.Link2)) { 
+						<a href="@item.Link2" class="">@item.Link2</a>
+					}
+					@if (!string.IsNullOrEmpty(item.Link2)) { 
+						<a href="@item.Link3" class="">@item.Link3</a>
+					}
+				</td>
+				<td>
+					@if (item.IBONum == ViewBag.IBONum) {
+						Html.ActionLink("Delete", "DeleteBookAjax", new { id = item.BookId });
+					}
+				</td>
 			</tr>
 		}
 		</tbody>
@@ -42,9 +48,19 @@
 	@if (ViewBag.ibolevel >= 25 && ViewBag.BookCount<10)
 	{ 
 		<div class="metro-align-right">
-			<input type="button" value="Add New" class="metro-button" onclick="AddNewContact();" />
+			<input type="button" value="Add New" class="metro-button" onclick="" />
 		</div>
 	}
 
 </div>
 
+<div id="booksInfo"></div>
+<div id="modalWindow"></div>
+<div id="delete-dialog" title="Confirmation">
+	<p>Are you sure you want to delete this book?</p>
+</div>
+@{ Html.RenderPartial("_BooksInfo"); }
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/Scripts/Contacts/Index.js")
+}

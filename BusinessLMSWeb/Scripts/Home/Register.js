@@ -1,6 +1,6 @@
 ﻿
 $(function () {
-	$.validator.unobtrusive.parse("#current_form");
+	//$.validator.unobtrusive.parse("#current_form");
 	$("#iboName").autocomplete({
 		source: "/Home/SearchIBO/",
 		search: function (event, ui) {

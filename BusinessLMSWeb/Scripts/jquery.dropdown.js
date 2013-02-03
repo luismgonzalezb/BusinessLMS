@@ -54,7 +54,7 @@ if (jQuery) (function ($) {
 
     function hideDropdowns(event) {
 
-        var targetGroup = event ? $(event.target).parents().andSelf() : null;
+        var targetGroup = event ? $(event.target).parents().addBack() : null;
         if (targetGroup && targetGroup.is('.dropdown-menu') && !targetGroup.is('A')) return;
 
         $('BODY')
