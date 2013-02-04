@@ -626,6 +626,8 @@
     <Content Include="Images\Home\ui.totop.png" />
     <Content Include="Images\Information.png" />
     <Content Include="Images\loading.gif" />
+    <Content Include="Images\Menu\bookMenu.png" />
+    <Content Include="Images\Menu\bookMenuSel.png" />
     <Content Include="Images\Menu\contactMenu.png" />
     <Content Include="Images\Menu\contactMenuSel.png" />
     <Content Include="Images\Menu\feedMenu.png" />
@@ -636,8 +638,6 @@
     <Content Include="Images\Menu\infoMenuSel.png" />
     <Content Include="Images\Menu\meetingMenu.png" />
     <Content Include="Images\Menu\meetingMenuSel.png" />
-    <Content Include="Images\Menu\productMenu.png" />
-    <Content Include="Images\Menu\productMenuSel.png" />
     <Content Include="Images\Menu\progressMenu.png" />
     <Content Include="Images\Menu\progressMenuSel.png" />
     <Content Include="Images\Menu\univMenu.png" />
@@ -698,14 +698,14 @@
     <Content Include="Content\DataTables-1.9.4\extras\TableTools\media\images\psd\file_types.psd" />
     <Content Include="Content\DataTables-1.9.4\extras\TableTools\media\images\psd\copy document.psd" />
     <Content Include="Content\DataTables-1.9.4\extras\TableTools\media\images\psd\collection.psd" />
-    <None Include="Properties\PublishProfiles\businesslmsweb - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\businesslmsweb - Web Deploy.pubxml" />
     <Content Include="Scripts\DataTables-1.9.4\extras\AutoFill\media\js\AutoFill.min.js.gz" />
     <Content Include="Scripts\DataTables-1.9.4\extras\ColReorder\media\js\ColReorder.min.js.gz" />
     <Content Include="Scripts\DataTables-1.9.4\extras\ColVis\media\js\ColVis.min.js.gz" />
     <Content Include="Scripts\DataTables-1.9.4\extras\FixedColumns\media\js\FixedColumns.min.js.gz" />
     <Content Include="Scripts\DataTables-1.9.4\extras\Scroller\media\js\dataTables.scroller.min.js.gz" />
     <Content Include="Scripts\DataTables-1.9.4\extras\TableTools\media\js\TableTools.min.js.gz" />
+    <None Include="Properties\PublishProfiles\businesslmsweb - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\businesslmsweb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
@@ -749,6 +749,7 @@
     <Content Include="Scripts\noty\layouts\topRight.js" />
     <Content Include="Scripts\noty\themes\default.js" />
     <Content Include="Scripts\Shared\_layout.js" />
+    <Content Include="Scripts\Tickets\Index.js" />
     <Content Include="Scripts\Tickets\_layout.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
