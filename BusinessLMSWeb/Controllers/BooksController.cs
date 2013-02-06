@@ -13,7 +13,7 @@ namespace BusinessLMSWeb.Controllers
 		public ActionResult Index()
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "Books", "GetIBOBooks");
-			List<Book> Books = client.Get<List<Book>>(ibo.UPLine);
+			List<Book> Books = client.Get<List<Book>>(ibo.IBONum);
 			ViewBag.ibolevel = ibo.level;
 			client = new BaseClient(baseApiUrl, "Books", "GetMyBook");
 			List<Book> CBooks = client.Get<List<Book>>(ibo.IBONum);

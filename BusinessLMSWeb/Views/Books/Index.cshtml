@@ -27,18 +27,18 @@
 				<td>@Html.DisplayFor(modelItem => item.Autor)</td>
 				<td>
 					@if (!string.IsNullOrEmpty(item.Link1)) { 
-						<a href="@item.Link1" class="">@item.Link1</a>
+						<a href="@item.Link1" class="Count" id="@item.BookId">@item.Link1</a>
 					}
 					@if (!string.IsNullOrEmpty(item.Link2)) { 
-						<a href="@item.Link2" class="">@item.Link2</a>
+						<a href="@item.Link2" class="Count" id="@item.BookId">@item.Link2</a>
 					}
 					@if (!string.IsNullOrEmpty(item.Link2)) { 
-						<a href="@item.Link3" class="">@item.Link3</a>
+						<a href="@item.Link3" class="Count" id="@item.BookId">@item.Link3</a>
 					}
 				</td>
 				<td>
 					@if (item.IBONum == ViewBag.IBONum) {
-						 Html.ActionLink("Delete", "DeleteBookAjax", new { id = item.BookId },
+						 @Html.ActionLink("Delete", "DeleteBookAjax", new { id = item.BookId },
 						 new { @class = "del-link-sm-black deletelink", title = "Delete Book" });
 					}
 				</td>

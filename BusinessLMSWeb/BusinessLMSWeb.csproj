@@ -642,6 +642,7 @@
     <Content Include="Images\Menu\progressMenuSel.png" />
     <Content Include="Images\Menu\univMenu.png" />
     <Content Include="Images\Menu\univMenuSel.png" />
+    <Content Include="Images\shareFB.jpg" />
     <Content Include="Images\sprite.png" />
     <Content Include="Images\noProfilePicture.png" />
     <Content Include="Images\SubmitArrow.png" />
@@ -707,6 +708,7 @@
     <None Include="Properties\PublishProfiles\businesslmsweb - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\businesslmsweb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\Invites\Index.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.0.js" />

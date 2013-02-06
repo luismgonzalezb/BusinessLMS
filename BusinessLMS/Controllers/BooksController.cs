@@ -120,7 +120,7 @@ namespace BusinessLMS.Controllers
         }
 
         // DELETE api/Books/5
-        public HttpResponseMessage DeleteBook(string id)
+        public HttpResponseMessage DeleteBook(int id)
         {
             Book book = db.Books.Find(id);
             if (book == null)

@@ -38,7 +38,8 @@ namespace BusinessLMS.Controllers
 			List<String> alertibos = (from alert in db.AlertsIBO
 									  where alert.IBONum == id
 									  select alert.AlertId).ToList();
-			List<Alert> alerts = (from alert in db.Alerts
+			List<Alert> alerts = new List<Alert>();
+            alerts=(from alert in db.Alerts
 								  where !alertibos.Contains(alert.AlertId)
 								  select alert).ToList();
 			return alerts;
