@@ -1,0 +1,37 @@
+﻿@model BusinessLMSWeb.Models.Progress
+
+<div class="metro-container-300">
+
+    @using (Html.BeginForm("AddProgressAjax", "Progress", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Progress</legend>
+
+            <div class="metro-form-control">
+                <label for="Title">Progress</label>
+                <div class="metro-text-box">
+                    @Html.EditorFor(model => model.progress)
+                    @Html.ValidationMessageFor(model => model.progress)
+                </div>
+            </div>
+
+            @Html.HiddenFor(model => model.ProgressId)
+            @Html.HiddenFor(model => model.GoalId)
+            @Html.HiddenFor(model => model.datetime)
+
+            <div class="metro-align-right">
+                <input type="button" value="Cancel" class="metro-button" onclick="CancelProgress();" />
+                <input type="button" value="Create" class="metro-button" onclick="submitform(this.form);" />
+            </div>
+
+        </fieldset>
+    }
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse("#current_form");
+    });
+</script>

@@ -1,6 +1,45 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model IEnumerable<BusinessLMSWeb.Models.Goal>
+
+@{
+    ViewBag.Title = "Goals Progress";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="title" style="margin-bottom:40px;">
+	<h1>@ViewBag.Title.</h1>
+</div>
+
+<div class="metro-container-990">
+	<table id="goalprogress-table">
+		<thead>
+			<tr>
+				<th>Tool</th>
+				<th>@Html.DisplayNameFor(model => model.goal1)</th>
+				<th>@Html.DisplayNameFor(model => model.datetime)</th>
+                <th>Progress</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@Html.Action("GetTool", "Progress", new { id = item.toolId})</td>
+				<td>@Html.DisplayFor(modelItem => item.goal1)</td>
+				<td>@Html.DisplayFor(modelItem => item.datetime)</td>
+                <td>@Html.Action("GetProgress", "Progress", new { id = item.goalId})%</td>
+				<td>
+						 <a href="javascript:addProgress(@item.goalId);">Progress</a>
+				</td>
+			</tr>
+		}
+		</tbody>
+	</table>
+
+</div>
+<div id="progressInfo"></div>
+<div id="modalWindow"></div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/Scripts/Progress/Index.js")
+}

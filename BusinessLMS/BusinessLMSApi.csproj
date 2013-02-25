@@ -266,6 +266,7 @@
     <Compile Include="Controllers\IBOController.cs" />
     <Compile Include="Controllers\ListsController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\ProgressController.cs" />
     <Compile Include="Controllers\StepController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Controllers\TokensController.cs" />
@@ -288,6 +289,8 @@
     <Compile Include="Models\AlertIBO.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\ClearSystemCookies.cs" />
+    <Compile Include="Models\Mapping\Progress.cs" />
+    <Compile Include="Models\Progress.cs" />
     <Compile Include="Models\Mapping\ApiTokenMap.cs" />
     <Compile Include="Models\Mapping\AlertsMap.cs" />
     <Compile Include="Models\Mapping\AlertsIBOMap.cs" />

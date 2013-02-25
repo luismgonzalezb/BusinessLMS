@@ -38,7 +38,7 @@ namespace BusinessLMSWeb.Models
 
 
         [Required]
-        [Display(Name = "Language")]
+        [Display(Name = "DateTime Goal")]
         [DataType(DataType.DateTime)]
         public System.DateTime datetime { get; set; }
 

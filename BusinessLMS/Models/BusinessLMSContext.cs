@@ -66,6 +66,8 @@ namespace BusinessLMS.Models
 			modelBuilder.Configurations.Add(new ClearSystemCookiesMap());
 		}
 
+        public DbSet<Progress> Progresses { get; set; }
+
 		
 
 

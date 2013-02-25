@@ -342,6 +342,7 @@
     <Compile Include="Models\ContactType.cs" />
     <Compile Include="Models\Alert.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Progress.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Dream.cs" />
     <Compile Include="Models\DreamMV.cs" />
@@ -750,6 +751,7 @@
     <Content Include="Scripts\noty\layouts\topLeft.js" />
     <Content Include="Scripts\noty\layouts\topRight.js" />
     <Content Include="Scripts\noty\themes\default.js" />
+    <Content Include="Scripts\Progress\Index.js" />
     <Content Include="Scripts\Shared\_layout.js" />
     <Content Include="Scripts\Tickets\Index.js" />
     <Content Include="Scripts\Tickets\_layout.js" />
@@ -813,7 +815,6 @@
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Tickets\EditTicket.cshtml" />
-    <Content Include="Views\Progress\Index.cshtml" />
     <Content Include="Views\University\Index.cshtml" />
     <Content Include="Views\Home\_Register.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
@@ -828,6 +829,8 @@
     <Content Include="Views\Books\CreateBook.cshtml" />
     <Content Include="Views\Invites\Index.cshtml" />
     <Content Include="Views\Books\_BooksInfo.cshtml" />
+    <Content Include="Views\Progress\Index.cshtml" />
+    <Content Include="Views\Progress\CreateProgress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
