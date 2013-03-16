@@ -63,18 +63,7 @@ function submitform(frm) {
     if (!$(frm).valid()) { return false; }
     $.post($(frm).attr("action"), $(frm).serialize(), function (data) {
         if (data.contactId != null) {
-            $("#contactInfo").hide("slow");
-            $('#contacts-table').dataTable().fnAddData([
-                data.firstName,
-                data.lastName,
-                data.email,
-                data.phone,
-                data.cell,
-                data.preferred,
-                data.contactLevel,
-                publicColumn(data.isPublic),
-                actionsColumn(data.contactId)
-            ]);
+            
         } else {
             $("#contactInfo").hide("slow");
         }

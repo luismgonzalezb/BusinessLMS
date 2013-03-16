@@ -17,10 +17,6 @@ $(document).ready(function(){
 	});
 });
 
-function setValue(newvalue) {
-    count = newvalue;
-}
-
 function readedAlert(aId, iId) {
 	$.post("/Home/ReadedAlertAjax", { AlertId: aId, IBONum: iId, datetime : null }, function (data) {
 
@@ -29,12 +25,6 @@ function readedAlert(aId, iId) {
 	$("#Cont").html(CountAlert);
 	
 }
-
-//function CountBook(bId) {
-//    $.post("/Books/UpCount", { id:bId }, function (data) {
-     
-//    });
-//}
 
 $(document).ready(function () {
     $('.Count').click(function () {
@@ -45,4 +35,3 @@ $(document).ready(function () {
 
     });
 });
-

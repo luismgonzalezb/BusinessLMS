@@ -1,6 +1,21 @@
-﻿@{
+﻿@model IEnumerable<BusinessLMSWeb.Models.IBO>
+
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>Index</h2>
+
+	<div>
+       <ul>
+           @foreach (var item in Model) { 
+               <li>@item.IBONum</li>
+           }
+       </ul>
+	</div>
+
+@section Scripts {
+	@Scripts.Render("~/Scripts/Dashboard/Index.js")
+}

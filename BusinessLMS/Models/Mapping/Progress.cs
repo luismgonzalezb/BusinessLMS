@@ -9,7 +9,6 @@ namespace BusinessLMS.Models.Mapping
             // Primary Key
             this.HasKey(t => t.ProgressId);
 
-
             this.Property(t => t.GoalId)
                 .IsRequired();
 

@@ -44,16 +44,16 @@ namespace BusinessLMSWeb.Controllers
 		{
 			if (ModelState.IsValid == true)
 			{
-				try
-				{
-					BaseClient client = new BaseClient(baseApiUrl, "Books", "PostBook");
-					string result = client.Post<Book>(model);
-					return Json(model);
-				}
-				catch
-				{
-					return Json(new { success = false });
-				}
+                try
+                {
+                    BaseClient client = new BaseClient(baseApiUrl, "Books", "PostBook");
+                    string result = client.Post<Book>(model);
+                    return Json(model);
+                }
+                catch
+                {
+                    return Json(new { success = false });
+                }
 			}
 			else
 			{

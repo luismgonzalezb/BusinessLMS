@@ -31,6 +31,11 @@ namespace BusinessLMS.Controllers
             return (from g in db.Goals join d in db.Dreams on g.dreamId equals d.dreamId where d.IBONum == id select g);
         }
 
+        public IEnumerable<Goal> GetIBOGoalsProgress(string id)
+        {
+            return (from g in db.Goals join d in db.Dreams on g.dreamId equals d.dreamId where d.IBONum == id && g.completed==false select g);
+        }
+
         public Goal GetGoal(int id)
         {
             Goal goal = db.Goals.Find(id);

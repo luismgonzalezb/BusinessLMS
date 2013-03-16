@@ -7,7 +7,7 @@ namespace BusinessLMSWeb.Models
 	{
 
         [Display(Name = "Book Id")]
-        public string BookId { get; set; }
+        public int BookId { get; set; }
 
         [Required]
         [Display(Name = "IBONum")]

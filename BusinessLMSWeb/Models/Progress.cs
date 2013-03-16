@@ -15,7 +15,7 @@ namespace BusinessLMSWeb.Models
 
         [Required]
         [Display(Name = "Progress")]
-        public double progress { get; set; }
+        public decimal progress { get; set; }
 
         [Required]
         [Display(Name = "Date and Time")]

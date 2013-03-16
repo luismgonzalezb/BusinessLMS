@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using BusinessLMSWeb.Helpers;
+using BusinessLMSWeb.Models;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace BusinessLMSWeb.Controllers
 {
@@ -9,7 +12,9 @@ namespace BusinessLMSWeb.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetMyIBOs");
+            List<IBO> ibos = client.Get<List<IBO>>(ibo.IBONum);
+            return View(ibos);
         }
 
     }

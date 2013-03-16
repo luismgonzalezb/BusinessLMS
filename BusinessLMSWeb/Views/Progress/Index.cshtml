@@ -27,7 +27,7 @@
 				<td>@Html.Action("GetTool", "Progress", new { id = item.toolId})</td>
 				<td>@Html.DisplayFor(modelItem => item.goal1)</td>
 				<td>@Html.DisplayFor(modelItem => item.datetime)</td>
-                <td>@Html.Action("GetProgress", "Progress", new { id = item.goalId})%</td>
+                <td>@Html.Action("GetProgress", "Progress", new { id = item.goalId.ToString()})%</td>
 				<td>
 						 <a href="javascript:addProgress(@item.goalId);">Progress</a>
 				</td>

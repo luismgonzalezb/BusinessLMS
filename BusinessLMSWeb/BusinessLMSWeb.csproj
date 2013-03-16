@@ -533,9 +533,11 @@
     <Content Include="Images\Date.png" />
     <Content Include="Images\DeleteSmB.png" />
     <Content Include="Images\DeleteSmBS.png" />
+    <Content Include="Images\Details.png" />
     <Content Include="Images\Edit.png" />
     <Content Include="Images\EditSmB.png" />
     <Content Include="Images\EditSmBS.png" />
+    <Content Include="Images\eventbrite.jpg" />
     <Content Include="Images\facebook.png" />
     <Content Include="Images\Help.png" />
     <Content Include="Images\Home\arrows.png" />
@@ -643,13 +645,14 @@
     <Content Include="Images\Menu\progressMenuSel.png" />
     <Content Include="Images\Menu\univMenu.png" />
     <Content Include="Images\Menu\univMenuSel.png" />
-    <Content Include="Images\shareFB.jpg" />
+    <Content Include="Images\shareFB.png" />
     <Content Include="Images\sprite.png" />
     <Content Include="Images\noProfilePicture.png" />
     <Content Include="Images\SubmitArrow.png" />
     <Content Include="Scripts\Calendar\Index.js" />
     <Content Include="Scripts\Contacts\Index.js" />
     <Content Include="Scripts\Books\Index.js" />
+    <Content Include="Scripts\Dashboard\Index.js" />
     <Content Include="Scripts\DataTables-1.9.4\docs\media\js\doc.js" />
     <Content Include="Scripts\DataTables-1.9.4\docs\media\js\shBrushJScript.js" />
     <Content Include="Scripts\DataTables-1.9.4\docs\media\js\shCore.js" />
@@ -831,6 +834,7 @@
     <Content Include="Views\Books\_BooksInfo.cshtml" />
     <Content Include="Views\Progress\Index.cshtml" />
     <Content Include="Views\Progress\CreateProgress.cshtml" />
+    <Content Include="Views\Progress\EditProgress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

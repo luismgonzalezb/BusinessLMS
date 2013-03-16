@@ -1,0 +1,112 @@
+﻿@model BusinessLMSWeb.Models.Progress
+
+<div class="metro-container-300">
+
+    @using (Html.BeginForm("EditProgressAjax", "Progress", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Progress</legend>
+
+            <div class="metro-form-control">
+                <label for="Title">Progress</label>
+                <div class="metro-text-box">
+                    @Html.EditorFor(model => model.progress)
+                    @Html.ValidationMessageFor(model => model.progress)
+                </div>
+            </div>
+
+            @Html.HiddenFor(model => model.ProgressId)
+            @Html.HiddenFor(model => model.GoalId)
+            @Html.HiddenFor(model => model.datetime)
+
+            <div class="metro-align-right">
+                <input type="button" value="Cancel" class="metro-button" onclick="CancelProgress();" />
+                <input type="button" value="Create" class="metro-button" onclick="submitupdateform(this.form);" />
+            </div>
+
+        </fieldset>
+    }
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.validator.unobtrusive.parse("#current_form");
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@model BusinessLMSWeb.Models.Progress
+
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Progress</legend>
+
+        @Html.HiddenFor(model => model.ProgressId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GoalId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GoalId)
+            @Html.ValidationMessageFor(model => model.GoalId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.progress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.progress)
+            @Html.ValidationMessageFor(model => model.progress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.datetime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.datetime)
+            @Html.ValidationMessageFor(model => model.datetime)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

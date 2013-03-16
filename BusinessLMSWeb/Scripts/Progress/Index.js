@@ -25,7 +25,8 @@
 });
 
 function addProgress(id) {
-    $("#progressInfo").hide("slow").load('/Progress/CreateProgress/' + id).show("slow");
+
+        $("#progressInfo").hide("slow").load('/Progress/CreateProgress/' + id).show("slow");
 
 }
 

@@ -38,6 +38,7 @@ namespace BusinessLMS.Models
 		public DbSet<AlertIBO> AlertsIBO { get; set; }
 		public DbSet<Book> Books { get; set; }
 		public DbSet<ClearSystemCookies> ClearSystemCookies { get; set; }
+        public DbSet<Progress> Progresses { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -64,9 +65,10 @@ namespace BusinessLMS.Models
 			modelBuilder.Configurations.Add(new AlertsIBOMap());
 			modelBuilder.Configurations.Add(new BooksMap());
 			modelBuilder.Configurations.Add(new ClearSystemCookiesMap());
+            modelBuilder.Configurations.Add(new ProgressMap());
 		}
 
-        public DbSet<Progress> Progresses { get; set; }
+        
 
 		
 

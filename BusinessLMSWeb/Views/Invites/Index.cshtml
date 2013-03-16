@@ -27,8 +27,8 @@
                     <td>@Html.DisplayFor(modelItem => item.start)</td>
                     <td>@Html.DisplayFor(modelItem => item.end)</td>
                     <td>
-                        <a href="@item.url">Details</a>
-                        <a onclick="redeem('@item.title','@item.url');"><img src="~/Images/shareFB.jpg" /></a>
+                        <a href="@item.url" target="_blank" onclick="window.open(this.href, this.target)"><img src="~/Images/details.png" /></a>
+                        <a onclick="redeem('@item.title','@item.url');"><img src="~/Images/shareFB.png" /></a>
                     </td>
                 </tr>
             }

@@ -26,19 +26,7 @@ namespace BusinessLMS.Controllers
         {
             return (from p in db.Progresses where p.GoalId == id select p).FirstOrDefault();
         }
-        // GET api/Progress/5
-        public Progress GetProgress(long id)
-        {
-            Progress progress = db.Progresses.Find(id);
-            if (progress == null)
-            {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
-            }
-
-            return progress;
-        }
-
-        // PUT api/Progress/5
+        
         public HttpResponseMessage PutProgress(long id, Progress progress)
         {
             if (ModelState.IsValid && id == progress.ProgressId)

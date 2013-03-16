@@ -16,10 +16,12 @@ namespace BusinessLMS.Controllers
 	public class IBOController : ApiController
 	{
 		private BusinessLMSContext db = new BusinessLMSContext();
+        private List<IBO> temp;
+        private List<IBO> iboLevel=new List<IBO>();
 
 		public IEnumerable<IBO> GetIBOes()
 		{
-			var ibos = db.IBOs;
+            List<IBO> ibos = db.IBOs.ToList();
 			return ibos.AsEnumerable();
 		}
 
@@ -92,6 +94,30 @@ namespace BusinessLMS.Controllers
 
 			return ibo;
 		}
+
+        public IEnumerable<IBO> GetMyIBOs(string id)
+        {
+            List<IBO> TotalIBO=(from u in db.IBOs where u.IBONum==id select u).ToList();
+            temp=(from u in db.IBOs where u.UPLine == id select u).ToList();
+            do 
+            {
+                TotalIBO.AddRange(temp);
+                iboLevel.Clear();
+                iboLevel.AddRange(temp);
+                temp.Clear();
+                GetDownIBO();
+            } while (temp.Count!=0);
+            return TotalIBO;
+            
+        }
+
+        private void GetDownIBO()
+        {
+            foreach (IBO item in iboLevel)
+            {
+                temp.AddRange((from u in db.IBOs where u.UPLine == item.IBONum select u).ToList());
+            }
+        }
 
 		public HttpResponseMessage PutIBO(string id, IBO ibo)
 		{

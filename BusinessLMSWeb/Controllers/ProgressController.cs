@@ -22,7 +22,7 @@ namespace BusinessLMSWeb.Controllers
 
         public ActionResult Index()
         {
-            BaseClient client = new BaseClient(baseApiUrl, "Goals", "GetIBOGoals");
+            BaseClient client = new BaseClient(baseApiUrl, "Goals", "GetIBOGoalsProgress");
             List<Goal> goals = client.Get<List<Goal>>(ibo.IBONum);
             return View(goals);
         }
@@ -32,11 +32,19 @@ namespace BusinessLMSWeb.Controllers
             return (from tool in tools where tool.toolId == Id select tool.name).FirstOrDefault();
         }
 
-        public double GetProgress(int Id)
+        public decimal GetProgress(string id)
         {
+
             BaseClient client = new BaseClient(baseApiUrl, "Progress", "GetProgress");
-            Progress progress = client.Get<Progress>(Id);
-            return progress.progress;
+            Progress Goalprogress = client.Get<Progress>(id);
+            try
+            {
+                return Goalprogress.progress;
+            }
+            catch 
+            {
+                return 0;
+            }
         }
 
         public ActionResult CreateProgress(int id)
@@ -47,21 +55,51 @@ namespace BusinessLMSWeb.Controllers
             return PartialView(Progress);
         }
 
+        public ActionResult EditProgress(string id)
+        {
+            BaseClient client = new BaseClient(baseApiUrl, "Progress", "GetProgress");
+            Progress Goalprogress = client.Get<Progress>(id);
+            return PartialView(Goalprogress);
+        }
+
         [HttpPost]
         public ActionResult AddProgressAjax(Progress model)
         {
             if (ModelState.IsValid == true)
             {
-                //try
-                //{
-                    BaseClient client = new BaseClient(baseApiUrl, "Progress", "PostProgress");
-                    string result = client.Post<Progress>(model);
+                try
+                {
+                    
+                    BaseClient client = new BaseClient(baseApiUrl, "Progress", "GetProgress");
+                    Progress Goalprogress = client.Get<Progress>(model.GoalId.ToString());
+                    if (model.progress == 100)
+                    {
+                        client = new BaseClient(baseApiUrl, "Goals", "GetGoal");
+                        Goal Goal = client.Get<Goal>(model.GoalId.ToString());
+                        Goal.completed = true;
+                        client = new BaseClient(baseApiUrl, "Goals", "PutGoal");
+                        string result = client.Put<Goal>(Goal.goalId.ToString(), Goal);
+                    }
+                    if (Goalprogress == null)
+                    {
+                        client = new BaseClient(baseApiUrl, "Progress", "PostProgress");
+                        string result = client.Post<Progress>(model);
+
+                    }
+                    else
+                    {
+                        model.ProgressId = Goalprogress.ProgressId;
+                        client = new BaseClient(baseApiUrl, "Progress", "PutProgress");
+                        string result = client.Put<Progress>(model.ProgressId.ToString(), model);
+                    }
                     return Json(model);
-                //}
-                //catch
-                //{
-                //    return Json(new { success = false });
-                //}
+
+                }
+                catch
+                {
+                    return Json(new { success = false });
+                }
+                
             }
             else
             {
