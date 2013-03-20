@@ -16,12 +16,10 @@ namespace BusinessLMS.Controllers
 	public class IBOController : ApiController
 	{
 		private BusinessLMSContext db = new BusinessLMSContext();
-        private List<IBO> temp;
-        private List<IBO> iboLevel=new List<IBO>();
 
 		public IEnumerable<IBO> GetIBOes()
 		{
-            List<IBO> ibos = db.IBOs.ToList();
+			List<IBO> ibos = db.IBOs.ToList();
 			return ibos.AsEnumerable();
 		}
 
@@ -35,6 +33,18 @@ namespace BusinessLMS.Controllers
 			return ibos;
 		}
 
+		public IEnumerable<IBO> GetIBOChilds(string id)
+		{
+			List<IBO> resultsList = new List<IBO>();
+			List<IBO> currentList = (from ibo in db.IBOs where ibo.UPLine == id select ibo).ToList();
+			resultsList.AddRange(currentList);
+			foreach (IBO iboChild in currentList)
+			{
+				resultsList.AddRange(GetIBOChilds(iboChild.IBONum));
+			}
+			return resultsList;
+		}
+
 		public IEnumerable<SearchObject> GetSearchIBO(string id)
 		{
 			List<SearchObject> searchResult = new List<SearchObject>();
@@ -42,18 +52,6 @@ namespace BusinessLMS.Controllers
 							where ibo.firstName.ToUpper().Contains(id.ToUpper())
 							|| ibo.lastName.ToUpper().Contains(id.ToUpper())
 							|| ibo.IBONum.Contains(id)
-							select new SearchObject
-							{
-								label = string.Concat(ibo.firstName, " ", ibo.lastName),
-								value = ibo.IBONum
-							}).ToList();
-			return searchResult;
-		}
-
-		public IEnumerable<SearchObject> GetSearchIBO()
-		{
-			List<SearchObject> searchResult = new List<SearchObject>();
-			searchResult = (from ibo in db.IBOs
 							select new SearchObject
 							{
 								label = string.Concat(ibo.firstName, " ", ibo.lastName),
@@ -94,30 +92,6 @@ namespace BusinessLMS.Controllers
 
 			return ibo;
 		}
-
-        public IEnumerable<IBO> GetMyIBOs(string id)
-        {
-            List<IBO> TotalIBO=(from u in db.IBOs where u.IBONum==id select u).ToList();
-            temp=(from u in db.IBOs where u.UPLine == id select u).ToList();
-            do 
-            {
-                TotalIBO.AddRange(temp);
-                iboLevel.Clear();
-                iboLevel.AddRange(temp);
-                temp.Clear();
-                GetDownIBO();
-            } while (temp.Count!=0);
-            return TotalIBO;
-            
-        }
-
-        private void GetDownIBO()
-        {
-            foreach (IBO item in iboLevel)
-            {
-                temp.AddRange((from u in db.IBOs where u.UPLine == item.IBONum select u).ToList());
-            }
-        }
 
 		public HttpResponseMessage PutIBO(string id, IBO ibo)
 		{

@@ -1,21 +1,34 @@
-﻿@model IEnumerable<BusinessLMSWeb.Models.IBO>
+@using Syncfusion.Mvc.Shared
+@using Syncfusion.Mvc.Diagram
+
+@model IEnumerable<BusinessLMSWeb.Models.IBO>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <h2>Index</h2>
 
-	<div>
-       <ul>
-           @foreach (var item in Model) { 
-               <li>@item.IBONum</li>
-           }
-       </ul>
-	</div>
-
-@section Scripts {
-	@Scripts.Render("~/Scripts/Dashboard/Index.js")
+@{
+	Html.Syncfusion().Diagram("GenericList")
+		 .DataSource(Model)
+		 .BindTo(bind =>
+			 bind.NodeId("IBONum")
+			 .ParentNodeId("UPLine")
+			 .NodeText("lastName")
+			 .NodeShape(Shapes.RoundedSquare.ToString())
+			 .Width((50.00).ToString())
+			 .Height((50.00).ToString())
+			 .BackgroundColor("orange"))
+		 .DiagramMode(DiagramMode.Canvas)
+		 .IsSymbolPaletteEnabled(false)         
+		 .HorizontalSpacing(40)
+		 .LayoutType(LayoutType.HierarchicalTreeLayout)
+		 .Orientation(TreeOrientation.TopBottom)
+		 .RootOffsetX(390)
+		 .RootOffsetY(50)
+		 .Width(890)
+		 .Height(450)
+		 .Render();
 }

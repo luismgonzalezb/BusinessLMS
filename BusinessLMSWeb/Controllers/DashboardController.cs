@@ -5,17 +5,16 @@ using System.Web.Mvc;
 
 namespace BusinessLMSWeb.Controllers
 {
+	[Authorize]
+	public class DashboardController : BaseWebController
+	{
+		public ActionResult Index()
+		{
+			BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOChilds");
+			List<IBO> iboChildren = client.Get<List<IBO>>("0101");
+			iboChildren.Add(ibo);
+			return View(iboChildren);
+		}
 
-    [Authorize]
-    public class DashboardController : BaseWebController
-    {
-
-        public ActionResult Index()
-        {
-            BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetMyIBOs");
-            List<IBO> ibos = client.Get<List<IBO>>(ibo.IBONum);
-            return View(ibos);
-        }
-
-    }
+	}
 }
