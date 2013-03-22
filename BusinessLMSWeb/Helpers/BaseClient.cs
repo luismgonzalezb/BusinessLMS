@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
@@ -6,7 +7,6 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Web;
-using Newtonsoft.Json;
 
 namespace BusinessLMSWeb.Helpers
 {
@@ -63,7 +63,7 @@ namespace BusinessLMSWeb.Helpers
 				requestMessage.Method = HttpMethod.Post;
 				requestMessage.Content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
 				HttpResponseMessage result = httpClient.PostAsync(_endpoint, requestMessage.Content).Result;
-				return result.Headers.Location.Segments[3].ToString();
+				return result.StatusCode.ToString();
 			}
 		}
 

@@ -1,12 +1,12 @@
-﻿using System;
+﻿using BusinessLMS.Helpers;
+using BusinessLMSWeb.Helpers;
+using BusinessLMSWeb.Models;
+using BusinessLMSWeb.ModelsView;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web.Mvc;
-using BusinessLMS.Helpers;
-using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Models;
-using BusinessLMSWeb.ModelsView;
 
 namespace BusinessLMSWeb.Controllers
 {
@@ -21,13 +21,13 @@ namespace BusinessLMSWeb.Controllers
 			get
 			{
 				List<SearchObject> value = null;
-				CookieHelper cookie = new CookieHelper(_context, "ibosearchlist", 0.1);
+				CookieHelper cookie = new CookieHelper(_context, "ibosearchlist", 0.2);
 				value = cookie.GetCookie<List<SearchObject>>();
 				return value;
 			}
 			set
 			{
-				CookieHelper cookie = new CookieHelper(_context, "ibosearchlist", 0.1);
+				CookieHelper cookie = new CookieHelper(_context, "ibosearchlist", 0.2);
 				if (value != null) cookie.SetCookie<List<SearchObject>>(value); else cookie.Remove();
 			}
 		}
@@ -117,7 +117,7 @@ namespace BusinessLMSWeb.Controllers
 			if (userNames == null)
 			{
 				BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetSearchIBO");
-				userNames = client.Get<List<SearchObject>>();
+				userNames = client.Get<List<SearchObject>>(term);
 				_userNames = userNames;
 			}
 			if ((userNames != null) && (userNames.Count > 0))

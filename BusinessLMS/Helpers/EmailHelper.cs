@@ -1,113 +1,116 @@
-﻿using System.Collections.Specialized;
+﻿using MailChimp;
+using MailChimp.Types;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Web;
 using System.Web.Mvc;
-using PostmarkDotNet;
 
 namespace BusinessLMS.Helpers
 {
-    public class EmailHelper
-    {
-        public enum EmailType
-        {
-            subscription,
-            resetEmail
-        }
+	public class EmailHelper
+	{
+		public enum EmailType
+		{
+			subscription,
+			resetEmail
+		}
 
-        private string serverToken { 
-            get {
-                return ConfigurationManager.AppSettings["postmarkKey"];
-            } 
-        }
+		private string serverToken { get { return ConfigurationManager.AppSettings["mandrillKey"]; } }
+		private string fromEmail { get { return ConfigurationManager.AppSettings["emailAddressFrom"]; } }
+		private string fromName { get { return ConfigurationManager.AppSettings["emailFromName"]; } }
+		private string urlBase { get { return ConfigurationManager.AppSettings["urlBase"]; } }
 
-        private string fromEmail { 
-            get {
-                return ConfigurationManager.AppSettings["postmarkFrom"];
-            }
-        }
+		public bool SendEmail(string name, string to, string data, EmailType emailType)
+		{
+			try
+			{
+				string Subject = "";
+				string HtmlBody = "";
+				string TextBody = "";
+				switch (emailType)
+				{
+					case EmailType.subscription:
+						Subject = "Welcome to IBO Virtual";
+						HtmlBody = GetSubscriptionHtml(name);
+						TextBody = GetSubscriptionText(name);
+						break;
+					case EmailType.resetEmail:
+						Subject = "IBO Virtual Reset Password";
+						HtmlBody = GetResetMailHtml(name, data);
+						TextBody = GetResetMailText(name, data);
+						break;
+					default:
+						break;
+				}
 
-        private string urlBase {
-            get {
-                return ConfigurationManager.AppSettings["urlBase"];
-            }
-        }
+				List<Mandrill.Messages.Recipient> recipients = new List<Mandrill.Messages.Recipient>();
+				Mandrill.Messages.Recipient recipient = new Mandrill.Messages.Recipient(to, name);
+				recipients.Add(recipient);
 
-        public bool SendEmail(string name, string to, string data, EmailType emailType)
-        {
-            try
-            {
-                string Subject = "";
-                string HtmlBody = "";
-                string TextBody = "";
-                switch (emailType)
-                {
-                    case EmailType.subscription:
-                        Subject = "Welcome to IBO Virtual";
-                        HtmlBody = GetSubscriptionHtml(name);
-                        TextBody = GetSubscriptionText(name);
-                        break;
-                    case EmailType.resetEmail:
-                        Subject = "IBO Virtual Reset Password";
-                        HtmlBody = GetResetMailHtml(name, data);
-                        TextBody = GetResetMailText(name, data);
-                        break;
-                    default:
-                        break;
-                }
-                PostmarkMessage message = new PostmarkMessage
-                {
-                    From = fromEmail,
-                    To = to,
-                    Subject = Subject,
-                    HtmlBody = HtmlBody,
-                    TextBody = TextBody,
-                    ReplyTo = fromEmail,
-                    Headers = new NameValueCollection { { "CUSTOM-HEADER", "value" } }
-                };
-                PostmarkClient client = new PostmarkClient(serverToken);
-                PostmarkResponse response = client.SendMessage(message);
-                if (response.Status != PostmarkStatus.Success)
-                {
-                    return true;
-                }
-            }
-            catch
-            { }
-            return false;
-        }
+				MandrillApi server = new MandrillApi(serverToken);
+				Mandrill.Messages.Message message = new Mandrill.Messages.Message();
 
-        private string GetSubscriptionHtml(string name)
-        {
-            TagBuilder body = new TagBuilder("div");
-            body.InnerHtml = string.Concat("Thanks ",name," for joining IBO Virtual, together we are going to change your life");
-            return body.ToString();
-        }
+				message.FromEmail = fromEmail;
+				message.FromName = fromName;
+				message.Subject = Subject;
+				message.Html = HtmlBody;
+				message.Text = TextBody;
+				message.To = recipients.ToArray();
+				message.TrackOpens = true;
 
-        private string GetSubscriptionText(string name)
-        {
-            string body = string.Concat("Thanks ",name, " for joining IBO Virtual, together we are going to change your life");
-            return body;
-        }
+				MVList<Mandrill.Messages.SendResult> results = server.Send(message);
 
-        private string GetResetMailHtml(string name, string token)
-        {
-            string mailBody = string.Concat("<html><body>Hi ",name," Reset Password <a href='",
-                urlBase, "/Account/PasswordReset?token=",HttpUtility.HtmlEncode(token), "'>Here</a></body></html>");
-            return mailBody;
-        }
+				if (results.Count > 0)
+				{
+					Mandrill.Messages.SendResult result = results[0];
+					if (result.Status == Mandrill.Messages.Status.Sent)
+					{
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				}
 
-        private string GetResetMailText(string name, string token)
-        {
-            string mailBody = string.Concat("Hi ", name, " to Reset Password copy and paste the address ", urlBase, "/Account/PasswordReset?token=", HttpUtility.HtmlEncode(token));
-            return mailBody;
-        }
-    }
+			}
+			catch
+			{ }
+			return false;
+		}
 
-    public class ResertEmailContact
-    {
-        public string name { get; set; }
-        public string email { get; set; }
-        public string token { get; set; }
-    }
+		private string GetSubscriptionHtml(string name)
+		{
+			TagBuilder body = new TagBuilder("div");
+			body.InnerHtml = string.Concat("Thanks ", name, " for joining IBO Virtual, together we are going to change your life");
+			return body.ToString();
+		}
+
+		private string GetSubscriptionText(string name)
+		{
+			string body = string.Concat("Thanks ", name, " for joining IBO Virtual, together we are going to change your life");
+			return body;
+		}
+
+		private string GetResetMailHtml(string name, string token)
+		{
+			string mailBody = string.Concat("<html><body>Hi ", name, " Reset Password <a href='",
+				urlBase, "/Account/PasswordReset?token=", HttpUtility.HtmlEncode(token), "'>Here</a></body></html>");
+			return mailBody;
+		}
+
+		private string GetResetMailText(string name, string token)
+		{
+			string mailBody = string.Concat("Hi ", name, " to Reset Password copy and paste the address ", urlBase, "/Account/PasswordReset?token=", HttpUtility.HtmlEncode(token));
+			return mailBody;
+		}
+	}
+
+	public class ResertEmailContact
+	{
+		public string name { get; set; }
+		public string email { get; set; }
+		public string token { get; set; }
+	}
 
 }

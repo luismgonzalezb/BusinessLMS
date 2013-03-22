@@ -22,5 +22,6 @@ namespace BusinessLMS.Models
 		public bool isPublic { get; set; }
 		public System.DateTime birthday { get; set; }
 		public string preferedTime { get; set; }
+		public bool newsletteroptin { get; set; }
 	}
 }
