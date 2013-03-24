@@ -872,6 +872,7 @@
     <Content Include="Views\Progress\Index.cshtml" />
     <Content Include="Views\Progress\CreateProgress.cshtml" />
     <Content Include="Views\Progress\EditProgress.cshtml" />
+    <Content Include="Views\Invites\_InvitesInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
