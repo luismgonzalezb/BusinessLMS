@@ -1,46 +1,49 @@
 ﻿@model List<BusinessLMSWeb.Controllers.InviteEvent>
 
 @{
-    ViewBag.Title = "Invites";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Invites";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="title" style="margin-bottom: 40px;">
-    <h1>@ViewBag.Title.</h1>
+	<h1>@ViewBag.Title.</h1>
 </div>
 
 <div class="metro-container-990">
-    <table id="invites-table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.title)</td>
-                    <td>@Html.DisplayFor(modelItem => item.start)</td>
-                    <td>@Html.DisplayFor(modelItem => item.end)</td>
-                    <td>
-                        <a href="@item.url" target="_blank" onclick="window.open(this.href, this.target)"><img src="~/Images/details.png" /></a>
-                        <a onclick="redeem('@item.title','@item.url');"><img src="~/Images/shareFB.png" /></a>
-                    </td>
-                </tr>
-            }
-            @{ Html.RenderPartial("_invitesinfo"); }
-        </tbody>
-    </table>
+	<table id="invites-table">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@Html.DisplayFor(modelItem => item.title)</td>
+					<td>@Html.DisplayFor(modelItem => item.start)</td>
+					<td>@Html.DisplayFor(modelItem => item.end)</td>
+					<td>
+						<a href="@item.url" target="_blank" onclick="window.open(this.href, this.target)"><img src="~/Images/details.png" /></a>
+						<a onclick="redeem('@item.title','@item.url');"><img src="~/Images/shareFB.png" /></a>
+					</td>
+				</tr>
+			}
+			
+		</tbody>
+	</table>
 </div>
+
+@{ Html.RenderPartial("_invitesinfo"); }
 
 <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
 <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php"
-    type="text/javascript">
+	type="text/javascript">
 </script>
+
 @section Scripts {
 	@Scripts.Render("~/Scripts/Invites/Index.js")
 }

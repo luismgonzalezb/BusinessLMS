@@ -13,6 +13,8 @@ namespace BusinessLMS.Models
 		public BusinessLMSContext()
 			: base("Name=BusinessLMSContext")
 		{
+			this.Configuration.LazyLoadingEnabled = true;
+			this.Configuration.AutoDetectChangesEnabled = false;
 		}
 
 		public DbSet<Area> Areas { get; set; }

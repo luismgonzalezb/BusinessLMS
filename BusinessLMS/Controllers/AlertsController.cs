@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLMS.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Infrastructure;
@@ -6,7 +7,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BusinessLMS.Models;
 
 namespace BusinessLMS.Controllers
 {
@@ -39,9 +39,9 @@ namespace BusinessLMS.Controllers
 									  where alert.IBONum == id
 									  select alert.AlertId).ToList();
 			List<Alert> alerts = new List<Alert>();
-            alerts=(from alert in db.Alerts
-								  where !alertibos.Contains(alert.AlertId)
-								  select alert).ToList();
+			alerts = (from alert in db.Alerts
+					  where !alertibos.Contains(alert.AlertId)
+					  select alert).ToList();
 			return alerts;
 		}
 
