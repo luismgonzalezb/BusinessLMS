@@ -1,8 +1,8 @@
 ﻿using DoneDone;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 
 namespace BusinessLMS.Helpers
 {
@@ -13,6 +13,8 @@ namespace BusinessLMS.Helpers
 		private string token { get { return ConfigurationManager.AppSettings["donedoneKey"]; } }
 		private string username { get { return ConfigurationManager.AppSettings["donedoneUser"]; } }
 		private string password { get { return ConfigurationManager.AppSettings["donedonePass"]; } }
+		private string projectId { get { return ConfigurationManager.AppSettings["donedoneProjectId"]; } }
+		private string defaultUser { get { return ConfigurationManager.AppSettings["donedoneDefaultUser"]; } }
 
 		private IssueTracker _issueTracker;
 		public IssueTracker issueTracker { get { return _issueTracker; } }
@@ -29,6 +31,7 @@ namespace BusinessLMS.Helpers
 			{
 				string response = _issueTracker.GetProjects(withIsssues);
 				projects = JsonConvert.DeserializeObject<List<Project>>(response);
+
 			}
 			catch
 			{
@@ -42,7 +45,7 @@ namespace BusinessLMS.Helpers
 			try
 			{
 				string response = _issueTracker.GetAllIssuesInProject(ID);
-				issues = JsonConvert.DeserializeObject<List<Issue>>(response);
+				issues = JsonConvert.DeserializeObject<List<Issue>>(ID);
 			}
 			catch
 			{
@@ -50,11 +53,45 @@ namespace BusinessLMS.Helpers
 			return issues;
 		}
 
-		public bool CreateIssue(Issue issue)
+		public List<People> GetProjectPeople(string ID)
+		{
+			List<People> result = new List<People>();
+			try
+			{
+				string response = _issueTracker.GetAllPeopleInProject(ID);
+				result = JsonConvert.DeserializeObject<List<People>>(response);
+			}
+			catch
+			{
+			}
+			return result;
+		}
+
+
+		public List<PriorityLevel> GetPriorityLevels()
+		{
+			List<PriorityLevel> result = new List<PriorityLevel>();
+			try
+			{
+				string response = _issueTracker.GetPriorityLevels();
+				result = JsonConvert.DeserializeObject<List<PriorityLevel>>(response);
+			}
+			catch
+			{
+			}
+			return result;
+		}
+
+		public bool CreateIssue(Ticket issue)
 		{
 			try
 			{
-				//string response = _issueTracker.CreateIssue(issue.ProjectID,issue.Title,issue.PriorityLevelID,issue.ResolverID,issue.TesterID,issue.des)
+
+				List<People> ProjectPeople = new List<People>();
+				ProjectPeople = GetProjectPeople(projectId);
+				People resolver = ProjectPeople.Where(p => p.ID == int.Parse(defaultUser)).FirstOrDefault();
+				People tester = ProjectPeople.Where(p => p.ID == int.Parse(defaultUser)).FirstOrDefault();
+				string response = _issueTracker.CreateIssue(projectId, issue.Title, issue.PriorityLevelID.ToString(), resolver.ID.ToString(), tester.ID.ToString());
 				return true;
 			}
 			catch
@@ -62,35 +99,6 @@ namespace BusinessLMS.Helpers
 				return false;
 			}
 		}
-	}
-
-	public class Project
-	{
-		public int ID { get; set; }
-		public string Name { get; set; }
-		public List<Issue> Issues { get; set; }
-	}
-
-	public class Issue
-	{
-		public int IssueID { get; set; }
-		public string PriorityLevel { get; set; }
-		public int PriorityLevelID { get; set; }
-		public string State { get; set; }
-		public string StateID { get; set; }
-		public Nullable<DateTime> LastUpdatedDate { get; set; }
-		public Nullable<DateTime> LastViewedDate { get; set; }
-		public Nullable<DateTime> CreateDate { get; set; }
-		public string Title { get; set; }
-		public int OrderNumber { get; set; }
-		public int ProjectID { get; set; }
-		public int TesterID { get; set; }
-		public string TesterName { get; set; }
-		public int ResolverID { get; set; }
-		public string ResolverName { get; set; }
-		public int CreatorID { get; set; }
-		public string CreatorName { get; set; }
-		public Nullable<DateTime> DueDate { get; set; }
 	}
 
 }

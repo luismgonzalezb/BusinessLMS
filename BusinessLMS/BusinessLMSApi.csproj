@@ -195,7 +195,6 @@
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ProgressController.cs" />
     <Compile Include="Controllers\StepController.cs" />
-    <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Controllers\TokensController.cs" />
     <Compile Include="Filters\BasicAuthentication.cs" />
     <Compile Include="Global.asax.cs">
@@ -246,13 +245,11 @@
     <Compile Include="Models\Mapping\LocationMap.cs" />
     <Compile Include="Models\Mapping\StateMap.cs" />
     <Compile Include="Models\Mapping\StepMap.cs" />
-    <Compile Include="Models\Mapping\TicketMap.cs" />
     <Compile Include="Models\Mapping\TimeframeMap.cs" />
     <Compile Include="Models\Mapping\ToolMap.cs" />
     <Compile Include="Models\Mapping\ZIPCodeMap.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Step.cs" />
-    <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\Timeframe.cs" />
     <Compile Include="Models\Tool.cs" />
     <Compile Include="Models\ZIPCode.cs" />

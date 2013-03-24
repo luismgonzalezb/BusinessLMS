@@ -387,7 +387,7 @@
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Step.cs" />
-    <Compile Include="Models\Ticket.cs" />
+    <Compile Include="ModelsView\Ticket.cs" />
     <Compile Include="Models\Timeframe.cs" />
     <Compile Include="Models\Tool.cs" />
     <Compile Include="Models\ZIPCode.cs" />
@@ -791,7 +791,6 @@
     <Content Include="Scripts\noty\themes\default.js" />
     <Content Include="Scripts\Progress\Index.js" />
     <Content Include="Scripts\Shared\_layout.js" />
-    <Content Include="Scripts\Tickets\Index.js" />
     <Content Include="Scripts\Tickets\_layout.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -851,10 +850,8 @@
     <Content Include="Views\Shared\_TopControls.cshtml" />
     <Content Include="Views\Calendar\_CalendarInfo.cshtml" />
     <Content Include="Views\Tickets\CreateTicket.cshtml" />
-    <Content Include="Views\Tickets\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
-    <Content Include="Views\Tickets\EditTicket.cshtml" />
     <Content Include="Views\University\Index.cshtml" />
     <Content Include="Views\Home\_Register.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />

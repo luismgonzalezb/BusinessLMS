@@ -1,5 +1,5 @@
-using System.Data.Entity;
 using BusinessLMS.Models.Mapping;
+using System.Data.Entity;
 
 namespace BusinessLMS.Models
 {
@@ -32,13 +32,12 @@ namespace BusinessLMS.Models
 		public DbSet<Timeframe> Timeframes { get; set; }
 		public DbSet<Tool> Tools { get; set; }
 		public DbSet<ZIPCode> ZIPCodes { get; set; }
-		public DbSet<Ticket> Tickets { get; set; }
 		public DbSet<ApiToken> ApiTokens { get; set; }
 		public DbSet<Alert> Alerts { get; set; }
 		public DbSet<AlertIBO> AlertsIBO { get; set; }
 		public DbSet<Book> Books { get; set; }
 		public DbSet<ClearSystemCookies> ClearSystemCookies { get; set; }
-        public DbSet<Progress> Progresses { get; set; }
+		public DbSet<Progress> Progresses { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
@@ -59,19 +58,13 @@ namespace BusinessLMS.Models
 			modelBuilder.Configurations.Add(new TimeframeMap());
 			modelBuilder.Configurations.Add(new ToolMap());
 			modelBuilder.Configurations.Add(new ZIPCodeMap());
-			modelBuilder.Configurations.Add(new TicketMap());
 			modelBuilder.Configurations.Add(new ApiTokenMap());
 			modelBuilder.Configurations.Add(new AlertsMap());
 			modelBuilder.Configurations.Add(new AlertsIBOMap());
 			modelBuilder.Configurations.Add(new BooksMap());
 			modelBuilder.Configurations.Add(new ClearSystemCookiesMap());
-            modelBuilder.Configurations.Add(new ProgressMap());
+			modelBuilder.Configurations.Add(new ProgressMap());
 		}
-
-        
-
-		
-
 
 	}
 }

@@ -1,72 +1,33 @@
-﻿using System;
+﻿using BusinessLMSWeb.Helpers;
+using BusinessLMSWeb.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Models;
 
 namespace BusinessLMSWeb.Controllers
 {
-    [Authorize]
-    public class TicketsController : BaseWebController
-    {
-        //
-        // GET: /Tickets/
+	[Authorize]
+	public class TicketsController : BaseWebController
+	{
+		//
+		// GET: /Tickets/
 
-        Dictionary<int, String> ticketTypes = new Dictionary<int, string>()
-        {
-            { 0, "Defect" },
-            { 1, "Enhancement" }
-        };
+		public ActionResult CreateTicket()
+		{
+			BaseClient client = new BaseClient(baseApiUrl, "Issues", "GetPriorityLevels");
+			List<PriorityLevel> priorityLevel = client.Get<List<PriorityLevel>>();
+			ViewBag.PriorityLevel = new SelectList(priorityLevel, "ID", "Name");
+			return PartialView();
+		}
 
-        public ActionResult Index()
-        {
-            BaseClient client = new BaseClient(baseApiUrl, "Tickets", "GetTickets");
-            List<Ticket> tickets = client.Get<List<Ticket>>();
-            return View(tickets);
-        }
+		[HttpPost]
+		public ActionResult CreateTicket(Ticket model)
+		{
 
-        public ActionResult CreateTicket()
-        {
-            ViewBag.ticketTypes = new SelectList(ticketTypes, "Key", "Value");
-            BaseClient client = new BaseClient(baseApiUrl, "Tickets", "GetMyTickets");
-            List<Ticket> TicketList = client.Get<List<Ticket>>(ibo.IBONum);
-            ViewBag.TicketList = TicketList;
-            Ticket ticket = new Ticket();
-            ticket.IBONum = ibo.IBONum;
-            ticket.datetime = DateTime.Now;
-            ticket.developer = "Unasigned";
-            ticket.impact = "Uknown";
-            ticket.priority = 0;
-            ticket.solved = false;
-            return PartialView(ticket);
-        }
+			BaseClient client = new BaseClient(baseApiUrl, "Issues", "PostIssue");
+			string result = client.Post<Ticket>(model);
 
-        [HttpPost]
-        public ActionResult CreateTicket(Ticket model)
-        {
-            BaseClient client = new BaseClient(baseApiUrl, "Tickets", "PostTicket");
-            string result = client.Post<Ticket>(model);
-            return Json(new { success = true });
-        }
-        public ActionResult EditTicket(string id)
-        {
-            ViewBag.ticketTypes = new SelectList(ticketTypes, "Key", "Value");
-            BaseClient client = new BaseClient(baseApiUrl, "Tickets", "GetTicket");
-            Ticket ticket = client.Get<Ticket>(id);
-            return PartialView(ticket);
-        }
-        public ActionResult EditTicketAjax(Ticket model)
-        {
-            if (ModelState.IsValid == true)
-            {
-                BaseClient client = new BaseClient(baseApiUrl, "Tickets", "PutTicket");
-                string result = client.Put<Ticket>(model.ticketId.ToString(), model);
-                return Json(new { success = true });
-            }
-            else
-            {
-                return Json(new { success = false });
-            }
-        }
-    }
+			return Json(new { success = true });
+		}
+
+	}
 }
