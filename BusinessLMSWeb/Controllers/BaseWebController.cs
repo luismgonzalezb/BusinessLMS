@@ -1,13 +1,12 @@
-﻿using System;
+﻿using BusinessLMSWeb.Helpers;
+using BusinessLMSWeb.Helpers.MobileRedirect;
+using BusinessLMSWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Web.Mvc;
-using BusinessLMS.Helpers;
-using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Helpers.MobileRedirect;
-using BusinessLMSWeb.Models;
 using WebMatrix.WebData;
 
 namespace BusinessLMSWeb.Controllers
@@ -15,12 +14,20 @@ namespace BusinessLMSWeb.Controllers
 	public class BaseWebController : Controller
 	{
 
+		internal Helpers.Cookies Cookies;
+
 		public BaseWebController()
 		{
 			if (WebSecurity.Initialized == false)
 			{
 				SimpleMembershipInitializer();
 			}
+		}
+
+		protected override void OnActionExecuting(ActionExecutingContext filterContext)
+		{
+			Cookies = new Helpers.Cookies(filterContext.HttpContext);
+			base.OnActionExecuting(filterContext);
 		}
 
 		protected override void OnActionExecuted(ActionExecutedContext filterContext)
@@ -39,11 +46,6 @@ namespace BusinessLMSWeb.Controllers
 				{
 					if ((WebSecurity.IsAuthenticated) && (actionName != "LogOff"))
 					{
-						if (ClearCookies == true)
-						{
-							CookieHelper cookies = new CookieHelper(_context);
-							cookies.CleanCookies();
-						}
 						if (ibo != null)
 						{
 							ViewBag.IBOName = String.Concat(ibo.firstName, " ", ibo.lastName);
@@ -93,21 +95,15 @@ namespace BusinessLMSWeb.Controllers
 
 		#region General Properties
 
-		public System.Web.HttpContext _context { get { return System.Web.HttpContext.Current; } }
-
 		public string FacebookId
 		{
 			get
 			{
-				string value = "";
-				CookieHelper cookie = new CookieHelper(_context, "fid");
-				value = cookie.GetCookie<string>();
-				return value;
+				return Cookies.fidCookie.GetFacebookID();
 			}
 			set
 			{
-				CookieHelper cookie = new CookieHelper(_context, "fid");
-				if (value != null) cookie.SetCookie<string>(value); else cookie.Remove();
+				if (value != null) Cookies.fidCookie.SetFacebookID(value); else Cookies.fidCookie.Nullify();
 			}
 		}
 
@@ -115,15 +111,11 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				string value = "";
-				CookieHelper cookie = new CookieHelper(_context, "at");
-				value = cookie.GetCookie<string>();
-				return value;
+				return Cookies.atCookie.GetAccessToken();
 			}
 			set
 			{
-				CookieHelper cookie = new CookieHelper(_context, "at");
-				if (value != null) cookie.SetCookie<string>(value); else cookie.Remove();
+				if (value != null) Cookies.atCookie.SetAccessToken(value); else Cookies.atCookie.Nullify();
 			}
 		}
 
@@ -131,8 +123,13 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
-				IBO _ibo = client.Get<IBO>(WebSecurity.CurrentUserId.ToString());
+				IBO _ibo = Cookies.iboCookie.GetIBO();
+				if (_ibo == null)
+				{
+					BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
+					_ibo = client.Get<IBO>(WebSecurity.CurrentUserId.ToString());
+					Cookies.iboCookie.SetIBO(_ibo);
+				}
 				return _ibo;
 			}
 		}
@@ -141,8 +138,13 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
-				List<Step> _menuItems = client.Get<List<Step>>();
+				List<Step> _menuItems = Cookies.menuItemsCooke.GetMenuItems();
+				if (_menuItems == null)
+				{
+					BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
+					_menuItems = client.Get<List<Step>>();
+					Cookies.menuItemsCooke.SetMenuItems(_menuItems);
+				}
 				return _menuItems;
 			}
 		}
@@ -151,9 +153,14 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlertsIBO");
-				List<Alert> Alerts = client.Get<List<Alert>>(ibo.IBONum);
-				return Alerts;
+				List<Alert> _alerts = Cookies.alertsCookie.GetAlerts();
+				if (_alerts == null)
+				{
+					BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlertsIBO");
+					_alerts = client.Get<List<Alert>>(ibo.IBONum);
+					Cookies.alertsCookie.SetAlerts(_alerts);
+				}
+				return _alerts;
 			}
 		}
 
@@ -161,21 +168,18 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
-				List<ContactFollowup> followups = client.Get<List<ContactFollowup>>(ibo.IBONum);
-				return followups;
+				List<ContactFollowup> _followups = Cookies.followupsCookie.GetFollowups();
+				if (_followups == null)
+				{
+					BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
+					_followups = client.Get<List<ContactFollowup>>(ibo.IBONum);
+					Cookies.followupsCookie.SetFollowups(_followups);
+				}
+				return _followups;
 			}
 		}
 
-		public bool ClearCookies
-		{
-			get
-			{
-				BaseClient client = new BaseClient(baseApiUrl, "ClearSystemCookies", "GetClearSystemCookies");
-				bool clear = client.Get<bool>();
-				return clear;
-			}
-		}
+		#region From Configuration
 
 		public string baseApiUrl
 		{
@@ -200,6 +204,8 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get { return ConfigurationManager.AppSettings["EventbriteApiKey"]; }
 		}
+
+		#endregion
 
 		#endregion
 

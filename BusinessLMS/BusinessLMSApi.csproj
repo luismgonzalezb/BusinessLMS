@@ -182,7 +182,6 @@
     <Compile Include="Controllers\AlertsController.cs" />
     <Compile Include="Controllers\AlertsIBOController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
-    <Compile Include="Controllers\ClearSystemCookiesController.cs" />
     <Compile Include="Controllers\ContactFollowupController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DreamMVController.cs" />
@@ -216,7 +215,6 @@
     <Compile Include="Models\Alert.cs" />
     <Compile Include="Models\AlertIBO.cs" />
     <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\ClearSystemCookies.cs" />
     <Compile Include="Models\Mapping\Progress.cs" />
     <Compile Include="Models\Progress.cs" />
     <Compile Include="Models\Mapping\ApiTokenMap.cs" />
@@ -235,7 +233,6 @@
     <Compile Include="Models\Mapping\ContactFollowupMap.cs" />
     <Compile Include="Models\Mapping\ContactMap.cs" />
     <Compile Include="Models\Mapping\ContactTypeMap.cs" />
-    <Compile Include="Models\Mapping\ClearSystemCookies.cs" />
     <Compile Include="Models\Mapping\DreamMVMap.cs" />
     <Compile Include="Models\Mapping\CountryMap.cs" />
     <Compile Include="Models\Mapping\DreamMap.cs" />

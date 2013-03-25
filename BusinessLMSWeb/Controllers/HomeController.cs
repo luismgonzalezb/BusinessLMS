@@ -1,5 +1,4 @@
-﻿using BusinessLMS.Helpers;
-using BusinessLMSWeb.Helpers;
+﻿using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using BusinessLMSWeb.ModelsView;
 using System;
@@ -14,21 +13,17 @@ namespace BusinessLMSWeb.Controllers
 	public class HomeController : Controller
 	{
 
-		private System.Web.HttpContext _context { get { return System.Web.HttpContext.Current; } }
-
 		private List<SearchObject> _userNames
 		{
 			get
 			{
-				List<SearchObject> value = null;
-				CookieHelper cookie = new CookieHelper(_context, "ibosearchlist", 0.2);
-				value = cookie.GetCookie<List<SearchObject>>();
-				return value;
+				IBOSearchCookie cookie = new IBOSearchCookie(this.HttpContext);
+				return cookie.GetIBOs();
 			}
 			set
 			{
-				CookieHelper cookie = new CookieHelper(_context, "ibosearchlist", 0.2);
-				if (value != null) cookie.SetCookie<List<SearchObject>>(value); else cookie.Remove();
+				IBOSearchCookie cookie = new IBOSearchCookie(this.HttpContext);
+				if (value != null) cookie.SetIBOs(value); else cookie.Nullify();
 			}
 		}
 

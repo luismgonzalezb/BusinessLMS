@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using BusinessLMS.Helpers;
-using BusinessLMSWeb.Helpers;
+﻿using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using BusinessLMSWeb.ModelsView;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace BusinessLMSWeb.Controllers
 {
@@ -17,15 +16,11 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				List<Contact> value = null;
-				CookieHelper cookie = new CookieHelper(_context, "contactList", 0.5);
-				value = cookie.GetCookie<List<Contact>>();
-				return value;
+				return Cookies.contactsCookie.GetContacts();
 			}
 			set
 			{
-				CookieHelper cookie = new CookieHelper(_context, "contactList", 0.5);
-				if (value != null) cookie.SetCookie<List<Contact>>(value); else cookie.Remove();
+				if (value != null) Cookies.contactsCookie.SetContacts(value); else Cookies.contactsCookie.Nullify();
 			}
 		}
 

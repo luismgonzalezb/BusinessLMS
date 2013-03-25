@@ -361,6 +361,7 @@
     <Compile Include="Helpers\ControllersHelper.cs" />
     <Compile Include="Helpers\CookieHelpers.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Helpers\Encryption.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Helpers\MobileRedirectUtility.cs" />
     <Compile Include="Helpers\MobileViewCookie.cs" />

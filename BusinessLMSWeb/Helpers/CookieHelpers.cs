@@ -1,89 +1,394 @@
-﻿using System;
-using System.Web;
+﻿using BusinessLMSWeb.Models;
+using BusinessLMSWeb.ModelsView;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.IO.Compression;
+using System.Text;
+using System.Web;
 
-namespace BusinessLMS.Helpers
+namespace BusinessLMSWeb.Helpers
 {
-	public class CookieHelper
+
+	internal class Cookies
+	{
+		public IBOCookie iboCookie;
+		public FIdCookie fidCookie;
+		public ATCookie atCookie;
+		public ContactsCookie contactsCookie;
+		public MenuItemsCookie menuItemsCooke;
+		public AlertsCookie alertsCookie;
+		public FollowupsCookie followupsCookie;
+		public Cookies(HttpContextBase context)
+		{
+			iboCookie = new IBOCookie(context);
+			fidCookie = new FIdCookie(context);
+			atCookie = new ATCookie(context);
+			contactsCookie = new ContactsCookie(context);
+			menuItemsCooke = new MenuItemsCookie(context);
+			alertsCookie = new AlertsCookie(context);
+			followupsCookie = new FollowupsCookie(context);
+		}
+		public void Nullify()
+		{
+			iboCookie.Nullify();
+			fidCookie.Nullify();
+			atCookie.Nullify();
+			contactsCookie.Nullify();
+			menuItemsCooke.Nullify();
+			alertsCookie.Nullify();
+			followupsCookie.Nullify();
+		}
+	}
+
+	#region Cookie Objects
+	internal class IBOCookie : CookieBase
+	{
+		public IBOCookie(HttpContextBase context) : base(context, "IBOinfo") { }
+		public IBO GetIBO()
+		{
+			return this.Get<IBO>();
+		}
+		public void SetIBO(IBO data)
+		{
+			this.Set<IBO>(data);
+		}
+	}
+	internal class FIdCookie : CookieBase
+	{
+		public FIdCookie(HttpContextBase context) : base(context, "IBOfacebookID") { }
+		public string GetFacebookID()
+		{
+			return this.Get();
+		}
+		public void SetFacebookID(string data)
+		{
+			this.Set(data);
+		}
+	}
+	internal class ATCookie : CookieBase
+	{
+		public ATCookie(HttpContextBase context) : base(context, "IBOAccessToken") { }
+		public string GetAccessToken()
+		{
+			return this.Get();
+		}
+		public void SetAccessToken(string data)
+		{
+			this.Set(data);
+		}
+	}
+	internal class MenuItemsCookie : CookieBase
+	{
+		public MenuItemsCookie(HttpContextBase context) : base(context, "MenuItemsCookie") { }
+		public List<Step> GetMenuItems()
+		{
+			return this.Get<List<Step>>();
+		}
+		public void SetMenuItems(List<Step> data)
+		{
+			this.Set<List<Step>>(data);
+		}
+	}
+	internal class AlertsCookie : CookieBase
+	{
+		public AlertsCookie(HttpContextBase context) : base(context, "AlertsCookie") { }
+		public List<Alert> GetAlerts()
+		{
+			return this.Get<List<Alert>>();
+		}
+		public void SetAlerts(List<Alert> data)
+		{
+			this.Set<List<Alert>>(data);
+		}
+	}
+	internal class FollowupsCookie : CookieBase
+	{
+		public FollowupsCookie(HttpContextBase context) : base(context, "FollowupsCookie") { }
+		public List<ContactFollowup> GetFollowups()
+		{
+			return this.Get<List<ContactFollowup>>();
+		}
+		public void SetFollowups(List<ContactFollowup> data)
+		{
+			this.Set<List<ContactFollowup>>(data);
+		}
+	}
+	internal class ContactsCookie : CookieBase
+	{
+		public ContactsCookie(HttpContextBase context) : base(context, "Contacts") { }
+		public List<Contact> GetContacts()
+		{
+			return this.Get<List<Contact>>();
+		}
+		public void SetContacts(List<Contact> data)
+		{
+			this.Set<List<Contact>>(data);
+		}
+	}
+	internal class IBOSearchCookie : CookieBase
+	{
+		public IBOSearchCookie(HttpContextBase context) : base(context, "IBOSearchCookie") { }
+		public List<SearchObject> GetIBOs()
+		{
+			return this.Get<List<SearchObject>>();
+		}
+		public void SetIBOs(List<SearchObject> data)
+		{
+			this.Set<List<SearchObject>>(data);
+		}
+	}
+	#endregion
+
+	#region Cookie Base Class
+	public class CookieBase
 	{
 
-		private string _name;
-		private HttpCookie _cookie;
-		private HttpContext _context;
+		protected readonly string CookieName;
+		protected HttpContextBase Context;
 
-		public CookieHelper(HttpContext current)
+		internal CookieBase(HttpContextBase context, string CookieName)
 		{
-			_context = current;
+			Context = context;
+			this.CookieName = CookieName;
 		}
 
-		public CookieHelper(HttpContext current, string name, double exprires = 1)
+		public bool Exists(int i = 0)
 		{
-			_context = current;
-			_name = name;
-			_cookie = new HttpCookie(_name);
-			if (_context.Request.Cookies[_name] != null)
-			{
-				_cookie = _context.Request.Cookies[_name];
-			}
-			_cookie.Expires = DateTime.Now.AddMinutes(exprires);
+			return Context.Request.CookieExists(CookieName);
 		}
 
-		public bool Exists()
+		public bool Exists(Predicate<HttpCookie> pred)
 		{
-			if ((_cookie != null) && (_cookie.Value != null)) return true;
-			return false;
+			HttpCookie cookie = Context.Request.Cookies.Get(CookieName);
+			return cookie != null && pred(cookie);
 		}
 
-		public void Remove()
+		public void Set(string data)
 		{
-			_cookie = _context.Request.Cookies[_name];
-			if (this.Exists() == true)
-			{
-				_cookie.Expires = DateTime.Now.AddDays(-1);
-				_context.Response.Cookies.Add(_cookie);
-			}
+			HttpCookie httpCookie = new HttpCookie(CookieName);
+			httpCookie.Expires = DateTime.MinValue;
+			httpCookie.Path = "/";
+			JsonSerializerSettings settings = new JsonSerializerSettings();
+			settings.NullValueHandling = NullValueHandling.Ignore;
+			string encrypted = Encryption.Encrypt(data);
+			httpCookie.Value = encrypted;
+			Context.Response.Cookies.Set(httpCookie);
 		}
 
-		public void SetCookie<T>(T value)
+		public void Set<T>(T data)
 		{
-			string temp = HttpUtility.UrlEncode(JsonConvert.SerializeObject(value));
-			_cookie.Value = temp;
-			_context.Response.Cookies.Add(_cookie);
+			HttpCookie httpCookie = new HttpCookie(CookieName);
+			httpCookie.Expires = DateTime.MinValue;
+			httpCookie.Path = "/";
+			JsonSerializerSettings settings = new JsonSerializerSettings();
+			settings.NullValueHandling = NullValueHandling.Ignore;
+			string value = JsonConvert.SerializeObject(data, Formatting.None, settings);
+			string encrypted = Encryption.Encrypt(value);
+			httpCookie.Value = encrypted;
+			Context.Response.Cookies.Set(httpCookie);
 		}
 
-		public T GetCookie<T>()
+		public string Get()
 		{
-			if (this.Exists() == true)
-			{
-				string temp = HttpUtility.UrlDecode(_cookie.Value);
-				return JsonConvert.DeserializeObject<T>(temp);
-			}
-			else
-			{
-				return default(T);
-			}
-		}
-
-		public bool CleanCookies()
-		{
+			HttpCookie cookie = Context.Request.Cookies.Get(CookieName);
+			string data;
 			try
 			{
-				int cookieCount = _context.Request.Cookies.Count;
-				for (int i = 0; i < cookieCount; i++)
-				{
-					HttpCookie cookie = _context.Request.Cookies[i];
-					if ((cookie.Name != "__RequestVerificationToken") && (cookie.Name != ".ASPXAUTH"))
-					{
-						cookie.Expires = DateTime.Now.AddDays(-1);
-						_context.Response.Cookies.Add(cookie);
-					}
-				}
-				return true;
+				data = Encryption.Decrypt(cookie.Value);
 			}
 			catch
+			{
+				data = null;
+			}
+			return data;
+		}
+
+		public T Get<T>()
+		{
+			HttpCookie cookie = Context.Request.Cookies.Get(CookieName);
+			T data;
+			try
+			{
+				string value = Encryption.Decrypt(cookie.Value);
+				data = JsonConvert.DeserializeObject<T>(value);
+			}
+			catch
+			{
+				data = default(T);
+			}
+			return data;
+		}
+
+		public virtual void Nullify()
+		{
+			HttpCookie cookie = new HttpCookie(CookieName, "CLEAR");
+			cookie.Path = "/";
+			cookie.Expires = DateTime.UtcNow.AddDays(-1);
+			Context.Response.Cookies.Set(cookie);
+		}
+
+		public static string Compress(string text)
+		{
+			byte[] buffer = Encoding.UTF8.GetBytes(text);
+			MemoryStream ms = new MemoryStream();
+			using (GZipStream zip = new GZipStream(ms, CompressionMode.Compress, true))
+			{
+				zip.Write(buffer, 0, buffer.Length);
+			}
+			ms.Position = 0;
+			MemoryStream outStream = new MemoryStream();
+			byte[] compressed = new byte[ms.Length];
+			ms.Read(compressed, 0, compressed.Length);
+			byte[] gzBuffer = new byte[compressed.Length + 4];
+			System.Buffer.BlockCopy(compressed, 0, gzBuffer, 4, compressed.Length);
+			System.Buffer.BlockCopy(BitConverter.GetBytes(buffer.Length), 0, gzBuffer, 0, 4);
+			return Convert.ToBase64String(gzBuffer);
+		}
+
+		public static string Decompress(string compressedText)
+		{
+			byte[] gzBuffer = Convert.FromBase64String(compressedText);
+			using (MemoryStream ms = new MemoryStream())
+			{
+				int msgLength = BitConverter.ToInt32(gzBuffer, 0);
+				ms.Write(gzBuffer, 4, gzBuffer.Length - 4);
+				byte[] buffer = new byte[msgLength];
+				ms.Position = 0;
+				using (GZipStream zip = new GZipStream(ms, CompressionMode.Decompress))
+				{
+					zip.Read(buffer, 0, buffer.Length);
+				}
+				return Encoding.UTF8.GetString(buffer);
+			}
+		}
+
+	}
+	#endregion
+
+	#region Cookie Extension
+	public static class Cookie
+	{
+
+		private static double CookieExipirationMinutes { get { return double.Parse(ConfigurationManager.AppSettings["CookieExipirationMinutes"]); } }
+
+		public static void AddCookie(this HttpResponseBase response, string key, string value)
+		{
+			AddCookie(response, key, value, DateTime.UtcNow.AddMinutes(CookieExipirationMinutes));
+		}
+
+		public static void AddCookie(this HttpResponseBase response, string key, List<KeyValuePair<string, string>> values)
+		{
+			AddCookie(response, key, values, DateTime.UtcNow.AddMinutes(CookieExipirationMinutes));
+		}
+
+		public static void AddCookie(this HttpResponseBase response, string key, string value, DateTime expirationDateUTC)
+		{
+			response.Cookies.Add(CreateCookie(response, key, value, expirationDateUTC));
+		}
+
+		public static void AddCookie(this HttpResponseBase response, string key, List<KeyValuePair<string, string>> values, DateTime expirationDateUTC)
+		{
+			response.Cookies.Add(CreateCookie(response, key, values, expirationDateUTC));
+		}
+
+		public static void AddCookie(this HttpResponseBase response, HttpCookie cookie)
+		{
+			response.Cookies.Add(cookie);
+		}
+
+		public static HttpCookie CreateCookie(this HttpResponseBase response, string key, string value)
+		{
+			return CreateCookie(response, key, value, DateTime.UtcNow.AddMinutes(CookieExipirationMinutes));
+		}
+
+		public static HttpCookie CreateCookie(this HttpResponseBase response, string key, List<KeyValuePair<string, string>> values)
+		{
+			return CreateCookie(response, key, values, DateTime.UtcNow.AddMinutes(CookieExipirationMinutes));
+		}
+
+		public static HttpCookie CreateCookie(this HttpResponseBase response, string key, string value, DateTime expirationDateUTC)
+		{
+			HttpCookie cookie = new HttpCookie(key, value);
+			cookie.Expires = expirationDateUTC;
+			return cookie;
+		}
+
+		public static HttpCookie CreateCookie(this HttpResponseBase response, string key, List<KeyValuePair<string, string>> values, DateTime expirationDateUTC)
+		{
+			HttpCookie cookie = new HttpCookie(key);
+			cookie.Expires = expirationDateUTC;
+			for (int i = 0; i < values.Count; i++)
+			{
+				cookie.Values.Add(values[i].Key, values[i].Value);
+			}
+			return cookie;
+		}
+
+		public static void UpdateCookie(this HttpResponseBase response, string key, string value)
+		{
+			AddCookie(response, key, value);
+		}
+
+		public static void UpdateCookie(this HttpResponseBase response, string key, string value, DateTime expirationDateUTC)
+		{
+			AddCookie(response, key, value, expirationDateUTC);
+		}
+
+		public static void UpdateCookie(this HttpResponseBase response, string key, List<KeyValuePair<string, string>> values)
+		{
+			AddCookie(response, key, values);
+		}
+
+		public static void UpdateCookie(this HttpResponseBase response, string key, List<KeyValuePair<string, string>> values, DateTime expirationDateUTC)
+		{
+			AddCookie(response, key, values, expirationDateUTC);
+		}
+
+		public static void UpdateCookie(this HttpResponseBase response, HttpCookie cookie)
+		{
+			AddCookie(response, cookie);
+		}
+
+		public static bool CookieExists(this HttpRequestBase request, string key)
+		{
+			return request.Cookies.Get(key) != null ? true : false;
+		}
+
+		public static bool CookieExistsPlusValue(this HttpRequestBase request, string key, string value)
+		{
+			HttpCookie cookie = request.Cookies.Get(key);
+			if (cookie != null && cookie.Value == value)
+			{
+				return true;
+			}
+			else
 			{
 				return false;
 			}
 		}
+
+		public static string GetCookieValue(this HttpRequestBase request, string key)
+		{
+			HttpCookie obj = request.Cookies.Get(key);
+			if (obj == null) { return null; }
+			return obj.Value.ToString();
+		}
+
+		public static List<KeyValuePair<string, string>> GetCookieValues(this HttpRequestBase request, string key)
+		{
+			HttpCookie obj = request.Cookies.Get(key);
+			if (obj == null) { return null; }
+			List<KeyValuePair<string, string>> kvps = new List<KeyValuePair<string, string>>();
+			for (int i = 0; i < obj.Values.Count; i++)
+			{
+				kvps.Add(new KeyValuePair<string, string>(obj.Values.Keys[i], obj.Values.Keys[i]));
+			}
+			return kvps;
+		}
 	}
+	#endregion
+
 }
