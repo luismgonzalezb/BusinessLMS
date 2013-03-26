@@ -88,7 +88,7 @@ namespace BusinessLMSWeb.Models
 		public string preferedTime { get; set; }
 
 		[Required]
-		[Display(Name = "I Would you like to receive emails from ibovirtual.com with news and offers.")]
+		[Display(Name = "I Would you like to receive Ibovirtual.com Newsletter.")]
 		public bool newsletteroptin { get; set; }
 
 		public string GetFullName()

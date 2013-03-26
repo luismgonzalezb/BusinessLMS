@@ -751,8 +751,8 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Scripts\jquery-ui-1.10.1.js" />
-    <Content Include="Scripts\jquery-ui-1.10.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.2.js" />
+    <Content Include="Scripts\jquery-ui-1.10.2.min.js" />
     <Content Include="Scripts\jquery.dropdown.js" />
     <Content Include="Scripts\jquery.easing.1.3.js" />
     <Content Include="Scripts\jquery.flow.1.2.js" />
@@ -833,23 +833,23 @@
     <Content Include="Views\Dreams\DreamList.cshtml" />
     <Content Include="Views\Dreams\NewDream.cshtml" />
     <Content Include="Views\Dreams\DisplayDream.cshtml" />
-    <Content Include="Views\Dreams\_DreamsInfo.cshtml" />
+    <Content Include="Views\Dreams\_HelpInfo.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Dreams\EditDream.cshtml" />
     <Content Include="Views\Dreams\DreamMV.cshtml" />
     <Content Include="Views\Goals\Index.cshtml" />
-    <Content Include="Views\Goals\_GoalsInfo.cshtml" />
+    <Content Include="Views\Goals\_HelpInfo.cshtml" />
     <Content Include="Views\Goals\GoalsList.cshtml" />
     <Content Include="Views\Goals\DisplayGoal.cshtml" />
     <Content Include="Views\Goals\NewGoal.cshtml" />
     <Content Include="Views\Goals\EditGoal.cshtml" />
-    <Content Include="Views\Contacts\_ContactsInfo.cshtml" />
+    <Content Include="Views\Contacts\_HelpInfo.cshtml" />
     <Content Include="Views\Contacts\Index.cshtml" />
     <Content Include="Views\Contacts\NewContact.cshtml" />
     <Content Include="Views\Contacts\EditContact.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\Shared\_TopControls.cshtml" />
-    <Content Include="Views\Calendar\_CalendarInfo.cshtml" />
+    <Content Include="Views\Calendar\_HelpInfo.cshtml" />
     <Content Include="Views\Tickets\CreateTicket.cshtml" />
     <Content Include="Views\Shared\_LayoutHome.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
@@ -858,7 +858,7 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Shared\_jquerycdn.cshtml" />
     <Content Include="Views\Followups\Index.cshtml" />
-    <Content Include="Views\Followups\_FollowupInfo.cshtml" />
+    <Content Include="Views\Followups\_HelpInfo.cshtml" />
     <Content Include="Views\Followups\NewFollowup.cshtml" />
     <Content Include="Views\Followups\EditFollowup.cshtml" />
     <Content Include="Views\Alerts\Index.cshtml" />
@@ -866,11 +866,12 @@
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Books\CreateBook.cshtml" />
     <Content Include="Views\Invites\Index.cshtml" />
-    <Content Include="Views\Books\_BooksInfo.cshtml" />
+    <Content Include="Views\Books\_HelpInfo.cshtml" />
     <Content Include="Views\Progress\Index.cshtml" />
     <Content Include="Views\Progress\CreateProgress.cshtml" />
     <Content Include="Views\Progress\EditProgress.cshtml" />
-    <Content Include="Views\Invites\_InvitesInfo.cshtml" />
+    <Content Include="Views\Invites\_HelpInfo.cshtml" />
+    <Content Include="Views\Progress\_HelpInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

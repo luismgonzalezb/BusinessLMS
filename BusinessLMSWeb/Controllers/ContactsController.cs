@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BusinessLMSWeb.Helpers;
+using BusinessLMSWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Models;
 
 namespace BusinessLMSWeb.Controllers
 {
@@ -104,6 +104,11 @@ namespace BusinessLMSWeb.Controllers
 			{
 				return Json(new { success = false });
 			}
+		}
+
+		public ActionResult _HelpInfo()
+		{
+			return PartialView();
 		}
 
 	}

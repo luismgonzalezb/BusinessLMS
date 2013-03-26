@@ -9,19 +9,6 @@ $(document).ready(function () {
         changeYear: true
     });
 
-    $("#info-modal").dialog({
-        autoOpen: false,
-        show: "blind",
-        height: 600,
-        width: 800,
-        modal: true
-    });
-
-    $(".help-link-action").click(function () {
-        $("#info-modal").dialog("open");
-        return false;
-    });
-
     $(".dreams").kwicks({
         min: 100,
         spacing: 0,
@@ -30,8 +17,6 @@ $(document).ready(function () {
     });
 
     setFileUpload();
-
-    //$(".set-admin-user-link").tipTip({ maxWidth: "auto", defaultPosition: "right", delay: 500, edgeOffset: 5 });
 
 });
 

@@ -44,6 +44,7 @@ namespace BusinessLMSWeb.Helpers
 	}
 
 	#region Cookie Objects
+
 	internal class IBOCookie : CookieBase
 	{
 		public IBOCookie(HttpContextBase context) : base(context, "IBOinfo") { }
@@ -56,6 +57,7 @@ namespace BusinessLMSWeb.Helpers
 			this.Set<IBO>(data);
 		}
 	}
+
 	internal class FIdCookie : CookieBase
 	{
 		public FIdCookie(HttpContextBase context) : base(context, "IBOfacebookID") { }
@@ -68,6 +70,7 @@ namespace BusinessLMSWeb.Helpers
 			this.Set(data);
 		}
 	}
+
 	internal class ATCookie : CookieBase
 	{
 		public ATCookie(HttpContextBase context) : base(context, "IBOAccessToken") { }
@@ -80,6 +83,7 @@ namespace BusinessLMSWeb.Helpers
 			this.Set(data);
 		}
 	}
+
 	internal class MenuItemsCookie : CookieBase
 	{
 		public MenuItemsCookie(HttpContextBase context) : base(context, "MenuItemsCookie") { }
@@ -92,6 +96,7 @@ namespace BusinessLMSWeb.Helpers
 			this.Set<List<Step>>(data);
 		}
 	}
+
 	internal class AlertsCookie : CookieBase
 	{
 		public AlertsCookie(HttpContextBase context) : base(context, "AlertsCookie") { }
@@ -104,6 +109,7 @@ namespace BusinessLMSWeb.Helpers
 			this.Set<List<Alert>>(data);
 		}
 	}
+
 	internal class FollowupsCookie : CookieBase
 	{
 		public FollowupsCookie(HttpContextBase context) : base(context, "FollowupsCookie") { }
@@ -116,6 +122,7 @@ namespace BusinessLMSWeb.Helpers
 			this.Set<List<ContactFollowup>>(data);
 		}
 	}
+
 	internal class ContactsCookie : CookieBase
 	{
 		public ContactsCookie(HttpContextBase context) : base(context, "Contacts") { }
@@ -128,6 +135,7 @@ namespace BusinessLMSWeb.Helpers
 			this.Set<List<Contact>>(data);
 		}
 	}
+
 	internal class IBOSearchCookie : CookieBase
 	{
 		public IBOSearchCookie(HttpContextBase context) : base(context, "IBOSearchCookie") { }
@@ -140,11 +148,15 @@ namespace BusinessLMSWeb.Helpers
 			this.Set<List<SearchObject>>(data);
 		}
 	}
+
 	#endregion
 
 	#region Cookie Base Class
+
 	public class CookieBase
 	{
+
+		private static double CookieExipirationMinutes { get { return double.Parse(ConfigurationManager.AppSettings["CookieExipirationMinutes"]); } }
 
 		protected readonly string CookieName;
 		protected HttpContextBase Context;
@@ -169,10 +181,8 @@ namespace BusinessLMSWeb.Helpers
 		public void Set(string data)
 		{
 			HttpCookie httpCookie = new HttpCookie(CookieName);
-			httpCookie.Expires = DateTime.MinValue;
+			httpCookie.Expires = DateTime.Now.AddMinutes(CookieExipirationMinutes);
 			httpCookie.Path = "/";
-			JsonSerializerSettings settings = new JsonSerializerSettings();
-			settings.NullValueHandling = NullValueHandling.Ignore;
 			string encrypted = Encryption.Encrypt(data);
 			httpCookie.Value = encrypted;
 			Context.Response.Cookies.Set(httpCookie);
@@ -181,12 +191,13 @@ namespace BusinessLMSWeb.Helpers
 		public void Set<T>(T data)
 		{
 			HttpCookie httpCookie = new HttpCookie(CookieName);
-			httpCookie.Expires = DateTime.MinValue;
+			httpCookie.Expires = DateTime.Now.AddMinutes(CookieExipirationMinutes);
 			httpCookie.Path = "/";
 			JsonSerializerSettings settings = new JsonSerializerSettings();
 			settings.NullValueHandling = NullValueHandling.Ignore;
 			string value = JsonConvert.SerializeObject(data, Formatting.None, settings);
-			string encrypted = Encryption.Encrypt(value);
+			string compressed = Compress(value);
+			string encrypted = Encryption.Encrypt(compressed);
 			httpCookie.Value = encrypted;
 			Context.Response.Cookies.Set(httpCookie);
 		}
@@ -212,7 +223,8 @@ namespace BusinessLMSWeb.Helpers
 			T data;
 			try
 			{
-				string value = Encryption.Decrypt(cookie.Value);
+				string cvalue = Encryption.Decrypt(cookie.Value);
+				string value = Decompress(cvalue);
 				data = JsonConvert.DeserializeObject<T>(value);
 			}
 			catch
@@ -266,9 +278,11 @@ namespace BusinessLMSWeb.Helpers
 		}
 
 	}
+
 	#endregion
 
 	#region Cookie Extension
+
 	public static class Cookie
 	{
 
@@ -389,6 +403,7 @@ namespace BusinessLMSWeb.Helpers
 			return kvps;
 		}
 	}
+
 	#endregion
 
 }

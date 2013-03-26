@@ -1,8 +1,10 @@
 ﻿$(document).ready(function () {
+
     $("a[data-gal^='prettyPhoto']").prettyPhoto({
         show_title:false,
         social_tools: false
     });
+
     $("#myController").jFlow({
         controller: ".jFlowControl",
         slideWrapper: "#jFlowSlider",
@@ -14,5 +16,6 @@
         prev: ".jFlowPrev",
         next: ".jFlowNext"
     });
+
 });
 

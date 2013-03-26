@@ -1,8 +1,5 @@
 @model IEnumerable<BusinessLMSWeb.Models.Alert>
-
-<script>
-    var CountAlert = '@Model.Count()';
-</script>
+@using BusinessLMSWeb.Helpers
 
 <ul>
 	<li><a href="@Url.Action("Index","Calendar")" class="ico1">Follow up <span class="num">@ViewBag.FollowupsCount</span></a></li>
@@ -17,3 +14,9 @@
 		}
 	</ul>
 </div>
+
+@Html.Script(
+	@<script type="text/javascript">
+		var CountAlert = '@Model.Count()';
+	</script>
+)

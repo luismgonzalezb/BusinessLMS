@@ -1,23 +1,6 @@
 ﻿
 $(document).ready(function () {
-	
-	/* Help Section ****************************/
-
-	$("#info-modal").dialog({
-		autoOpen: false,
-		show: "blind",
-		height: 600,
-		width: 800,
-		modal: true
-	});
-
-	$(".help-link-action").click(function () {
-		$("#info-modal").dialog("open");
-		return false;
-	});
-
 	/******************************************/
-
 	var date = new Date();
 	var d = date.getDate();
 	var m = date.getMonth();
@@ -51,12 +34,10 @@ $(document).ready(function () {
 		events: "/Calendar/GetEvents/All",
 		loading: function (bool) {
 			if (bool)
-			    $("#calendar").showLoading({ vPos: "top" });
+				$("#calendar").showLoading({ vPos: "top" });
 			else
-			    $("#calendar").hideLoading();
+				$("#calendar").hideLoading();
 		}
 	});
-
-
 
 });

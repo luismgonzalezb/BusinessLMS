@@ -1,5 +1,5 @@
 ﻿@if (Request.IsAuthenticated) {
-    <div class="profile">
+	<div class="profile">
 		<a href="#" class="section">
 			<img class="image" src="@ViewBag.IBOPicture" alt="image description" width="32" height="32" />
 			<span class="text-box">
@@ -8,15 +8,15 @@
 			</span>
 		</a>
 		<a href="#" class="opener">opener</a>
-        <ul>
-            <li>@Html.ActionLink("Update IBO Details", "Update", "IBO")</li>
-            <li>@Html.ActionLink("Change Password", "Manage", "Account")</li>
-        </ul>
+		<ul>
+			<li>@Html.ActionLink("Update IBO Details", "Update", "IBO")</li>
+			<li>@Html.ActionLink("Change Password", "Manage", "Account")</li>
+		</ul>
 	</div> 
-    <span class="logout-btn">
-        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
-            @Html.AntiForgeryToken()
-            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn-on">Log off</a>
-        }
-    </span>  
+	<span class="logout-btn">
+		@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+			@Html.AntiForgeryToken()
+			<a href="javascript:document.getElementById('logoutForm').submit()" class="btn-on">Log off</a>
+		}
+	</span>  
 } 

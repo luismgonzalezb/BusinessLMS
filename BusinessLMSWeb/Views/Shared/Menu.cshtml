@@ -1,25 +1,25 @@
 ﻿@model IEnumerable<BusinessLMSWeb.Models.Step>
 <nav>
-@foreach (var item in Model) {
-	if (string.Concat(ViewBag.controllerName,ViewBag.actionName) == string.Concat(item.controller,item.action))
-	{
-		ViewBag.selected = "active";
-	}
-	else
-	{
-		ViewBag.selected = "";
-	}
-	<ul class="buttons @ViewBag.selected">
-		<li>
+	@foreach (var item in Model) {
+		if (string.Concat(ViewBag.controllerName,ViewBag.actionName) == string.Concat(item.controller,item.action))
+		{
+			ViewBag.selected = "active";
+		}
+		else
+		{
+			ViewBag.selected = "";
+		}
+		<ul class="buttons @ViewBag.selected">
+			<li>
 			
-			<a href="@Url.Action(item.action,item.controller)"> 
-				<span class="ico @item.iconClass @ViewBag.selected" ></span>
-				<span class="menu-text">@item.title</span>
-				<em></em>
-			</a>
-		</li>
-	</ul>
-}
+				<a href="@Url.Action(item.action,item.controller)"> 
+					<span class="ico @item.iconClass @ViewBag.selected" ></span>
+					<span class="menu-text">@item.title</span>
+					<em></em>
+				</a>
+			</li>
+		</ul>
+	}
 	<ul class="buttons">
 		<li>
 			<a href="#" class="help-link-action"> 

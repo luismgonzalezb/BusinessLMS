@@ -17,6 +17,7 @@ namespace BusinessLMS.Models
 		public int UserId { get; set; }
 		public System.DateTime datetime { get; set; }
 		public Nullable<System.DateTime> birthday { get; set; }
+		public bool newsletteroptin { get; set; }
 		public string phone { get; set; }
 		public int level { get; set; }
 	}

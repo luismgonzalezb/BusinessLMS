@@ -1,132 +1,136 @@
 ﻿@model BusinessLMSWeb.Models.IBO
+@using BusinessLMSWeb.Helpers
 
 @{
-    ViewBag.Title = "IBO Details";
-    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+	ViewBag.Title = "IBO Details";
+	Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
 
 <div class="metro-container-300">
 
-    <div class="title" style="margin-bottom:40px;">
-        <h1>@ViewBag.Title.</h1>
-    </div>
+	<div class="title" style="margin-bottom:40px;">
+		<h1>@ViewBag.Title.</h1>
+	</div>
 
-@using (Html.BeginForm("AddIBO", "IBO", FormMethod.Post, new { @class = "metro-form", id = "createIBOForm" }))
-{
-    @Html.ValidationSummary(true)
+	@using (Html.BeginForm("AddIBO", "IBO", FormMethod.Post, new { @class = "metro-form", id = "createIBOForm" }))
+	{
+		@Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend></legend>
+		<fieldset>
+			<legend></legend>
 
-        <div class="metro-form-control">
-            <label for="IBONum">ID</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.IBONum)
-                @Html.ValidationMessageFor(model => model.IBONum)
-            </div>
-        </div>
+			<div class="metro-form-control">
+				<label for="IBONum">ID</label>
+				<div class="metro-text-box">
+					@Html.EditorFor(model => model.IBONum)
+					@Html.ValidationMessageFor(model => model.IBONum)
+				</div>
+			</div>
 
-        <div class="metro-form-control">
-            <label for="firstName">First Name</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.firstName)
-                @Html.ValidationMessageFor(model => model.firstName)
-            </div>
-        </div>
+			<div class="metro-form-control">
+				<label for="firstName">First Name</label>
+				<div class="metro-text-box">
+					@Html.EditorFor(model => model.firstName)
+					@Html.ValidationMessageFor(model => model.firstName)
+				</div>
+			</div>
 
-        <div class="metro-form-control">
-            <label for="lastName">Last Name</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.lastName)
-                @Html.ValidationMessageFor(model => model.lastName)
-            </div>
-        </div>
+			<div class="metro-form-control">
+				<label for="lastName">Last Name</label>
+				<div class="metro-text-box">
+					@Html.EditorFor(model => model.lastName)
+					@Html.ValidationMessageFor(model => model.lastName)
+				</div>
+			</div>
 
-        <div class="metro-form-control">
-            <label for="languageId">Language</label>
-            <div class="metro-select-box">
-                @Html.DropDownListFor(model => model.languageId, (SelectList)ViewBag.languages)
-                @Html.ValidationMessageFor(model => model.languageId)
-            </div>
-        </div>
+			<div class="metro-form-control">
+				<label for="languageId">Language</label>
+				<div class="metro-select-box">
+					@Html.DropDownListFor(model => model.languageId, (SelectList)ViewBag.languages)
+					@Html.ValidationMessageFor(model => model.languageId)
+				</div>
+			</div>
 
-        <div class="metro-form-control">
-            <label for="email">Email</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.email)
-                @Html.ValidationMessageFor(model => model.email)
-            </div>
-        </div>
+			<div class="metro-form-control">
+				<label for="email">Email</label>
+				<div class="metro-text-box">
+					@Html.EditorFor(model => model.email)
+					@Html.ValidationMessageFor(model => model.email)
+				</div>
+			</div>
 
-        <div class="metro-form-control">
-            <label for="phone">Phone Number</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.phone)
-                @Html.ValidationMessageFor(model => model.phone)
-            </div>
-        </div>
+			<div class="metro-form-control">
+				<label for="phone">Phone Number</label>
+				<div class="metro-text-box">
+					@Html.EditorFor(model => model.phone)
+					@Html.ValidationMessageFor(model => model.phone)
+				</div>
+			</div>
 
-        <div class="metro-form-control">
-            <label for="birthday">Birthday</label> (mm/dd/yyyy)
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.birthday)
-                @Html.ValidationMessageFor(model => model.birthday)
-            </div>
-            <div class="metro-text-date"><img src="~/Images/Date.png" /></div>
-        </div>
-        <div class="metro-form-control">
-            <label for="level">Level</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.level)
-                @Html.ValidationMessageFor(model => model.level)
-            </div>
-        </div>
+			<div class="metro-form-control">
+				<label for="birthday">Birthday</label> (mm/dd/yyyy)
+				<div class="metro-text-box">
+					@Html.EditorFor(model => model.birthday)
+					@Html.ValidationMessageFor(model => model.birthday)
+				</div>
+				<div class="metro-text-date"><img src="~/Images/Date.png" /></div>
+			</div>
+			<div class="metro-form-control">
+				<label for="level">Level</label>
+				<div class="metro-text-box">
+					@Html.EditorFor(model => model.level)
+					@Html.ValidationMessageFor(model => model.level)
+				</div>
+			</div>
 
-        <div class="metro-form-control">
-            <label for="twitter">Twitter</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.twitter)
-                @Html.ValidationMessageFor(model => model.twitter)
-            </div>
-        </div>
+			<div class="metro-form-control">
+				<label for="twitter">Twitter</label>
+				<div class="metro-text-box">
+					@Html.EditorFor(model => model.twitter)
+					@Html.ValidationMessageFor(model => model.twitter)
+				</div>
+			</div>
 
-        <div class="metro-form-control">
-            <label for="UPLine">Upline IBO Number</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.UPLine)
-                @Html.ValidationMessageFor(model => model.UPLine)
-            </div>
-        </div>
+			<div class="metro-form-control">
+				<label for="UPLine">Upline IBO Number</label>
+				<div class="metro-text-box">
+					@Html.EditorFor(model => model.UPLine)
+					@Html.ValidationMessageFor(model => model.UPLine)
+				</div>
+			</div>
+			<div class="metro-form-control">
+				@Html.CheckBoxMetroFor(model => model.newsletteroptin, new { @class = "metro-check" })
+			</div>
 
-        @Html.HiddenFor(model => model.picture)
+			@Html.HiddenFor(model => model.picture)
 
-    </fieldset>
-    
-}
-    
-    My Picture
-    <form action="/api/Files" method="post" enctype="multipart/form-data" id="file_upload" >
-        <div id = "filediv">
-            <input type="file" name="file"/>
-            <div id="status"></div>
-        </div>
-        <input type="submit" value="Upload" id="btnUpload" class="metro-button" />
-    </form>
+		</fieldset>
+	
+	}
+	
+	My Picture
+	<form action="/api/Files" method="post" enctype="multipart/form-data" id="file_upload" >
+		<div id = "filediv">
+			<input type="file" name="file"/>
+			<div id="status"></div>
+		</div>
+		<input type="submit" value="Upload" id="btnUpload" class="metro-button" />
+	</form>
 
-    <div class="metro-align-right">
-        <input type="button" value="Save" class="metro-button" onclick="submitform();" />
-    </div>
-    <div class="metro-align-right" style="margin-top:20px;">
-        Go back to 
-        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
-            @Html.AntiForgeryToken()
-            <a href="javascript:document.getElementById('logoutForm').submit()">Home</a>
-        }
-    </div>
+	<div class="metro-align-right">
+		<input type="button" value="Save" class="metro-button" onclick="submitform();" />
+	</div>
+	<div class="metro-align-right" style="margin-top:20px;">
+		Go back to 
+		@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+			@Html.AntiForgeryToken()
+			<a href="javascript:document.getElementById('logoutForm').submit()">Home</a>
+		}
+	</div>
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jqueryupload")
-    @Scripts.Render("~/Scripts/IBO/AddIBO.js")
+	@Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/bundles/jqueryupload")
+	@Scripts.Render("~/Scripts/IBO/AddIBO.js")
 }

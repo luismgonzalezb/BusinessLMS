@@ -1,7 +1,6 @@
 ﻿@model BusinessLMSWeb.Models.Progress
 
 <div class="metro-container-300">
-
     @using (Html.BeginForm("EditProgressAjax", "Progress", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
     {
         @Html.ValidationSummary(true)

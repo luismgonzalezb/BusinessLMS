@@ -84,5 +84,11 @@ namespace BusinessLMSWeb.Controllers
 			string result = client.Put<Book>(Book.BookId.ToString(), Book);
 			return Json(new { success = true });
 		}
+
+		public ActionResult _HelpInfo()
+		{
+			return PartialView();
+		}
+
 	}
 }

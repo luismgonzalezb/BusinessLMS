@@ -117,5 +117,10 @@ namespace BusinessLMSWeb.Controllers
 			return Json(userNames, JsonRequestBehavior.AllowGet);
 		}
 
+		public ActionResult _HelpInfo()
+		{
+			return PartialView();
+		}
+
 	}
 }

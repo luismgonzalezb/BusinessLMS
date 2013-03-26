@@ -5,23 +5,15 @@ $(document).ready(function () {
         "bJQueryUI": true,
         "sPaginationType": "full_numbers"
     });
-    $("#info-modal").dialog({
-        autoOpen: false,
-        show: "blind",
-        height: 600,
-        width: 800,
-        modal: true
-    });
-    $(".help-link-action").click(function () {
-        $("#info-modal").dialog("open");
-        return false;
-    });
+
     $("#followupInfo").hide();
+
     $('.deletelink').click(function () {
         deleteLinkObj = $(this);  //for future use
         $('#delete-dialog').dialog('open');
         return false; 
     });
+
     $('#delete-dialog').dialog({
         autoOpen: false, width: 400, resizable: false, modal: true, //Dialog options
         buttons: {

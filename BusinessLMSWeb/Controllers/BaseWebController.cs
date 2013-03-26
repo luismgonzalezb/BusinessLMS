@@ -24,6 +24,27 @@ namespace BusinessLMSWeb.Controllers
 			}
 		}
 
+		public bool SimpleMembershipInitializer()
+		{
+			Database.SetInitializer<UsersContext>(null);
+			try
+			{
+				using (var context = new UsersContext())
+				{
+					if (!context.Database.Exists())
+					{
+						((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
+					}
+				}
+				WebSecurity.InitializeDatabaseConnection("BusinessLMSContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+				return true;
+			}
+			catch (Exception ex)
+			{
+				throw new InvalidOperationException("The ASP.NET Simple Membership database could not be initialized. For more information, please see http://go.microsoft.com/fwlink/?LinkId=256588", ex);
+			}
+		}
+
 		protected override void OnActionExecuting(ActionExecutingContext filterContext)
 		{
 			Cookies = new Helpers.Cookies(filterContext.HttpContext);
@@ -71,28 +92,6 @@ namespace BusinessLMSWeb.Controllers
 			base.OnActionExecuted(filterContext);
 		}
 
-		public bool SimpleMembershipInitializer()
-		{
-			Database.SetInitializer<UsersContext>(null);
-			try
-			{
-				using (var context = new UsersContext())
-				{
-					if (!context.Database.Exists())
-					{
-						// Create the SimpleMembership database without Entity Framework migration schema
-						((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
-					}
-				}
-				WebSecurity.InitializeDatabaseConnection("BusinessLMSContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
-				return true;
-			}
-			catch (Exception ex)
-			{
-				throw new InvalidOperationException("The ASP.NET Simple Membership database could not be initialized. For more information, please see http://go.microsoft.com/fwlink/?LinkId=256588", ex);
-			}
-		}
-
 		#region General Properties
 
 		public string FacebookId
@@ -138,13 +137,13 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				List<Step> _menuItems = Cookies.menuItemsCooke.GetMenuItems();
-				if (_menuItems == null)
-				{
-					BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
-					_menuItems = client.Get<List<Step>>();
-					Cookies.menuItemsCooke.SetMenuItems(_menuItems);
-				}
+				//List<Step> _menuItems = Cookies.menuItemsCooke.GetMenuItems();
+				//if (_menuItems == null)
+				//{
+				BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
+				List<Step> _menuItems = client.Get<List<Step>>();
+				//	Cookies.menuItemsCooke.SetMenuItems(_menuItems);
+				//}
 				return _menuItems;
 			}
 		}

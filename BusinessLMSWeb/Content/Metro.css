@@ -3547,3 +3547,9 @@ table.thin-borders td
 	border-collapse: collapse;
 	border-style: solid;
 }
+
+.editor-field.long-text {
+	width: 220px;
+	margin-bottom: 10px;
+	text-align: right;
+}

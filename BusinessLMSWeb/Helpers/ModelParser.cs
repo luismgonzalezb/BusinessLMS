@@ -1,6 +1,6 @@
-﻿using System;
+﻿using BusinessLMSWeb.Models;
+using System;
 using System.Web;
-using BusinessLMSWeb.Models;
 
 namespace BusinessLMSWeb.Helpers
 {
@@ -15,6 +15,7 @@ namespace BusinessLMSWeb.Helpers
 			ibo.languageId = model.languageId;
 			ibo.email = model.email;
 			ibo.phone = model.phone;
+			ibo.newsletteroptin = model.newsletteroptin;
 			ibo.birthday = model.birthday != null ? model.birthday : DateTime.Now;
 			ibo.picture = HttpUtility.HtmlEncode(model.picture != null ? model.picture : "");
 			ibo.twitter = model.twitter != null ? model.twitter : "";
