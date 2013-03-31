@@ -1,26 +1,5 @@
-@model IEnumerable<BusinessLMSWeb.Controllers.Company>
 @{
 	ViewBag.Title = "Index";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Index</h2>
-@{	Html.Syncfusion().Diagram("GenericList")
-		 .DataSource(Model)
-		 .BindTo(bind =>
-			 bind.NodeId("DeptId")
-			 .ParentNodeId("HeadDept")
-			 .NodeText("DeptName")
-			 .NodeShape("Shape")
-			 .Width("Width")
-			 .Height("Height"))
-		 .DiagramMode(DiagramMode.Canvas)
-		 .IsSymbolPaletteEnabled(false)         
-		 .HorizontalSpacing(40)
-		 .LayoutType(LayoutType.HierarchicalTreeLayout)
-		 .Orientation(TreeOrientation.TopBottom)
-		 .RootOffsetX(390)
-		 .RootOffsetY(50)
-		 .Width(890)
-		 .Height(800)
-		 .Render(); 
-}

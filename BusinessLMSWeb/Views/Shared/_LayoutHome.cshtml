@@ -1,12 +1,12 @@
 ﻿@using BusinessLMSWeb.Helpers
 
 <!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<title>@ViewBag.Title - Business LMS</title>
 	<link href="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet"/>
 	@Styles.Render("~/Content/main/css")
-	@Scripts.Render("~/bundles/modernizr")
 	<!--[if IE]><style>#header h1 a:hover{font-size:75px;}</style><![endif]-->
 </head>
 <body>
@@ -84,11 +84,8 @@
 	<br />
 
 	@{ Html.RenderPartial("_jquerycdn"); }
+	@Scripts.Render("~/bundles/pages/home")
 	@Scripts.Render("~/bundles/jqueryval")
-	@Scripts.Render("~/Scripts/jquery.prettyPhoto.js")
-	@Scripts.Render("~/Scripts/jquery.flow.1.2.js")
-	@Scripts.Render("~/Scripts/jquery.showLoading.js")
-	@Scripts.Render("~/Scripts/Home/Index.js")
 	@RenderSection("scripts", required: false)
 	@Html.RenderScripts() 
 
