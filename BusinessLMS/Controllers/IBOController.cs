@@ -9,6 +9,7 @@ using System.Web.Http;
 using BusinessLMS.ActionFilters;
 using BusinessLMS.Models;
 using BusinessLMS.ModelsView;
+using BusinessLMS.Helpers;
 
 namespace BusinessLMS.Controllers
 {
@@ -123,9 +124,13 @@ namespace BusinessLMS.Controllers
 				db.IBOs.Add(ibo);
 				db.SaveChanges();
 
+                EmailHelper mail = new EmailHelper();
+                mail.AddToMailingList(ibo.firstName, ibo.lastName, ibo.email);
+                
 				HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, ibo);
 				response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = ibo.IBONum }));
 				return response;
+
 			}
 			else
 			{

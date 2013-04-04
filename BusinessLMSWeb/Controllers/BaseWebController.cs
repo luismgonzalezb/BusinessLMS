@@ -152,7 +152,9 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				List<Alert> _alerts = Cookies.alertsCookie.GetAlerts();
+
+                List<Alert> _alerts = new List<Alert>();
+                _alerts=Cookies.alertsCookie.GetAlerts();
 				if (_alerts == null)
 				{
 					BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlertsIBO");

@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+using System.Web.Mvc;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace BusinessLMSWeb.Controllers
 {
@@ -7,7 +9,8 @@ namespace BusinessLMSWeb.Controllers
 	{
 		public ActionResult Index()
 		{
-			return View();
+            return View();
 		}
 	}
+
 }
