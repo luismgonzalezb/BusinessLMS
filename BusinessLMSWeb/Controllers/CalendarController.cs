@@ -4,6 +4,7 @@ using EventbriteNET;
 using EventbriteNET.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -13,54 +14,97 @@ namespace BusinessLMSWeb.Controllers
 	[Authorize]
 	public class CalendarController : BaseWebController
 	{
-		//
-		// GET: /Calendar/
 
-		public ActionResult Index()
+		enum CalendarType
 		{
+			All,
+			Dreams,
+			Followup,
+			Goals,
+			Meetings
+		}
 
+		public ActionResult Index(int id)
+		{
+			ViewBag.CalendarType = id;
 			return View();
 		}
 
-		public ActionResult GetEvents(double start, double end)
+		public ActionResult GetEvents(int type, double start, double end)
 		{
-
+			CalendarType calendarType = (CalendarType)type;
 			DateTime fromDate = ConvertFromUnixTimestamp(start);
 			DateTime toDate = ConvertFromUnixTimestamp(end);
-
-			BaseClient client;
 			List<CalendarEvent> events = new List<CalendarEvent>();
-			List<CalendarEvent> tempEvents = new List<CalendarEvent>();
-
-			EventbriteContext context = new EventbriteContext(eventbriteApiKey, eventbriteUserKey);
-			Organizer organizer = context.GetOrganizer(eventbriteOrginizerId);
-			Dictionary<long, Event> ebevents = organizer.Events;
-			if (ebevents.Count > 0)
+			List<string> toLoad = new List<string>();
+			switch (calendarType)
 			{
-				tempEvents = (from e in ebevents where e.Value.StartDateTime >= fromDate && e.Value.EndDateTime <= toDate select new CalendarEvent(e.Value)).ToList();
-				events.AddRange(tempEvents);
+				case CalendarType.Followup:
+				case CalendarType.Meetings:
+				case CalendarType.Dreams:
+				case CalendarType.Goals:
+					toLoad.Add(calendarType.ToString());
+					break;
+				case CalendarType.All:
+				default:
+					toLoad.Add("Followup");
+					toLoad.Add("Meetings");
+					toLoad.Add("Dreams");
+					toLoad.Add("Goals");
+					break;
 			}
-			/*  TODO: Create API methods that support date filtering */
-			client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
-			List<ContactFollowup> followups = client.Get<List<ContactFollowup>>(ibo.IBONum);
-			if (followups.Count > 0)
+			if (toLoad.Count > 0)
 			{
-				tempEvents = (from e in followups where e.datetime >= fromDate select new CalendarEvent(e)).ToList();
-				events.AddRange(tempEvents);
-			}
-			client = new BaseClient(baseApiUrl, "Goals", "GetIBOGoals");
-			List<Goal> goals = client.Get<List<Goal>>(ibo.IBONum);
-			if (goals.Count > 0)
-			{
-				tempEvents = (from e in goals where e.datetime >= fromDate select new CalendarEvent(e)).ToList();
-				events.AddRange(tempEvents);
-			}
-			client = new BaseClient(baseApiUrl, "Dreams", "GetDreamsUser");
-			List<Dream> dreams = client.Get<List<Dream>>(ibo.IBONum);
-			if (dreams.Count > 0)
-			{
-				tempEvents = (from e in dreams where e.datetime >= fromDate select new CalendarEvent(e)).ToList();
-				events.AddRange(tempEvents);
+				BaseClient client;
+				List<CalendarEvent> tempEvents = new List<CalendarEvent>();
+				NameValueCollection parms = new NameValueCollection() {
+					{ "id", ibo.IBONum }, 
+					{ "fromDate", fromDate.ToString() },
+					{ "toDate", toDate.ToString() }
+				};
+				if (toLoad.Contains("Meetings") == true)
+				{
+					EventbriteContext context = new EventbriteContext(eventbriteApiKey, eventbriteUserKey);
+					Organizer organizer = context.GetOrganizer(eventbriteOrginizerId);
+					Dictionary<long, Event> ebevents = organizer.Events;
+					if (ebevents.Count > 0)
+					{
+						tempEvents = (from e in ebevents where e.Value.StartDateTime >= fromDate && e.Value.EndDateTime <= toDate select new CalendarEvent(e.Value)).ToList();
+						events.AddRange(tempEvents);
+					}
+				}
+				if (toLoad.Contains("Followup") == true)
+				{
+					client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
+					List<ContactFollowup> followups = client.Get<List<ContactFollowup>>(parms);
+					if (followups.Count > 0)
+					{
+						tempEvents = (from e in followups where e.datetime >= fromDate select new CalendarEvent(e)).ToList();
+						events.AddRange(tempEvents);
+					}
+				}
+				if (toLoad.Contains("Dreams") == true)
+				{
+					/*  TODO: Create API methods that support date filtering */
+					client = new BaseClient(baseApiUrl, "Dreams", "GetDreamsUser");
+					List<Dream> dreams = client.Get<List<Dream>>(ibo.IBONum);
+					if (dreams.Count > 0)
+					{
+						tempEvents = (from e in dreams where e.datetime >= fromDate select new CalendarEvent(e)).ToList();
+						events.AddRange(tempEvents);
+					}
+				}
+				if (toLoad.Contains("Goals") == true)
+				{
+					/*  TODO: Create API methods that support date filtering */
+					client = new BaseClient(baseApiUrl, "Goals", "GetIBOGoals");
+					List<Goal> goals = client.Get<List<Goal>>(ibo.IBONum);
+					if (goals.Count > 0)
+					{
+						tempEvents = (from e in goals where e.datetime >= fromDate select new CalendarEvent(e)).ToList();
+						events.AddRange(tempEvents);
+					}
+				}
 			}
 			return Json(events.ToArray(), JsonRequestBehavior.AllowGet);
 		}

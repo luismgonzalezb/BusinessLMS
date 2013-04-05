@@ -25,13 +25,32 @@ $(document).ready(function () {
 						start: start,
 						end: end,
 						allDay: allDay
-					},
+					},	
 					true // make the event "stick"
 				);
 			}
 			calendar.fullCalendar('unselect');
 		},
-		events: "/Calendar/GetEvents/All",
+		events: {
+			url: "/Calendar/GetEvents/",
+			type: "POST",
+			data: {
+				type: calendarType
+			},
+			error: function() {
+				alert('there was an error while fetching events!');
+			}
+		},
+		eventClick: function (event) {
+			console.log(event);
+			if (event.source) {
+				if (event.source.data.type == "4")
+				if (event.url) {
+					window.open(event.url);
+					return false;
+				}
+			}
+		},
 		loading: function (bool) {
 			if (bool)
 				$("#calendar").showLoading({ vPos: "top" });
@@ -41,3 +60,8 @@ $(document).ready(function () {
 	});
 
 });
+
+function openCalendarModal(url)
+{
+
+}

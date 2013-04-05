@@ -2,7 +2,7 @@
 @using BusinessLMSWeb.Helpers
 
 <ul>
-	<li><a href="@Url.Action("Index","Calendar")" class="ico1">Follow up <span class="num">@ViewBag.FollowupsCount</span></a></li>
+	<li><a href="@Url.Action("Index", "Calendar", new { id = 2 })" class="ico1">Follow up <span class="num">@ViewBag.FollowupsCount</span></a></li>
 	<li><a href="#" class="ico2" data-dropdown="#dropdownAlert">Alerts <span class="num" id="Cont">@Model.Count()</span></a></li>
 </ul>
 
@@ -10,7 +10,9 @@
 	<ul id="ListAlerts">
 		@foreach (var item in Model)
 		{
-			<li class="contAlert"><a href="javascript:readedAlert('@item.AlertId','@ViewBag.IBONum','@Model.Count()');" class="delete"><img src="~/Images/checkmark.jpg" class="delete" />@item.AlertMsg</a></li>
+			<li class="contAlert">
+				<a href="javascript:readedAlert('@item.AlertId','@ViewBag.IBONum','@Model.Count()');" class="delete"><img src="~/Images/checkmark.jpg" class="delete" />@item.AlertMsg</a>
+			</li>
 		}
 	</ul>
 </div>
