@@ -715,20 +715,20 @@ a.forrst
 		background: linear-gradient(, #3c592a, #58853e);
 	}
 
-a.designmoo
+a.youtube
 {
 	border-top: 1px solid #f39a9e;
-	background: #eb5a5f;
-	background: -moz-linear-gradient(, #eb5a5f, #e13c41);
-	background: -ms-linear-gradient(, #eb5a5f, #e13c41);
-	background: -o-linear-gradient(, #eb5a5f, #e13c41);
-	background: -webkit-gradient(linear, 0 0, 0 0, from(#eb5a5f), to(#e13c41));
-	background: -webkit-linear-gradient(, #eb5a5f, #e13c41);
-	background: linear-gradient(, #eb5a5f, #e13c41);
+	background: #CD332D;
+	background: -moz-linear-gradient(, #CD332D , #e13c41);
+	background: -ms-linear-gradient(, #CD332D, #e13c41);
+	background: -o-linear-gradient(, #CD332D, #e13c41);
+	background: -webkit-gradient(linear, 0 0, 0 0, from(#CD332D), to(#e13c41));
+	background: -webkit-linear-gradient(, #CD332D, #e13c41);
+	background: linear-gradient(, #CD332D, #e13c41);
 	color: rgba(69, 22, 24, 1);
 }
 
-	a.designmoo:active
+	a.youtube:active
 	{
 		background: #e13c41;
 		background: -moz-linear-gradient(, #e13c41, #eb5a5f);
@@ -794,15 +794,17 @@ a.flickr
 		background-position: -75px 0;
 	}
 
-	.icons.designmoo
+	.icons.youtube
 	{
-		background-position: -100px 0;
+		background-position: -175px 0;
 	}
-
+   
 	.icons.flickr
 	{
 		background-position: -125px 0;
 	}
+ 
+   
 
 footer
 {
