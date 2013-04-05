@@ -718,14 +718,14 @@ a.forrst
 a.youtube
 {
 	border-top: 1px solid #f39a9e;
-	background: #CD332D;
-	background: -moz-linear-gradient(, #CD332D , #e13c41);
-	background: -ms-linear-gradient(, #CD332D, #e13c41);
-	background: -o-linear-gradient(, #CD332D, #e13c41);
-	background: -webkit-gradient(linear, 0 0, 0 0, from(#CD332D), to(#e13c41));
-	background: -webkit-linear-gradient(, #CD332D, #e13c41);
-	background: linear-gradient(, #CD332D, #e13c41);
-	color: rgba(69, 22, 24, 1);
+	background: #6E0610;
+	background: -moz-linear-gradient(, #6E0610 , #e13c41);
+	background: -ms-linear-gradient(, #6E0610, #e13c41);
+	background: -o-linear-gradient(, #6E0610, #e13c41);
+	background: -webkit-gradient(linear, 0 0, 0 0, from(#6E0610), to(#e13c41));
+	background: -webkit-linear-gradient(, #6E0610, #e13c41);
+	background: linear-gradient(, #6E0610, #e13c41);
+	color: rgba(0, 0, 0, 1);
 }
 
 	a.youtube:active
@@ -793,19 +793,22 @@ a.flickr
 	{
 		background-position: -75px 0;
 	}
-
-	.icons.youtube
-	{
-		background-position: -175px 0;
-	}
    
 	.icons.flickr
 	{
 		background-position: -125px 0;
 	}
- 
-   
 
+	.icons.youtube
+	{
+		position: absolute;
+		right: 13px;
+		bottom: 8px;
+		display: block;
+		background: url(/Images/Home/youtubelogo.png) no-repeat;
+	}
+
+ 
 footer
 {
 	font-size: 12px;
@@ -832,8 +835,6 @@ p
 {
 	padding-top: 5px;
 	color: #333;
-	-webkit-text-shadow: 0 0 3px #555;
-	text-shadow: 0 0 3px #555;
 	letter-spacing: 2px;
 	font-size: 18px;
 	font-family: ChunkFive, Arial, Helvetica, sans-serif;
@@ -2906,3 +2907,5 @@ div.dark_rounded #pp_full_res .pp_inline, div.dark_square #pp_full_res .pp_inlin
 	margin-bottom: 10px;
 	text-align: right;
 }
+
+.centrado { text-align:center; }

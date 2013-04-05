@@ -559,13 +559,7 @@
     <Content Include="Images\Home\digg.png" />
     <Content Include="Images\Home\facebook.png" />
     <Content Include="Images\Home\fav.png" />
-    <Content Include="Images\Home\featured1.jpg" />
-    <Content Include="Images\Home\featured2.jpg" />
-    <Content Include="Images\Home\featured3.jpg" />
     <Content Include="Images\Home\flickr.png" />
-    <Content Include="Images\Home\folio.jpg" />
-    <Content Include="Images\Home\folio2.jpg" />
-    <Content Include="Images\Home\folio3.jpg" />
     <Content Include="Images\Home\fullscreen\high.gif" />
     <Content Include="Images\Home\fullscreen\huge.gif" />
     <Content Include="Images\Home\fullscreen\wide.gif" />
@@ -620,7 +614,6 @@
     <Content Include="Images\Home\slide1.jpg" />
     <Content Include="Images\Home\slide2.jpg" />
     <Content Include="Images\Home\slide3.jpeg" />
-    <Content Include="Images\Home\slide3.jpg" />
     <Content Include="Images\Home\slide4.jpg" />
     <Content Include="Images\Home\slide5.jpg" />
     <Content Include="Images\Home\slider1.jpg" />
@@ -629,14 +622,12 @@
     <Content Include="Images\Home\slider4.jpg" />
     <Content Include="Images\Home\slider5.jpg" />
     <Content Include="Images\Home\textured-light-bg.gif" />
-    <Content Include="Images\Home\thumb.jpg" />
-    <Content Include="Images\Home\thumb2.jpg" />
-    <Content Include="Images\Home\thumb3.jpg" />
-    <Content Include="Images\Home\thumb4.jpg" />
     <Content Include="Images\Home\twitter.png" />
     <Content Include="Images\Home\ui.totop.png" />
+    <Content Include="Images\Home\youtubelogo.png" />
     <Content Include="Images\Information.png" />
     <Content Include="Images\loading.gif" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\Menu\bookMenu.png" />
     <Content Include="Images\Menu\bookMenuSel.png" />
     <Content Include="Images\Menu\contactMenu.png" />
@@ -657,6 +648,7 @@
     <Content Include="Images\sprite.png" />
     <Content Include="Images\noProfilePicture.png" />
     <Content Include="Images\SubmitArrow.png" />
+    <Content Include="Images\youtubelogo.png" />
     <Content Include="Scripts\Calendar\Index.js" />
     <Content Include="Scripts\Contacts\Index.js" />
     <Content Include="Scripts\Books\Index.js" />
