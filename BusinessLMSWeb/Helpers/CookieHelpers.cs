@@ -19,8 +19,6 @@ namespace BusinessLMSWeb.Helpers
 		public ATCookie atCookie;
 		public ContactsCookie contactsCookie;
 		public MenuItemsCookie menuItemsCooke;
-		public AlertsCookie alertsCookie;
-		public FollowupsCookie followupsCookie;
 		public Cookies(HttpContextBase context)
 		{
 			iboCookie = new IBOCookie(context);
@@ -28,8 +26,6 @@ namespace BusinessLMSWeb.Helpers
 			atCookie = new ATCookie(context);
 			contactsCookie = new ContactsCookie(context);
 			menuItemsCooke = new MenuItemsCookie(context);
-			alertsCookie = new AlertsCookie(context);
-			followupsCookie = new FollowupsCookie(context);
 		}
 		public void Nullify()
 		{
@@ -38,8 +34,6 @@ namespace BusinessLMSWeb.Helpers
 			atCookie.Nullify();
 			contactsCookie.Nullify();
 			menuItemsCooke.Nullify();
-			alertsCookie.Nullify();
-			followupsCookie.Nullify();
 		}
 	}
 
@@ -94,32 +88,6 @@ namespace BusinessLMSWeb.Helpers
 		public void SetMenuItems(List<Step> data)
 		{
 			this.Set<List<Step>>(data);
-		}
-	}
-
-	internal class AlertsCookie : CookieBase
-	{
-		public AlertsCookie(HttpContextBase context) : base(context, "AlertsCookie") { }
-		public List<Alert> GetAlerts()
-		{
-			return this.Get<List<Alert>>();
-		}
-		public void SetAlerts(List<Alert> data)
-		{
-			this.Set<List<Alert>>(data);
-		}
-	}
-
-	internal class FollowupsCookie : CookieBase
-	{
-		public FollowupsCookie(HttpContextBase context) : base(context, "FollowupsCookie") { }
-		public List<ContactFollowup> GetFollowups()
-		{
-			return this.Get<List<ContactFollowup>>();
-		}
-		public void SetFollowups(List<ContactFollowup> data)
-		{
-			this.Set<List<ContactFollowup>>(data);
 		}
 	}
 
