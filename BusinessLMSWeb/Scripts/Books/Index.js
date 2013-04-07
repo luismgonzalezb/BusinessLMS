@@ -45,29 +45,9 @@ function CancelBook() {
 function submitform(frm) {
 	if (!$(frm).valid()) { return false; }
 	$.post($(frm).attr("action"), $(frm).serialize(), function (data) {
-		if (data.contactId != null) {
-			$("#booksInfo").hide("slow");
-			updateTable(data);
-		} else {
-			$("#booksInfo").hide("slow");
-		}
+	        document.location.reload(true);
 	});
 	return false;
-}
-
-function updateTable(data) {
-	$('#books-table').dataTable().fnAddData([
-		data.firstName,
-		data.lastName,
-		publicColumn(data.isPublic),
-		actionsColumn(data.bookId)
-	]);
-}
-
-function publicColumn(isPublic) {
-	checked = (isPublic == true) ? "checked" : "";
-	result = ' <input class="check-box" type="checkbox" disabled="disabled" ' + checked + '> ';
-	return result;
 }
 
 function actionsColumn(id) {
@@ -84,3 +64,11 @@ $(document).ready(function () {
 
 	});
 });
+
+function activateSec() {
+    $("#SecondLink").show("slow");
+}
+
+function activateThird() {
+    $("#ThirdLink").show("slow");
+}

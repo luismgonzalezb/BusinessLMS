@@ -32,29 +32,26 @@
 				@Html.ValidationMessageFor(model => model.Link1)
 			</div>
 			<div class="add-item">
-				<img src="@Url.Content("~/Images/AddSmB.png")" />
+				<a onclick="activateSec();"><img src="@Url.Content("~/Images/AddSmB.png")" /></a>
 			</div>
 		</div>
 
-		<div class="metro-form-control">
+		<div class="metro-form-control" id="SecondLink" hidden="hidden">
 			<label for="Link2">Buy Link</label>
 			<div class="metro-text-box">
 				@Html.EditorFor(model => model.Link2)
 				@Html.ValidationMessageFor(model => model.Link2)
 			</div>
 			<div class="add-item">
-				<img src="@Url.Content("~/Images/AddSmB.png")" />
+				<a onclick="activateThird();"><img src="@Url.Content("~/Images/AddSmB.png")" /></a>
 			</div>
 		</div>
 
-		<div class="metro-form-control">
+		<div class="metro-form-control" id="ThirdLink" hidden="hidden">
 			<label for="Link3">Buy Link</label>
 			<div class="metro-text-box">
 				@Html.EditorFor(model => model.Link3)
 				@Html.ValidationMessageFor(model => model.Link3)
-			</div>
-			<div class="add-item">
-				<img src="@Url.Content("~/Images/AddSmB.png")" />
 			</div>
 		</div>
 

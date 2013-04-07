@@ -33,12 +33,7 @@ function CancelProgress() {
 function submitform(frm) {
 	if (!$(frm).valid()) { return false; }
 	$.post($(frm).attr("action"), $(frm).serialize(), function (data) {
-		if (data.contactId != null) {
-			$("#progressInfo").hide("slow");
-			updateTable(data);
-		} else {
-			$("#progressInfo").hide("slow");
-		}
+	    document.location.reload(true);
 	});
 	return false;
 }

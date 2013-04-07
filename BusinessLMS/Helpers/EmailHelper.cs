@@ -21,6 +21,7 @@ namespace BusinessLMS.Helpers
         private string fromName { get { return ConfigurationManager.AppSettings["emailFromName"]; } }
         private string urlBase { get { return ConfigurationManager.AppSettings["urlBase"]; } }
         private string mailChimpGeneralList { get { return ConfigurationManager.AppSettings["mailChimpGeneralList"]; } }
+        private string mailChimpIBOList { get { return ConfigurationManager.AppSettings["mailChimpIBOList"]; } }
 
         public bool SendEmail(string name, string to, string data, EmailType emailType)
         {
@@ -87,7 +88,7 @@ namespace BusinessLMS.Helpers
             List.Merges merge_vars= new List.Merges();
             merge_vars.Add("fName", firstName);
             merge_vars.Add("lName", lastName);
-            server.ListSubscribe(mailChimpGeneralList,email,merge_vars);
+            server.ListSubscribe(mailChimpIBOList,email,merge_vars);
             return false;
         }
 
