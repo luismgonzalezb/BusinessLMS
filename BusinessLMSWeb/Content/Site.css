@@ -59,6 +59,14 @@ form, fieldset
 	margin: 0 0 0 77px;
 }
 
+.p10 {
+	padding:10px;
+}
+
+.p20 {
+	padding:20px;
+}
+
 .controls
 {
 	height: 40px;

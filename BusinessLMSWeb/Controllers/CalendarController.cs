@@ -24,8 +24,11 @@ namespace BusinessLMSWeb.Controllers
 			Meetings
 		}
 
+		private CalendarType CalendarTypes;
+
 		public ActionResult Index(int id)
 		{
+			ViewBag.CalendarTypes = CalendarTypes.ToSelectList();
 			ViewBag.CalendarType = id;
 			return View();
 		}
@@ -140,7 +143,7 @@ namespace BusinessLMSWeb.Controllers
 			this.title = "Follow up contact";
 			this.allDay = true;
 			this.start = evt.datetime.ToString("s");
-			this.url = string.Concat("/Followup/Details/", evt.followupId);
+			this.url = string.Concat("/Followups/Details/", evt.followupId);
 			this.editable = false;
 		}
 

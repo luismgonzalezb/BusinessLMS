@@ -109,6 +109,17 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		[HttpGet]
+		public ActionResult Details(int id)
+		{
+			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetContactFollowup");
+			ContactFollowup followup = client.Get<ContactFollowup>(id.ToString());
+			client = new BaseClient(baseApiUrl, "Contacts", "GetContact");
+			Contact contact = client.Get<Contact>(followup.contactId.ToString());
+			ViewBag.contactName = contact.GetFullName();
+			return PartialView(followup);
+		}
+
+		[HttpGet]
 		public ActionResult SearchContact(string term)
 		{
 			List<SearchObject> userNames = (from cnt in _contacts

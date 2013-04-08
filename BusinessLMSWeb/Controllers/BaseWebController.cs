@@ -14,8 +14,6 @@ namespace BusinessLMSWeb.Controllers
 	public class BaseWebController : Controller
 	{
 
-		internal Helpers.Cookies Cookies;
-
 		public BaseWebController()
 		{
 			if (WebSecurity.Initialized == false)
@@ -92,7 +90,35 @@ namespace BusinessLMSWeb.Controllers
 			base.OnActionExecuted(filterContext);
 		}
 
+		internal Helpers.Cookies Cookies;
+
 		#region General Properties
+
+		#region Not Cookie Saved
+
+		public List<Alert> listAlerts
+		{
+			get
+			{
+				BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlertsIBO");
+				List<Alert> _alerts = client.Get<List<Alert>>(ibo.IBONum);
+				return _alerts;
+			}
+		}
+
+		public List<ContactFollowup> Followups
+		{
+			get
+			{
+				BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
+				List<ContactFollowup> _followups = client.Get<List<ContactFollowup>>(ibo.IBONum);
+				return _followups;
+			}
+		}
+
+		#endregion
+
+		#region Cookie Saved
 
 		public string FacebookId
 		{
@@ -137,48 +163,18 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				//List<Step> _menuItems = Cookies.menuItemsCooke.GetMenuItems();
-				//if (_menuItems == null)
-				//{
-				BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
-				List<Step> _menuItems = client.Get<List<Step>>();
-				//	Cookies.menuItemsCooke.SetMenuItems(_menuItems);
-				//}
+				List<Step> _menuItems = Cookies.menuItemsCooke.GetMenuItems();
+				if (_menuItems == null)
+				{
+					BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
+					_menuItems = client.Get<List<Step>>();
+					Cookies.menuItemsCooke.SetMenuItems(_menuItems);
+				}
 				return _menuItems;
 			}
 		}
 
-		public List<Alert> listAlerts
-		{
-			get
-			{
-
-                List<Alert> _alerts = new List<Alert>();
-                _alerts=Cookies.alertsCookie.GetAlerts();
-				if (_alerts == null)
-				{
-					BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlertsIBO");
-					_alerts = client.Get<List<Alert>>(ibo.IBONum);
-					Cookies.alertsCookie.SetAlerts(_alerts);
-				}
-				return _alerts;
-			}
-		}
-
-		public List<ContactFollowup> Followups
-		{
-			get
-			{
-				List<ContactFollowup> _followups = Cookies.followupsCookie.GetFollowups();
-				if (_followups == null)
-				{
-					BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
-					_followups = client.Get<List<ContactFollowup>>(ibo.IBONum);
-					Cookies.followupsCookie.SetFollowups(_followups);
-				}
-				return _followups;
-			}
-		}
+		#endregion
 
 		#region From Configuration
 

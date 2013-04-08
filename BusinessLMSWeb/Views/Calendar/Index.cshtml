@@ -5,7 +5,14 @@
 <div class="title" style="margin-bottom:40px;">
 	<h1>@ViewBag.Title.</h1>
 </div>
-<div id='calendar'></div>
+<div class="metro-form-control">
+	<div class="metro-select-box">
+		@Html.DropDownList("CalendarTypes",(SelectList)ViewBag.CalendarTypes)
+	</div>
+</div>
+
+<div id="calendar"></div>
+<div id="modalWindow"></div>
 @section Scripts {
 	<script type="text/javascript">var calendarType = '@ViewBag.CalendarType'; </script>
 	@Scripts.Render("~/bundles/jqueryval")

@@ -20,11 +20,6 @@ namespace BusinessLMSWeb
 				displayName: "Facebook",
 				extraData: FacebookExtraData);
 
-			//OAuthWebSecurity.RegisterTwitterClient(
-			//    consumerKey: "",
-			//    consumerSecret: "");
-
-			//OAuthWebSecurity.RegisterGoogleClient();
 		}
 	}
 }

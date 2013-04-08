@@ -1,0 +1,24 @@
+﻿@model BusinessLMSWeb.Models.ContactFollowup
+
+<div class="metro">
+	<div class="metro-container-300">
+		<div class="metro-form-control p10">
+			Contact Name
+			<div class="metro-text-box">
+				@ViewBag.contactName
+			</div>
+		</div>
+		<div class="metro-form-control p10">
+			@Html.LabelFor(model => model.method)
+			<div class="metro-text-box">
+				@Html.DisplayTextFor(model => model.method)
+			</div>
+		</div>
+		<div class="metro-form-control p10">
+			@Html.LabelFor(model => model.datetime) (mm/dd/yyyy)
+			<div class="metro-text-box">
+				@Html.DisplayTextFor(model => model.datetime)
+			</div>
+		</div>	
+	</div>
+</div>

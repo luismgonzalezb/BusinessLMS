@@ -17,19 +17,7 @@ $(document).ready(function () {
 			right: 'month,agendaWeek,agendaDay'
 		},
 		select: function (start, end, allDay) {
-			var title = prompt('Event Title:');
-			if (title) {
-				calendar.fullCalendar('renderEvent',
-					{
-						title: title,
-						start: start,
-						end: end,
-						allDay: allDay
-					},	
-					true // make the event "stick"
-				);
-			}
-			calendar.fullCalendar('unselect');
+			// Create a new event
 		},
 		events: {
 			url: "/Calendar/GetEvents/",
@@ -42,11 +30,14 @@ $(document).ready(function () {
 			}
 		},
 		eventClick: function (event) {
-			console.log(event);
 			if (event.source) {
-				if (event.source.data.type == "4")
-				if (event.url) {
-					window.open(event.url);
+				if (event.source.data.type == "4") {
+					if (event.url) {
+						window.open(event.url);
+						return false;
+					}
+				} else {
+					openCalendarModal(event.url);
 					return false;
 				}
 			}
@@ -63,5 +54,26 @@ $(document).ready(function () {
 
 function openCalendarModal(url)
 {
-
+	$("#modalWindow").load(url, function () {
+		$("#modalWindow").modal({
+			closeHTML: "<a href='#' title='Close' class='modal-close'>x</a>",
+			position: ["10px", ],
+			overlayId: 'modalWindow-overlay',
+			containerId: 'modalWindow-content',
+			onOpen: function (dialog) {
+				dialog.overlay.fadeIn('slow', function () {
+					dialog.data.hide();
+					dialog.container.fadeIn('slow', function () {
+						dialog.data.slideDown('fast');
+					});
+				});
+			},
+			onClose: function (dialog) {
+				dialog.data.fadeOut('slow', function () {
+					$.modal.close();
+					$("#modalWindow").hide();
+				});
+			}
+		});
+	});
 }

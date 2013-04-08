@@ -827,6 +827,7 @@
     <Content Include="Views\Progress\EditProgress.cshtml" />
     <Content Include="Views\Invites\_HelpInfo.cshtml" />
     <Content Include="Views\Progress\_HelpInfo.cshtml" />
+    <Content Include="Views\Followups\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
