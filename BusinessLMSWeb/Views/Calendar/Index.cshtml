@@ -1,20 +1,22 @@
-﻿@{
+﻿@model BusinessLMSWeb.Controllers.CalendarType
+@{
 	ViewBag.Title = "Calendar";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="title" style="margin-bottom:40px;">
 	<h1>@ViewBag.Title.</h1>
 </div>
-<div class="metro-form-control">
-	<div class="metro-select-box">
-		@Html.DropDownList("CalendarTypes",(SelectList)ViewBag.CalendarTypes)
+@using (Html.BeginForm("Index", "Calendar", FormMethod.Post, new { @class = "metro-form" })) {
+	<div class="metro-form-control">
+		<div class="metro-select-box">
+			@Html.DropDownListFor(model => model.id, (SelectList)ViewBag.CalendarTypes, new { onchange="this.form.submit();" })
+		</div>
 	</div>
-</div>
-
+}
 <div id="calendar"></div>
 <div id="modalWindow"></div>
 @section Scripts {
-	<script type="text/javascript">var calendarType = '@ViewBag.CalendarType'; </script>
+	<script type="text/javascript">var calendarType = '@Model.id'; </script>
 	@Scripts.Render("~/bundles/jqueryval")
 	@Scripts.Render("~/bundles/calendar")
 	@Scripts.Render("~/Scripts/Calendar/Index.js")

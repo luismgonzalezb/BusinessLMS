@@ -15,40 +15,45 @@ namespace BusinessLMSWeb.Controllers
 	public class CalendarController : BaseWebController
 	{
 
-		enum CalendarType
-		{
-			All,
-			Dreams,
-			Followup,
-			Goals,
-			Meetings
-		}
 
-		private CalendarType CalendarTypes;
+
+		private List<CalendarType> CalendarTypes
+		{
+			get
+			{
+				return new List<CalendarType>() {
+					new CalendarType { id = 0, value = "All" },
+					new CalendarType { id = 1, value = "Dreams" },
+					new CalendarType { id = 2, value = "Followup" },
+					new CalendarType { id = 3, value = "Goals" },
+					new CalendarType { id = 4, value = "Meetings" }
+				};
+			}
+		}
 
 		public ActionResult Index(int id)
 		{
-			ViewBag.CalendarTypes = CalendarTypes.ToSelectList();
-			ViewBag.CalendarType = id;
-			return View();
+			ViewBag.CalendarTypes = new SelectList(CalendarTypes, "id", "value");
+			CalendarType calendarType = CalendarTypes.Where(ct => ct.id == id).FirstOrDefault();
+			return View(calendarType);
 		}
 
 		public ActionResult GetEvents(int type, double start, double end)
 		{
-			CalendarType calendarType = (CalendarType)type;
+			CalendarType calendarType = CalendarTypes.Where(ct => ct.id == type).FirstOrDefault();
 			DateTime fromDate = ConvertFromUnixTimestamp(start);
 			DateTime toDate = ConvertFromUnixTimestamp(end);
 			List<CalendarEvent> events = new List<CalendarEvent>();
 			List<string> toLoad = new List<string>();
-			switch (calendarType)
+			switch (calendarType.value)
 			{
-				case CalendarType.Followup:
-				case CalendarType.Meetings:
-				case CalendarType.Dreams:
-				case CalendarType.Goals:
-					toLoad.Add(calendarType.ToString());
+				case "Followup":
+				case "Meetings":
+				case "Dreams":
+				case "Goals":
+					toLoad.Add(calendarType.value);
 					break;
-				case CalendarType.All:
+				case "All":
 				default:
 					toLoad.Add("Followup");
 					toLoad.Add("Meetings");
@@ -123,6 +128,12 @@ namespace BusinessLMSWeb.Controllers
 			return PartialView();
 		}
 
+	}
+
+	public class CalendarType
+	{
+		public int id { get; set; }
+		public string value { get; set; }
 	}
 
 	public class CalendarEvent
