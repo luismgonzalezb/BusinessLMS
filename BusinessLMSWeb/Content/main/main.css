@@ -1789,6 +1789,11 @@ ul.nav li li:hover ul, ul.nav li li.sfHover ul, ul.nav li li li:hover ul, ul.nav
 	margin-top:10px;
 }
 
+.container3.u
+{
+    -webkit-box-shadow: inset 12px 30px rgba(0, 0, 0, .6);
+    box-shadow: inset 12px 30px rgba(0, 0, 0, .6);
+}
 /* |--------------------------------------------------------------------------
 | UItoTop jQuery Plugin 1.1
 | http://www.mattvarone.com/web-design/uitotop-jquery-plugin/

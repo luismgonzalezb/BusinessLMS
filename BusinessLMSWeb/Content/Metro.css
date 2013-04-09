@@ -160,7 +160,10 @@
 {
 	background-color: #ffffff !important;
 }
-
+.bg-webkit-box-shadow
+ {
+    box-shadow: inset 30px 90px rgba(0, 0, 0, .6);
+}
 .place-left
 {
 	float: left;
