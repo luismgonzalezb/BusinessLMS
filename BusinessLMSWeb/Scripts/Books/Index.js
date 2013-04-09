@@ -32,6 +32,11 @@ $(document).ready(function () {
 		}
 	});
 
+	$('.Count').click(function () {
+		bId = $(this).attr("id");
+		$.post("/Books/UpCount", { id: bId });
+	});
+
 });
 
 function AddNewBook() {
@@ -45,30 +50,15 @@ function CancelBook() {
 function submitform(frm) {
 	if (!$(frm).valid()) { return false; }
 	$.post($(frm).attr("action"), $(frm).serialize(), function (data) {
-	        document.location.reload(true);
+		document.location.reload(true);
 	});
 	return false;
 }
 
-function actionsColumn(id) {
-	result += ' <a class="del-link-sm-black deletelink" href="/Books/DeleteBookAjax/' + id + '" title="Delete Book">Delete</a> ';
-	return result;
-}
-
-$(document).ready(function () {
-	$('.Count').click(function () {
-		bId = $(this).attr("id")
-		$.post("/Books/UpCount", { id: bId }, function (data) {
-
-		});
-
-	});
-});
-
 function activateSec() {
-    $("#SecondLink").show("slow");
+	$("#SecondLink").show("slow");
 }
 
 function activateThird() {
-    $("#ThirdLink").show("slow");
+	$("#ThirdLink").show("slow");
 }

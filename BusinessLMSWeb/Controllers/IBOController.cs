@@ -1,7 +1,7 @@
-﻿using System;
-using System.Web.Mvc;
-using BusinessLMSWeb.Helpers;
+﻿using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
+using System;
+using System.Web.Mvc;
 using WebMatrix.WebData;
 
 namespace BusinessLMSWeb.Controllers
@@ -36,16 +36,17 @@ namespace BusinessLMSWeb.Controllers
 			ibo.level = model.level;
 			try
 			{
+				Cookies.iboCookie.Nullify();
 				BaseClient client = new BaseClient(baseApiUrl, "IBO", "PostIBO");
 				string result = client.Post<IBO>(ibo);
 				return RedirectToAction("Index", "Dashboard");
-			} 
-			catch 
+			}
+			catch
 			{
 				ModelState.AddModelError(null, "The IBO Number is already been used");
 				return View(model);
 			}
-			
+
 		}
 
 		public ActionResult Update()
@@ -68,7 +69,7 @@ namespace BusinessLMSWeb.Controllers
 			try
 			{
 				BaseClient client = new BaseClient(baseApiUrl, "IBO", "PutIBO");
-				string result = client.Put<IBO>(model.IBONum,ibo);
+				string result = client.Put<IBO>(model.IBONum, ibo);
 			}
 			catch { }
 			return RedirectToAction("Index", "Dashboard");

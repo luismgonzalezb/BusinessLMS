@@ -12,7 +12,7 @@
 	});
 });
 
-FB.init({ appId: "177099742414611", status: true, cookie: true });
+FB.init({ appId: facebookAppId, status: true, cookie: true });
 
 function redeem(desc, url) {
 	var obj = {

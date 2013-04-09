@@ -58,12 +58,20 @@ namespace BusinessLMSWeb.Controllers
 				}
 				catch
 				{
-					return Json(new { success = false });
+					return Json(new
+					{
+						success = false,
+						message = "There was an issue with the server, please try again latter."
+					});
 				}
 			}
 			else
 			{
-				return Json(new { success = false });
+				return Json(new
+				{
+					success = false,
+					message = "Please correct all the issues."
+				});
 			}
 		}
 
@@ -87,7 +95,11 @@ namespace BusinessLMSWeb.Controllers
 			}
 			else
 			{
-				return Json(new { success = false });
+				return Json(new
+				{
+					success = false,
+					message = "Please correct all the issues."
+				});
 			}
 		}
 
@@ -102,7 +114,11 @@ namespace BusinessLMSWeb.Controllers
 			}
 			catch
 			{
-				return Json(new { success = false });
+				return Json(new
+				{
+					success = false,
+					message = "There was an issue with the server, please try again latter."
+				});
 			}
 		}
 

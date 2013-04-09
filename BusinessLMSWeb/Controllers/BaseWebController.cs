@@ -73,6 +73,7 @@ namespace BusinessLMSWeb.Controllers
 							ViewBag.MenuItems = menuItems;
 							ViewBag.AlertItems = listAlerts;
 							ViewBag.FollowupsCount = Followups.Count;
+							ViewBag.FacebookAppId = facebookAppId;
 						}
 						else
 						{
@@ -200,6 +201,11 @@ namespace BusinessLMSWeb.Controllers
 		public string eventbriteApiKey
 		{
 			get { return ConfigurationManager.AppSettings["EventbriteApiKey"]; }
+		}
+
+		public string facebookAppId
+		{
+			get { return ConfigurationManager.AppSettings["appId"]; }
 		}
 
 		#endregion
