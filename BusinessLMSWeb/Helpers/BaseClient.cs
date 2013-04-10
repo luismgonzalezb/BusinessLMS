@@ -54,7 +54,7 @@ namespace BusinessLMSWeb.Helpers
 			}
 		}
 
-		public string Post<T>(T data)
+		public bool Post<T>(T data)
 		{
 			using (HttpClient httpClient = NewHttpClient())
 			{
@@ -63,7 +63,7 @@ namespace BusinessLMSWeb.Helpers
 				requestMessage.Method = HttpMethod.Post;
 				requestMessage.Content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json");
 				HttpResponseMessage result = httpClient.PostAsync(_endpoint, requestMessage.Content).Result;
-				return result.StatusCode.ToString();
+				return result.IsSuccessStatusCode;
 			}
 		}
 

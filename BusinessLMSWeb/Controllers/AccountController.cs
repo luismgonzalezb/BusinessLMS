@@ -102,7 +102,7 @@ namespace BusinessLMSWeb.Controllers
 				contact.email = ibo.email;
 				contact.token = token;
 				client = new BaseClient(baseApiUrl, "Email", "PostResetEmail");
-				string result = client.Post<ResertEmailContact>(contact);
+				bool result = client.Post<ResertEmailContact>(contact);
 			}
 			else
 			{

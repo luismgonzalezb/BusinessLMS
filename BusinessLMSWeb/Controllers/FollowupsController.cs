@@ -14,14 +14,8 @@ namespace BusinessLMSWeb.Controllers
 
 		private List<Contact> _contacts
 		{
-			get
-			{
-				return Cookies.contactsCookie.GetContacts();
-			}
-			set
-			{
-				if (value != null) Cookies.contactsCookie.SetContacts(value); else Cookies.contactsCookie.Nullify();
-			}
+			get { return Cookies.contactsCookie.GetContacts(); }
+			set { if (value != null) Cookies.contactsCookie.SetContacts(value); else Cookies.contactsCookie.Nullify(); }
 		}
 
 		public ActionResult Index()
@@ -51,13 +45,13 @@ namespace BusinessLMSWeb.Controllers
 		{
 			if (ModelState.IsValid == true && (model.contactId != 0))
 			{
-				try
+				BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "PostContactFollowup");
+				bool result = client.Post<ContactFollowup>(model);
+				if (result)
 				{
-					BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "PostContactFollowup");
-					string result = client.Post<ContactFollowup>(model);
 					return Json(new { success = true });
 				}
-				catch
+				else
 				{
 					return Json(new { success = false, message = "There Was an issue saving the Followup, please try again. " });
 				}

@@ -101,7 +101,7 @@ namespace BusinessLMSWeb.Controllers
 			try
 			{
 				BaseClient client = new BaseClient(baseApiUrl, "Goals", "PostGoal");
-				string result = client.Post<Goal>(model);
+				bool result = client.Post<Goal>(model);
 			}
 			catch { }
 			return RedirectToAction("Index");
@@ -117,7 +117,7 @@ namespace BusinessLMSWeb.Controllers
 				{
 					Goal newGoal = ModelParser.ParseGoal(goal);
 					client = new BaseClient(baseApiUrl, "Goals", "PostGoal");
-					string result = client.Post<Goal>(newGoal);
+					bool result = client.Post<Goal>(newGoal);
 				}
 			}
 			catch { }

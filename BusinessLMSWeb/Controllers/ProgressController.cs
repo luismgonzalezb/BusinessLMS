@@ -83,8 +83,7 @@ namespace BusinessLMSWeb.Controllers
 					if (Goalprogress == null)
 					{
 						client = new BaseClient(baseApiUrl, "Progress", "PostProgress");
-						string result = client.Post<Progress>(model);
-
+						bool result = client.Post<Progress>(model);
 					}
 					else
 					{

@@ -22,11 +22,9 @@ namespace BusinessLMSWeb.Controllers
 		[HttpPost]
 		public ActionResult CreateTicket(Ticket model)
 		{
-
 			BaseClient client = new BaseClient(baseApiUrl, "Issues", "PostIssue");
-			string result = client.Post<Ticket>(model);
-
-			return Json(new { success = true });
+			bool result = client.Post<Ticket>(model);
+			return Json(new { success = result });
 		}
 
 	}

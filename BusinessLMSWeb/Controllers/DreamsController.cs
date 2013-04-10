@@ -87,7 +87,7 @@ namespace BusinessLMSWeb.Controllers
 			try
 			{
 				BaseClient client = new BaseClient(baseApiUrl, "Dreams", "PostDream");
-				string result = client.Post<Dream>(model);
+				bool result = client.Post<Dream>(model);
 			}
 			catch { }
 			return RedirectToAction("Index");
@@ -103,7 +103,7 @@ namespace BusinessLMSWeb.Controllers
 				{
 					Dream newDream = ModelParser.ParseDream(dream);
 					client = new BaseClient(baseApiUrl, "Dreams", "PostDream");
-					string result = client.Post<Dream>(newDream);
+					bool result = client.Post<Dream>(newDream);
 				}
 			}
 			catch { }
@@ -155,7 +155,7 @@ namespace BusinessLMSWeb.Controllers
 				if (dream.dreamMVId == 0)
 				{
 					client = new BaseClient(baseApiUrl, "DreamMV", "PostDreamMV");
-					string result = client.Post<DreamMV>(dreammv);
+					bool result = client.Post<DreamMV>(dreammv);
 					client = new BaseClient(baseApiUrl, "DreamMV", "GetDreamMV");
 					dreammv = client.Get<DreamMV>(ibo.IBONum);
 				}
@@ -171,6 +171,14 @@ namespace BusinessLMSWeb.Controllers
 			{
 				return Json(new { success = false, id = 0 });
 			}
+		}
+
+		public ActionResult Details(int id)
+		{
+			ViewBag.areas = new SelectList(areas, "areaId", "title");
+			BaseClient client = new BaseClient(baseApiUrl, "Dreams", "GetDream");
+			Dream dream = client.Get<Dream>(id.ToString());
+			return PartialView(dream);
 		}
 
 		public ActionResult _HelpInfo()

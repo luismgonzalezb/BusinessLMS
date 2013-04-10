@@ -22,11 +22,12 @@ $(function () {
 });
 
 function sendRegister(frm) {
-
 	if (!$(frm).valid()) { return false; }
 	$.post($(frm).attr("action"), $(frm).serialize(), function (data) {
 		if (data.success == true) {
 			$("#divRegisterForm").html("<h2>Thanks For Registering... </h2>");
+		} else {
+			$("#divRegisterForm").append("<h2>The email is already registered please try a different one.</h2>");
 		}
 	});
 }

@@ -163,16 +163,16 @@ namespace BusinessLMSWeb.Controllers
 			this.title = "Goal Deadline";
 			this.allDay = true;
 			this.start = evt.datetime.ToString("s");
-			this.url = string.Concat("/Goals/GoalDetail", evt.goalId.ToString());
+			this.url = string.Concat("/Goals/EditGoal/", evt.goalId.ToString());
 			this.editable = false;
 		}
 
 		public CalendarEvent(Dream evt)
 		{
-			this.title = "Goal Deadline";
+			this.title = string.Concat("Dream:  ", evt.dream1.Substring(0, evt.dream1.Length <= 30 ? evt.dream1.Length : 30));
 			this.allDay = true;
 			this.start = evt.datetime.ToString("s");
-			this.url = string.Concat("/Dreams/DreamDetail", evt.dreamId.ToString());
+			this.url = string.Concat("/Dreams/EditDream/", evt.dreamId.ToString());
 			this.editable = false;
 		}
 

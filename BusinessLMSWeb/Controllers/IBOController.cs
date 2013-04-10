@@ -38,7 +38,7 @@ namespace BusinessLMSWeb.Controllers
 			{
 				Cookies.iboCookie.Nullify();
 				BaseClient client = new BaseClient(baseApiUrl, "IBO", "PostIBO");
-				string result = client.Post<IBO>(ibo);
+				bool result = client.Post<IBO>(ibo);
 				return RedirectToAction("Index", "Dashboard");
 			}
 			catch

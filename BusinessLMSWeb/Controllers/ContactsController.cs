@@ -50,18 +50,18 @@ namespace BusinessLMSWeb.Controllers
 		{
 			if (ModelState.IsValid == true)
 			{
-				try
+				BaseClient client = new BaseClient(baseApiUrl, "Contacts", "PostContact");
+				bool result = client.Post<Contact>(model);
+				if (result)
 				{
-					BaseClient client = new BaseClient(baseApiUrl, "Contacts", "PostContact");
-					string result = client.Post<Contact>(model);
 					return Json(model);
 				}
-				catch
+				else
 				{
 					return Json(new
 					{
 						success = false,
-						message = "There was an issue with the server, please try again latter."
+						message = "The contact already exists."
 					});
 				}
 			}
@@ -89,9 +89,20 @@ namespace BusinessLMSWeb.Controllers
 		{
 			if (ModelState.IsValid == true)
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Contacts", "PutContact");
-				string result = client.Put<Contact>(model.contactId.ToString(), model);
-				return Json(new { success = true });
+				try
+				{
+					BaseClient client = new BaseClient(baseApiUrl, "Contacts", "PutContact");
+					string result = client.Put<Contact>(model.contactId.ToString(), model);
+					return Json(new { success = true });
+				}
+				catch
+				{
+					return Json(new
+					{
+						success = false,
+						message = "There was an issue with the server, please try again latter."
+					});
+				}
 			}
 			else
 			{

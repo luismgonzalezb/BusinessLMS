@@ -72,7 +72,12 @@ function submitupdateform(frm) {
 		if (data.success == true) {
 			document.location.reload(true);
 		} else {
-			$("#contactInfo").hide("slow");
+			var noty_err = noty({
+				type: "error",
+				layout: 'bottom',
+				text: data.message,
+				timeout: 1000
+			});
 		}
 	});
 }

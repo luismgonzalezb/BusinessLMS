@@ -86,15 +86,9 @@ namespace BusinessLMSWeb.Controllers
 		[HttpPost]
 		public ActionResult RegisterAjax(Contact model)
 		{
-			try
-			{
-				BaseClient client = new BaseClient(baseApiUrl, "Contacts", "PostContact");
-				string result = client.Post<Contact>(model);
-				return Json(new { success = true });
-			}
-			catch
-			{ }
-			return Json(new { success = false });
+			BaseClient client = new BaseClient(baseApiUrl, "Contacts", "PostContact");
+			bool result = client.Post<Contact>(model);
+			return Json(new { success = result });
 		}
 
 		[HttpGet]
@@ -130,7 +124,7 @@ namespace BusinessLMSWeb.Controllers
 			{
 				model.datetime = DateTime.Now;
 				BaseClient client = new BaseClient(baseApiUrl, "AlertsIBO", "PostAlertIBO");
-				string result = client.Post<AlertIBO>(model);
+				bool result = client.Post<AlertIBO>(model);
 			}
 			return Json(new { success = true });
 		}

@@ -35,7 +35,7 @@ namespace BusinessLMSWeb.Controllers
 		public ActionResult CreateBook(Book model)
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "Books", "PostBook");
-			string result = client.Post<Book>(model);
+			bool result = client.Post<Book>(model);
 			return RedirectToAction("Index");
 		}
 
@@ -44,13 +44,13 @@ namespace BusinessLMSWeb.Controllers
 		{
 			if (ModelState.IsValid == true)
 			{
-				try
+				BaseClient client = new BaseClient(baseApiUrl, "Books", "PostBook");
+				bool result = client.Post<Book>(model);
+				if (result)
 				{
-					BaseClient client = new BaseClient(baseApiUrl, "Books", "PostBook");
-					string result = client.Post<Book>(model);
 					return Json(model);
 				}
-				catch
+				else
 				{
 					return Json(new { success = false });
 				}
