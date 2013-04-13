@@ -71,6 +71,10 @@ namespace BusinessLMS.Controllers
 					{
 						EmailHelper mail = new EmailHelper();
 						mail.SendEmail(string.Concat(contact.firstName, " ", contact.lastName), contact.email, null, EmailHelper.EmailType.subscription);
+						if (contact.newsletteroptin == true)
+						{
+							mail.AddToMailingList(contact.firstName, contact.lastName, contact.email, 1);
+						}
 					}
 					if (contact.IBONum != string.Empty)
 					{

@@ -1,4 +1,9 @@
-﻿
+﻿/* GENERAL APPLICABLE STYLES */
+.PT20 { padding-top:20px; }
+.PL20 { padding-left:20px; }
+.DIB { display: inline-block; }
+.NOBORDER {	border: 0px none transparent; }
+
 .metro a:hover, .metro .link:hover
 {
 	color: #555;
@@ -162,7 +167,7 @@
 }
 .bg-webkit-box-shadow
  {
-    box-shadow: inset 30px 90px rgba(0, 0, 0, .6);
+	box-shadow: inset 30px 90px rgba(0, 0, 0, .6);
 }
 .place-left
 {

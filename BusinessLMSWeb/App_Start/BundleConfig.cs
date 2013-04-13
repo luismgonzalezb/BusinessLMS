@@ -39,7 +39,7 @@ namespace BusinessLMSWeb
 			bundles.Add(new ScriptBundle("~/bundles/pages/home").Include(
 				"~/Scripts/Plugins/jquery.prettyPhoto.js",
 				"~/Scripts/Plugins/jquery.flow.1.2.js",
-				"~/Scripts/Plugins/jquery.showLoading.min.js",
+				"~/Scripts/Plugins/jquery.showLoading.js",
 				"~/Scripts/Home/Index.js"));
 
 			#endregion
@@ -60,7 +60,7 @@ namespace BusinessLMSWeb
 
 			#endregion
 
-			BundleTable.EnableOptimizations = false;
+			BundleTable.EnableOptimizations = true;
 		}
 	}
 }

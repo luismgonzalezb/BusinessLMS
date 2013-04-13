@@ -628,7 +628,7 @@
     <Content Include="Images\Home\youtubelogo.png" />
     <Content Include="Images\Information.png" />
     <Content Include="Images\loading.gif" />
-    <Content Include="Images\logo.png" />
+    <Content Include="Images\logo.gif" />
     <Content Include="Images\Menu\bookMenu.png" />
     <Content Include="Images\Menu\bookMenuSel.png" />
     <Content Include="Images\Menu\contactMenu.png" />
@@ -649,6 +649,7 @@
     <Content Include="Images\sprite.png" />
     <Content Include="Images\noProfilePicture.png" />
     <Content Include="Images\SubmitArrow.png" />
+    <Content Include="Images\UstreamLogo.png" />
     <Content Include="Images\youtubelogo.png" />
     <Content Include="Scripts\Calendar\Index.js" />
     <Content Include="Scripts\Contacts\Index.js" />

@@ -48,6 +48,10 @@
         });
         $("#contactName").autocomplete({
         	source: "/Followups/SearchContact/",
+        	open: function () {
+        		$(this).autocomplete('widget').css('z-index', 1111);
+        		return false;
+        	},
         	select: function (event, ui) {
         		$("#contactName").val(ui.item.label);
         		$("#contactId").val(ui.item.value);

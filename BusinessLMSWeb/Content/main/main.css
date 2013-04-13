@@ -725,7 +725,6 @@ a.youtube
 	background: -webkit-gradient(linear, 0 0, 0 0, from(#6E0610), to(#e13c41));
 	background: -webkit-linear-gradient(, #6E0610, #e13c41);
 	background: linear-gradient(, #6E0610, #e13c41);
-	text-shadow: 0 1px 1px #f8f8f8;
 	color: #FFF;
 }
 

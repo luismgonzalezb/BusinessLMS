@@ -1,4 +1,8 @@
-﻿using System;
+﻿using BusinessLMS.ActionFilters;
+using BusinessLMS.Helpers;
+using BusinessLMS.Models;
+using BusinessLMS.ModelsView;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Infrastructure;
@@ -6,10 +10,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BusinessLMS.ActionFilters;
-using BusinessLMS.Models;
-using BusinessLMS.ModelsView;
-using BusinessLMS.Helpers;
 
 namespace BusinessLMS.Controllers
 {
@@ -123,10 +123,11 @@ namespace BusinessLMS.Controllers
 			{
 				db.IBOs.Add(ibo);
 				db.SaveChanges();
-
-                EmailHelper mail = new EmailHelper();
-                mail.AddToMailingList(ibo.firstName, ibo.lastName, ibo.email);
-                
+				if ((!string.IsNullOrEmpty(ibo.email)) && (ibo.newsletteroptin == true))
+				{
+					EmailHelper mail = new EmailHelper();
+					mail.AddToMailingList(ibo.firstName, ibo.lastName, ibo.email);
+				}
 				HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, ibo);
 				response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = ibo.IBONum }));
 				return response;
