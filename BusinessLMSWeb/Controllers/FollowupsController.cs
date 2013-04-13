@@ -1,4 +1,5 @@
-﻿using BusinessLMSWeb.Helpers;
+﻿using BusinessLMSWeb.Filters;
+using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using BusinessLMSWeb.ModelsView;
 using System;
@@ -123,13 +124,13 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		[HttpGet]
+		[IsNotPageRefresh]
 		public ActionResult SearchContact(string term)
 		{
 			if (_contacts == null) _contacts = GetContacts();
 			List<SearchObject> userNames = (from cnt in _contacts
 											where cnt.firstName.ToUpper().Contains(term.ToUpper()) || cnt.lastName.ToUpper().Contains(term.ToUpper())
 											select new SearchObject { label = cnt.GetFullName(), value = cnt.contactId.ToString() }).ToList();
-			AvoidGetHeadData = true;
 			return Json(userNames, JsonRequestBehavior.AllowGet);
 		}
 

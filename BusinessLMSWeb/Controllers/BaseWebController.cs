@@ -67,13 +67,16 @@ namespace BusinessLMSWeb.Controllers
 					{
 						if (ibo != null)
 						{
-							ViewBag.IBOName = String.Concat(ibo.firstName, " ", ibo.lastName);
-							ViewBag.IBONum = ibo.IBONum;
-							ViewBag.IBOPicture = ibo.picture != String.Empty ? ibo.picture : Url.Content("~/Images/noProfilePicture.png");
-							ViewBag.MenuItems = menuItems;
-							ViewBag.AlertItems = listAlerts;
-							ViewBag.FollowupsCount = Followups.Count;
-							ViewBag.FacebookAppId = facebookAppId;
+							if (!IsNotPageRefresh)
+							{
+								ViewBag.IBOName = String.Concat(ibo.firstName, " ", ibo.lastName);
+								ViewBag.IBONum = ibo.IBONum;
+								ViewBag.IBOPicture = ibo.picture != String.Empty ? ibo.picture : Url.Content("~/Images/noProfilePicture.png");
+								ViewBag.MenuItems = menuItems;
+								ViewBag.AlertItems = listAlerts;
+								ViewBag.FollowupsCount = Followups.Count;
+								ViewBag.FacebookAppId = facebookAppId;
+							}
 						}
 						else
 						{
@@ -92,6 +95,8 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		internal Helpers.Cookies Cookies;
+
+		public bool IsNotPageRefresh { get; set; }
 
 		#region General Properties
 
