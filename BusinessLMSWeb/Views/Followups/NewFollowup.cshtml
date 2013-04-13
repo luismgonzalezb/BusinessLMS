@@ -1,4 +1,5 @@
 ﻿@model BusinessLMSWeb.Models.ContactFollowup
+<div class="metro">
 <div class="metro-container-300">
 @using (Html.BeginForm("NewFollowupAjax", "Followups", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
 {
@@ -36,7 +37,7 @@
         </div>
     </fieldset>
 }
-</div>
+</div></div>
 <script type="text/javascript">
     $(document).ready(function () {
         $.validator.unobtrusive.parse("#current_form");

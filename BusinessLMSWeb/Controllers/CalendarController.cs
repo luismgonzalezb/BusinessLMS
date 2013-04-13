@@ -14,9 +14,6 @@ namespace BusinessLMSWeb.Controllers
 	[Authorize]
 	public class CalendarController : BaseWebController
 	{
-
-
-
 		private List<CalendarType> CalendarTypes
 		{
 			get

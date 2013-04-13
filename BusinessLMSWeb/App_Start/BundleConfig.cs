@@ -16,6 +16,7 @@ namespace BusinessLMSWeb
 						"~/Scripts/jquery.simplemodal*",
 						"~/Scripts/jquery.watermark*",
 						"~/Scripts/jquery.showLoading*",
+						"~/Scripts/jquery.moment*",
 						"~/Scripts/DataTables-1.9.4/media/js/jquery*"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

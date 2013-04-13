@@ -725,9 +725,8 @@ a.youtube
 	background: -webkit-gradient(linear, 0 0, 0 0, from(#6E0610), to(#e13c41));
 	background: -webkit-linear-gradient(, #6E0610, #e13c41);
 	background: linear-gradient(, #6E0610, #e13c41);
-	color: rgba(255, 255, 255, 1);
-    	text-shadow: 0 1px 1px rgba(0, 0, 0, 0);
-
+	text-shadow: 0 1px 1px #f8f8f8;
+	color: #FFF;
 }
 
 	a.youtube:active
@@ -1793,8 +1792,8 @@ ul.nav li li:hover ul, ul.nav li li.sfHover ul, ul.nav li li li:hover ul, ul.nav
 
 .container3.u
 {
-    -webkit-box-shadow: inset 12px 30px rgba(0, 0, 0, .6);
-    box-shadow: inset 12px 30px rgba(0, 0, 0, .6);
+	-webkit-box-shadow: inset 12px 30px rgba(0, 0, 0, .6);
+	box-shadow: inset 12px 30px rgba(0, 0, 0, .6);
 }
 /* |--------------------------------------------------------------------------
 | UItoTop jQuery Plugin 1.1

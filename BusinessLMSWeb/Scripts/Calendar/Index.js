@@ -17,7 +17,10 @@ $(document).ready(function () {
 			right: 'month,agendaWeek,agendaDay'
 		},
 		select: function (start, end, allDay) {
-			// Create a new event
+			var dateFormatter = moment(start);
+			var url = '/Followups/NewFollowupDate?date=' + dateFormatter.format('L');
+			console.log(url);
+			openCalendarModal(url);
 		},
 		events: {
 			url: "/Calendar/GetEvents/",
@@ -52,7 +55,7 @@ $(document).ready(function () {
 
 });
 
-function openCalendarModal(url)
+function openCalendarModal(url, data)
 {
 	$("#modalWindow").load(url, function () {
 		$("#modalWindow").modal({

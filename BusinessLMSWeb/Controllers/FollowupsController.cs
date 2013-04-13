@@ -1,6 +1,7 @@
 ﻿using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using BusinessLMSWeb.ModelsView;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -22,11 +23,9 @@ namespace BusinessLMSWeb.Controllers
 		{
 			/* Get Clients For Autocomplete */
 			_contacts = null;
-			BaseClient client = new BaseClient(baseApiUrl, "Contacts", "GetIBOContacts");
-			List<Contact> contacts = client.Get<List<Contact>>(ibo.IBONum);
-			_contacts = contacts;
+			_contacts = GetContacts();
 
-			client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowupView");
+			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowupView");
 			List<FollowupView> followups = client.Get<List<FollowupView>>(ibo.IBONum);
 			return View(followups);
 		}
@@ -38,6 +37,16 @@ namespace BusinessLMSWeb.Controllers
 			model.completed = false;
 			model.datetime = System.DateTime.Now;
 			return PartialView(model);
+		}
+
+		public ActionResult NewFollowupDate(DateTime date)
+		{
+			ContactFollowup model = new ContactFollowup();
+			model.IBONum = ibo.IBONum;
+			model.completed = false;
+			model.datetime = System.DateTime.Now;
+			model.datetime = date;
+			return PartialView("NewFollowup", model);
 		}
 
 		[HttpPost]
@@ -116,10 +125,19 @@ namespace BusinessLMSWeb.Controllers
 		[HttpGet]
 		public ActionResult SearchContact(string term)
 		{
+			if (_contacts == null) _contacts = GetContacts();
 			List<SearchObject> userNames = (from cnt in _contacts
 											where cnt.firstName.ToUpper().Contains(term.ToUpper()) || cnt.lastName.ToUpper().Contains(term.ToUpper())
 											select new SearchObject { label = cnt.GetFullName(), value = cnt.contactId.ToString() }).ToList();
+			AvoidGetHeadData = true;
 			return Json(userNames, JsonRequestBehavior.AllowGet);
+		}
+
+		private List<Contact> GetContacts()
+		{
+			BaseClient client = new BaseClient(baseApiUrl, "Contacts", "GetIBOContacts");
+			List<Contact> contacts = client.Get<List<Contact>>(ibo.IBONum);
+			return contacts;
 		}
 
 		public ActionResult _HelpInfo()
