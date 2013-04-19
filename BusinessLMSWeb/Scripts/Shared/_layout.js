@@ -41,3 +41,24 @@ $(document).ready(function () {
 		$.post("/Books/UpCount", { id:bId }, function (data) { });
 	});
 });
+
+
+//FACEBOOK
+
+$("#btnLogin").click(function (e) {
+    e.preventDefault();
+    FB.login(function (response) {
+        if (response.authResponse) {
+            $("#btnLogin").html("Logged in");
+        } else {
+            $("#btnLogin").html("Not logged in");
+        }
+    }, { scope: 'user_photos, friends_photos' });
+});
+
+$(".photoSelect").click(function (e) {
+    e.preventDefault();
+    id = null;
+    if ($(this).attr('data-id')) id = $(this).attr('data-id');
+    fbphotoSelect(id);
+});

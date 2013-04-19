@@ -107,7 +107,8 @@ namespace BusinessLMSWeb.Controllers
 			get
 			{
 				BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlertsIBO");
-				List<Alert> _alerts = client.Get<List<Alert>>(ibo.IBONum);
+                List<Alert> _alerts = new List<Alert>();
+                _alerts=client.Get<List<Alert>>(ibo.IBONum);
 				return _alerts;
 			}
 		}
