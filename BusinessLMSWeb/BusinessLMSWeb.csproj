@@ -333,6 +333,7 @@
     <Compile Include="Helpers\BlobHelper.cs" />
     <Compile Include="Helpers\ControllersHelper.cs" />
     <Compile Include="Helpers\CookieHelpers.cs" />
+    <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\Encryption.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
@@ -837,6 +838,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TextResources\TextResources.csproj">
+      <Project>{7d6339eb-3539-4505-a8ed-e6e8ed87fc93}</Project>
+      <Name>TextResources</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

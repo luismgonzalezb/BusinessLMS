@@ -27,7 +27,7 @@
 			</div>
 
 			<div class="metro-form-control">
-				<label for="firstName">First Name</label>
+				@Html.LabelFor(model => model.firstName)
 				<div class="metro-text-box">
 					@Html.EditorFor(model => model.firstName)
 					@Html.ValidationMessageFor(model => model.firstName)
@@ -114,7 +114,7 @@
 			<div id="status"></div>
 		</div>
 		<input type="submit" value="Upload" id="btnUpload" class="metro-button" />
-        <input value="Facebook" id="btnLogin" class="metro-button" />
+		<input value="Facebook" id="btnLogin" class="metro-button" />
 	</form>
 
 	<div class="metro-align-right">
@@ -127,5 +127,5 @@
 	@Scripts.Render("~/bundles/jqueryval")
 	@Scripts.Render("~/bundles/jqueryupload")
 	@Scripts.Render("~/Scripts/IBO/AddIBO.js")
-    @Scripts.Render("~/Scripts/Shared/_layout.js")
+	@Scripts.Render("~/Scripts/Shared/_layout.js")
 }
