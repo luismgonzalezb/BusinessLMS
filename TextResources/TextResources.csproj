@@ -44,21 +44,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Businesslms.resx</DependentUpon>
     </Compile>
-    <Compile Include="Businesslms.es.Designer.cs">
+    <Compile Include="Businesslms.es-MX.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Businesslms.es.resx</DependentUpon>
+      <DependentUpon>Businesslms.es-MX.resx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinesslmsHome.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusinesslmsHome.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Businesslms.es.resx">
+    <EmbeddedResource Include="Businesslms.es-MX.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Businesslms.es.Designer.cs</LastGenOutput>
+      <LastGenOutput>Businesslms.es-MX.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Businesslms.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Businesslms.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinesslmsHome.es-MX.resx" />
+    <EmbeddedResource Include="BusinesslmsHome.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BusinesslmsHome.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

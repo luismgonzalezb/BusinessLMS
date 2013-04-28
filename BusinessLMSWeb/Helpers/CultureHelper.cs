@@ -140,13 +140,18 @@ namespace NerdDinner.Helpers
 		};
 		#endregion
 
-		public static readonly IEnumerable<string> Cultures { get { return _cultures.AsEnumerable(); } }
+		public static IEnumerable<string> Cultures { get { return _cultures.AsEnumerable(); } }
 
-		public static readonly IEnumerable<string> CultureNames { get { return (from c in _cultures select new CultureInfo(c).DisplayName); } }
+		public static IEnumerable<string> CultureNames { get { return (from c in _cultures select new CultureInfo(c).DisplayName); } }
 
 		public static string GetDefaultCulture()
 		{
 			return _cultures[0];
+		}
+
+		public static string GetCulture(int index)
+		{
+			return _cultures[index - 1];
 		}
 
 		public static string GetCurrentCultureName()

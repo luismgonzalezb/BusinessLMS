@@ -1,11 +1,13 @@
 ﻿using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Helpers.MobileRedirect;
 using BusinessLMSWeb.Models;
+using NerdDinner.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 
@@ -46,6 +48,14 @@ namespace BusinessLMSWeb.Controllers
 		protected override void OnActionExecuting(ActionExecutingContext filterContext)
 		{
 			Cookies = new Helpers.Cookies(filterContext.HttpContext);
+
+			if (ibo != null)
+			{
+				string cultureName = CultureHelper.GetCulture(ibo.languageId);
+				Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cultureName);
+				Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
+			}
+
 			base.OnActionExecuting(filterContext);
 		}
 
@@ -76,6 +86,7 @@ namespace BusinessLMSWeb.Controllers
 								ViewBag.AlertItems = listAlerts;
 								ViewBag.FollowupsCount = Followups.Count;
 								ViewBag.FacebookAppId = facebookAppId;
+
 							}
 						}
 						else
@@ -107,8 +118,8 @@ namespace BusinessLMSWeb.Controllers
 			get
 			{
 				BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlertsIBO");
-                List<Alert> _alerts = new List<Alert>();
-                _alerts=client.Get<List<Alert>>(ibo.IBONum);
+				List<Alert> _alerts = new List<Alert>();
+				_alerts = client.Get<List<Alert>>(ibo.IBONum);
 				return _alerts;
 			}
 		}

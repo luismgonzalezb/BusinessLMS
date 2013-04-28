@@ -36,9 +36,9 @@ namespace BusinessLMSWeb.Controllers
 			ibo.level = model.level;
 			try
 			{
-				Cookies.iboCookie.Nullify();
 				BaseClient client = new BaseClient(baseApiUrl, "IBO", "PostIBO");
 				bool result = client.Post<IBO>(ibo);
+				Cookies.iboCookie.Nullify();
 				return RedirectToAction("Index", "Dashboard");
 			}
 			catch
@@ -60,16 +60,17 @@ namespace BusinessLMSWeb.Controllers
 		[HttpPost]
 		public ActionResult Update(IBO model)
 		{
-			IBO ibo = ModelParser.ParseIBO(model);
-			ibo.UserId = WebSecurity.CurrentUserId;
-			ibo.datetime = DateTime.Now;
-			ibo.facebookid = FacebookId != null ? FacebookId : "";
-			ibo.accesstoken = AccessToken != null ? AccessToken : "";
-			ibo.level = model.level;
+			IBO iboUpdate = ModelParser.ParseIBO(model);
+			iboUpdate.UserId = WebSecurity.CurrentUserId;
+			iboUpdate.datetime = DateTime.Now;
+			iboUpdate.facebookid = FacebookId != null ? FacebookId : "";
+			iboUpdate.accesstoken = AccessToken != null ? AccessToken : "";
+			iboUpdate.level = model.level;
 			try
 			{
 				BaseClient client = new BaseClient(baseApiUrl, "IBO", "PutIBO");
-				string result = client.Put<IBO>(model.IBONum, ibo);
+				string result = client.Put<IBO>(model.IBONum, iboUpdate);
+				Cookies.iboCookie.Nullify();
 			}
 			catch { }
 			return RedirectToAction("Index", "Dashboard");

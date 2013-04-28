@@ -13,7 +13,7 @@ namespace BusinessLMSWeb.Models
 		[Required]
 		public int languageId { get; set; }
 		[Required]
-		[Display(Name="FirstName",ResourceType=typeof(TextResources.Businesslms))]
+		[Display(Name = "FirstName", ResourceType = typeof(TextResources.Businesslms))]
 		public string firstName { get; set; }
 		[Required]
 		public string lastName { get; set; }
