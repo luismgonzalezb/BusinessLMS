@@ -22,6 +22,7 @@ namespace BusinessLMSWeb.Controllers
 			return View(Books);
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult CreateBook()
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "Books", "GetBooks");
@@ -89,6 +90,7 @@ namespace BusinessLMSWeb.Controllers
 			return Json(new { success = true });
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult _HelpInfo()
 		{
 			return PartialView();

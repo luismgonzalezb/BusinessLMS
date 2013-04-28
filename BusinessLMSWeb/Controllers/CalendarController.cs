@@ -122,6 +122,7 @@ namespace BusinessLMSWeb.Controllers
 			return origin.AddSeconds(timestamp);
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult _HelpInfo()
 		{
 			return PartialView();

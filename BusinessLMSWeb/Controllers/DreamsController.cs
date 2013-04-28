@@ -26,6 +26,7 @@ namespace BusinessLMSWeb.Controllers
 			return View();
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult DreamList(int id)
 		{
 			if (ibo != null)
@@ -59,6 +60,7 @@ namespace BusinessLMSWeb.Controllers
 			return null;
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult DisplayDream(Dream model, bool last)
 		{
 			ViewBag.area = (from area in areas where area.areaId == model.areaId select area.title).FirstOrDefault();
@@ -69,6 +71,7 @@ namespace BusinessLMSWeb.Controllers
 			return PartialView(model);
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult NewDream(int timeframeId, int days, string IBONum, int dreamLevel)
 		{
 			ViewBag.areas = new SelectList(areas, "areaId", "title");
@@ -111,6 +114,7 @@ namespace BusinessLMSWeb.Controllers
 			return RedirectToAction("Index");
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult EditDream(int id)
 		{
 			ViewBag.areas = new SelectList(areas, "areaId", "title");
@@ -136,6 +140,7 @@ namespace BusinessLMSWeb.Controllers
 
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult DreamMV()
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "DreamMV", "GetDreamMV");
@@ -176,6 +181,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult Details(int id)
 		{
 			ViewBag.areas = new SelectList(areas, "areaId", "title");
@@ -184,6 +190,7 @@ namespace BusinessLMSWeb.Controllers
 			return PartialView(dream);
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult _HelpInfo()
 		{
 			return PartialView();

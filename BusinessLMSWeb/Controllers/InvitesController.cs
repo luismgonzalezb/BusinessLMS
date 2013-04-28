@@ -1,4 +1,5 @@
-﻿using EventbriteNET;
+﻿using BusinessLMSWeb.Filters;
+using EventbriteNET;
 using EventbriteNET.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,6 @@ namespace BusinessLMSWeb.Controllers
 	[Authorize]
 	public class InvitesController : BaseWebController
 	{
-		//
-		// GET: /Default1/
 
 		public ActionResult Index()
 		{
@@ -26,6 +25,7 @@ namespace BusinessLMSWeb.Controllers
 			return View(Events);
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult _HelpInfo()
 		{
 			return PartialView();

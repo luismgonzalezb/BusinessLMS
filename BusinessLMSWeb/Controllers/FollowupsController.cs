@@ -31,6 +31,7 @@ namespace BusinessLMSWeb.Controllers
 			return View(followups);
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult NewFollowup()
 		{
 			ContactFollowup model = new ContactFollowup();
@@ -40,6 +41,7 @@ namespace BusinessLMSWeb.Controllers
 			return PartialView(model);
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult NewFollowupDate(DateTime date)
 		{
 			ContactFollowup model = new ContactFollowup();
@@ -73,6 +75,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult EditFollowup(int id)
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetContactFollowup");
@@ -116,6 +119,7 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		[HttpGet]
+		[IsNotPageRefresh]
 		public ActionResult Details(int id)
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetContactFollowup");
@@ -144,6 +148,7 @@ namespace BusinessLMSWeb.Controllers
 			return contacts;
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult _HelpInfo()
 		{
 			return PartialView();

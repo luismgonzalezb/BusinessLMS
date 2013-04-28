@@ -9,6 +9,7 @@ namespace BusinessLMSWeb.Controllers
 	[Authorize]
 	public class TicketsController : BaseWebController
 	{
+		[IsNotPageRefresh]
 		public ActionResult CreateTicket()
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "Issues", "GetPriorityLevels");

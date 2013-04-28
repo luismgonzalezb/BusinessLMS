@@ -35,6 +35,7 @@ namespace BusinessLMSWeb.Controllers
 			return View(contacts);
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult NewContact()
 		{
 			ViewBag.languages = languages;
@@ -69,6 +70,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult EditContact(string id)
 		{
 			ViewBag.languages = languages;
@@ -117,6 +119,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult _HelpInfo()
 		{
 			return PartialView();

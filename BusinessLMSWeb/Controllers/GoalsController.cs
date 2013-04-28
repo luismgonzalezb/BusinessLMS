@@ -37,6 +37,7 @@ namespace BusinessLMSWeb.Controllers
 			return View();
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult GoalsList(int id)
 		{
 
@@ -72,6 +73,7 @@ namespace BusinessLMSWeb.Controllers
 
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult DisplayGoal(Goal model, bool last)
 		{
 			ViewBag.tool = (from tool in tools where tool.toolId == model.toolId select tool.name).FirstOrDefault();
@@ -82,6 +84,7 @@ namespace BusinessLMSWeb.Controllers
 			return PartialView(model);
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult NewGoal(int timeframeId, int days, int goalLevel)
 		{
 			ViewBag.tools = new SelectList(tools, "toolId", "name");
@@ -125,6 +128,7 @@ namespace BusinessLMSWeb.Controllers
 			return RedirectToAction("Index");
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult EditGoal(int id)
 		{
 			ViewBag.tools = new SelectList(tools, "toolId", "name");
@@ -151,6 +155,7 @@ namespace BusinessLMSWeb.Controllers
 
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult _HelpInfo()
 		{
 			return PartialView();

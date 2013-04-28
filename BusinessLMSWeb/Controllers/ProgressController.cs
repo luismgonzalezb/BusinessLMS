@@ -48,6 +48,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult CreateProgress(int id)
 		{
 			Progress Progress = new Progress();
@@ -56,6 +57,7 @@ namespace BusinessLMSWeb.Controllers
 			return PartialView(Progress);
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult EditProgress(string id)
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "Progress", "GetProgress");
@@ -108,6 +110,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult _HelpInfo()
 		{
 			return PartialView();
