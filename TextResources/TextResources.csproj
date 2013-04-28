@@ -54,6 +54,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BusinesslmsHome.resx</DependentUpon>
     </Compile>
+    <Compile Include="BusinesslmsHome.es-MX.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusinesslmsHome.es-MX.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,9 +70,12 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Businesslms.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="BusinesslmsHome.es-MX.resx" />
+    <EmbeddedResource Include="BusinesslmsHome.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BusinesslmsHome.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusinesslmsHome.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BusinesslmsHome.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

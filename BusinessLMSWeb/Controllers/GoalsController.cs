@@ -1,4 +1,5 @@
-﻿using BusinessLMSWeb.Helpers;
+﻿using BusinessLMSWeb.Filters;
+using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -134,6 +135,7 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		[HttpPost]
+		[IsNotPageRefresh]
 		public ActionResult EditGoal(Goal model)
 		{
 			try

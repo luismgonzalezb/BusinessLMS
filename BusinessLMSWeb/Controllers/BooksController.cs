@@ -1,4 +1,5 @@
-﻿using BusinessLMSWeb.Helpers;
+﻿using BusinessLMSWeb.Filters;
+using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -40,6 +41,7 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		[HttpPost]
+		[IsNotPageRefresh]
 		public ActionResult CreateBookAjax(Book model)
 		{
 			if (ModelState.IsValid == true)
@@ -61,6 +63,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult DeleteBookAjax(string id)
 		{
 			try
@@ -75,6 +78,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult UpCount(string id)
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "Books", "GetBook");

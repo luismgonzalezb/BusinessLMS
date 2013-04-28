@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Threading;
 
 namespace NerdDinner.Helpers
 {
@@ -140,6 +139,8 @@ namespace NerdDinner.Helpers
 		};
 		#endregion
 
+		#region Culture Methods
+
 		public static IEnumerable<string> Cultures { get { return _cultures.AsEnumerable(); } }
 
 		public static IEnumerable<string> CultureNames { get { return (from c in _cultures select new CultureInfo(c).DisplayName); } }
@@ -154,26 +155,6 @@ namespace NerdDinner.Helpers
 			return _cultures[index - 1];
 		}
 
-		public static string GetCurrentCultureName()
-		{
-			return Thread.CurrentThread.CurrentCulture.DisplayName;
-		}
-
-		public static string GetCurrentCulture()
-		{
-			return Thread.CurrentThread.CurrentCulture.Name;
-		}
-
-		public static string GetCurrentNeutralCulture()
-		{
-			return GetNeutralCulture(Thread.CurrentThread.CurrentCulture.Name);
-		}
-
-		private static string GetNeutralCulture(string name)
-		{
-			if (name.Length < 2) return name;
-			return name.Substring(0, 2);
-		}
-
+		#endregion
 	}
 }

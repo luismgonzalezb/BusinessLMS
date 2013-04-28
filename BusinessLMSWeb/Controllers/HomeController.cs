@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Threading;
+using System.Web;
 using System.Web.Mvc;
 
 namespace BusinessLMSWeb.Controllers
@@ -12,6 +14,22 @@ namespace BusinessLMSWeb.Controllers
 
 	public class HomeController : Controller
 	{
+
+		protected override void OnActionExecuted(ActionExecutedContext filterContext)
+		{
+
+			string cultureName = null;
+			HttpCookie cultureCookie = Request.Cookies["_ibovirtualculture"];
+			if (cultureCookie != null)
+				cultureName = cultureCookie.Value;
+			else
+				cultureName = Request.UserLanguages[0];
+
+			Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cultureName);
+			Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
+
+			base.OnActionExecuted(filterContext);
+		}
 
 		private List<SearchObject> _userNames
 		{
@@ -127,6 +145,14 @@ namespace BusinessLMSWeb.Controllers
 				bool result = client.Post<AlertIBO>(model);
 			}
 			return Json(new { success = true });
+		}
+
+		public ActionResult ChangeLanguage(string id)
+		{
+			HttpCookie cultureCookie = new HttpCookie("_ibovirtualculture", id);
+			cultureCookie.Expires = DateTime.Now.AddDays(300);
+			Response.Cookies.Add(cultureCookie);
+			return RedirectToAction("Index");
 		}
 
 	}

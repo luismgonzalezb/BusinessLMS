@@ -12,8 +12,8 @@
 <body>
 	<div class="main-container">
 		<header>
-			<img style="display:block;margin:0 auto 0 auto;" src="images/logo.gif" width="370" height="153" alt="descripción" />
-			<p id="tagline"><strong>Learn to be an Independent Business Owner</strong></p>
+			<img style="display:block;margin:0 auto 0 auto;" src="@Url.Content("/Images/logo.gif")" width="370" height="153" alt="descripción" />
+			<p id="tagline"><strong>@TextResources.BusinesslmsHome.HeatherTitle</strong></p>
 		</header>
 	</div>
 	<div class="main-container"><div id="sub-headline"></div></div>
@@ -21,10 +21,10 @@
 		<div id="nav-container">
 			<nav>
 				<ul class="nav">
-					<li><a href="@Url.Action("Index","Home")">Home</a></li>
-					<li><a href="@Url.Action("About","Home")">About</a></li>
-					<li><a href="@Url.Action("Contact","Home")">Contact</a></li>
-					<li class="last"><a href="@Url.Action("Index","Dashboard")">Login</a></li>
+					<li><a href="@Url.Action("Index","Home")">@TextResources.BusinesslmsHome.MenuHome</a></li>
+					<li><a href="@Url.Action("About","Home")">@TextResources.BusinesslmsHome.MenuAbout</a></li>
+					<li><a href="@Url.Action("Contact","Home")">@TextResources.BusinesslmsHome.MenuContact</a></li>
+					<li class="last"><a href="@Url.Action("Index","Dashboard")">@TextResources.BusinesslmsHome.MenuLogin</a></li>
 				</ul>
 			</nav>
 			<div class="clear"></div>
@@ -79,6 +79,14 @@
 	</div>
 	<footer>
 		<p class="tagline_left">Copyright &copy; 2012 - All Rights Reserved - <a href="ibovirtual.com">ibovirtual.com</a></p>
+		@if (System.Threading.Thread.CurrentThread.CurrentCulture.Name == "en-US")
+		{
+			<div class="pl800">Cambiar idioma a <a href="@Url.Action("ChangeLanguage", new { id = "es-MX" })">Español</a></div>
+		}
+		else 
+		{
+			<div class="pl800">Change Language to <a href="@Url.Action("ChangeLanguage", new { id = "en-US" })">English</a></div>
+		}
 		<br class="clear" />
 	</footer>
 	<br />

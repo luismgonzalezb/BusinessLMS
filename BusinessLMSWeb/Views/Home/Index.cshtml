@@ -4,12 +4,9 @@
 }
 
 <div class="main-container">
-
 	<div class="container1">
-		
 		<section class="jFlowPrev"><div></div></section>
 		<section class="jFlowNext"><div></div></section>
-
 		<div id="mySlides">
 			<div id="slide1">
 				<a href="https://www.amway.com/about-amway/our-company" target="_blank">
@@ -37,7 +34,6 @@
 				</a>
 			</div>
 		</div>
-
 		<div id="myController">
 			<span class="jFlowControl"></span>
 			<span class="jFlowControl"></span>
@@ -45,65 +41,44 @@
 			<span class="jFlowControl"></span>
 			<span class="jFlowControl"></span>
 		</div>
-
-		<br />
-		<br />
-
+		<br /><br />
 		<article class="box" id="home_featured21">
 			<div class="block">
-				<h2>VISION</h2>
-				<p class="centrado"> Nuestra visión es conocer la industria del mercado en red
-						y cuáles  son las mejores compañías. </>  <br />
-					@*<a href="#" class="read_more">Read More</a>*@
-				</p>
+				<h2>@TextResources.BusinesslmsHome.VisionTitle</h2>
+				<p class="centrado"> @TextResources.BusinesslmsHome.VisionText</p>
 			</div>
 			<div class="block">
-				<h2>MISSION</h2>
-				<p class="centrado">Nuestra misión es saber que es un plan de compensación
-				 y cuales usan las mejores compañías.
-				</> 
-			
-					<br />
-				</p>
+				<h2>@TextResources.BusinesslmsHome.MissionTitle</h2>
+				<p class="centrado"> @TextResources.BusinesslmsHome.MissionText</p>
 			</div>
 			<div class="block last">
-				<h2>PURPOSE</h2>
-				<p class="centrado"> Nuestro propósito es aprender, hacer y enseñar los básicos principios
-					 y valores para desarrollar una organización. </> 
-
-					<br />
-				</p>
+				<h2>@TextResources.BusinesslmsHome.PurposeTitle</h2>
+				<p class="centrado"> @TextResources.BusinesslmsHome.PurposeText</p>
 			</div>
 			<div class="clear"></div>
 		</article>
-
 	</div>
 </div>
-
-	<div class="callout">
-		<div class="calloutcontainer">
-			<div class="container_12">
-				<div class="grid">
-					<div class="alignleft">
-						<h3>Ready to have a debt free and full of time life?... !</h3>
-						<p>Join us Here...  </p>
-					</div>
-					<div class="alignright">
-						@{ Html.RenderPartial("_Register", (BusinessLMSWeb.Models.Contact)ViewBag.contact); }
-					</div>
+<div class="callout">
+	<div class="calloutcontainer">
+		<div class="container_12">
+			<div class="grid">
+				<div class="alignleft">
+					<h3>Ready to have a debt free and full of time life?... !</h3>
+					<p>Join us Here...  </p>
 				</div>
-				<div class="clear"></div>
+				<div class="alignright">
+					@{ Html.RenderPartial("_Register", (BusinessLMSWeb.Models.Contact)ViewBag.contact); }
+				</div>
 			</div>
-			<div class="calloutoverlay"></div>
-			<div class="calloutoverlaybottom"></div>
+			<div class="clear"></div>
 		</div>
+		<div class="calloutoverlay"></div>
+		<div class="calloutoverlaybottom"></div>
 	</div>
-
-	<br />
-	<br />
-
-	<div class="main-container"></div>
-
+</div>
+<br /><br />
+<div class="main-container"></div>
 @section featured {
 	<div class="container2">
 		<article id="home_featured2">

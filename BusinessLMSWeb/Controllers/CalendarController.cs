@@ -1,4 +1,5 @@
-﻿using BusinessLMSWeb.Helpers;
+﻿using BusinessLMSWeb.Filters;
+using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using EventbriteNET;
 using EventbriteNET.Entities;
@@ -35,6 +36,7 @@ namespace BusinessLMSWeb.Controllers
 			return View(calendarType);
 		}
 
+		[IsNotPageRefresh]
 		public ActionResult GetEvents(int type, double start, double end)
 		{
 			CalendarType calendarType = CalendarTypes.Where(ct => ct.id == type).FirstOrDefault();

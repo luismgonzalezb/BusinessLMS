@@ -22,7 +22,7 @@ namespace TextResources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class BusinesslmsHome {
+    public class BusinesslmsHome {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace TextResources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TextResources.BusinesslmsHome", typeof(BusinesslmsHome).Assembly);
@@ -51,7 +51,7 @@ namespace TextResources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace TextResources {
         /// <summary>
         ///   Looks up a localized string similar to LEARN TO BE AN INDEPENDENT BUSINESS OWNER.
         /// </summary>
-        internal static string HeatherTitle {
+        public static string HeatherTitle {
             get {
                 return ResourceManager.GetString("HeatherTitle", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace TextResources {
         /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
-        internal static string MenuAbout {
+        public static string MenuAbout {
             get {
                 return ResourceManager.GetString("MenuAbout", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace TextResources {
         /// <summary>
         ///   Looks up a localized string similar to Contact.
         /// </summary>
-        internal static string MenuContact {
+        public static string MenuContact {
             get {
                 return ResourceManager.GetString("MenuContact", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace TextResources {
         /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
-        internal static string MenuHome {
+        public static string MenuHome {
             get {
                 return ResourceManager.GetString("MenuHome", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace TextResources {
         /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
-        internal static string MenuLogin {
+        public static string MenuLogin {
             get {
                 return ResourceManager.GetString("MenuLogin", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace TextResources {
         /// <summary>
         ///   Looks up a localized string similar to Nuestra misión es saber que es un plan de compensación y cuales usan las mejores compañías..
         /// </summary>
-        internal static string MissionText {
+        public static string MissionText {
             get {
                 return ResourceManager.GetString("MissionText", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace TextResources {
         /// <summary>
         ///   Looks up a localized string similar to MISSION.
         /// </summary>
-        internal static string MissionTitle {
+        public static string MissionTitle {
             get {
                 return ResourceManager.GetString("MissionTitle", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace TextResources {
         /// <summary>
         ///   Looks up a localized string similar to Nuestro propósito es aprender, hacer y enseñar los básicos principios y valores para desarrollar una organización..
         /// </summary>
-        internal static string PurposeText {
+        public static string PurposeText {
             get {
                 return ResourceManager.GetString("PurposeText", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace TextResources {
         /// <summary>
         ///   Looks up a localized string similar to PURPOSE.
         /// </summary>
-        internal static string PurposeTitle {
+        public static string PurposeTitle {
             get {
                 return ResourceManager.GetString("PurposeTitle", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace TextResources {
         /// <summary>
         ///   Looks up a localized string similar to Nuestra visión es conocer la industria del mercado en red y cuáles son las mejores compañías..
         /// </summary>
-        internal static string VisionText {
+        public static string VisionText {
             get {
                 return ResourceManager.GetString("VisionText", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace TextResources {
         /// <summary>
         ///   Looks up a localized string similar to VISION.
         /// </summary>
-        internal static string VisionTitle {
+        public static string VisionTitle {
             get {
                 return ResourceManager.GetString("VisionTitle", resourceCulture);
             }

@@ -1,4 +1,5 @@
-﻿using BusinessLMSWeb.Helpers;
+﻿using BusinessLMSWeb.Filters;
+using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,7 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		[HttpPost]
+		[IsNotPageRefresh]
 		public ActionResult NewContactAjax(Contact model)
 		{
 			if (ModelState.IsValid == true)
@@ -58,20 +60,12 @@ namespace BusinessLMSWeb.Controllers
 				}
 				else
 				{
-					return Json(new
-					{
-						success = false,
-						message = "The contact already exists."
-					});
+					return Json(new { success = false, message = "The contact already exists." });
 				}
 			}
 			else
 			{
-				return Json(new
-				{
-					success = false,
-					message = "Please correct all the issues."
-				});
+				return Json(new { success = false, message = "Please correct all the issues." });
 			}
 		}
 
@@ -85,6 +79,7 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		[HttpPost]
+		[IsNotPageRefresh]
 		public ActionResult EditContactAjax(Contact model)
 		{
 			if (ModelState.IsValid == true)
@@ -97,24 +92,17 @@ namespace BusinessLMSWeb.Controllers
 				}
 				catch
 				{
-					return Json(new
-					{
-						success = false,
-						message = "There was an issue with the server, please try again latter."
-					});
+					return Json(new { success = false, message = "There was an issue with the server, please try again latter." });
 				}
 			}
 			else
 			{
-				return Json(new
-				{
-					success = false,
-					message = "Please correct all the issues."
-				});
+				return Json(new { success = false, message = "Please correct all the issues." });
 			}
 		}
 
 		[HttpPost]
+		[IsNotPageRefresh]
 		public ActionResult DeleteContactAjax(string id)
 		{
 			try
@@ -125,11 +113,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 			catch
 			{
-				return Json(new
-				{
-					success = false,
-					message = "There was an issue with the server, please try again latter."
-				});
+				return Json(new { success = false, message = "There was an issue with the server, please try again latter." });
 			}
 		}
 

@@ -51,6 +51,7 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		[HttpPost]
+		[IsNotPageRefresh]
 		public ActionResult NewFollowupAjax(ContactFollowup model)
 		{
 			if (ModelState.IsValid == true && (model.contactId != 0))
@@ -83,6 +84,7 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		[HttpPost]
+		[IsNotPageRefresh]
 		public ActionResult EditFollowupAjax(ContactFollowup model)
 		{
 			if (ModelState.IsValid == true)
@@ -98,6 +100,7 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		[HttpPost]
+		[IsNotPageRefresh]
 		public ActionResult DeleteFollowupAjax(int id)
 		{
 			try
