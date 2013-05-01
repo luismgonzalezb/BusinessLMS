@@ -59,7 +59,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BusinesslmsHome.es-MX.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResourceMartin.es-MX.Designer.cs">
+      <DependentUpon>ResourceMartin.es-MX.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceMartin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceMartin.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Businesslms.es-MX.resx">
@@ -77,6 +87,14 @@
     <EmbeddedResource Include="BusinesslmsHome.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BusinesslmsHome.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceMartin.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceMartin.es-MX.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceMartin.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceMartin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

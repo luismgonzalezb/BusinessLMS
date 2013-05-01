@@ -321,6 +321,7 @@
     <Compile Include="Controllers\GoalsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IBOController.cs" />
+    <Compile Include="Controllers\MartinUrbanoController.cs" />
     <Compile Include="Controllers\ProgressController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Controllers\UniversityController.cs" />
@@ -369,6 +370,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\arcana\css\5grid\core-1000px.css" />
+    <Content Include="Content\arcana\css\5grid\core-1200px.css" />
+    <Content Include="Content\arcana\css\5grid\core-desktop.css" />
+    <Content Include="Content\arcana\css\5grid\core-fluid.css" />
+    <Content Include="Content\arcana\css\5grid\core-mobile.css" />
+    <Content Include="Content\arcana\css\5grid\core-noscript.css" />
+    <Content Include="Content\arcana\css\5grid\core.css" />
+    <Content Include="Content\arcana\css\5grid\mobileUI-beveled.css" />
+    <Content Include="Content\arcana\css\5grid\mobileUI-flat.css" />
+    <Content Include="Content\arcana\css\images\bg1.png" />
+    <Content Include="Content\arcana\css\images\bg2.png" />
+    <Content Include="Content\arcana\css\images\bg3.png" />
+    <Content Include="Content\arcana\css\images\button-active.svg" />
+    <Content Include="Content\arcana\css\images\button-hover.svg" />
+    <Content Include="Content\arcana\css\images\button.svg" />
+    <Content Include="Content\arcana\css\images\header.png" />
+    <Content Include="Content\arcana\css\images\mobileUI-site-nav-opener-bg.svg" />
+    <Content Include="Content\arcana\css\images\nav-arrow.png" />
+    <Content Include="Content\arcana\css\style-1000px.css" />
+    <Content Include="Content\arcana\css\style-desktop.css" />
+    <Content Include="Content\arcana\css\style-ie9.css" />
+    <Content Include="Content\arcana\css\style-mobile.css" />
+    <Content Include="Content\arcana\css\style.css" />
+    <Content Include="Content\arcana\css\5grid\html5shiv.js" />
+    <Content Include="Content\arcana\css\5grid\init.js" />
     <Content Include="Content\DataTables-1.9.4\docs\media\css\doc.css" />
     <Content Include="Content\DataTables-1.9.4\docs\media\css\shCore.css" />
     <Content Include="Content\DataTables-1.9.4\docs\media\css\shThemeDataTables.css" />
@@ -832,6 +858,8 @@
     <Content Include="Views\Invites\_HelpInfo.cshtml" />
     <Content Include="Views\Progress\_HelpInfo.cshtml" />
     <Content Include="Views\Followups\Details.cshtml" />
+    <Content Include="Views\MartinUrbano\_Layout.cshtml" />
+    <Content Include="Views\MartinUrbano\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,9 +9,6 @@ namespace BusinessLMSWeb.Controllers
 	[Authorize]
 	public class AlertsController : BaseWebController
 	{
-		//
-		// GET: /Alerts/
-
 		public ActionResult Index()
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlerts");

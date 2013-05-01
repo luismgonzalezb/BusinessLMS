@@ -2,8 +2,7 @@
 
 namespace BusinessLMSWeb.Controllers
 {
-	[Authorize]
-	public class UniversityController : BaseWebController
+	public class MartinUrbanoController : Controller
 	{
 
 		public ActionResult Index()

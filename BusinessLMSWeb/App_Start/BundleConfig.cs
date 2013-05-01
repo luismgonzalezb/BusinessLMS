@@ -52,11 +52,11 @@ namespace BusinessLMSWeb
 						"~/Content/fullcalendar.css"
 						));
 
-			bundles.Add(new StyleBundle("~/Content/main/css").Include(
-						"~/Content/main/main.css"));
-
 			bundles.Add(new StyleBundle("~/Content/themes/custom/css").Include(
 						"~/Content/themes/custom/jquery.ui.css"));
+
+			bundles.Add(new StyleBundle("~/Content/main/css").Include(
+						"~/Content/main/main.css"));
 
 			#endregion
 

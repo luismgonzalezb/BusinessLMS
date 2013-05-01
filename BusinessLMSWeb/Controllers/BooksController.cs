@@ -8,9 +8,6 @@ namespace BusinessLMSWeb.Controllers
 {
 	public class BooksController : BaseWebController
 	{
-		//
-		// GET: /Book/
-
 		public ActionResult Index()
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "Books", "GetIBOBooks");

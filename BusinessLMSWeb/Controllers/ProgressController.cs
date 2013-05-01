@@ -11,8 +11,6 @@ namespace BusinessLMSWeb.Controllers
 	[Authorize]
 	public class ProgressController : BaseWebController
 	{
-		//
-		// GET: /Progress/
 		private List<Tool> tools
 		{
 			get
