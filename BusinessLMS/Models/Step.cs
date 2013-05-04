@@ -6,8 +6,6 @@ namespace BusinessLMS.Models
 	{
 		public int stepId { get; set; }
 		public Nullable<int> parentStepId { get; set; }
-		public string title { get; set; }
-		public string description { get; set; }
 		public int stepOrder { get; set; }
 		public string iconClass { get; set; }
 		public string action { get; set; }

@@ -34,6 +34,7 @@ namespace BusinessLMS.Models
 		public DbSet<Location> Locations { get; set; }
 		public DbSet<State> States { get; set; }
 		public DbSet<Step> Steps { get; set; }
+		public DbSet<StepsText> StepsTexts { get; set; }
 		public DbSet<Timeframe> Timeframes { get; set; }
 		public DbSet<Tool> Tools { get; set; }
 		public DbSet<UserProfile> UserProfiles { get; set; }
@@ -63,6 +64,7 @@ namespace BusinessLMS.Models
 			modelBuilder.Configurations.Add(new LocationMap());
 			modelBuilder.Configurations.Add(new StateMap());
 			modelBuilder.Configurations.Add(new StepMap());
+			modelBuilder.Configurations.Add(new StepsTextMap());
 			modelBuilder.Configurations.Add(new TimeframeMap());
 			modelBuilder.Configurations.Add(new ToolMap());
 			modelBuilder.Configurations.Add(new UserProfileMap());

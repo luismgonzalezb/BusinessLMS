@@ -215,6 +215,8 @@
     <Compile Include="Models\ApiToken.cs" />
     <Compile Include="Models\Alert.cs" />
     <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Mapping\StepsTextMap.cs" />
+    <Compile Include="Models\StepsTexts.cs" />
     <Compile Include="Models\DreamsMV.cs" />
     <Compile Include="Models\GoalProgress.cs" />
     <Compile Include="Models\Mapping\AlertMap.cs" />
