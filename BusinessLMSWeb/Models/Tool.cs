@@ -9,7 +9,7 @@ namespace BusinessLMSWeb.Models
         public int toolId { get; set; }
 
         [Required]
-        [Display(Name = "Name Tool")]
+        [Display(Name = "ToolName", ResourceType = typeof(TextResources.Businesslms))]
         [DataType(DataType.Text)]
         public string name { get; set; }
 

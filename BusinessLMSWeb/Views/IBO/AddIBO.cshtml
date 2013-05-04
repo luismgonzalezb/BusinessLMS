@@ -28,7 +28,7 @@
 			</div>
 
 			<div class="metro-form-control">
-				<label for="firstName">First Name</label>
+				@Html.LabelFor(model => model.firstName)
 				<div class="metro-text-box">
 					@Html.EditorFor(model => model.firstName)
 					@Html.ValidationMessageFor(model => model.firstName)
@@ -36,7 +36,7 @@
 			</div>
 
 			<div class="metro-form-control">
-				<label for="lastName">Last Name</label>
+				@Html.LabelFor(model => model.lastName)
 				<div class="metro-text-box">
 					@Html.EditorFor(model => model.lastName)
 					@Html.ValidationMessageFor(model => model.lastName)
@@ -44,7 +44,7 @@
 			</div>
 
 			<div class="metro-form-control">
-				<label for="languageId">Language</label>
+				@Html.LabelFor(model => model.languageId)
 				<div class="metro-select-box">
 					@Html.DropDownListFor(model => model.languageId, (SelectList)ViewBag.languages)
 					@Html.ValidationMessageFor(model => model.languageId)
@@ -60,7 +60,7 @@
 			</div>
 
 			<div class="metro-form-control">
-				<label for="phone">Phone Number</label>
+					@Html.LabelFor(model => model.phone)
 				<div class="metro-text-box">
 					@Html.EditorFor(model => model.phone)
 					@Html.ValidationMessageFor(model => model.phone)
@@ -68,7 +68,7 @@
 			</div>
 
 			<div class="metro-form-control">
-				<label for="birthday">Birthday</label> (mm/dd/yyyy)
+					@Html.LabelFor(model => model.birthday)
 				<div class="metro-text-box">
 					@Html.EditorFor(model => model.birthday)
 					@Html.ValidationMessageFor(model => model.birthday)
@@ -76,7 +76,7 @@
 				<div class="metro-text-date"><img src="~/Images/Date.png" /></div>
 			</div>
 			<div class="metro-form-control">
-				<label for="level">Level</label>
+			    @Html.LabelFor(model => model.level)
 				<div class="metro-text-box">
 					@Html.EditorFor(model => model.level)
 					@Html.ValidationMessageFor(model => model.level)
@@ -92,7 +92,7 @@
 			</div>
 
 			<div class="metro-form-control">
-				<label for="UPLine">Upline IBO Number</label>
+					@Html.LabelFor(model => model.UPLine)
 				<div class="metro-text-box">
 					@Html.EditorFor(model => model.UPLine)
 					@Html.ValidationMessageFor(model => model.UPLine)
