@@ -17,7 +17,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				return ControllersHelper.GetAreas(baseApiUrl);
+				return ControllersHelper.GetAreas(baseApiUrl, ibo.languageId);
 			}
 		}
 
@@ -44,7 +44,7 @@ namespace BusinessLMSWeb.Controllers
 					parms = new NameValueCollection() { { "id", ibo.IBONum }, { "level", (id + 1).ToString() } };
 					List<Dream> dreamsLevel = client.Get<List<Dream>>(parms);
 					Dictionary<Timeframe, Dream> timeframeDreams = new Dictionary<Timeframe, Dream>();
-					List<Timeframe> timeframes = ControllersHelper.GetTimeFrames(id, baseApiUrl);
+					List<Timeframe> timeframes = ControllersHelper.GetTimeFrames(baseApiUrl, id, ibo.languageId);
 					Timeframe last = timeframes.Last();
 					if (dreamsLevel.Count < 1) ViewBag.lastItem = last;
 					foreach (Timeframe time in timeframes)

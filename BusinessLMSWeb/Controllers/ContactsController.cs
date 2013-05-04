@@ -24,7 +24,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				return new SelectList(ControllersHelper.GetContactTypes(baseApiUrl), "contactTypeId", "type");
+				return new SelectList(ControllersHelper.GetContactTypes(baseApiUrl, ibo.languageId), "contactTypeId", "type");
 			}
 		}
 

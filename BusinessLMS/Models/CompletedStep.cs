@@ -1,10 +1,10 @@
 
 namespace BusinessLMS.Models
 {
-    public class CompletedStep
-    {
-        public string IBONum { get; set; }
-        public int stepId { get; set; }
-        public System.DateTime datetime { get; set; }
-    }
+	public partial class CompletedStep
+	{
+		public string IBONum { get; set; }
+		public int stepId { get; set; }
+		public System.DateTime datetime { get; set; }
+	}
 }

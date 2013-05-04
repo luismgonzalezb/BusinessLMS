@@ -53,9 +53,6 @@ namespace BusinessLMS.Models.Mapping
 			this.Property(t => t.preferedTime)
 				.HasMaxLength(50);
 
-			this.Property(t => t.newsletteroptin)
-				.IsRequired();
-
 			// Table & Column Mappings
 			this.ToTable("Contacts");
 			this.Property(t => t.contactId).HasColumnName("contactId");
@@ -78,6 +75,7 @@ namespace BusinessLMS.Models.Mapping
 			this.Property(t => t.birthday).HasColumnName("birthday");
 			this.Property(t => t.preferedTime).HasColumnName("preferedTime");
 			this.Property(t => t.newsletteroptin).HasColumnName("newsletteroptin");
+
 		}
 	}
 }

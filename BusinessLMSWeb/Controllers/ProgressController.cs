@@ -15,7 +15,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				return ControllersHelper.GetTools(baseApiUrl);
+				return ControllersHelper.GetTools(baseApiUrl, ibo.languageId);
 			}
 		}
 

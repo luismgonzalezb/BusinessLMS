@@ -1,9 +1,10 @@
 
 namespace BusinessLMS.Models
 {
-    public class ContactType
-    {
-        public int contactTypeId { get; set; }
-        public string type { get; set; }
-    }
+	public partial class ContactType
+	{
+		public int contactTypeId { get; set; }
+		public int languageId { get; set; }
+		public string type { get; set; }
+	}
 }

@@ -124,7 +124,7 @@ namespace BusinessLMSWeb.Controllers
 			if (userNames == null)
 			{
 				BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetSearchIBO");
-				userNames = client.Get<List<SearchObject>>(term);
+				userNames = client.Get<List<SearchObject>>();
 				_userNames = userNames;
 			}
 			if ((userNames != null) && (userNames.Count > 0))

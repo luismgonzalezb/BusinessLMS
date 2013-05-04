@@ -14,19 +14,16 @@ namespace BusinessLMS.Controllers
 	{
 		private BusinessLMSContext db = new BusinessLMSContext();
 
-		// GET api/Alerts
 		public IEnumerable<Alert> GetAlerts()
 		{
 			return db.Alerts.AsEnumerable();
 		}
 
-		// GET api/Alerts/5
 		public Alert GetAlert(string id)
 		{
 			Alert alert = db.Alerts.Find(id);
 			if (alert == null)
 			{
-
 				throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
 			}
 
@@ -36,10 +33,10 @@ namespace BusinessLMS.Controllers
 		public IEnumerable<Alert> GetAlertsIBO(string id)
 		{
 
-            List<String> alertibos = new List<string>();
-            alertibos=(from alert in db.AlertsIBO
-                      where alert.IBONum == id
-                      select alert.AlertId).ToList();
+			List<String> alertibos = new List<string>();
+			alertibos = (from alert in db.AlertsIBOes
+						 where alert.IBONum == id
+						 select alert.AlertId).ToList();
 			List<Alert> alerts = new List<Alert>();
 			alerts = (from alert in db.Alerts
 					  where !alertibos.Contains(alert.AlertId)
@@ -47,7 +44,6 @@ namespace BusinessLMS.Controllers
 			return alerts;
 		}
 
-		// PUT api/Alerts/5
 		public HttpResponseMessage PutAlert(string id, Alert alert)
 		{
 			if (ModelState.IsValid && id == alert.AlertId)
@@ -71,7 +67,6 @@ namespace BusinessLMS.Controllers
 			}
 		}
 
-		// POST api/Alerts
 		public HttpResponseMessage PostAlert(Alert alert)
 		{
 			if (ModelState.IsValid)
@@ -91,7 +86,6 @@ namespace BusinessLMS.Controllers
 			}
 		}
 
-		// DELETE api/Alerts/5
 		public HttpResponseMessage DeleteAlert(string id)
 		{
 			Alert alert = db.Alerts.Find(id);

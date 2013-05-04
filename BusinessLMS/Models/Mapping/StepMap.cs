@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace BusinessLMS.Models.Mapping
@@ -19,15 +20,12 @@ namespace BusinessLMS.Models.Mapping
                 .HasMaxLength(250);
 
             this.Property(t => t.iconClass)
-                .IsRequired()
                 .HasMaxLength(50);
 
             this.Property(t => t.action)
-                .IsRequired()
                 .HasMaxLength(50);
 
             this.Property(t => t.controller)
-                .IsRequired()
                 .HasMaxLength(50);
 
             // Table & Column Mappings

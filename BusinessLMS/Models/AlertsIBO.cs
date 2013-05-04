@@ -1,11 +1,10 @@
 
 namespace BusinessLMS.Models
 {
-	public partial class Alert
+	public partial class AlertsIBO
 	{
 		public string AlertId { get; set; }
-		public string AlertMsg { get; set; }
-		public string action { get; set; }
+		public string IBONum { get; set; }
 		public System.DateTime datetime { get; set; }
 	}
 }

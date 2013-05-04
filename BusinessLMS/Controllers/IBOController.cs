@@ -46,13 +46,10 @@ namespace BusinessLMS.Controllers
 			return resultsList;
 		}
 
-		public IEnumerable<SearchObject> GetSearchIBO(string id)
+		public IEnumerable<SearchObject> GetSearchIBO()
 		{
 			List<SearchObject> searchResult = new List<SearchObject>();
 			searchResult = (from ibo in db.IBOs
-							where ibo.firstName.ToUpper().Contains(id.ToUpper())
-							|| ibo.lastName.ToUpper().Contains(id.ToUpper())
-							|| ibo.IBONum.Contains(id)
 							select new SearchObject
 							{
 								label = string.Concat(ibo.firstName, " ", ibo.lastName),

@@ -1,8 +1,10 @@
+using System;
 
 namespace BusinessLMS.Models
 {
-	public class Contact
+	public partial class Contact
 	{
+
 		public int contactId { get; set; }
 		public string IBONum { get; set; }
 		public int contactTypeId { get; set; }
@@ -20,8 +22,8 @@ namespace BusinessLMS.Models
 		public string contactLevel { get; set; }
 		public System.DateTime datetime { get; set; }
 		public bool isPublic { get; set; }
-		public System.DateTime birthday { get; set; }
+		public Nullable<System.DateTime> birthday { get; set; }
 		public string preferedTime { get; set; }
-		public bool newsletteroptin { get; set; }
+		public Nullable<bool> newsletteroptin { get; set; }
 	}
 }

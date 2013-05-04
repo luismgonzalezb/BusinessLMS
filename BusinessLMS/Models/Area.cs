@@ -1,9 +1,10 @@
 
 namespace BusinessLMS.Models
 {
-    public class Area
-    {
-        public int areaId { get; set; }
-        public string title { get; set; }
-    }
+	public partial class Area
+	{
+		public int areaId { get; set; }
+		public int languageId { get; set; }
+		public string title { get; set; }
+	}
 }

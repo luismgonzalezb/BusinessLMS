@@ -26,7 +26,6 @@ namespace BusinessLMS.Models.Mapping
 				.HasMaxLength(50);
 
 			this.Property(t => t.accesstoken)
-				.IsRequired()
 				.HasMaxLength(250);
 
 			this.Property(t => t.email)
@@ -34,7 +33,6 @@ namespace BusinessLMS.Models.Mapping
 				.HasMaxLength(100);
 
 			this.Property(t => t.facebookid)
-				.IsRequired()
 				.HasMaxLength(250);
 
 			this.Property(t => t.twitter)
@@ -42,16 +40,10 @@ namespace BusinessLMS.Models.Mapping
 				.HasMaxLength(20);
 
 			this.Property(t => t.picture)
-				.HasMaxLength(150);
+				.HasMaxLength(250);
 
-			this.Property(t => t.UserId)
-				.IsRequired();
-
-			this.Property(t => t.level)
-				.IsRequired();
-
-			this.Property(t => t.newsletteroptin)
-				.IsRequired();
+			this.Property(t => t.phone)
+				.HasMaxLength(20);
 
 			// Table & Column Mappings
 			this.ToTable("IBOs");
@@ -71,6 +63,7 @@ namespace BusinessLMS.Models.Mapping
 			this.Property(t => t.phone).HasColumnName("phone");
 			this.Property(t => t.level).HasColumnName("level");
 			this.Property(t => t.newsletteroptin).HasColumnName("newsletteroptin");
+
 		}
 	}
 }
