@@ -1,5 +1,5 @@
-﻿using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Models;
+﻿using BusinessLMS.Models;
+using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.ModelsView;
 using System;
 using System.Collections.Generic;
@@ -136,13 +136,13 @@ namespace BusinessLMSWeb.Controllers
 			return Json(userNames, JsonRequestBehavior.AllowGet);
 		}
 
-		public ActionResult ReadedAlertAjax(AlertIBO model)
+		public ActionResult ReadedAlertAjax(AlertsIBO model)
 		{
 			if (model != null)
 			{
 				model.datetime = DateTime.Now;
 				BaseClient client = new BaseClient(baseApiUrl, "AlertsIBO", "PostAlertIBO");
-				bool result = client.Post<AlertIBO>(model);
+				bool result = client.Post<AlertsIBO>(model);
 			}
 			return Json(new { success = true });
 		}

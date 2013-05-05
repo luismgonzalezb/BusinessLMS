@@ -1,4 +1,5 @@
-﻿using BusinessLMSWeb.Filters;
+﻿using BusinessLMS.Models;
+using BusinessLMSWeb.Filters;
 using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using System;
@@ -144,17 +145,17 @@ namespace BusinessLMSWeb.Controllers
 		public ActionResult DreamMV()
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "DreamMV", "GetDreamMV");
-			DreamMV dream = client.Get<DreamMV>(ibo.IBONum);
+			DreamsMV dream = client.Get<DreamsMV>(ibo.IBONum);
 			return PartialView(dream);
 		}
 
 		[HttpPost]
 		[IsNotPageRefresh]
-		public ActionResult DreamMV(DreamMV dream)
+		public ActionResult DreamMV(DreamsMV dream)
 		{
 			try
 			{
-				DreamMV dreammv = new DreamMV();
+				DreamsMV dreammv = new DreamsMV();
 				dreammv.IBONum = ibo.IBONum;
 				dreammv.vision = dream.vision;
 				dreammv.mission = dream.mission;
@@ -163,15 +164,15 @@ namespace BusinessLMSWeb.Controllers
 				if (dream.dreamMVId == 0)
 				{
 					client = new BaseClient(baseApiUrl, "DreamMV", "PostDreamMV");
-					bool result = client.Post<DreamMV>(dreammv);
+					bool result = client.Post<DreamsMV>(dreammv);
 					client = new BaseClient(baseApiUrl, "DreamMV", "GetDreamMV");
-					dreammv = client.Get<DreamMV>(ibo.IBONum);
+					dreammv = client.Get<DreamsMV>(ibo.IBONum);
 				}
 				else
 				{
 					dreammv.dreamMVId = dream.dreamMVId;
 					client = new BaseClient(baseApiUrl, "DreamMV", "PutDreamMV");
-					string result = client.Put<DreamMV>(dreammv.dreamMVId.ToString(), dreammv);
+					string result = client.Put<DreamsMV>(dreammv.dreamMVId.ToString(), dreammv);
 				}
 				return Json(new { success = true, id = dreammv.dreamMVId });
 			}

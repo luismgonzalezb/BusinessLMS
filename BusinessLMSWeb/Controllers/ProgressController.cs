@@ -1,4 +1,5 @@
-﻿using BusinessLMSWeb.Filters;
+﻿using BusinessLMS.Models;
+using BusinessLMSWeb.Filters;
 using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Models;
 using System;
@@ -35,7 +36,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 
 			BaseClient client = new BaseClient(baseApiUrl, "Progress", "GetProgress");
-			Progress Goalprogress = client.Get<Progress>(id);
+			GoalProgress Goalprogress = client.Get<GoalProgress>(id);
 			try
 			{
 				return Goalprogress.progress;
@@ -49,8 +50,8 @@ namespace BusinessLMSWeb.Controllers
 		[IsNotPageRefresh]
 		public ActionResult CreateProgress(int id)
 		{
-			Progress Progress = new Progress();
-			Progress.GoalId = id;
+			GoalProgress Progress = new GoalProgress();
+			Progress.goalId = id;
 			Progress.datetime = DateTime.Now;
 			return PartialView(Progress);
 		}
@@ -59,13 +60,13 @@ namespace BusinessLMSWeb.Controllers
 		public ActionResult EditProgress(string id)
 		{
 			BaseClient client = new BaseClient(baseApiUrl, "Progress", "GetProgress");
-			Progress Goalprogress = client.Get<Progress>(id);
+			GoalProgress Goalprogress = client.Get<GoalProgress>(id);
 			return PartialView(Goalprogress);
 		}
 
 		[HttpPost]
 		[IsNotPageRefresh]
-		public ActionResult AddProgressAjax(Progress model)
+		public ActionResult AddProgressAjax(GoalProgress model)
 		{
 			if (ModelState.IsValid == true)
 			{
@@ -73,11 +74,11 @@ namespace BusinessLMSWeb.Controllers
 				{
 
 					BaseClient client = new BaseClient(baseApiUrl, "Progress", "GetProgress");
-					Progress Goalprogress = client.Get<Progress>(model.GoalId.ToString());
+					GoalProgress Goalprogress = client.Get<GoalProgress>(model.goalId.ToString());
 					if (model.progress == 100)
 					{
 						client = new BaseClient(baseApiUrl, "Goals", "GetGoal");
-						Goal Goal = client.Get<Goal>(model.GoalId.ToString());
+						Goal Goal = client.Get<Goal>(model.goalId.ToString());
 						Goal.completed = true;
 						client = new BaseClient(baseApiUrl, "Goals", "PutGoal");
 						string result = client.Put<Goal>(Goal.goalId.ToString(), Goal);
@@ -85,13 +86,13 @@ namespace BusinessLMSWeb.Controllers
 					if (Goalprogress == null)
 					{
 						client = new BaseClient(baseApiUrl, "Progress", "PostProgress");
-						bool result = client.Post<Progress>(model);
+						bool result = client.Post<GoalProgress>(model);
 					}
 					else
 					{
-						model.ProgressId = Goalprogress.ProgressId;
+						model.progressId = Goalprogress.progressId;
 						client = new BaseClient(baseApiUrl, "Progress", "PutProgress");
-						string result = client.Put<Progress>(model.ProgressId.ToString(), model);
+						string result = client.Put<GoalProgress>(model.progressId.ToString(), model);
 					}
 					return Json(model);
 

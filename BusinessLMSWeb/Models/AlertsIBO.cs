@@ -1,9 +1,7 @@
-using System;
 using System.ComponentModel.DataAnnotations;
-
-namespace BusinessLMSWeb.Models
+namespace BusinessLMS.Models
 {
-	public class AlertIBO
+	public partial class AlertsIBO
 	{
 		[Display(Name = "Alert Id")]
 		public string AlertId { get; set; }
@@ -15,6 +13,6 @@ namespace BusinessLMSWeb.Models
 		[Required]
 		[Display(Name = "Date and Time")]
 		[DataType(DataType.DateTime)]
-		public DateTime datetime { get; set; }
+		public System.DateTime datetime { get; set; }
 	}
 }

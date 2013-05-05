@@ -1,8 +1,9 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BusinessLMSWeb.Models
+namespace BusinessLMS.Models
 {
-	public class Contact
+	public partial class Contact
 	{
 
 		[Display(Name = "Contact Id")]
@@ -81,7 +82,7 @@ namespace BusinessLMSWeb.Models
 
 		[Display(Name = "Birthdat")]
 		[DataType(DataType.DateTime)]
-		public System.DateTime birthday { get; set; }
+		public Nullable<System.DateTime> birthday { get; set; }
 
 		[Display(Name = "Prefered Contact Time")]
 		[DataType(DataType.Text)]
@@ -89,7 +90,7 @@ namespace BusinessLMSWeb.Models
 
 		[Required]
 		[Display(Name = "I Would you like to receive Ibovirtual.com Newsletter.")]
-		public bool newsletteroptin { get; set; }
+		public Nullable<bool> newsletteroptin { get; set; }
 
 		public string GetFullName()
 		{

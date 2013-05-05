@@ -1,4 +1,5 @@
-﻿using BusinessLMSWeb.Helpers;
+﻿using BusinessLMS.Models;
+using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Helpers.MobileRedirect;
 using BusinessLMSWeb.Models;
 using NerdDinner.Helpers;

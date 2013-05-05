@@ -1,20 +1,18 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BusinessLMSWeb.Models
+namespace BusinessLMS.Models
 {
-
-	[Serializable]
-	public class IBO
+	public partial class IBO
 	{
 		[Required]
 		public string IBONum { get; set; }
 
-         [Display(Name = "UpLine", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "UpLine", ResourceType = typeof(TextResources.Businesslms))]
 		public string UPLine { get; set; }
 
 		[Required]
-        [Display(Name = "Languaje", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "Languaje", ResourceType = typeof(TextResources.Businesslms))]
 		public int languageId { get; set; }
 
 		[Required]
@@ -22,7 +20,7 @@ namespace BusinessLMSWeb.Models
 		public string firstName { get; set; }
 
 		[Required]
-        [Display(Name = "LastName", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "LastName", ResourceType = typeof(TextResources.Businesslms))]
 		public string lastName { get; set; }
 
 		public string accesstoken { get; set; }
@@ -34,20 +32,20 @@ namespace BusinessLMSWeb.Models
 
 		public string twitter { get; set; }
 
+		public System.DateTime datetime { get; set; }
+
 		public string picture { get; set; }
 
 		public int UserId { get; set; }
 
-		public System.DateTime datetime { get; set; }
-
 		[Required]
-        [Display(Name = "Birthday", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "Birthday", ResourceType = typeof(TextResources.Businesslms))]
 		public Nullable<System.DateTime> birthday { get; set; }
 
-        [Display(Name = "Phone", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "Phone", ResourceType = typeof(TextResources.Businesslms))]
 		public string phone { get; set; }
 
-        [Display(Name = "Level", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "Level", ResourceType = typeof(TextResources.Businesslms))]
 		public int level { get; set; }
 
 		[Required]

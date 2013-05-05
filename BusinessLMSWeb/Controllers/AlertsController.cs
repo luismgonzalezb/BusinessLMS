@@ -1,5 +1,5 @@
-﻿using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Models;
+﻿using BusinessLMS.Models;
+using BusinessLMSWeb.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;

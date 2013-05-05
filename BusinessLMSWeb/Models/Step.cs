@@ -1,29 +1,15 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BusinessLMSWeb.Models
+namespace BusinessLMS.Models
 {
-	[Serializable]
-	public class Step
+	public partial class Step
 	{
-
 		[Display(Name = "Step ID")]
 		public int stepId { get; set; }
 
-
 		[Display(Name = "Parent Step Id")]
 		public Nullable<int> parentStepId { get; set; }
-
-		[Required]
-		[Display(Name = "Title")]
-		[DataType(DataType.Text)]
-		public string title { get; set; }
-
-		[Required]
-		[Display(Name = "Description")]
-		[DataType(DataType.Text)]
-		public string description { get; set; }
-
 
 		[Display(Name = "Step Order")]
 		[DataType(DataType.Text)]

@@ -1,16 +1,18 @@
+
 using System.ComponentModel.DataAnnotations;
-
-
-namespace BusinessLMSWeb.Models
+namespace BusinessLMS.Models
 {
-    public class Language
-    {
-        [Display(Name = "Language Id")]
-        public int languageId { get; set; }
+	public partial class Language
+	{
+		[Required]
+		[Display(Name = "Languaje", ResourceType = typeof(TextResources.Businesslms))]
+		public int languageId { get; set; }
 
-        [Required]
-        [Display(Name = "Language")]
-        [DataType(DataType.Text)]
-        public string language1 { get; set; }
-    }
+		[Required]
+		[Display(Name = "Languaje", ResourceType = typeof(TextResources.Businesslms))]
+		[DataType(DataType.Text)]
+		public string language1 { get; set; }
+
+
+	}
 }

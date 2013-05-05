@@ -1,4 +1,3 @@
-
 using Newtonsoft.Json;
 namespace BusinessLMSWeb.Models
 {

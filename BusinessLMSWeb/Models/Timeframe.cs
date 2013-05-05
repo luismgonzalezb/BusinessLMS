@@ -1,12 +1,14 @@
 using System.ComponentModel.DataAnnotations;
-
-namespace BusinessLMSWeb.Models
+namespace BusinessLMS.Models
 {
-	public class Timeframe
+	public partial class Timeframe
 	{
-
 		[Display(Name = "Time Frame Id")]
 		public int timeframeId { get; set; }
+
+		[Required]
+		[Display(Name = "Languaje", ResourceType = typeof(TextResources.Businesslms))]
+		public int languageId { get; set; }
 
 		[Required]
 		[Display(Name = "Title")]
