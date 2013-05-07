@@ -133,19 +133,46 @@
     <value>Login</value>
   </data>
   <data name="MissionText" xml:space="preserve">
-    <value>Nuestra misión es saber que es un plan de compensación y cuales usan las mejores compañías.</value>
+    <value>Our mission is to know that is a compensation plan and which use the best companies.</value>
   </data>
   <data name="MissionTitle" xml:space="preserve">
     <value>MISSION</value>
   </data>
+  <data name="NewsSubtitle" xml:space="preserve">
+    <value>We are under Construction</value>
+  </data>
+  <data name="NewsText" xml:space="preserve">
+    <value>Please be tuned to the updates, get in constantly, register and be sure to leave feedback.</value>
+  </data>
+  <data name="NewsTitle" xml:space="preserve">
+    <value>Latest News</value>
+  </data>
   <data name="PurposeText" xml:space="preserve">
-    <value>Nuestro propósito es aprender, hacer y enseñar los básicos principios y valores para desarrollar una organización.</value>
+    <value>Our purpose is to learn, do and teach the basic principles and values ​​to develop an organization.</value>
   </data>
   <data name="PurposeTitle" xml:space="preserve">
     <value>PURPOSE</value>
   </data>
+  <data name="RedSocial" xml:space="preserve">
+    <value>Find Us in...</value>
+  </data>
+  <data name="RegisterSubtitle" xml:space="preserve">
+    <value>Join us Here...</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Ready to have a debt free and full of time life?...</value>
+  </data>
+  <data name="VideoTitle1" xml:space="preserve">
+    <value>What The Numbers Mean</value>
+  </data>
+  <data name="VideoTitle2" xml:space="preserve">
+    <value>The Amway Oportunity</value>
+  </data>
+  <data name="VideoTitle3" xml:space="preserve">
+    <value>Principles of Our Founders</value>
+  </data>
   <data name="VisionText" xml:space="preserve">
-    <value>Nuestra visión es conocer la industria del mercado en red y cuáles son las mejores compañías.</value>
+    <value>Our vision is to know the network marketing industry and what are the best companies.</value>
   </data>
   <data name="VisionTitle" xml:space="preserve">
     <value>VISION</value>

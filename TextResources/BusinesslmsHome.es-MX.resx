@@ -138,11 +138,40 @@
   <data name="MissionTitle" xml:space="preserve">
     <value>MISION</value>
   </data>
+  <data name="NewsSubtitle" xml:space="preserve">
+    <value>Estamos en Construcción</value>
+  </data>
+  <data name="NewsText" xml:space="preserve">
+    <value>Por favor este atento a los cambios, los cuales son constantes.
+Registrate y deja tus comentarios.
+</value>
+  </data>
+  <data name="NewsTitle" xml:space="preserve">
+    <value>Últimas Noticias</value>
+  </data>
   <data name="PurposeText" xml:space="preserve">
     <value>Nuestro propósito es aprender, hacer y enseñar los básicos principios y valores para desarrollar una organización.</value>
   </data>
   <data name="PurposeTitle" xml:space="preserve">
     <value>PROPOSITO</value>
+  </data>
+  <data name="RedSocial" xml:space="preserve">
+    <value>Nos encontramos en....</value>
+  </data>
+  <data name="RegisterSubtitle" xml:space="preserve">
+    <value>Unete a nosotros aqui</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Estas Listo para llevar una vida con tiempo libre, y libre de deudas?...</value>
+  </data>
+  <data name="VideoTitle1" xml:space="preserve">
+    <value>Qué significan los números?</value>
+  </data>
+  <data name="VideoTitle2" xml:space="preserve">
+    <value>La oportunidad de Amway</value>
+  </data>
+  <data name="VideoTitle3" xml:space="preserve">
+    <value>Los principios de nuestros fundadores</value>
   </data>
   <data name="VisionText" xml:space="preserve">
     <value>Nuestra visión es conocer la industria del mercado en red y cuáles son las mejores compañías.</value>
