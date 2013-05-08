@@ -8,14 +8,14 @@
 	{ 
 		@Html.ValidationSummary(true)
 		<div class="block">
-			<div class="editor-label">Who told you about us?</div>
+			<div class="editor-label"> @TextResources.BusinesslmsHome.RegisterQuestion </div>
 			<div id="divIboName"><input type="text" name="iboName" id="iboName" value="@ViewBag.iboName" /></div>
 			<div id="divLoading"></div>
-			<div class="editor-label"><h2>IBO Number</h2></div>
+			<div class="editor-label"><h2> @TextResources.BusinesslmsHome.RegisterIboNumber </h2></div> 
 			<div id="divIboNum">@ViewBag.IBONum</div>
-			<div class="editor-label"><h2>Email</h2></div>
-			<div id="divIboEmail">@ViewBag.email</div>
-			<div class="editor-label"><h2>Phone</h2></div>
+			<div class="editor-label"><h2> @TextResources.BusinesslmsHome.RegisterEmail </h2></div>
+			<div id="divIboEmail">@ViewBag.email </div>
+			<div class="editor-label"><h2> @TextResources.BusinesslmsHome.RegisterPhone </h2></div>
 			<div id="divIboPhone">@ViewBag.phone</div>
 		</div>
 		<div class="block">

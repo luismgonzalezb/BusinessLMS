@@ -106,7 +106,7 @@ namespace TextResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Our mission is to know that is a compensation plan and which use the best companies..
+        ///   Busca una cadena traducida similar a Teach people what a compensation plan is, which different companies use what 	compensation plan and break down ours..
         /// </summary>
         public static string MissionText {
             get {
@@ -151,7 +151,7 @@ namespace TextResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Our purpose is to learn, do and teach the basic principles and values ​​to develop an organization..
+        ///   Busca una cadena traducida similar a Teach the basics, principles and values to develop an organization..
         /// </summary>
         public static string PurposeText {
             get {
@@ -178,6 +178,42 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Email.
+        /// </summary>
+        public static string RegisterEmail {
+            get {
+                return ResourceManager.GetString("RegisterEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a IBO Number.
+        /// </summary>
+        public static string RegisterIboNumber {
+            get {
+                return ResourceManager.GetString("RegisterIboNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Phone.
+        /// </summary>
+        public static string RegisterPhone {
+            get {
+                return ResourceManager.GetString("RegisterPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Who told you about us?.
+        /// </summary>
+        public static string RegisterQuestion {
+            get {
+                return ResourceManager.GetString("RegisterQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Join us Here....
         /// </summary>
         public static string RegisterSubtitle {
@@ -192,6 +228,33 @@ namespace TextResources {
         public static string RegisterTitle {
             get {
                 return ResourceManager.GetString("RegisterTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The information contained in this single video is intended to awaken your curiosity, capture your interest and give you information with real data. We can’t convince you, but we can give you information so that you become student, and therefore a professional in one of the industries with the greatest potential in this era and in the whole world..
+        /// </summary>
+        public static string VideoText1 {
+            get {
+                return ResourceManager.GetString("VideoText1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The network marketing industry has been around for over 100 years. And at the same time, technology has been evolving entrepreneur&apos;s lives. I say entrepreneurs because network marketing is so noble that it doesn&apos;t matter if you have a profession or not, what matters is that you understand it, start it and finish it, thus getting the result you want..
+        /// </summary>
+        public static string VideoText2 {
+            get {
+                return ResourceManager.GetString("VideoText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a The network marketing industry has been around for over one hundred years. However, even the best network marketing companies have their own system and their own compensation plan. The largest companies and most successful distributors are those who live under their principles and values, and that continue to grow, because the world&apos;s largest businesses are being honored..
+        /// </summary>
+        public static string VideoText3 {
+            get {
+                return ResourceManager.GetString("VideoText3", resourceCulture);
             }
         }
         
@@ -223,7 +286,7 @@ namespace TextResources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Our vision is to know the network marketing industry and what are the best companies..
+        ///   Busca una cadena traducida similar a Show what the network marketing industry is and what the best companies are..
         /// </summary>
         public static string VisionText {
             get {
