@@ -49,7 +49,7 @@ namespace BusinessLMS.Models
 		public int level { get; set; }
 
 		[Required]
-		[Display(Name = "I Would you like to receive Ibovirtual.com Newsletter.")]
+        [Display(Name = "NewsLetter", ResourceType = typeof(TextResources.Businesslms))]
 		public bool newsletteroptin { get; set; }
 	}
 }

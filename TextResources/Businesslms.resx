@@ -144,6 +144,9 @@
   <data name="Longitude" xml:space="preserve">
     <value>Longitude</value>
   </data>
+  <data name="NewsLetter" xml:space="preserve">
+    <value>I Would you like to receive Ibovirtual.com Newsletter.</value>
+  </data>
   <data name="Phone" xml:space="preserve">
     <value>Phone Number</value>
   </data>

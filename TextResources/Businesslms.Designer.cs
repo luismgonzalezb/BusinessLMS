@@ -142,6 +142,15 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a I Would you like to receive Ibovirtual.com Newsletter..
+        /// </summary>
+        public static string NewsLetter {
+            get {
+                return ResourceManager.GetString("NewsLetter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Phone Number.
         /// </summary>
         public static string Phone {
