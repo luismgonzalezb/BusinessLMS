@@ -49,7 +49,7 @@ namespace BusinessLMS.Models
 		public int level { get; set; }
 
 		[Required]
-        [Display(Name = "NewsLetter", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "NewsLetter", ResourceType = typeof(TextResources.Businesslms))]
 		public bool newsletteroptin { get; set; }
 	}
 }

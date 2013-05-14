@@ -17,7 +17,7 @@ namespace BusinessLMS.Models.Mapping
 			this.Property(t => t.languageId)
 				.HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
-			this.Property(t => t.text)
+			this.Property(t => t.title)
 				.IsRequired()
 				.HasMaxLength(50);
 
@@ -29,7 +29,7 @@ namespace BusinessLMS.Models.Mapping
 			this.ToTable("StepsText");
 			this.Property(t => t.stepId).HasColumnName("stepId");
 			this.Property(t => t.languageId).HasColumnName("languageId");
-			this.Property(t => t.text).HasColumnName("text");
+			this.Property(t => t.title).HasColumnName("title");
 			this.Property(t => t.description).HasColumnName("description");
 
 		}

@@ -5,7 +5,7 @@ namespace BusinessLMS.Models
 	{
 		public int stepId { get; set; }
 		public int languageId { get; set; }
-		public string text { get; set; }
+		public string title { get; set; }
 		public string description { get; set; }
 	}
 }

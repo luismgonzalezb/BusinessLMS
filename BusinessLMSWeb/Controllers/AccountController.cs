@@ -18,7 +18,6 @@ namespace BusinessLMSWeb.Controllers
 	[InitializeSimpleMembership]
 	public class AccountController : BaseWebController
 	{
-
 		[AllowAnonymous]
 		public ActionResult Login(string returnUrl)
 		{
@@ -48,7 +47,6 @@ namespace BusinessLMSWeb.Controllers
 			WebSecurity.Logout();
 			return RedirectToAction("Index", "Home");
 		}
-
 
 		[AllowAnonymous]
 		public ActionResult Register()
@@ -95,15 +93,13 @@ namespace BusinessLMSWeb.Controllers
 			{
 				string token = WebSecurity.GeneratePasswordResetToken(model.UserName, 1200);
 				/* Get IBO Email */
-				BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
-				IBO ibo = client.Get<IBO>(WebSecurity.GetUserId(model.UserName).ToString());
+				IBO ibo = IBOVirtualAPI.GetIBOByUId(WebSecurity.GetUserId(model.UserName).ToString());
 				/* Set And Send Email Reset Request */
 				ResertEmailContact contact = new ResertEmailContact();
 				contact.name = model.UserName;
 				contact.email = ibo.email;
 				contact.token = token;
-				client = new BaseClient(baseApiUrl, "Email", "PostResetEmail");
-				bool result = client.Post<ResertEmailContact>(contact);
+				bool result = IBOVirtualAPI.CreateResetEmail(contact);
 			}
 			else
 			{
@@ -137,7 +133,6 @@ namespace BusinessLMSWeb.Controllers
 				ModelState.AddModelError(String.Empty, "The Reset token has expired.");
 			}
 			return View();
-
 		}
 
 		[HttpPost]
@@ -374,6 +369,7 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		#region Helpers
+
 		private ActionResult RedirectToLocal(string returnUrl)
 		{
 			if (Url.IsLocalUrl(returnUrl))
@@ -402,6 +398,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 
 			public string Provider { get; private set; }
+
 			public string ReturnUrl { get; private set; }
 
 			public override void ExecuteResult(ControllerContext context)
@@ -447,6 +444,7 @@ namespace BusinessLMSWeb.Controllers
 					return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
 			}
 		}
-		#endregion
+
+		#endregion Helpers
 	}
 }

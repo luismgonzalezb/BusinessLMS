@@ -1,7 +1,6 @@
 ﻿using BusinessLMS.Models;
 using BusinessLMSWeb.Filters;
 using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Models;
 using BusinessLMSWeb.ModelsView;
 using System;
 using System.Collections.Generic;
@@ -10,11 +9,9 @@ using System.Web.Mvc;
 
 namespace BusinessLMSWeb.Controllers
 {
-
 	[Authorize]
 	public class FollowupsController : BaseWebController
 	{
-
 		private List<Contact> _contacts
 		{
 			get { return Cookies.contactsCookie.GetContacts(); }
@@ -26,9 +23,7 @@ namespace BusinessLMSWeb.Controllers
 			/* Get Clients For Autocomplete */
 			_contacts = null;
 			_contacts = GetContacts();
-
-			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowupView");
-			List<FollowupView> followups = client.Get<List<FollowupView>>(ibo.IBONum);
+			List<FollowupView> followups = IBOVirtualAPI.GetIBOFollowupView(ibo.IBONum);
 			return View(followups);
 		}
 
@@ -59,8 +54,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 			if (ModelState.IsValid == true && (model.contactId != 0))
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "PostContactFollowup");
-				bool result = client.Post<ContactFollowup>(model);
+				bool result = IBOVirtualAPI.Create<ContactFollowup>(model);
 				if (result)
 				{
 					return Json(new { success = true });
@@ -79,10 +73,8 @@ namespace BusinessLMSWeb.Controllers
 		[IsNotPageRefresh]
 		public ActionResult EditFollowup(int id)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetContactFollowup");
-			ContactFollowup followup = client.Get<ContactFollowup>(id.ToString());
-			client = new BaseClient(baseApiUrl, "Contacts", "GetContact");
-			Contact contact = client.Get<Contact>(followup.contactId.ToString());
+			ContactFollowup followup = IBOVirtualAPI.Get<ContactFollowup>(id.ToString());
+			Contact contact = IBOVirtualAPI.Get<Contact>(followup.contactId.ToString());
 			ViewBag.contactName = contact.GetFullName();
 			return PartialView(followup);
 		}
@@ -93,8 +85,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 			if (ModelState.IsValid == true)
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "PutContactFollowup");
-				string result = client.Put<ContactFollowup>(model.followupId.ToString(), model);
+				string result = IBOVirtualAPI.Update<ContactFollowup>(model.followupId.ToString(), model);
 				return Json(new { success = true });
 			}
 			else
@@ -109,8 +100,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 			try
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "DeleteContactFollowup");
-				string result = client.Delete(id.ToString());
+				string result = IBOVirtualAPI.Delete<ContactFollowup>(id.ToString());
 				return Json(new { success = true });
 			}
 			catch
@@ -123,10 +113,8 @@ namespace BusinessLMSWeb.Controllers
 		[IsNotPageRefresh]
 		public ActionResult Details(int id)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetContactFollowup");
-			ContactFollowup followup = client.Get<ContactFollowup>(id.ToString());
-			client = new BaseClient(baseApiUrl, "Contacts", "GetContact");
-			Contact contact = client.Get<Contact>(followup.contactId.ToString());
+			ContactFollowup followup = IBOVirtualAPI.Get<ContactFollowup>(id.ToString());
+			Contact contact = IBOVirtualAPI.Get<Contact>(followup.contactId.ToString());
 			ViewBag.contactName = contact.GetFullName();
 			return PartialView(followup);
 		}
@@ -144,8 +132,7 @@ namespace BusinessLMSWeb.Controllers
 
 		private List<Contact> GetContacts()
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "Contacts", "GetIBOContacts");
-			List<Contact> contacts = client.Get<List<Contact>>(ibo.IBONum);
+			List<Contact> contacts = IBOVirtualAPI.GetIBOContacts(ibo.IBONum);
 			return contacts;
 		}
 
@@ -154,6 +141,5 @@ namespace BusinessLMSWeb.Controllers
 		{
 			return PartialView();
 		}
-
 	}
 }

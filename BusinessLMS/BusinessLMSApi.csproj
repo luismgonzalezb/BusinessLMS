@@ -182,13 +182,13 @@
     <Compile Include="Controllers\AlertsController.cs" />
     <Compile Include="Controllers\AlertsIBOController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
-    <Compile Include="Controllers\ContactFollowupController.cs" />
+    <Compile Include="Controllers\ContactFollowupsController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\DreamMVController.cs" />
     <Compile Include="Controllers\DreamsController.cs" />
     <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\GoalsController.cs" />
-    <Compile Include="Controllers\IBOController.cs" />
+    <Compile Include="Controllers\IBOsController.cs" />
     <Compile Include="Controllers\IssuesController.cs" />
     <Compile Include="Controllers\ListsController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
@@ -204,6 +204,7 @@
     <Compile Include="Helpers\IssuesHelper.cs" />
     <Compile Include="Helpers\IssueTracker.cs" />
     <Compile Include="ModelsView\IBOShort.cs" />
+    <Compile Include="ModelsView\MenuItem.cs" />
     <Compile Include="ModelsView\SearchObject.cs" />
     <Compile Include="Models\AlertsIBO.cs" />
     <Compile Include="Models\Area.cs" />

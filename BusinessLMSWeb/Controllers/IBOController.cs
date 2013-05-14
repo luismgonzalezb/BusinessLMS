@@ -1,6 +1,5 @@
 ﻿using BusinessLMS.Models;
 using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Models;
 using System;
 using System.Web.Mvc;
 using WebMatrix.WebData;
@@ -10,12 +9,11 @@ namespace BusinessLMSWeb.Controllers
 	[Authorize]
 	public class IBOController : BaseWebController
 	{
-
 		private SelectList languages
 		{
 			get
 			{
-				return new SelectList(ControllersHelper.GetLanguages(baseApiUrl), "languageId", "language1");
+				return new SelectList(IBOVirtualAPI.GetLanguages(), "languageId", "language1");
 			}
 		}
 
@@ -37,8 +35,7 @@ namespace BusinessLMSWeb.Controllers
 			ibo.level = model.level;
 			try
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "IBO", "PostIBO");
-				bool result = client.Post<IBO>(ibo);
+				bool result = IBOVirtualAPI.Create<IBO>(ibo);
 				Cookies.iboCookie.Nullify();
 				return RedirectToAction("Index", "Dashboard");
 			}
@@ -47,13 +44,11 @@ namespace BusinessLMSWeb.Controllers
 				ModelState.AddModelError(null, "The IBO Number is already been used");
 				return View(model);
 			}
-
 		}
 
 		public ActionResult Update()
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
-			IBO ibo = client.Get<IBO>(WebSecurity.CurrentUserId.ToString());
+			IBO ibo = IBOVirtualAPI.GetIBOByUId(WebSecurity.CurrentUserId.ToString());
 			ViewBag.languages = languages;
 			return View(ibo);
 		}
@@ -69,8 +64,7 @@ namespace BusinessLMSWeb.Controllers
 			iboUpdate.level = model.level;
 			try
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "IBO", "PutIBO");
-				string result = client.Put<IBO>(model.IBONum, iboUpdate);
+				string result = IBOVirtualAPI.Update<IBO>(model.IBONum, iboUpdate);
 				Cookies.iboCookie.Nullify();
 			}
 			catch { }

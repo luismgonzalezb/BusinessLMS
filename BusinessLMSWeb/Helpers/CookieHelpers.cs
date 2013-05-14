@@ -1,5 +1,4 @@
 ﻿using BusinessLMS.Models;
-using BusinessLMSWeb.Models;
 using BusinessLMSWeb.ModelsView;
 using Newtonsoft.Json;
 using System;
@@ -82,13 +81,13 @@ namespace BusinessLMSWeb.Helpers
 	internal class MenuItemsCookie : CookieBase
 	{
 		public MenuItemsCookie(HttpContextBase context) : base(context, "MenuItemsCookie") { }
-		public List<Step> GetMenuItems()
+		public List<MenuItem> GetMenuItems()
 		{
-			return this.Get<List<Step>>();
+			return this.Get<List<MenuItem>>();
 		}
-		public void SetMenuItems(List<Step> data)
+		public void SetMenuItems(List<MenuItem> data)
 		{
-			this.Set<List<Step>>(data);
+			this.Set<List<MenuItem>>(data);
 		}
 	}
 
@@ -190,6 +189,7 @@ namespace BusinessLMSWeb.Helpers
 		{
 			HttpCookie cookie = Context.Request.Cookies.Get(CookieName);
 			T data;
+			data = default(T);
 			try
 			{
 				string cvalue = Encryption.Decrypt(cookie.Value);
@@ -198,7 +198,6 @@ namespace BusinessLMSWeb.Helpers
 			}
 			catch
 			{
-				data = default(T);
 			}
 			return data;
 		}

@@ -12,8 +12,7 @@ namespace BusinessLMSWeb.Controllers
 		[IsNotPageRefresh]
 		public ActionResult CreateTicket()
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "Issues", "GetPriorityLevels");
-			List<PriorityLevel> priorityLevel = client.Get<List<PriorityLevel>>();
+			List<PriorityLevel> priorityLevel = IBOVirtualAPI.GetPriorityLevels();
 			ViewBag.PriorityLevel = new SelectList(priorityLevel, "ID", "Name");
 			return PartialView();
 		}
@@ -22,10 +21,8 @@ namespace BusinessLMSWeb.Controllers
 		[IsNotPageRefresh]
 		public ActionResult CreateTicket(Ticket model)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "Issues", "PostIssue");
-			bool result = client.Post<Ticket>(model);
+			bool result = IBOVirtualAPI.CreateIssue(model);
 			return Json(new { success = result });
 		}
-
 	}
 }

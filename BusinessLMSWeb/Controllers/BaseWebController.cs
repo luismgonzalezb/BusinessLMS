@@ -2,6 +2,7 @@
 using BusinessLMSWeb.Helpers;
 using BusinessLMSWeb.Helpers.MobileRedirect;
 using BusinessLMSWeb.Models;
+using BusinessLMSWeb.ModelsView;
 using NerdDinner.Helpers;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
+using System.Web;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 
@@ -16,7 +18,6 @@ namespace BusinessLMSWeb.Controllers
 {
 	public class BaseWebController : Controller
 	{
-
 		public BaseWebController()
 		{
 			if (WebSecurity.Initialized == false)
@@ -49,14 +50,24 @@ namespace BusinessLMSWeb.Controllers
 		protected override void OnActionExecuting(ActionExecutingContext filterContext)
 		{
 			Cookies = new Helpers.Cookies(filterContext.HttpContext);
-
-			if (ibo != null)
+			if (WebSecurity.IsAuthenticated) ibo = _ibo;
+			if ((ibo != null) && (ibo.UserId != 0))
 			{
 				string cultureName = CultureHelper.GetCulture(ibo.languageId);
 				Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cultureName);
 				Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
 			}
-
+			else
+			{
+				string cultureName = null;
+				HttpCookie cultureCookie = Request.Cookies["_ibovirtualculture"];
+				if (cultureCookie != null)
+					cultureName = cultureCookie.Value;
+				else
+					cultureName = Request.UserLanguages[0];
+				Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cultureName);
+				Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
+			}
 			base.OnActionExecuting(filterContext);
 		}
 
@@ -87,7 +98,6 @@ namespace BusinessLMSWeb.Controllers
 								ViewBag.AlertItems = listAlerts;
 								ViewBag.FollowupsCount = Followups.Count;
 								ViewBag.FacebookAppId = facebookAppId;
-
 							}
 						}
 						else
@@ -118,10 +128,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Alerts", "GetAlertsIBO");
-				List<Alert> _alerts = new List<Alert>();
-				_alerts = client.Get<List<Alert>>(ibo.IBONum);
-				return _alerts;
+				return IBOVirtualAPI.GetAlerts(ibo.IBONum);
 			}
 		}
 
@@ -129,13 +136,11 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
-				List<ContactFollowup> _followups = client.Get<List<ContactFollowup>>(ibo.IBONum);
-				return _followups;
+				return IBOVirtualAPI.GetFollowups(ibo.IBONum);
 			}
 		}
 
-		#endregion
+		#endregion Not Cookie Saved
 
 		#region Cookie Saved
 
@@ -163,44 +168,39 @@ namespace BusinessLMSWeb.Controllers
 			}
 		}
 
-		public IBO ibo
+		public IBO ibo { get; set; }
+
+		private IBO _ibo
 		{
 			get
 			{
 				IBO _ibo = Cookies.iboCookie.GetIBO();
-				if (_ibo == null)
+				if ((_ibo == null) || (_ibo.UserId == 0))
 				{
-					BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOByUId");
-					_ibo = client.Get<IBO>(WebSecurity.CurrentUserId.ToString());
+					_ibo = IBOVirtualAPI.GetIBOByUId(WebSecurity.CurrentUserId.ToString());
 					Cookies.iboCookie.SetIBO(_ibo);
 				}
 				return _ibo;
 			}
 		}
 
-		public List<Step> menuItems
+		public List<MenuItem> menuItems
 		{
 			get
 			{
-				List<Step> _menuItems = Cookies.menuItemsCooke.GetMenuItems();
-				if (_menuItems == null)
+				List<MenuItem> _menuItems = Cookies.menuItemsCooke.GetMenuItems();
+				if ((_menuItems == null) || (_menuItems.Count == 0))
 				{
-					BaseClient client = new BaseClient(baseApiUrl, "Step", "GetSteps");
-					_menuItems = client.Get<List<Step>>();
+					_menuItems = IBOVirtualAPI.GetMenuItems(ibo.languageId);
 					Cookies.menuItemsCooke.SetMenuItems(_menuItems);
 				}
 				return _menuItems;
 			}
 		}
 
-		#endregion
+		#endregion Cookie Saved
 
 		#region From Configuration
-
-		public string baseApiUrl
-		{
-			get { return ConfigurationManager.AppSettings["ApiUrl"]; }
-		}
 
 		public long eventbriteOrginizerId
 		{
@@ -226,9 +226,8 @@ namespace BusinessLMSWeb.Controllers
 			get { return ConfigurationManager.AppSettings["appId"]; }
 		}
 
-		#endregion
+		#endregion From Configuration
 
-		#endregion
-
+		#endregion General Properties
 	}
 }

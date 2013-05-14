@@ -1,18 +1,15 @@
 ﻿using BusinessLMS.Models;
 using BusinessLMSWeb.Filters;
 using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Models;
 using EventbriteNET;
 using EventbriteNET.Entities;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Web.Mvc;
 
 namespace BusinessLMSWeb.Controllers
 {
-
 	[Authorize]
 	public class CalendarController : BaseWebController
 	{
@@ -53,6 +50,7 @@ namespace BusinessLMSWeb.Controllers
 				case "Goals":
 					toLoad.Add(calendarType.value);
 					break;
+
 				case "All":
 				default:
 					toLoad.Add("Followup");
@@ -65,11 +63,6 @@ namespace BusinessLMSWeb.Controllers
 			{
 				BaseClient client;
 				List<CalendarEvent> tempEvents = new List<CalendarEvent>();
-				NameValueCollection parms = new NameValueCollection() {
-					{ "id", ibo.IBONum }, 
-					{ "fromDate", fromDate.ToString() },
-					{ "toDate", toDate.ToString() }
-				};
 				if (toLoad.Contains("Meetings") == true)
 				{
 					EventbriteContext context = new EventbriteContext(eventbriteApiKey, eventbriteUserKey);
@@ -83,8 +76,7 @@ namespace BusinessLMSWeb.Controllers
 				}
 				if (toLoad.Contains("Followup") == true)
 				{
-					client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
-					List<ContactFollowup> followups = client.Get<List<ContactFollowup>>(parms);
+					List<ContactFollowup> followups = IBOVirtualAPI.GetFollowups(ibo.IBONum, fromDate.ToString(), toDate.ToString());
 					if (followups.Count > 0)
 					{
 						tempEvents = (from e in followups where e.datetime >= fromDate select new CalendarEvent(e)).ToList();
@@ -94,8 +86,7 @@ namespace BusinessLMSWeb.Controllers
 				if (toLoad.Contains("Dreams") == true)
 				{
 					/*  TODO: Create API methods that support date filtering */
-					client = new BaseClient(baseApiUrl, "Dreams", "GetDreamsUser");
-					List<Dream> dreams = client.Get<List<Dream>>(ibo.IBONum);
+					List<Dream> dreams = IBOVirtualAPI.GetDreamsUser(ibo.IBONum);
 					if (dreams.Count > 0)
 					{
 						tempEvents = (from e in dreams where e.datetime >= fromDate select new CalendarEvent(e)).ToList();
@@ -105,8 +96,7 @@ namespace BusinessLMSWeb.Controllers
 				if (toLoad.Contains("Goals") == true)
 				{
 					/*  TODO: Create API methods that support date filtering */
-					client = new BaseClient(baseApiUrl, "Goals", "GetIBOGoals");
-					List<Goal> goals = client.Get<List<Goal>>(ibo.IBONum);
+					List<Goal> goals = IBOVirtualAPI.GetIBOGoals(ibo.IBONum);
 					if (goals.Count > 0)
 					{
 						tempEvents = (from e in goals where e.datetime >= fromDate select new CalendarEvent(e)).ToList();
@@ -128,18 +118,17 @@ namespace BusinessLMSWeb.Controllers
 		{
 			return PartialView();
 		}
-
 	}
 
 	public class CalendarType
 	{
 		public int id { get; set; }
+
 		public string value { get; set; }
 	}
 
 	public class CalendarEvent
 	{
-
 		public CalendarEvent(Event evt)
 		{
 			this.title = evt.Title;
@@ -178,12 +167,15 @@ namespace BusinessLMSWeb.Controllers
 		}
 
 		public string title { get; set; }
+
 		public bool allDay { get; set; }
+
 		public string start { get; set; }
+
 		public string end { get; set; }
+
 		public string url { get; set; }
+
 		public bool editable { get; set; }
-
 	}
-
 }

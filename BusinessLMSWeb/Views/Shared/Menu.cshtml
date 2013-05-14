@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BusinessLMS.Models.Step>
+﻿@model IEnumerable<BusinessLMSWeb.ModelsView.MenuItem>
 <nav>
 	@foreach (var item in Model) {
 		if (string.Concat(ViewBag.controllerName,ViewBag.actionName) == string.Concat(item.controller,item.action))

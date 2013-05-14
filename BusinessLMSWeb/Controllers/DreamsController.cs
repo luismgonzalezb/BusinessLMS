@@ -1,10 +1,8 @@
 ﻿using BusinessLMS.Models;
 using BusinessLMSWeb.Filters;
 using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -13,12 +11,11 @@ namespace BusinessLMSWeb.Controllers
 	[Authorize]
 	public class DreamsController : BaseWebController
 	{
-
 		private List<Area> areas
 		{
 			get
 			{
-				return ControllersHelper.GetAreas(baseApiUrl, ibo.languageId);
+				return IBOVirtualAPI.GetAreas(ibo.languageId);
 			}
 		}
 
@@ -32,20 +29,14 @@ namespace BusinessLMSWeb.Controllers
 		{
 			if (ibo != null)
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Dreams", "GetDreamsUserLevel");
-				NameValueCollection parms = new NameValueCollection() {
-					{ "id", ibo.IBONum }, 
-					{ "level", id.ToString() } 
-				};
-				List<Dream> dreams = client.Get<List<Dream>>(parms);
+				List<Dream> dreams = IBOVirtualAPI.GetDreamsUserLevel(ibo.IBONum, id.ToString());
 				if ((dreams.Count > 0) || (id == 0))
 				{
 					ViewBag.dreamLevel = id;
 					ViewBag.nextLevel = id + 1;
-					parms = new NameValueCollection() { { "id", ibo.IBONum }, { "level", (id + 1).ToString() } };
-					List<Dream> dreamsLevel = client.Get<List<Dream>>(parms);
+					List<Dream> dreamsLevel = IBOVirtualAPI.GetDreamsUserLevel(ibo.IBONum, (id + 1).ToString());
 					Dictionary<Timeframe, Dream> timeframeDreams = new Dictionary<Timeframe, Dream>();
-					List<Timeframe> timeframes = ControllersHelper.GetTimeFrames(baseApiUrl, id, ibo.languageId);
+					List<Timeframe> timeframes = IBOVirtualAPI.GetTimeFrames(id, ibo.languageId);
 					Timeframe last = timeframes.Last();
 					if (dreamsLevel.Count < 1) ViewBag.lastItem = last;
 					foreach (Timeframe time in timeframes)
@@ -91,8 +82,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 			try
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Dreams", "PostDream");
-				bool result = client.Post<Dream>(model);
+				bool result = IBOVirtualAPI.Create<Dream>(model);
 			}
 			catch { }
 			return RedirectToAction("Index");
@@ -102,13 +92,11 @@ namespace BusinessLMSWeb.Controllers
 		{
 			try
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Dreams", "GetDream");
-				Dream dream = client.Get<Dream>(id.ToString());
+				Dream dream = IBOVirtualAPI.Get<Dream>(id.ToString());
 				if (dream != null)
 				{
 					Dream newDream = ModelParser.ParseDream(dream);
-					client = new BaseClient(baseApiUrl, "Dreams", "PostDream");
-					bool result = client.Post<Dream>(newDream);
+					bool result = IBOVirtualAPI.Create<Dream>(newDream);
 				}
 			}
 			catch { }
@@ -119,8 +107,7 @@ namespace BusinessLMSWeb.Controllers
 		public ActionResult EditDream(int id)
 		{
 			ViewBag.areas = new SelectList(areas, "areaId", "title");
-			BaseClient client = new BaseClient(baseApiUrl, "Dreams", "GetDream");
-			Dream dream = client.Get<Dream>(id.ToString());
+			Dream dream = IBOVirtualAPI.Get<Dream>(id.ToString());
 			return PartialView(dream);
 		}
 
@@ -130,22 +117,19 @@ namespace BusinessLMSWeb.Controllers
 		{
 			try
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Dreams", "PutDream");
-				string result = client.Put<Dream>(model.dreamId.ToString(), model);
+				string result = IBOVirtualAPI.Update<Dream>(model.dreamId.ToString(), model);
 				return Json(new { success = true });
 			}
 			catch
 			{
 				return Json(new { success = false });
 			}
-
 		}
 
 		[IsNotPageRefresh]
 		public ActionResult DreamMV()
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "DreamMV", "GetDreamMV");
-			DreamsMV dream = client.Get<DreamsMV>(ibo.IBONum);
+			DreamsMV dream = IBOVirtualAPI.GetDreamMV(ibo.IBONum);
 			return PartialView(dream);
 		}
 
@@ -160,19 +144,15 @@ namespace BusinessLMSWeb.Controllers
 				dreammv.vision = dream.vision;
 				dreammv.mission = dream.mission;
 				dreammv.purpose = dream.purpose;
-				BaseClient client;
 				if (dream.dreamMVId == 0)
 				{
-					client = new BaseClient(baseApiUrl, "DreamMV", "PostDreamMV");
-					bool result = client.Post<DreamsMV>(dreammv);
-					client = new BaseClient(baseApiUrl, "DreamMV", "GetDreamMV");
-					dreammv = client.Get<DreamsMV>(ibo.IBONum);
+					bool result = IBOVirtualAPI.CreateDreamMV(dreammv);
+					dreammv = IBOVirtualAPI.GetDreamMV(ibo.IBONum);
 				}
 				else
 				{
 					dreammv.dreamMVId = dream.dreamMVId;
-					client = new BaseClient(baseApiUrl, "DreamMV", "PutDreamMV");
-					string result = client.Put<DreamsMV>(dreammv.dreamMVId.ToString(), dreammv);
+					string result = IBOVirtualAPI.UpdateDreamMV(dreammv.dreamMVId.ToString(), dreammv);
 				}
 				return Json(new { success = true, id = dreammv.dreamMVId });
 			}
@@ -186,8 +166,7 @@ namespace BusinessLMSWeb.Controllers
 		public ActionResult Details(int id)
 		{
 			ViewBag.areas = new SelectList(areas, "areaId", "title");
-			BaseClient client = new BaseClient(baseApiUrl, "Dreams", "GetDream");
-			Dream dream = client.Get<Dream>(id.ToString());
+			Dream dream = IBOVirtualAPI.Get<Dream>(id.ToString());
 			return PartialView(dream);
 		}
 
@@ -196,6 +175,5 @@ namespace BusinessLMSWeb.Controllers
 		{
 			return PartialView();
 		}
-
 	}
 }

@@ -1,10 +1,8 @@
 ﻿using BusinessLMS.Models;
 using BusinessLMSWeb.Filters;
 using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -13,12 +11,11 @@ namespace BusinessLMSWeb.Controllers
 	[Authorize]
 	public class GoalsController : BaseWebController
 	{
-
 		private List<Tool> tools
 		{
 			get
 			{
-				return ControllersHelper.GetTools(baseApiUrl, ibo.languageId);
+				return IBOVirtualAPI.GetTools(ibo.languageId);
 			}
 		}
 
@@ -26,8 +23,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Dreams", "GetDreamsUser");
-				List<Dream> dreams = client.Get<List<Dream>>(ibo.IBONum);
+				List<Dream> dreams = IBOVirtualAPI.GetDreamsUser(ibo.IBONum);
 				dreams = dreams.GroupBy(d => d.dream1).Select(d => d.FirstOrDefault()).ToList();
 				return dreams;
 			}
@@ -41,23 +37,16 @@ namespace BusinessLMSWeb.Controllers
 		[IsNotPageRefresh]
 		public ActionResult GoalsList(int id)
 		{
-
 			if (ibo != null)
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Goals", "GetIBOLevelGoals");
-				NameValueCollection parms = new NameValueCollection(){
-					{ "id", ibo.IBONum }, 
-					{ "level", id.ToString()} 
-				};
-				List<Goal> goals = client.Get<List<Goal>>(parms);
+				List<Goal> goals = IBOVirtualAPI.GetIBOLevelGoals(ibo.IBONum, id.ToString());
 				if ((goals.Count > 0) || (id == 0))
 				{
 					ViewBag.goalLevel = id;
 					ViewBag.nextLevel = id + 1;
-					parms = new NameValueCollection() { { "id", ibo.IBONum }, { "level", (id + 1).ToString() } };
-					List<Goal> goalsLevel = client.Get<List<Goal>>(parms);
+					List<Goal> goalsLevel = IBOVirtualAPI.GetIBOLevelGoals(ibo.IBONum, (id + 1).ToString());
 					Dictionary<Timeframe, Goal> timeframeGoals = new Dictionary<Timeframe, Goal>();
-					List<Timeframe> timeframes = ControllersHelper.GetTimeFrames(baseApiUrl, id, ibo.languageId);
+					List<Timeframe> timeframes = IBOVirtualAPI.GetTimeFrames(id, ibo.languageId);
 					Timeframe last = timeframes.Last();
 					if (goalsLevel.Count < 1) ViewBag.lastItem = last;
 					foreach (Timeframe time in timeframes)
@@ -71,7 +60,6 @@ namespace BusinessLMSWeb.Controllers
 				}
 			}
 			return null;
-
 		}
 
 		[IsNotPageRefresh]
@@ -105,8 +93,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 			try
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Goals", "PostGoal");
-				bool result = client.Post<Goal>(model);
+				bool result = IBOVirtualAPI.Create<Goal>(model);
 			}
 			catch { }
 			return RedirectToAction("Index");
@@ -116,13 +103,11 @@ namespace BusinessLMSWeb.Controllers
 		{
 			try
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Goals", "GetGoal");
-				Goal goal = client.Get<Goal>(id.ToString());
+				Goal goal = IBOVirtualAPI.Get<Goal>(id.ToString());
 				if (goal != null)
 				{
 					Goal newGoal = ModelParser.ParseGoal(goal);
-					client = new BaseClient(baseApiUrl, "Goals", "PostGoal");
-					bool result = client.Post<Goal>(newGoal);
+					bool result = IBOVirtualAPI.Create<Goal>(newGoal);
 				}
 			}
 			catch { }
@@ -134,8 +119,7 @@ namespace BusinessLMSWeb.Controllers
 		{
 			ViewBag.tools = new SelectList(tools, "toolId", "name");
 			ViewBag.dreams = new SelectList(dreams, "dreamId", "dream1");
-			BaseClient client = new BaseClient(baseApiUrl, "Goals", "GetGoal");
-			Goal goal = client.Get<Goal>(id.ToString());
+			Goal goal = IBOVirtualAPI.Get<Goal>(id.ToString());
 			return PartialView(goal);
 		}
 
@@ -145,15 +129,13 @@ namespace BusinessLMSWeb.Controllers
 		{
 			try
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "Goals", "PutGoal");
-				string result = client.Put<Goal>(model.goalId.ToString(), model);
+				string result = IBOVirtualAPI.Update<Goal>(model.goalId.ToString(), model);
 				return Json(new { success = true });
 			}
 			catch
 			{
 				return Json(new { success = false });
 			}
-
 		}
 
 		[IsNotPageRefresh]
@@ -161,6 +143,5 @@ namespace BusinessLMSWeb.Controllers
 		{
 			return PartialView();
 		}
-
 	}
 }

@@ -332,17 +332,18 @@
     </Compile>
     <Compile Include="Helpers\BaseClient.cs" />
     <Compile Include="Helpers\BlobHelper.cs" />
-    <Compile Include="Helpers\ControllersHelper.cs" />
     <Compile Include="Helpers\CookieHelpers.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\Encryption.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Helpers\IBOVirtualAPI.cs" />
     <Compile Include="Helpers\MobileRedirectUtility.cs" />
     <Compile Include="Helpers\MobileViewCookie.cs" />
     <Compile Include="Helpers\ModelParser.cs" />
     <Compile Include="ModelsView\IBOShort.cs" />
     <Compile Include="ModelsView\FollowupView.cs" />
+    <Compile Include="ModelsView\MenuItem.cs" />
     <Compile Include="ModelsView\SearchObject.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AlertsIBO.cs" />
@@ -362,9 +363,7 @@
     <Compile Include="Models\Language.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\State.cs" />
-    <Compile Include="Models\Step.cs" />
     <Compile Include="ModelsView\Ticket.cs" />
-    <Compile Include="Models\StepsTexts.cs" />
     <Compile Include="Models\Timeframe.cs" />
     <Compile Include="Models\Tool.cs" />
     <Compile Include="Models\ZIPCode.cs" />

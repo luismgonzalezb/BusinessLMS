@@ -1,7 +1,6 @@
 ﻿using BusinessLMS.Models;
 using BusinessLMSWeb.Filters;
 using BusinessLMSWeb.Helpers;
-using BusinessLMSWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,14 +15,13 @@ namespace BusinessLMSWeb.Controllers
 		{
 			get
 			{
-				return ControllersHelper.GetTools(baseApiUrl, ibo.languageId);
+				return IBOVirtualAPI.GetTools(ibo.languageId);
 			}
 		}
 
 		public ActionResult Index()
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "Goals", "GetIBOGoalsProgress");
-			List<Goal> goals = client.Get<List<Goal>>(ibo.IBONum);
+			List<Goal> goals = IBOVirtualAPI.GetIBOGoalsProgress(ibo.IBONum);
 			return View(goals);
 		}
 
@@ -35,8 +33,7 @@ namespace BusinessLMSWeb.Controllers
 		public decimal GetProgress(string id)
 		{
 
-			BaseClient client = new BaseClient(baseApiUrl, "Progress", "GetProgress");
-			GoalProgress Goalprogress = client.Get<GoalProgress>(id);
+			GoalProgress Goalprogress = IBOVirtualAPI.GetProgress(id);
 			try
 			{
 				return Goalprogress.progress;
@@ -59,8 +56,7 @@ namespace BusinessLMSWeb.Controllers
 		[IsNotPageRefresh]
 		public ActionResult EditProgress(string id)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "Progress", "GetProgress");
-			GoalProgress Goalprogress = client.Get<GoalProgress>(id);
+			GoalProgress Goalprogress = IBOVirtualAPI.GetProgress(id);
 			return PartialView(Goalprogress);
 		}
 
@@ -73,26 +69,21 @@ namespace BusinessLMSWeb.Controllers
 				try
 				{
 
-					BaseClient client = new BaseClient(baseApiUrl, "Progress", "GetProgress");
-					GoalProgress Goalprogress = client.Get<GoalProgress>(model.goalId.ToString());
+					GoalProgress Goalprogress = IBOVirtualAPI.GetProgress(model.goalId.ToString());
 					if (model.progress == 100)
 					{
-						client = new BaseClient(baseApiUrl, "Goals", "GetGoal");
-						Goal Goal = client.Get<Goal>(model.goalId.ToString());
+						Goal Goal = IBOVirtualAPI.Get<Goal>(model.goalId.ToString());
 						Goal.completed = true;
-						client = new BaseClient(baseApiUrl, "Goals", "PutGoal");
-						string result = client.Put<Goal>(Goal.goalId.ToString(), Goal);
+						string result = IBOVirtualAPI.Update<Goal>(Goal.goalId.ToString(), Goal);
 					}
 					if (Goalprogress == null)
 					{
-						client = new BaseClient(baseApiUrl, "Progress", "PostProgress");
-						bool result = client.Post<GoalProgress>(model);
+						bool result = IBOVirtualAPI.CreateProgress(model);
 					}
 					else
 					{
 						model.progressId = Goalprogress.progressId;
-						client = new BaseClient(baseApiUrl, "Progress", "PutProgress");
-						string result = client.Put<GoalProgress>(model.progressId.ToString(), model);
+						string result = IBOVirtualAPI.UpdateProgress(model.progressId.ToString(), model);
 					}
 					return Json(model);
 
