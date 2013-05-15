@@ -60,7 +60,7 @@ namespace BusinessLMSWeb
 
 			#endregion
 
-			BundleTable.EnableOptimizations = true;
+			BundleTable.EnableOptimizations = false;
 		}
 	}
 }

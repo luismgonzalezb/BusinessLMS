@@ -3,7 +3,8 @@ namespace BusinessLMS.Models
 {
 	public partial class AlertsIBO
 	{
-		[Display(Name = "Alert Id")]
+		[Required]
+		[Display(Name = "AlertId", ResourceType = typeof(TextResources.Businesslms))]
 		public string AlertId { get; set; }
 
 		[Required]

@@ -5,14 +5,13 @@ namespace BusinessLMS.Models
 	public partial class Language
 	{
 		[Required]
-		[Display(Name = "Languaje", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "languageId", ResourceType = typeof(TextResources.Businesslms))]
 		public int languageId { get; set; }
 
 		[Required]
-		[Display(Name = "Languaje", ResourceType = typeof(TextResources.Businesslms))]
 		[DataType(DataType.Text)]
+		[Display(Name = "languageId", ResourceType = typeof(TextResources.Businesslms))]
 		public string language1 { get; set; }
-
 
 	}
 }

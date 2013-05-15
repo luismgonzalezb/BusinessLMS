@@ -3,13 +3,13 @@ namespace BusinessLMS.Models
 {
 	public partial class ContactType
 	{
-		[Display(Name = "Contact Type ID")]
+		[Display(Name = "contactTypeId", ResourceType = typeof(TextResources.Businesslms))]
 		public int contactTypeId { get; set; }
 
-		[Display(Name = "Lenguage")]
+		[Display(Name = "languageId", ResourceType = typeof(TextResources.Businesslms))]
 		public int languageId { get; set; }
 
-		[Display(Name = "Type")]
+		[Display(Name = "contactTypeId", ResourceType = typeof(TextResources.Businesslms))]
 		public string type { get; set; }
 	}
 }

@@ -3,15 +3,17 @@ namespace BusinessLMS.Models
 {
 	public partial class Area
 	{
-		[Display(Name = "Area ID")]
+		[Required]
+		[Display(Name = "areaId", ResourceType = typeof(TextResources.Businesslms))]
 		public int areaId { get; set; }
 
-		[Display(Name = "Lenguage")]
+		[Required]
+		[Display(Name = "languageId", ResourceType = typeof(TextResources.Businesslms))]
 		public int languageId { get; set; }
 
 		[Required]
-		[Display(Name = "Area Title")]
 		[DataType(DataType.Text)]
+		[Display(Name = "areaId", ResourceType = typeof(TextResources.Businesslms))]
 		public string title { get; set; }
 	}
 }

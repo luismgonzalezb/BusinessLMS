@@ -38,7 +38,7 @@ namespace BusinessLMS.Models
 
 		public System.DateTime datetime { get; set; }
 
-		[Display(Name = "lastName", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "picture", ResourceType = typeof(TextResources.Businesslms))]
 		public string picture { get; set; }
 
 		public int UserId { get; set; }

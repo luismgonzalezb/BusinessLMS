@@ -3,18 +3,17 @@ namespace BusinessLMS.Models
 {
 	public partial class Alert
 	{
-		[Display(Name = "Alert Id")]
+		[Display(Name = "AlertId", ResourceType = typeof(TextResources.Businesslms))]
 		public string AlertId { get; set; }
 
 		[Required]
-		[Display(Name = "Alert Message")]
+		[Display(Name = "AlertMsg", ResourceType = typeof(TextResources.Businesslms))]
 		public string AlertMsg { get; set; }
 
-		[Display(Name = "Action")]
+		[Display(Name = "action", ResourceType = typeof(TextResources.Businesslms))]
 		public string action { get; set; }
 
 		[Required]
-		[Display(Name = "Date and Time of the alert")]
 		[DataType(DataType.DateTime)]
 		public System.DateTime datetime { get; set; }
 	}

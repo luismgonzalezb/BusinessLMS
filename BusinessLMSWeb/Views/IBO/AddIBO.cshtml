@@ -9,7 +9,7 @@
 <div class="metro-container-300">
 
 	<div class="title" style="margin-bottom:40px;">
-		<h1>@TextResources.Businesslms.IBODetails.</h1>
+		<h2>@TextResources.Businesslms.IBODetails.</h2>
 	</div>
 
 	@using (Html.BeginForm("AddIBO", "IBO", FormMethod.Post, new { @class = "metro-form", id = "createIBOForm" }))
@@ -108,7 +108,7 @@
 	
 	}
 	
-	@TextResources.Businesslms.picture
+	@TextResources.Businesslms.IBOpicture
 	<form action="/api/Files" method="post" enctype="multipart/form-data" id="file_upload" >
 		<div id = "filediv">
 			<input type="file" name="file"/>

@@ -11,18 +11,18 @@ namespace BusinessLMS.Models
 		public string IBONum { get; set; }
 
 		[Required]
-		[Display(Name = "Mission")]
 		[DataType(DataType.Text)]
+		[Display(Name = "MissionTitle", ResourceType = typeof(TextResources.BusinesslmsHome))]
 		public string mission { get; set; }
 
 		[Required]
-		[Display(Name = "Vision")]
 		[DataType(DataType.Text)]
+		[Display(Name = "VisionTitle", ResourceType = typeof(TextResources.BusinesslmsHome))]
 		public string vision { get; set; }
 
 		[Required]
-		[Display(Name = "Purpose")]
 		[DataType(DataType.Text)]
+		[Display(Name = "PurposeTitle", ResourceType = typeof(TextResources.BusinesslmsHome))]
 		public string purpose { get; set; }
 	}
 }

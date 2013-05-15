@@ -4,13 +4,13 @@ namespace BusinessLMS.Models
 	public partial class ContactFollowup
 	{
 
-		[Display(Name = "Followup Id")]
 		[DataType(DataType.Text)]
+		[Display(Name = "followupId", ResourceType = typeof(TextResources.Businesslms))]
 		public int followupId { get; set; }
 
 		[Required]
-		[Display(Name = "Contact ID")]
 		[DataType(DataType.Text)]
+		[Display(Name = "contactId", ResourceType = typeof(TextResources.Businesslms))]
 		public int contactId { get; set; }
 
 		[Required]
@@ -19,18 +19,18 @@ namespace BusinessLMS.Models
 		public string IBONum { get; set; }
 
 		[Required]
-		[Display(Name = "Method")]
 		[DataType(DataType.Text)]
+		[Display(Name = "method", ResourceType = typeof(TextResources.Businesslms))]
 		public string method { get; set; }
 
 		[Required]
-		[Display(Name = "Completed")]
 		[DataType(DataType.Text)]
+		[Display(Name = "datetimeFollowUp", ResourceType = typeof(TextResources.Businesslms))]
 		public System.DateTime datetime { get; set; }
 
 		[Required]
-		[Display(Name = "Follow up Date")]
 		[DataType(DataType.DateTime)]
+		[Display(Name = "completed", ResourceType = typeof(TextResources.Businesslms))]
 		public bool completed { get; set; }
 	}
 }

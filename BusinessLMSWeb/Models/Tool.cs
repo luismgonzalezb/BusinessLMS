@@ -4,7 +4,8 @@ namespace BusinessLMS.Models
 {
 	public partial class Tool
 	{
-		[Display(Name = "Tool ID")]
+		[Required]
+		[Display(Name = "ToolName", ResourceType = typeof(TextResources.Businesslms))]
 		public int toolId { get; set; }
 
 		[Required]
@@ -12,12 +13,12 @@ namespace BusinessLMS.Models
 		public int languageId { get; set; }
 
 		[Required]
-		[Display(Name = "ToolName", ResourceType = typeof(TextResources.Businesslms))]
 		[DataType(DataType.Text)]
+		[Display(Name = "ToolName", ResourceType = typeof(TextResources.Businesslms))]
 		public string name { get; set; }
 
 		[Required]
-		[Display(Name = "def")]
+		[Display(Name = "def", ResourceType = typeof(TextResources.Businesslms))]
 		public bool def { get; set; }
 	}
 }

@@ -184,7 +184,7 @@
     <value>Telefono</value>
   </data>
   <data name="picture" xml:space="preserve">
-    <value>Mi Fotografía</value>
+    <value>Imagen</value>
   </data>
   <data name="preferedTime" xml:space="preserve">
     <value>Hora de Contacto Preferida</value>
@@ -272,5 +272,71 @@
   </data>
   <data name="Upload" xml:space="preserve">
     <value>Cargar Archivo</value>
+  </data>
+  <data name="action" xml:space="preserve">
+    <value>Acción</value>
+  </data>
+  <data name="AlertId" xml:space="preserve">
+    <value>Alerta</value>
+  </data>
+  <data name="AlertMsg" xml:space="preserve">
+    <value>Mensaje</value>
+  </data>
+  <data name="areaId" xml:space="preserve">
+    <value>Area de Vida</value>
+  </data>
+  <data name="Autor" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="BookId" xml:space="preserve">
+    <value>Libro</value>
+  </data>
+  <data name="completed" xml:space="preserve">
+    <value>Completado En</value>
+  </data>
+  <data name="datetimeFollowUp" xml:space="preserve">
+    <value>Fecha del Seguimiento</value>
+  </data>
+  <data name="followupId" xml:space="preserve">
+    <value>Seguimiento</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Enlace de Compra</value>
+  </data>
+  <data name="method" xml:space="preserve">
+    <value>Método de Contacto</value>
+  </data>
+  <data name="Priority" xml:space="preserve">
+    <value>Prioridad</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titulo Del Libro</value>
+  </data>
+  <data name="achieved" xml:space="preserve">
+    <value>Logrado?</value>
+  </data>
+  <data name="completedGoal" xml:space="preserve">
+    <value>Terminada?</value>
+  </data>
+  <data name="dreamId" xml:space="preserve">
+    <value>Sueño</value>
+  </data>
+  <data name="goalId" xml:space="preserve">
+    <value>Meta</value>
+  </data>
+  <data name="IBOpicture" xml:space="preserve">
+    <value>Mi Fotografía</value>
+  </data>
+  <data name="progressId" xml:space="preserve">
+    <value>Progreso</value>
+  </data>
+  <data name="timeframeId" xml:space="preserve">
+    <value>Plazo</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>Días</value>
+  </data>
+  <data name="def" xml:space="preserve">
+    <value>Predeterminado</value>
   </data>
 </root>

@@ -348,7 +348,6 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AlertsIBO.cs" />
     <Compile Include="Models\Area.cs" />
-    <Compile Include="Models\CompletedStep.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactFollowup.cs" />
     <Compile Include="Models\ContactType.cs" />
@@ -356,7 +355,6 @@
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\DreamsMV.cs" />
     <Compile Include="Models\GoalProgress.cs" />
-    <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Dream.cs" />
     <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\IBO.cs" />

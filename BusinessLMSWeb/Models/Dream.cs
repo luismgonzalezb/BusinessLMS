@@ -4,39 +4,39 @@ namespace BusinessLMS.Models
 	public partial class Dream
 	{
 
-		[Display(Name = "Dreams ID")]
+		[Display(Name = "dreamId", ResourceType = typeof(TextResources.Businesslms))]
 		public int dreamId { get; set; }
 
 		[Required]
 		[Display(Name = "IBONum", ResourceType = typeof(TextResources.Businesslms))]
 		public string IBONum { get; set; }
 
-		[Display(Name = "Dreams ID")]
+		[Required]
+		[Display(Name = "timeframeId", ResourceType = typeof(TextResources.Businesslms))]
 		public int timeframeId { get; set; }
 
-		[Display(Name = "Area ID")]
+		[Required]
+		[Display(Name = "areaId", ResourceType = typeof(TextResources.Businesslms))]
 		public int areaId { get; set; }
 
 		[Required]
-		[Display(Name = "Dreams")]
 		[DataType(DataType.Text)]
+		[Display(Name = "dreamId", ResourceType = typeof(TextResources.Businesslms))]
 		public string dream1 { get; set; }
 
 		[Required]
-		[Display(Name = "Dram Level")]
 		public int dreamLevel { get; set; }
 
 		[Required]
-		[Display(Name = "Contact Id")]
+		[Display(Name = "achieved", ResourceType = typeof(TextResources.Businesslms))]
 		public bool achieved { get; set; }
 
 		[Required]
-		[Display(Name = "Date Time")]
 		[DataType(DataType.DateTime)]
 		public System.DateTime datetime { get; set; }
 
-		[Display(Name = "Dreams")]
 		[DataType(DataType.Text)]
+		[Display(Name = "picture", ResourceType = typeof(TextResources.Businesslms))]
 		public string picture { get; set; }
 	}
 }

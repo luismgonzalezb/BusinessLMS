@@ -3,19 +3,19 @@ namespace BusinessLMS.Models
 {
 	public partial class GoalProgress
 	{
-		[Display(Name = "Progress Id")]
+		[Required]
+		[Display(Name = "progressId", ResourceType = typeof(TextResources.Businesslms))]
 		public long progressId { get; set; }
 
 		[Required]
-		[Display(Name = "Goal Id")]
+		[Display(Name = "goalId", ResourceType = typeof(TextResources.Businesslms))]
 		public int goalId { get; set; }
 
 		[Required]
-		[Display(Name = "Progress")]
+		[Display(Name = "progressId", ResourceType = typeof(TextResources.Businesslms))]
 		public decimal progress { get; set; }
 
 		[Required]
-		[Display(Name = "Date and Time")]
 		[DataType(DataType.DateTime)]
 		public System.DateTime datetime { get; set; }
 	}

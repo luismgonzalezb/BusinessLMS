@@ -3,36 +3,39 @@ namespace BusinessLMS.Models
 {
 	public partial class Goal
 	{
-		[Display(Name = "Goal Id")]
+
+		[Required]
+		[Display(Name = "goalId", ResourceType = typeof(TextResources.Businesslms))]
 		public int goalId { get; set; }
 
-		[Display(Name = "Dream Id")]
+		[Required]
+		[Display(Name = "dreamId", ResourceType = typeof(TextResources.Businesslms))]
 		public int dreamId { get; set; }
 
-		[Display(Name = "Time Frame ID")]
+		[Required]
+		[Display(Name = "timeframeId", ResourceType = typeof(TextResources.Businesslms))]
 		public int timeframeId { get; set; }
 
-		[Display(Name = "Tool Id")]
+		[Required]
+		[Display(Name = "ToolName", ResourceType = typeof(TextResources.Businesslms))]
 		public int toolId { get; set; }
 
 		[Required]
-		[Display(Name = "Goal1")]
+		[Display(Name = "goalId", ResourceType = typeof(TextResources.Businesslms))]
 		public decimal goal1 { get; set; }
 
 		[Required]
-		[Display(Name = "Goal Level")]
 		public int goalLevel { get; set; }
 
 		[Required]
-		[Display(Name = "Completed")]
+		[Display(Name = "completedGoal", ResourceType = typeof(TextResources.Businesslms))]
 		public bool completed { get; set; }
 
 		[Required]
-		[Display(Name = "DateTime Goal")]
 		[DataType(DataType.DateTime)]
 		public System.DateTime datetime { get; set; }
 
-		[Display(Name = "Picture")]
+		[Display(Name = "picture", ResourceType = typeof(TextResources.Businesslms))]
 		public string picture { get; set; }
 	}
 }
