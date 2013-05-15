@@ -22,7 +22,6 @@
 			<nav>
 				<ul class="nav">
 					<li><a href="@Url.Action("Index","Home")">@TextResources.BusinesslmsHome.MenuHome</a></li>
-					<li><a href="@Url.Action("About","Home")">@TextResources.BusinesslmsHome.MenuAbout</a></li>
 					<li><a href="@Url.Action("Contact","Home")">@TextResources.BusinesslmsHome.MenuContact</a></li>
 					<li class="last"><a href="@Url.Action("Index","Dashboard")">@TextResources.BusinesslmsHome.MenuLogin</a></li>
 				</ul>
@@ -50,9 +49,9 @@
 					<article class="footbox last">
 						<h2>@TextResources.BusinesslmsHome.RedSocial </h2>
 						<div id="social">
-							<a href="https://twitter.com/ibovirtual" class="s3d twitter" target="_blank">Follow Us <span class="icons twitter"></span></a>
-							<a href="https://www.facebook.com/IboVirtual/" class="s3d facebook" target="_blank">Like Us<span class="icons facebook"></span></a>
-							<a href="http://www.youtube.com/ibovirtual" class="s3d youtube" target="_blank">YouTube Us<span class="icons youtube"></span></a>
+							<a href="https://twitter.com/ibovirtual" class="s3d twitter" target="_blank">@TextResources.BusinesslmsHome.FollowusButton<span class="icons twitter"></span></a>
+							<a href="https://www.facebook.com/IboVirtual/" class="s3d facebook" target="_blank">@TextResources.BusinesslmsHome.FacebookButtton<span class="icons facebook"></span></a>
+							<a href="http://www.youtube.com/ibovirtual" class="s3d youtube" target="_blank">@TextResources.BusinesslmsHome.YoutubeButton<span class="icons youtube"></span></a>
 
 						</div>
 					</article>
@@ -78,7 +77,7 @@
 		</div>
 	</div>
 	<footer>
-		<p class="tagline_left">Copyright &copy; 2012 - All Rights Reserved - <a href="ibovirtual.com">ibovirtual.com</a></p>
+		<p class="tagline_left">Copyright &copy; 2012 - @TextResources.BusinesslmsHome.RightsText - <a href="ibovirtual.com">ibovirtual.com</a></p>
 		@if (System.Threading.Thread.CurrentThread.CurrentCulture.Name == "en-US")
 		{
 			<div class="pl800">Cambiar idioma a <a href="@Url.Action("ChangeLanguage", new { id = "es-MX" })">Español</a></div>

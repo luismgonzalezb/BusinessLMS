@@ -6,50 +6,55 @@ namespace BusinessLMS.Models
 	public partial class IBO
 	{
 		[Required]
+		[Display(Name = "IBONum", ResourceType = typeof(TextResources.Businesslms))]
 		public string IBONum { get; set; }
 
 		[Display(Name = "UpLine", ResourceType = typeof(TextResources.Businesslms))]
 		public string UPLine { get; set; }
 
 		[Required]
-		[Display(Name = "Languaje", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "languageId", ResourceType = typeof(TextResources.Businesslms))]
 		public int languageId { get; set; }
 
 		[Required]
-		[Display(Name = "FirstName", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "firstName", ResourceType = typeof(TextResources.Businesslms))]
 		public string firstName { get; set; }
 
 		[Required]
-		[Display(Name = "LastName", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "lastName", ResourceType = typeof(TextResources.Businesslms))]
 		public string lastName { get; set; }
 
 		public string accesstoken { get; set; }
 
 		[Required]
+		[Display(Name = "email", ResourceType = typeof(TextResources.Businesslms))]
 		public string email { get; set; }
 
+		[Display(Name = "facebookid", ResourceType = typeof(TextResources.Businesslms))]
 		public string facebookid { get; set; }
 
+		[Display(Name = "twitter", ResourceType = typeof(TextResources.Businesslms))]
 		public string twitter { get; set; }
 
 		public System.DateTime datetime { get; set; }
 
+		[Display(Name = "lastName", ResourceType = typeof(TextResources.Businesslms))]
 		public string picture { get; set; }
 
 		public int UserId { get; set; }
 
 		[Required]
-		[Display(Name = "Birthday", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "birthday", ResourceType = typeof(TextResources.Businesslms))]
 		public Nullable<System.DateTime> birthday { get; set; }
 
-		[Display(Name = "Phone", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "phone", ResourceType = typeof(TextResources.Businesslms))]
 		public string phone { get; set; }
 
-		[Display(Name = "Level", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "level", ResourceType = typeof(TextResources.Businesslms))]
 		public int level { get; set; }
 
 		[Required]
-		[Display(Name = "NewsLetter", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "newsletteroptin", ResourceType = typeof(TextResources.Businesslms))]
 		public bool newsletteroptin { get; set; }
 	}
 }

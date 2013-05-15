@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FacebookButtton" xml:space="preserve">
+    <value>Me Gusta</value>
+  </data>
+  <data name="FollowusButton" xml:space="preserve">
+    <value>Siguenos</value>
+  </data>
   <data name="HeatherTitle" xml:space="preserve">
     <value>APRENDE A TENER TU PROPIO NEGOCIO</value>
   </data>
@@ -149,6 +155,9 @@ Registrate y deja tus comentarios.
   <data name="NewsTitle" xml:space="preserve">
     <value>Últimas Noticias</value>
   </data>
+  <data name="PhoneText" xml:space="preserve">
+    <value>Telefono</value>
+  </data>
   <data name="PurposeText" xml:space="preserve">
     <value>Enseñar los básicos, principios y valores para desarrollar una organización.</value>
   </data>
@@ -168,13 +177,16 @@ Registrate y deja tus comentarios.
     <value>Telefono</value>
   </data>
   <data name="RegisterQuestion" xml:space="preserve">
-    <value>Como te enteraste de nosotros?</value>
+    <value>Quien te dijo de nosotros?</value>
   </data>
   <data name="RegisterSubtitle" xml:space="preserve">
     <value>Unete a nosotros aqui</value>
   </data>
   <data name="RegisterTitle" xml:space="preserve">
     <value>Estas Listo para llevar una vida con tiempo libre, y libre de deudas?...</value>
+  </data>
+  <data name="RightsText" xml:space="preserve">
+    <value>Todos Los Derechos Reservados</value>
   </data>
   <data name="VideoText1" xml:space="preserve">
     <value>La información contenida en este vídeo solo tiene el propósito de despertar tu curiosidad, captar tu interés y darte información con datos reales. No pretendemos convencerte, solo darte información con el fin de que te conviertas en estudiante y por ende en un profesional de una de las industrias de mayor potencial en esta era y en el mundo entero.</value>
@@ -199,5 +211,8 @@ Registrate y deja tus comentarios.
   </data>
   <data name="VisionTitle" xml:space="preserve">
     <value>VISION</value>
+  </data>
+  <data name="YoutubeButton" xml:space="preserve">
+    <value>Youtube</value>
   </data>
 </root>

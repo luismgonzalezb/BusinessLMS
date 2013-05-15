@@ -64,9 +64,9 @@
 		<div class="container_12">
 			<div class="grid">
 				<div class="alignright">
-					@{ Html.RenderPartial("_Register", (BusinessLMS.Models.Contact)ViewBag.contact); }
 					<h3>@TextResources.BusinesslmsHome.RegisterTitle</h3>
 					<p>@TextResources.BusinesslmsHome.RegisterSubtitle </p>
+					@{ Html.RenderPartial("_Register", (BusinessLMS.Models.Contact)ViewBag.contact); }
 				</div>
 			</div>
 			<div class="clear"></div>

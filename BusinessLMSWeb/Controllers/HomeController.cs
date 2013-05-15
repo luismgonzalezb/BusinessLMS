@@ -112,7 +112,7 @@ namespace BusinessLMSWeb.Controllers
 		[HttpGet]
 		public ActionResult GetIBO(string id)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetIBOShort");
+			BaseClient client = new BaseClient(baseApiUrl, "IBOs", "GetIBOShort");
 			IBOShort ibo = client.Get<IBOShort>(id);
 			return Json(ibo, JsonRequestBehavior.AllowGet);
 		}
@@ -123,7 +123,7 @@ namespace BusinessLMSWeb.Controllers
 			List<SearchObject> userNames = _userNames;
 			if (userNames == null)
 			{
-				BaseClient client = new BaseClient(baseApiUrl, "IBO", "GetSearchIBO");
+				BaseClient client = new BaseClient(baseApiUrl, "IBOs", "GetSearchIBO");
 				userNames = client.Get<List<SearchObject>>();
 				_userNames = userNames;
 			}

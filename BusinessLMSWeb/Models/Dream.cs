@@ -7,7 +7,8 @@ namespace BusinessLMS.Models
 		[Display(Name = "Dreams ID")]
 		public int dreamId { get; set; }
 
-		[Display(Name = "Dreams ID")]
+		[Required]
+		[Display(Name = "IBONum", ResourceType = typeof(TextResources.Businesslms))]
 		public string IBONum { get; set; }
 
 		[Display(Name = "Dreams ID")]

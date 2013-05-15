@@ -14,8 +14,8 @@ namespace BusinessLMS.Models
 		public int contactId { get; set; }
 
 		[Required]
-		[Display(Name = "Ibo Num")]
 		[DataType(DataType.Text)]
+		[Display(Name = "IBONum", ResourceType = typeof(TextResources.Businesslms))]
 		public string IBONum { get; set; }
 
 		[Required]

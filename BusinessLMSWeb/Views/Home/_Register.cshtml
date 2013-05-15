@@ -2,7 +2,6 @@
 @using BusinessLMSWeb.Helpers
 
 <div class="main-container">
-	<!-- Faltan los tex de las cajas de texto register-->
 	<div class="container1" id="divRegisterForm">
 	@using (Html.BeginForm("RegisterAjax", "Home", FormMethod.Post, new { id = "current_form" }))
 	{ 
@@ -48,7 +47,7 @@
 					@Html.CheckBoxMetroFor(model => model.newsletteroptin, new { @class = "metro-check" })
 				</div>
 				<div class="alignright">
-					<input type="button" value="Register" onclick="sendRegister(this.form);" />
+					<input type="button" value="@TextResources.Businesslms.Register" onclick="sendRegister(this.form);" />
 				</div>
 			</fieldset>
 		</div>

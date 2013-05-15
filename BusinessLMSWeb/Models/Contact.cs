@@ -6,90 +6,91 @@ namespace BusinessLMS.Models
 	public partial class Contact
 	{
 
-		[Display(Name = "Contact Id")]
+		[Required]
+		[Display(Name = "contactId", ResourceType = typeof(TextResources.Businesslms))]
 		public int contactId { get; set; }
 
 		[Required]
-		[Display(Name = "Ibo Num")]
+		[Display(Name = "IBONum", ResourceType = typeof(TextResources.Businesslms))]
 		[DataType(DataType.Text)]
 		public string IBONum { get; set; }
 
 		[Required]
-		[Display(Name = "Contact Level")]
+		[Display(Name = "contactTypeId", ResourceType = typeof(TextResources.Businesslms))]
 		public int contactTypeId { get; set; }
 
 		[Required]
-		[Display(Name = "Lenguage")]
 		[DataType(DataType.Text)]
+		[Display(Name = "languageId", ResourceType = typeof(TextResources.Businesslms))]
 		public int languageId { get; set; }
 
 		[Required]
-		[Display(Name = "First Name")]
 		[DataType(DataType.Text)]
+		[Display(Name = "firstName", ResourceType = typeof(TextResources.Businesslms))]
 		public string firstName { get; set; }
 
 		[Required]
-		[Display(Name = "Last Name")]
 		[DataType(DataType.Text)]
+		[Display(Name = "lastName", ResourceType = typeof(TextResources.Businesslms))]
 		public string lastName { get; set; }
 
 		[Required]
-		[Display(Name = "Email")]
 		[DataType(DataType.EmailAddress)]
+		[Display(Name = "email", ResourceType = typeof(TextResources.Businesslms))]
 		public string email { get; set; }
 
-		[Display(Name = "Phone Number")]
 		[DataType(DataType.PhoneNumber)]
+		[Display(Name = "phone", ResourceType = typeof(TextResources.Businesslms))]
 		public string phone { get; set; }
 
-		[Display(Name = "Cell Number")]
 		[DataType(DataType.PhoneNumber)]
+		[Display(Name = "cell", ResourceType = typeof(TextResources.Businesslms))]
 		public string cell { get; set; }
 
-		[Display(Name = "Address")]
 		[DataType(DataType.MultilineText)]
+		[Display(Name = "address", ResourceType = typeof(TextResources.Businesslms))]
 		public string address { get; set; }
 
-		[Display(Name = "State")]
 		[DataType(DataType.Text)]
+		[Display(Name = "state", ResourceType = typeof(TextResources.Businesslms))]
 		public string state { get; set; }
 
-		[Display(Name = "City")]
 		[DataType(DataType.Text)]
+		[Display(Name = "city", ResourceType = typeof(TextResources.Businesslms))]
 		public string city { get; set; }
 
-		[Display(Name = "zipcode")]
 		[DataType(DataType.PostalCode)]
+		[Display(Name = "zipcode", ResourceType = typeof(TextResources.Businesslms))]
 		public string zipcode { get; set; }
 
 		[Required]
-		[Display(Name = "Preferred Contact Method")]
 		[DataType(DataType.Text)]
+		[Display(Name = "preferred", ResourceType = typeof(TextResources.Businesslms))]
 		public string preferred { get; set; }
 
 		[Required]
-		[Display(Name = "Contact Level")]
 		[DataType(DataType.Text)]
+		[Display(Name = "contactLevel", ResourceType = typeof(TextResources.Businesslms))]
 		public string contactLevel { get; set; }
 
 		[Required]
-		[Display(Name = "Date Time")]
 		[DataType(DataType.DateTime)]
 		public System.DateTime datetime { get; set; }
 
 		[Required]
+		[Display(Name = "isPublic", ResourceType = typeof(TextResources.Businesslms))]
 		public bool isPublic { get; set; }
 
-		[Display(Name = "Birthdat")]
 		[DataType(DataType.DateTime)]
+		[Display(Name = "birthday", ResourceType = typeof(TextResources.Businesslms))]
 		public Nullable<System.DateTime> birthday { get; set; }
 
-		[Display(Name = "Prefered Contact Time")]
 		[DataType(DataType.Text)]
+		[Display(Name = "preferedTime", ResourceType = typeof(TextResources.Businesslms))]
 		public string preferedTime { get; set; }
 
 		[Required]
-		[Display(Name = "I Would you like to receive Ibovirtual.com Newsletter.")]
+		[Display(Name = "newsletteroptin", ResourceType = typeof(TextResources.Businesslms))]
 		public Nullable<bool> newsletteroptin { get; set; }
 
 		public string GetFullName()

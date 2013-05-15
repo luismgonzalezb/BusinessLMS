@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FacebookButtton" xml:space="preserve">
+    <value>Like Us</value>
+  </data>
+  <data name="FollowusButton" xml:space="preserve">
+    <value>Follow Us</value>
+  </data>
   <data name="HeatherTitle" xml:space="preserve">
     <value>LEARN TO BE AN INDEPENDENT BUSINESS OWNER</value>
   </data>
@@ -147,6 +153,9 @@
   <data name="NewsTitle" xml:space="preserve">
     <value>Latest News</value>
   </data>
+  <data name="PhoneText" xml:space="preserve">
+    <value>Phone</value>
+  </data>
   <data name="PurposeText" xml:space="preserve">
     <value>Teach the basics, principles and values to develop an organization.</value>
   </data>
@@ -174,6 +183,9 @@
   <data name="RegisterTitle" xml:space="preserve">
     <value>Ready to have a debt free and full of time life?...</value>
   </data>
+  <data name="RightsText" xml:space="preserve">
+    <value>All Rights Reserved</value>
+  </data>
   <data name="VideoText1" xml:space="preserve">
     <value>The information contained in this single video is intended to awaken your curiosity, capture your interest and give you information with real data. We can’t convince you, but we can give you information so that you become student, and therefore a professional in one of the industries with the greatest potential in this era and in the whole world.</value>
   </data>
@@ -197,5 +209,8 @@
   </data>
   <data name="VisionTitle" xml:space="preserve">
     <value>VISION</value>
+  </data>
+  <data name="YoutubeButton" xml:space="preserve">
+    <value>Youtube Us</value>
   </data>
 </root>

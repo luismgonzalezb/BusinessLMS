@@ -117,49 +117,103 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Birthday" xml:space="preserve">
+  <data name="address" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="birthday" xml:space="preserve">
     <value>Cumpleaños</value>
   </data>
-  <data name="City" xml:space="preserve">
+  <data name="cell" xml:space="preserve">
+    <value>Numero Celular</value>
+  </data>
+  <data name="city" xml:space="preserve">
     <value>Ciudad</value>
   </data>
   <data name="Class" xml:space="preserve">
     <value>Clase</value>
   </data>
-  <data name="FirstName" xml:space="preserve">
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirmar Nueva Contraseña</value>
+  </data>
+  <data name="contactId" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="contactLevel" xml:space="preserve">
+    <value>Nivel del Contacto</value>
+  </data>
+  <data name="contactTypeId" xml:space="preserve">
+    <value>Tipo de Contacto</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Correo Electrónico</value>
+  </data>
+  <data name="facebookid" xml:space="preserve">
+    <value>Usuario de Facebook</value>
+  </data>
+  <data name="firstName" xml:space="preserve">
     <value>Nombre</value>
   </data>
-  <data name="Languaje" xml:space="preserve">
+  <data name="IBONum" xml:space="preserve">
+    <value>Numero de IBO</value>
+  </data>
+  <data name="isPublic" xml:space="preserve">
+    <value>Es Publico</value>
+  </data>
+  <data name="languageId" xml:space="preserve">
     <value>Lenguaje</value>
   </data>
-  <data name="LastName" xml:space="preserve">
+  <data name="lastName" xml:space="preserve">
     <value>Apellido</value>
   </data>
-  <data name="Latitude" xml:space="preserve">
-    <value>Latitud</value>
-  </data>
-  <data name="Level" xml:space="preserve">
+  <data name="level" xml:space="preserve">
     <value>Nivel</value>
   </data>
-  <data name="Longitude" xml:space="preserve">
-    <value>Longitud</value>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nueva Contraseña</value>
   </data>
-  <data name="NewsLetter" xml:space="preserve">
+  <data name="newsletteroptin" xml:space="preserve">
     <value>Quiero recibir las noticias de IBOVirtual en mi correo</value>
   </data>
-  <data name="Phone" xml:space="preserve">
+  <data name="OldPassword" xml:space="preserve">
+    <value>Contraseña Actual</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="phone" xml:space="preserve">
     <value>Telefono</value>
   </data>
-  <data name="Statecode" xml:space="preserve">
-    <value>Codigo de estado</value>
+  <data name="picture" xml:space="preserve">
+    <value>Fotografía</value>
+  </data>
+  <data name="preferedTime" xml:space="preserve">
+    <value>Hora de Contacto Preferida</value>
+  </data>
+  <data name="preferred" xml:space="preserve">
+    <value>Método de Contacto Preferido</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrar</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Recordar Usuario?</value>
+  </data>
+  <data name="state" xml:space="preserve">
+    <value>Estado</value>
   </data>
   <data name="ToolName" xml:space="preserve">
     <value>Nombre de la herramienta</value>
   </data>
-  <data name="UpLine" xml:space="preserve">
-    <value>IBO Superior</value>
+  <data name="twitter" xml:space="preserve">
+    <value>Usuario de Twitter</value>
   </data>
-  <data name="Zipcode" xml:space="preserve">
-    <value>Codigo postal</value>
+  <data name="UpLine" xml:space="preserve">
+    <value>Numero de IBO de Upline</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Nombre de Usuario</value>
+  </data>
+  <data name="zipcode" xml:space="preserve">
+    <value>Codigo Postal</value>
   </data>
 </root>

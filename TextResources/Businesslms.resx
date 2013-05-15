@@ -117,49 +117,103 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Birthday" xml:space="preserve">
+  <data name="address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="birthday" xml:space="preserve">
     <value>Birthday</value>
   </data>
-  <data name="City" xml:space="preserve">
+  <data name="cell" xml:space="preserve">
+    <value>Cell Phone</value>
+  </data>
+  <data name="city" xml:space="preserve">
     <value>City</value>
   </data>
   <data name="Class" xml:space="preserve">
     <value>Class</value>
   </data>
-  <data name="FirstName" xml:space="preserve">
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm new password</value>
+  </data>
+  <data name="contactId" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="contactLevel" xml:space="preserve">
+    <value>Contact Level</value>
+  </data>
+  <data name="contactTypeId" xml:space="preserve">
+    <value>Contact Type</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="facebookid" xml:space="preserve">
+    <value>Facebook User</value>
+  </data>
+  <data name="firstName" xml:space="preserve">
     <value>First Name</value>
   </data>
-  <data name="Languaje" xml:space="preserve">
-    <value>Languaje</value>
+  <data name="IBONum" xml:space="preserve">
+    <value>IBO Number</value>
   </data>
-  <data name="LastName" xml:space="preserve">
+  <data name="isPublic" xml:space="preserve">
+    <value>Is Public</value>
+  </data>
+  <data name="languageId" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="lastName" xml:space="preserve">
     <value>Last Name</value>
   </data>
-  <data name="Latitude" xml:space="preserve">
-    <value>Latitude</value>
-  </data>
-  <data name="Level" xml:space="preserve">
+  <data name="level" xml:space="preserve">
     <value>Level</value>
   </data>
-  <data name="Longitude" xml:space="preserve">
-    <value>Longitude</value>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New password</value>
   </data>
-  <data name="NewsLetter" xml:space="preserve">
+  <data name="newsletteroptin" xml:space="preserve">
     <value>I Would you like to receive Ibovirtual.com Newsletter.</value>
   </data>
-  <data name="Phone" xml:space="preserve">
+  <data name="OldPassword" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="phone" xml:space="preserve">
     <value>Phone Number</value>
   </data>
-  <data name="Statecode" xml:space="preserve">
-    <value>State Code</value>
+  <data name="picture" xml:space="preserve">
+    <value>Picture</value>
+  </data>
+  <data name="preferedTime" xml:space="preserve">
+    <value>Prefered Contact Time</value>
+  </data>
+  <data name="preferred" xml:space="preserve">
+    <value>Preferred Contact Method</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me?</value>
+  </data>
+  <data name="state" xml:space="preserve">
+    <value>State</value>
   </data>
   <data name="ToolName" xml:space="preserve">
     <value>Tool Name</value>
   </data>
+  <data name="twitter" xml:space="preserve">
+    <value>Twitter User</value>
+  </data>
   <data name="UpLine" xml:space="preserve">
     <value>UpLine IBO Number</value>
   </data>
-  <data name="Zipcode" xml:space="preserve">
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="zipcode" xml:space="preserve">
     <value>Zip Code</value>
   </data>
 </root>
