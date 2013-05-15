@@ -2,58 +2,60 @@
 @using BusinessLMSWeb.Helpers
 
 @{
-    ViewBag.Title = "Log in";
-    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+	ViewBag.Title = "Log in";
+	Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
 
 <div class="metro-container-300">
-    <div class="title" style="margin-bottom:40px;">
-        <h1>@ViewBag.Title.</h1>
-    </div>
+	<div class="title" style="margin-bottom:40px;">
+		<h1>@TextResources.BusinesslmsHome.MenuLogin.</h1>
+	</div>
 
-    <section class="social" id="socialLoginForm">
-        @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-    </section>
+	<section class="social" id="socialLoginForm">
+		@Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+	</section>
 
-    <section id="loginForm">
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "metro-form" }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
+	<section id="loginForm">
+	@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "metro-form" }))
+	{
+		@Html.AntiForgeryToken()
+		@Html.ValidationSummary(true)
 
-        <fieldset>
-            <legend></legend>
-            <div class="metro-form-control">
-                @Html.LabelFor(m => m.UserName)
-                <div class="metro-text-box">
-                    @Html.TextBoxFor(m => m.UserName)
-                    @Html.ValidationMessageFor(m => m.UserName)
-                </div>
-            </div>
-            <div class="metro-form-control">
-                @Html.LabelFor(m => m.Password)
-                <div class="metro-text-box">
-                    @Html.PasswordFor(m => m.Password)
-                    @Html.ValidationMessageFor(m => m.Password)
-                </div>
-            </div>
-            <div class="metro-form-control">
-                <div class="metro-form-control-left">
-                    @Html.CheckBoxMetroFor(m => m.RememberMe, new { @class = "metro-check" })
-                </div>
-                <div class="metro-form-control-right">
-                    <input type="submit" value="Log in" class="metro-button" />
-                </div>
-            </div>
-            
-        </fieldset>
-        <div class="metro-align-right" style="margin-top:20px;">
-            @Html.ActionLink("Register", "Register") if you don't have an account. <br/> @Html.ActionLink("Forgot Password?", "Forgot")
-        </div>
-    }
-    </section>
+		<fieldset>
+			<legend></legend>
+			<div class="metro-form-control">
+				@Html.LabelFor(m => m.UserName)
+				<div class="metro-text-box">
+					@Html.TextBoxFor(m => m.UserName)
+					@Html.ValidationMessageFor(m => m.UserName)
+				</div>
+			</div>
+			<div class="metro-form-control">
+				@Html.LabelFor(m => m.Password)
+				<div class="metro-text-box">
+					@Html.PasswordFor(m => m.Password)
+					@Html.ValidationMessageFor(m => m.Password)
+				</div>
+			</div>
+			<div class="metro-form-control">
+				<div class="metro-form-control-left">
+					@Html.CheckBoxMetroFor(m => m.RememberMe, new { @class = "metro-check" })
+				</div>
+				<div class="metro-form-control-right">
+					<input type="submit" value="@TextResources.BusinesslmsHome.MenuLogin" class="metro-button" />
+				</div>
+			</div>
+			
+		</fieldset>
+		<div class="metro-align-right" style="margin-top:20px;">
+			@Html.ActionLink(TextResources.Businesslms.Forgot, "Forgot") <br />
+			@Html.ActionLink(TextResources.Businesslms.Register, "Register") @TextResources.Businesslms.RegisterText <br/> 
+			@TextResources.Businesslms.GoBack @Html.ActionLink(TextResources.BusinesslmsHome.MenuHome,"Index","Home")
+		</div>
+	}
+	</section>
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/bundles/jqueryval")
 }

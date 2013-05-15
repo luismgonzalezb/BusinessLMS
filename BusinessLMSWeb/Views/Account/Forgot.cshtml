@@ -1,44 +1,44 @@
 ﻿@model BusinessLMSWeb.Models.ForgotModel
 
 @{
-    ViewBag.Title = "Recover Password";
-    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+	ViewBag.Title = "Recover Password";
+	Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
 
 <div class="metro-container-500">
 
-    <div class="title" style="margin-bottom:40px;">
-        <h1>@ViewBag.Title.</h1>
-    </div>
+	<div class="title" style="margin-bottom:40px;">
+		<h2>@TextResources.Businesslms.RecoverPassword.</h2>
+	</div>
 
-    <section id="loginForm">
-    @using (Html.BeginForm("Forgot", "Account", FormMethod.Post, new { @class = "metro-form" }))
-    {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
+	<section id="loginForm">
+	@using (Html.BeginForm("Forgot", "Account", FormMethod.Post, new { @class = "metro-form" }))
+	{
+		@Html.AntiForgeryToken()
+		@Html.ValidationSummary(true)
 
-        <fieldset>
-            <legend></legend>
-            <div class="metro-form-control">
-                @Html.LabelFor(m => m.UserName)
-                <div class="metro-text-box">
-                    @Html.TextBoxFor(m => m.UserName)
-                    @Html.ValidationMessageFor(m => m.UserName)
-                </div>
-            </div>
-        
-            <div class="metro-align-right">
-                <input type="submit" value="Send Email" class="metro-button"/>
-            </div>
-        </fieldset>
-        <div class="metro-align-right" style="margin-top:20px;">
-            Back to @Html.ActionLink("Home", "Login")
-        </div>
-    }
-    </section>
+		<fieldset>
+			<legend></legend>
+			<div class="metro-form-control">
+				@Html.LabelFor(m => m.UserName)
+				<div class="metro-text-box">
+					@Html.TextBoxFor(m => m.UserName)
+					@Html.ValidationMessageFor(m => m.UserName)
+				</div>
+			</div>
+		
+			<div class="metro-align-right">
+				<input type="submit" value="@TextResources.Businesslms.SendEmail" class="metro-button"/>
+			</div>
+		</fieldset>
+		<div class="metro-align-right" style="margin-top:20px;">
+			@TextResources.Businesslms.GoBack @Html.ActionLink(TextResources.BusinesslmsHome.MenuHome,"Index","Home")
+		</div>
+	}
+	</section>
 
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/bundles/jqueryval")
 }

@@ -36,7 +36,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 
 			// If we got this far, something failed, redisplay form
-			ModelState.AddModelError("", "The user name or password provided is incorrect.");
+			ModelState.AddModelError("", TextResources.Businesslms.ErrorPassword);
 			return View(model);
 		}
 
@@ -103,7 +103,7 @@ namespace BusinessLMSWeb.Controllers
 			}
 			else
 			{
-				ModelState.AddModelError(String.Empty, "The user name was not found");
+				ModelState.AddModelError(String.Empty, TextResources.Businesslms.ErrorUserNotFound);
 			}
 			return View(model);
 		}

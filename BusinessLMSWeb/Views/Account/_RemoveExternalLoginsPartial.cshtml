@@ -2,7 +2,7 @@
 
 @if (Model.Count > 0)
 {
-    <h3>You are also connected with </h3>
+    <h3>@TextResources.Businesslms.ConnectedWith</h3>
     <div class="metro-form">
         @foreach (BusinessLMSWeb.Models.ExternalLogin externalLogin in Model)
         {
@@ -14,7 +14,7 @@
                     <fieldset>
                         <legend></legend>
                         <div class="metro-align-right">
-                            Remove 
+                            @TextResources.Businesslms.Remove 
                             <input type="submit" value="Remove" title="Remove this @externalLogin.ProviderDisplayName credential from your account" class="facebook-button" />
                         </div>
                         @Html.Hidden("provider", externalLogin.Provider)

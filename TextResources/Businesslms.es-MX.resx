@@ -184,7 +184,7 @@
     <value>Telefono</value>
   </data>
   <data name="picture" xml:space="preserve">
-    <value>Fotografía</value>
+    <value>Mi Fotografía</value>
   </data>
   <data name="preferedTime" xml:space="preserve">
     <value>Hora de Contacto Preferida</value>
@@ -215,5 +215,62 @@
   </data>
   <data name="zipcode" xml:space="preserve">
     <value>Codigo Postal</value>
+  </data>
+  <data name="Already" xml:space="preserve">
+    <value>Ya estas registrado</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="ConnectedWith" xml:space="preserve">
+    <value>También estas conectado con</value>
+  </data>
+  <data name="Connectwith" xml:space="preserve">
+    <value>Conectar Con</value>
+  </data>
+  <data name="ErrorPassword" xml:space="preserve">
+    <value>El nombre de usuario o contraseña no son validos.</value>
+  </data>
+  <data name="ErrorUserNotFound" xml:space="preserve">
+    <value>Nombre de usuario no localizado</value>
+  </data>
+  <data name="Forgot" xml:space="preserve">
+    <value>Olvidaste tu Contraseña?</value>
+  </data>
+  <data name="GoBack" xml:space="preserve">
+    <value>Regresar al</value>
+  </data>
+  <data name="Here" xml:space="preserve">
+    <value>Aquí</value>
+  </data>
+  <data name="IBODetails" xml:space="preserve">
+    <value>Detalles del IBO</value>
+  </data>
+  <data name="LoggedInAs" xml:space="preserve">
+    <value>Estas conectado como</value>
+  </data>
+  <data name="ManageAccount" xml:space="preserve">
+    <value>Manejar Cuenta</value>
+  </data>
+  <data name="RecoverPassword" xml:space="preserve">
+    <value>Recuperar Contraseña</value>
+  </data>
+  <data name="RegisterText" xml:space="preserve">
+    <value>si no tienes una cuenta.</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Quitar</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>Enviar Correo Electrónico</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>Cargar Archivo</value>
   </data>
 </root>

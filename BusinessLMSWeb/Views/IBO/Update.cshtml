@@ -9,7 +9,7 @@
 <div class="metro-container-300">
 
 	<div class="title" style="margin-bottom:40px;">
-		<h1>@ViewBag.Title.</h1>
+		<h1>@TextResources.Businesslms.IBODetails.</h1>
 	</div>
 
 	@using (Html.BeginForm("Update","IBO", FormMethod.Post, new { @class = "metro-form", id = "createIBOForm" })) {
@@ -19,7 +19,7 @@
 			<legend></legend>
 
 			<div class="metro-form-control">
-				<label for="IBONum">ID</label>
+				@Html.LabelFor(model => model.IBONum)
 				<div class="metro-text-box">
 					@Html.EditorFor(model => model.IBONum)
 					@Html.ValidationMessageFor(model => model.IBONum)
@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="metro-form-control">
-				<label for="email">Email</label>
+				@Html.LabelFor(model => model.email)
 				<div class="metro-text-box">
 					@Html.EditorFor(model => model.email)
 					@Html.ValidationMessageFor(model => model.email)
@@ -84,7 +84,7 @@
 			</div>
 
 			<div class="metro-form-control">
-				<label for="twitter">Twitter</label>
+				@Html.LabelFor(model => model.twitter)
 				<div class="metro-text-box">
 					@Html.EditorFor(model => model.twitter)
 					@Html.ValidationMessageFor(model => model.twitter)
@@ -107,18 +107,18 @@
 		</fieldset>
 	}
 
-	My Picture
+	@TextResources.Businesslms.picture
 	<form action="/api/Files" method="post" enctype="multipart/form-data" id="file_upload" >
 		<div id = "filediv">
 			<input type="file" name="file"/>
 			<div id="status"></div>
 		</div>
-		<input type="submit" value="Upload" id="btnUpload" class="metro-button" />
+		<input type="submit" value="@TextResources.Businesslms.Upload" id="btnUpload" class="metro-button" />
 		<input value="Facebook" id="btnLogin" class="metro-button" />
 	</form>
 
 	<div class="metro-align-right">
-		<input type="button" value="Update" class="metro-button" onclick="submitform();" />
+		<input type="button" value="@TextResources.Businesslms.Update" class="metro-button" onclick="submitform();" />
 	</div>
 
 </div>

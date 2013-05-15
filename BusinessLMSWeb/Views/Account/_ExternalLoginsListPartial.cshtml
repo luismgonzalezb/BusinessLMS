@@ -7,7 +7,7 @@
         <fieldset id="socialLoginList">
             <legend></legend>
             <div class="metro-align-right">
-                Connect with
+                @TextResources.Businesslms.Connectwith
                 @foreach (AuthenticationClientData p in Model)
                 {
                     <button type="submit" name="provider" value="@p.AuthenticationClient.ProviderName" title="Log in using your @p.DisplayName account" class="@p.ExtraData["class"].ToString()">@p.DisplayName</button>

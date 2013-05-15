@@ -1,55 +1,54 @@
 ﻿@model BusinessLMSWeb.Models.RegisterModel
 @{
-    ViewBag.Title = "Register";
-    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+	Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
 
 <div class="metro-container-300">
 
-    <div class="title" style="margin-bottom:40px;">
-        <h1>@ViewBag.Title.</h1>
-    </div>
+	<div class="title" style="margin-bottom:40px;">
+		<h1>@TextResources.Businesslms.Register.</h1>
+	</div>
 
-    @using (Html.BeginForm("Register","Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "metro-form" })) {
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary()
+	@using (Html.BeginForm("Register","Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "metro-form" })) {
+		@Html.AntiForgeryToken()
+		@Html.ValidationSummary()
 
-        <fieldset>
-            <legend></legend>
-            <div class="metro-form-control">
-                @Html.LabelFor(m => m.UserName)
-                <div class="metro-text-box">
-                    @Html.TextBoxFor(m => m.UserName)
-                    @Html.ValidationMessageFor(m => m.UserName)
-                </div>
-            </div>
-            <div class="metro-form-control">
-                @Html.LabelFor(m => m.Password)
-                <div class="metro-text-box">
-                    @Html.PasswordFor(m => m.Password)
-                    @Html.ValidationMessageFor(m => m.Password)
-                </div>
-            </div>
-            <div class="metro-form-control">
-                @Html.LabelFor(m => m.ConfirmPassword)
-                <div class="metro-text-box">
-                    @Html.PasswordFor(m => m.ConfirmPassword)
-                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
-                </div>
-            </div>
-            <div class="metro-align-right">
-                <input type="submit" value="Register" class="metro-button"/>
-            </div>
-        </fieldset>
-        <div class="metro-align-right" style="margin-top:20px;">
-            Already registered, Login @Html.ActionLink("Here", "Login") <br />
-            Go back @Html.ActionLink("home.","Index","Home")
-        </div>
+		<fieldset>
+			<legend></legend>
+			<div class="metro-form-control">
+				@Html.LabelFor(m => m.UserName)
+				<div class="metro-text-box">
+					@Html.TextBoxFor(m => m.UserName)
+					@Html.ValidationMessageFor(m => m.UserName)
+				</div>
+			</div>
+			<div class="metro-form-control">
+				@Html.LabelFor(m => m.Password)
+				<div class="metro-text-box">
+					@Html.PasswordFor(m => m.Password)
+					@Html.ValidationMessageFor(m => m.Password)
+				</div>
+			</div>
+			<div class="metro-form-control">
+				@Html.LabelFor(m => m.ConfirmPassword)
+				<div class="metro-text-box">
+					@Html.PasswordFor(m => m.ConfirmPassword)
+					@Html.ValidationMessageFor(m => m.ConfirmPassword)
+				</div>
+			</div>
+			<div class="metro-align-right">
+				<input type="submit" value="@TextResources.Businesslms.Register" class="metro-button"/>
+			</div>
+		</fieldset>
+		<div class="metro-align-right" style="margin-top:20px;">
+			@TextResources.Businesslms.Already, @TextResources.BusinesslmsHome.MenuLogin @Html.ActionLink(TextResources.Businesslms.Here, "Login") <br />
+			@TextResources.Businesslms.GoBack @Html.ActionLink(TextResources.BusinesslmsHome.MenuHome,"Index","Home")
+		</div>
 
-    }
+	}
 
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+	@Scripts.Render("~/bundles/jqueryval")
 }
