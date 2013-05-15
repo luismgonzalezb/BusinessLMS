@@ -361,12 +361,9 @@
     <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\IBO.cs" />
     <Compile Include="Models\Language.cs" />
-    <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\State.cs" />
     <Compile Include="ModelsView\Ticket.cs" />
     <Compile Include="Models\Timeframe.cs" />
     <Compile Include="Models\Tool.cs" />
-    <Compile Include="Models\ZIPCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

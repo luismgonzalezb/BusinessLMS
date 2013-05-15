@@ -27,7 +27,7 @@ namespace BusinessLMS.Controllers
 						action = step.action,
 						controller = step.controller,
 						iconClass = step.iconClass,
-						text = st.title
+						title = st.title
 					}).AsEnumerable();
 		}
 

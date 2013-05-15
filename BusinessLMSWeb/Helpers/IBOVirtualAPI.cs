@@ -92,7 +92,7 @@ namespace BusinessLMSWeb.Helpers
 
 		public static List<ContactFollowup> GetFollowups(string iboNum)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
+			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowups", "GetIBOFollowup");
 			return client.Get<List<ContactFollowup>>(iboNum);
 		}
 
@@ -103,7 +103,7 @@ namespace BusinessLMSWeb.Helpers
 				{ "fromDate", fromDate },
 				{ "toDate", toDate }
 			};
-			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowup");
+			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowups", "GetIBOFollowup");
 			return client.Get<List<ContactFollowup>>(parms);
 		}
 
@@ -231,7 +231,7 @@ namespace BusinessLMSWeb.Helpers
 
 		public static List<FollowupView> GetIBOFollowupView(string iboNum)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowup", "GetIBOFollowupView");
+			BaseClient client = new BaseClient(baseApiUrl, "ContactFollowups", "GetIBOFollowupView");
 			return client.Get<List<FollowupView>>(iboNum);
 		}
 
