@@ -3,14 +3,14 @@
 		<a href="#" class="section">
 			<img class="image" src="@ViewBag.IBOPicture" alt="image description" width="32" height="32" />
 			<span class="text-box">
-				Welcome
+				@TextResources.Businesslms.Welcome
 				<strong class="name">@ViewBag.IBOName</strong>
 			</span>
 		</a>
 		<a href="#" class="opener">opener</a>
 		<ul>
-			<li>@Html.ActionLink("Update IBO Details", "Update", "IBO")</li>
-			<li>@Html.ActionLink("Change Password", "Manage", "Account")</li>
+			<li>@Html.ActionLink(TextResources.Businesslms.ProfileIBO, "Update", "IBO")</li>
+			<li>@Html.ActionLink(TextResources.Businesslms.ProfileUser, "Manage", "Account")</li>
 		</ul>
 	</div> 
 	<span class="logout-btn">

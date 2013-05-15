@@ -1,32 +1,26 @@
 ﻿@model BusinessLMS.Models.Book
-
 <div class="metro-container-300">
-
 @using (Html.BeginForm("CreateBookAjax", "Books", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
 {
 	@Html.ValidationSummary(true)
-
 	<fieldset>
 		<legend>Book</legend>
-
 		<div class="metro-form-control">
-			<label for="Title">Title</label>
+			@Html.LabelFor(model => model.Title)
 			<div class="metro-text-box">
 				@Html.EditorFor(model => model.Title)
 				@Html.ValidationMessageFor(model => model.Title)
 			</div>
 		</div>
-
 		<div class="metro-form-control">
-			<label for="Autor">Autor</label>
+			@Html.LabelFor(model => model.Autor)
 			<div class="metro-text-box">
 				@Html.EditorFor(model => model.Autor)
 				@Html.ValidationMessageFor(model => model.Autor)
 			</div>
 		</div>
-
 		<div class="metro-form-control">
-			<label for="Link1">Buy Link</label>
+			@Html.LabelFor(model => model.Link1)
 			<div class="metro-text-box">
 				@Html.EditorFor(model => model.Link1)
 				@Html.ValidationMessageFor(model => model.Link1)
@@ -35,9 +29,8 @@
 				<a onclick="activateSec();"><img src="@Url.Content("~/Images/AddSmB.png")" /></a>
 			</div>
 		</div>
-
 		<div class="metro-form-control" id="SecondLink" hidden="hidden">
-			<label for="Link2">Buy Link</label>
+			@Html.LabelFor(model => model.Link2)
 			<div class="metro-text-box">
 				@Html.EditorFor(model => model.Link2)
 				@Html.ValidationMessageFor(model => model.Link2)
@@ -46,36 +39,29 @@
 				<a onclick="activateThird();"><img src="@Url.Content("~/Images/AddSmB.png")" /></a>
 			</div>
 		</div>
-
 		<div class="metro-form-control" id="ThirdLink" hidden="hidden">
-			<label for="Link3">Buy Link</label>
+			@Html.LabelFor(model => model.Link3)
 			<div class="metro-text-box">
 				@Html.EditorFor(model => model.Link3)
 				@Html.ValidationMessageFor(model => model.Link3)
 			</div>
 		</div>
-
 		<div class="metro-form-control">
-			<label for="Priority">Priority</label>
+			@Html.LabelFor(model => model.Priority)
 			<div class="metro-text-box">
-				@Html.EditorFor(model => model.priority)
-				@Html.ValidationMessageFor(model => model.priority)
+				@Html.EditorFor(model => model.Priority)
+				@Html.ValidationMessageFor(model => model.Priority)
 			</div>
 		</div>
-
 		@Html.HiddenFor(model => model.BookId)
 		@Html.HiddenFor(model => model.IBONum)
-
 		<div class="metro-align-right">
-			<input type="button" value="Cancel" class="metro-button" onclick="CancelBook();" />
-			<input type="button" value="Create" class="metro-button" onclick="submitform(this.form);" />
+			<input type="button" value="@TextResources.Businesslms.Cancel" class="metro-button" onclick="CancelBook();" />
+			<input type="button" value="@TextResources.Businesslms.Create" class="metro-button" onclick="submitform(this.form);" />
 		</div>
-
 	</fieldset>
 }
-
 </div>
-
 <script type="text/javascript">
 	$(document).ready(function () {
 		$.validator.unobtrusive.parse("#current_form");

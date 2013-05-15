@@ -61,7 +61,7 @@ namespace TextResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Achieved?.
+        ///   Looks up a localized string similar to Achieved.
         /// </summary>
         public static string achieved {
             get {
@@ -75,6 +75,15 @@ namespace TextResources {
         public static string action {
             get {
                 return ResourceManager.GetString("action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New.
+        /// </summary>
+        public static string AddNew {
+            get {
+                return ResourceManager.GetString("AddNew", resourceCulture);
             }
         }
         
@@ -106,6 +115,15 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alerts.
+        /// </summary>
+        public static string alerts {
+            get {
+                return ResourceManager.GetString("alerts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Already registered.
         /// </summary>
         public static string Already {
@@ -115,7 +133,7 @@ namespace TextResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Life Area.
+        ///   Looks up a localized string similar to What is your Dream related to.
         /// </summary>
         public static string areaId {
             get {
@@ -129,6 +147,24 @@ namespace TextResources {
         public static string Autor {
             get {
                 return ResourceManager.GetString("Autor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Back to List.
+        /// </summary>
+        public static string BackToList {
+            get {
+                return ResourceManager.GetString("BackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Before.
+        /// </summary>
+        public static string Before {
+            get {
+                return ResourceManager.GetString("Before", resourceCulture);
             }
         }
         
@@ -147,6 +183,24 @@ namespace TextResources {
         public static string BookId {
             get {
                 return ResourceManager.GetString("BookId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calendar.
+        /// </summary>
+        public static string Calendar {
+            get {
+                return ResourceManager.GetString("Calendar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
         
@@ -259,6 +313,24 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create.
+        /// </summary>
+        public static string Create {
+            get {
+                return ResourceManager.GetString("Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You will be there before.
+        /// </summary>
+        public static string datetime {
+            get {
+                return ResourceManager.GetString("datetime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Follow up Date.
         /// </summary>
         public static string datetimeFollowUp {
@@ -286,6 +358,33 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this.
+        /// </summary>
+        public static string DeleteText {
+            get {
+                return ResourceManager.GetString("DeleteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Description {
+            get {
+                return ResourceManager.GetString("Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Describe your Dream.
+        /// </summary>
+        public static string dream {
+            get {
+                return ResourceManager.GetString("dream", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dream.
         /// </summary>
         public static string dreamId {
@@ -295,11 +394,29 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string email {
             get {
                 return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End Date.
+        /// </summary>
+        public static string EndDate {
+            get {
+                return ResourceManager.GetString("EndDate", resourceCulture);
             }
         }
         
@@ -331,11 +448,29 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Feedback.
+        /// </summary>
+        public static string Feedback {
+            get {
+                return ResourceManager.GetString("Feedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
         public static string firstName {
             get {
                 return ResourceManager.GetString("firstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Follow ups.
+        /// </summary>
+        public static string Followup {
+            get {
+                return ResourceManager.GetString("Followup", resourceCulture);
             }
         }
         
@@ -358,6 +493,15 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to How many are you going to accomplish.
+        /// </summary>
+        public static string goal {
+            get {
+                return ResourceManager.GetString("goal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Goal.
         /// </summary>
         public static string goalId {
@@ -372,6 +516,15 @@ namespace TextResources {
         public static string GoBack {
             get {
                 return ResourceManager.GetString("GoBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        public static string Help {
+            get {
+                return ResourceManager.GetString("Help", resourceCulture);
             }
         }
         
@@ -408,6 +561,15 @@ namespace TextResources {
         public static string IBOpicture {
             get {
                 return ResourceManager.GetString("IBOpicture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Index.
+        /// </summary>
+        public static string Index {
+            get {
+                return ResourceManager.GetString("Index", resourceCulture);
             }
         }
         
@@ -484,6 +646,24 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mission.
+        /// </summary>
+        public static string mission {
+            get {
+                return ResourceManager.GetString("mission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My.
+        /// </summary>
+        public static string My {
+            get {
+                return ResourceManager.GetString("My", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New password.
         /// </summary>
         public static string NewPassword {
@@ -498,6 +678,15 @@ namespace TextResources {
         public static string newsletteroptin {
             get {
                 return ResourceManager.GetString("newsletteroptin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Of.
+        /// </summary>
+        public static string Of {
+            get {
+                return ResourceManager.GetString("Of", resourceCulture);
             }
         }
         
@@ -565,11 +754,38 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update IBO Details.
+        /// </summary>
+        public static string ProfileIBO {
+            get {
+                return ResourceManager.GetString("ProfileIBO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change Password.
+        /// </summary>
+        public static string ProfileUser {
+            get {
+                return ResourceManager.GetString("ProfileUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Progress.
         /// </summary>
         public static string progressId {
             get {
                 return ResourceManager.GetString("progressId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Purpose.
+        /// </summary>
+        public static string purpose {
+            get {
+                return ResourceManager.GetString("purpose", resourceCulture);
             }
         }
         
@@ -637,11 +853,38 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start Date.
+        /// </summary>
+        public static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to State.
         /// </summary>
         public static string state {
             get {
                 return ResourceManager.GetString("state", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to That I.
+        /// </summary>
+        public static string ThatI {
+            get {
+                return ResourceManager.GetString("ThatI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ticket Type.
+        /// </summary>
+        public static string TicketType {
+            get {
+                return ResourceManager.GetString("TicketType", resourceCulture);
             }
         }
         
@@ -664,7 +907,16 @@ namespace TextResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tool Name.
+        ///   Looks up a localized string similar to Title.
+        /// </summary>
+        public static string TitleText {
+            get {
+                return ResourceManager.GetString("TitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What is your Goal.
         /// </summary>
         public static string ToolName {
             get {
@@ -678,6 +930,15 @@ namespace TextResources {
         public static string twitter {
             get {
                 return ResourceManager.GetString("twitter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Until.
+        /// </summary>
+        public static string Until {
+            get {
+                return ResourceManager.GetString("Until", resourceCulture);
             }
         }
         
@@ -714,6 +975,33 @@ namespace TextResources {
         public static string UserName {
             get {
                 return ResourceManager.GetString("UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vision.
+        /// </summary>
+        public static string vision {
+            get {
+                return ResourceManager.GetString("vision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome.
+        /// </summary>
+        public static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I&apos;m working on.
+        /// </summary>
+        public static string WorkingOn {
+            get {
+                return ResourceManager.GetString("WorkingOn", resourceCulture);
             }
         }
         

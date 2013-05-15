@@ -56,8 +56,8 @@ namespace BusinessLMSWeb.Controllers
 		public ActionResult DisplayDream(Dream model, bool last)
 		{
 			ViewBag.area = (from area in areas where area.areaId == model.areaId select area.title).FirstOrDefault();
-			ViewBag.completed = model.achieved == true ? "Acieved" : " I'm working on ";
-			ViewBag.etaMsg = model.achieved == true ? " Before " : " Until ";
+			ViewBag.completed = model.achieved == true ? " " + TextResources.Businesslms.achieved + " " : " " + TextResources.Businesslms.WorkingOn + " ";
+			ViewBag.etaMsg = model.achieved == true ? " " + TextResources.Businesslms.Before + " " : " " + TextResources.Businesslms.Until + " ";
 			ViewBag.eta = String.Format("{0:dddd dd MMMM yyyy}", model.datetime);
 			ViewBag.last = last;
 			return PartialView(model);

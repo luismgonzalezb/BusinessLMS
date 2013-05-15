@@ -1,6 +1,5 @@
 ﻿@model BusinessLMS.Models.Contact
 @using BusinessLMSWeb.Helpers
-
 <div class="main-container">
 	<div class="container1" id="divRegisterForm">
 	@using (Html.BeginForm("RegisterAjax", "Home", FormMethod.Post, new { id = "current_form" }))
@@ -27,7 +26,6 @@
 					@Html.EditorFor(model => model.firstName) <br />
 					@Html.ValidationMessageFor(model => model.firstName)
 				</div>
-
 				<div class="editor-label">
 					@Html.LabelFor(model => model.lastName)
 				</div>
@@ -35,7 +33,6 @@
 					@Html.EditorFor(model => model.lastName) <br />
 					@Html.ValidationMessageFor(model => model.lastName)
 				</div>
-
 				<div class="editor-label">
 					@Html.LabelFor(model => model.email)
 				</div>
@@ -51,7 +48,6 @@
 				</div>
 			</fieldset>
 		</div>
-		
 		@Html.HiddenFor(model => model.IBONum)
 		@Html.HiddenFor(model => model.isPublic)
 		@Html.HiddenFor(model => model.contactLevel)
@@ -59,11 +55,9 @@
 		@Html.HiddenFor(model => model.birthday)
 		@Html.HiddenFor(model => model.contactTypeId)
 		@Html.HiddenFor(model => model.languageId)
-
 	}
 	</div>
 </div>
-
 @Html.Script(
 	@<script type="text/javascript" src="~/Scripts/Home/Register.js"></script>
 )

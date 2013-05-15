@@ -202,7 +202,7 @@
     <value>Estado</value>
   </data>
   <data name="ToolName" xml:space="preserve">
-    <value>Nombre de la herramienta</value>
+    <value>Cual es tu Meta</value>
   </data>
   <data name="twitter" xml:space="preserve">
     <value>Usuario de Twitter</value>
@@ -283,7 +283,7 @@
     <value>Mensaje</value>
   </data>
   <data name="areaId" xml:space="preserve">
-    <value>Area de Vida</value>
+    <value>A que esta relacionado tu Sueño</value>
   </data>
   <data name="Autor" xml:space="preserve">
     <value>Autor</value>
@@ -313,7 +313,7 @@
     <value>Titulo Del Libro</value>
   </data>
   <data name="achieved" xml:space="preserve">
-    <value>Logrado?</value>
+    <value>Logrado</value>
   </data>
   <data name="completedGoal" xml:space="preserve">
     <value>Terminada?</value>
@@ -338,5 +338,101 @@
   </data>
   <data name="def" xml:space="preserve">
     <value>Predeterminado</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Regresar a la Lista</value>
+  </data>
+  <data name="Before" xml:space="preserve">
+    <value>Antes de</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value>Calendario</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="datetimeDream" xml:space="preserve">
+    <value>Voy a lograrlo antes de</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Estas seguro que deseas borrar el</value>
+  </data>
+  <data name="dream" xml:space="preserve">
+    <value>Describe tu Sueño</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="goal" xml:space="preserve">
+    <value>Cuantos vaz a completar</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="mission" xml:space="preserve">
+    <value>Misión</value>
+  </data>
+  <data name="My" xml:space="preserve">
+    <value>Mi</value>
+  </data>
+  <data name="Of" xml:space="preserve">
+    <value>De</value>
+  </data>
+  <data name="purpose" xml:space="preserve">
+    <value>Propósito</value>
+  </data>
+  <data name="ThatI" xml:space="preserve">
+    <value>Que Yo</value>
+  </data>
+  <data name="Until" xml:space="preserve">
+    <value>Hasta</value>
+  </data>
+  <data name="vision" xml:space="preserve">
+    <value>Visión</value>
+  </data>
+  <data name="WorkingOn" xml:space="preserve">
+    <value>Estoy trabajando en</value>
+  </data>
+  <data name="alerts" xml:space="preserve">
+    <value>Alertas</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Fecha Final</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Comentarios</value>
+  </data>
+  <data name="Followup" xml:space="preserve">
+    <value>Seguimientos</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="ProfileIBO" xml:space="preserve">
+    <value>Actualizar Detalles de IBO</value>
+  </data>
+  <data name="ProfileUser" xml:space="preserve">
+    <value>Cambiar Contraseña</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Fecha Inicial</value>
+  </data>
+  <data name="TicketType" xml:space="preserve">
+    <value>Tipo de Asunto</value>
+  </data>
+  <data name="TitleText" xml:space="preserve">
+    <value>Titulo</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Bienvenido</value>
   </data>
 </root>

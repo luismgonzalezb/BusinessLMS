@@ -1,75 +1,61 @@
 ﻿@model BusinessLMS.Models.Goal
 @using BusinessLMSWeb.Helpers
-
 <div class="metro">
 	<div class="metro-container-300">
-
 		@using (Html.BeginForm("EditGoal", "Goals", FormMethod.Post, new { @class = "metro-form", id = "editGoalForm" }))
 		{
-	
 			@Html.ValidationSummary(true)
-
 			<fieldset>
 				<legend></legend>
-
 				<div class="metro-form-control">
 					<label for="toolId">What is your Goal</label>
+					@Html.LabelFor(model => model.toolId)
 					<div class="metro-select-box">
 						@Html.DropDownListFor(model => model.toolId, (SelectList)ViewBag.tools)
 						@Html.ValidationMessageFor(model => model.toolId)
 					</div>
 				</div>
-
 				<div class="metro-form-control">
-					<label for="goal1">How many are you going to accomplish</label>
+					@Html.LabelFor(model => model.goal1)
 					<div class="metro-text-box">
 						@Html.EditorFor(model => model.goal1)
 						@Html.ValidationMessageFor(model => model.goal1)
 					</div>
 				</div>
-
 				<div class="metro-form-control">
-					<label for="dreamId">What Dream get's closer with this</label>
+					@Html.LabelFor(model => model.dreamId)
 					<div class="metro-select-box">
 						@Html.DropDownListFor(model => model.dreamId, (SelectList)ViewBag.dreams)
 						@Html.ValidationMessageFor(model => model.dreamId)
 					</div>
 				</div>
-
 				<div class="metro-form-control">
-					<label for="datetime">When are you going to finish</label> (mm/dd/yyyy)
+					@Html.LabelFor(model => model.datetime) (mm/dd/yyyy)
 					<div class="metro-text-box">
 						@Html.EditorFor(model => model.datetime)
 						@Html.ValidationMessageFor(model => model.datetime)
 					</div>
 					<div class="metro-text-date"><img src="~/Images/Date.png" /></div>
 				</div>
-
 				@Html.HiddenFor(model => model.timeframeId)
 				@Html.HiddenFor(model => model.goalLevel)
 				@Html.HiddenFor(model => model.picture)
 				@Html.HiddenFor(model => model.goalId)
-
 			</fieldset>
-	
 		}
-
-		Picture
+		@TextResources.Businesslms.picture
 		<form action="/api/Files" method="post" enctype="multipart/form-data" id="file_upload_edit" >
 			<div id="filediv" >
 				<input type="file" name="file" />
 				<div id="status"></div>
 			</div>
-			<input type="submit" value="Upload" id="btnUpload" class="metro-button" />
+			<input type="submit" value="@TextResources.Businesslms.Upload" id="btnUpload" class="metro-button" />
 		</form>
-
 		<div class="metro-align-right">
-			<input type="button" value="Save" class="metro-button" onclick="submitPopupForm(this);" />
+			<input type="button" value="@TextResources.Businesslms.Save" class="metro-button" onclick="submitPopupForm(this);" />
 		</div>
-
 	</div>
 </div>
-
 <script type="text/javascript">
 	$(document).ready(function () {
 		$.validator.unobtrusive.parse("#editGoalForm");

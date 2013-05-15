@@ -5,168 +5,168 @@
 
 @using (Html.BeginForm("EditContactAjax", "Contacts", FormMethod.Post, new { @class = "metro-form", id = "current_form" }))
 {
-    
-    @Html.ValidationSummary(true)
+	
+	@Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Contact</legend>
+	<fieldset>
+		<legend>@TextResources.Businesslms.contactId</legend>
 
-        <div class="metro-form-control">
-            <label for="dream1">ID</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.IBONum)
-                @Html.ValidationMessageFor(model => model.IBONum)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.IBONum)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.IBONum)
+				@Html.ValidationMessageFor(model => model.IBONum)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="contactTypeId">Contact Type</label>
-            <div class="metro-select-box">
-                @Html.DropDownListFor(model => model.contactTypeId, (SelectList)ViewBag.contacttypes)
-                @Html.ValidationMessageFor(model => model.contactTypeId)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.contactTypeId)
+			<div class="metro-select-box">
+				@Html.DropDownListFor(model => model.contactTypeId, (SelectList)ViewBag.contacttypes)
+				@Html.ValidationMessageFor(model => model.contactTypeId)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="languageId">Language</label>
-            <div class="metro-select-box">
-                @Html.DropDownListFor(model => model.languageId, (SelectList)ViewBag.languages)
-                @Html.ValidationMessageFor(model => model.languageId)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.languageId)
+			<div class="metro-select-box">
+				@Html.DropDownListFor(model => model.languageId, (SelectList)ViewBag.languages)
+				@Html.ValidationMessageFor(model => model.languageId)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="firstName">First Name</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.firstName)
-                @Html.ValidationMessageFor(model => model.firstName)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.firstName)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.firstName)
+				@Html.ValidationMessageFor(model => model.firstName)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="lastName">Last Name</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.lastName)
-                @Html.ValidationMessageFor(model => model.lastName)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.lastName)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.lastName)
+				@Html.ValidationMessageFor(model => model.lastName)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="preferred">Preferred Contact Method</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.preferred)
-                @Html.ValidationMessageFor(model => model.preferred)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.preferred)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.preferred)
+				@Html.ValidationMessageFor(model => model.preferred)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="firstName">Prefered Contact Time</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.preferedTime)
-                @Html.ValidationMessageFor(model => model.preferedTime)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.preferedTime)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.preferedTime)
+				@Html.ValidationMessageFor(model => model.preferedTime)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="contactLevel">Contact Level</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.contactLevel)
-                @Html.ValidationMessageFor(model => model.contactLevel)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.contactLevel)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.contactLevel)
+				@Html.ValidationMessageFor(model => model.contactLevel)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="birthday">Birthday</label> (mm/dd/yyyy)
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.birthday)
-                @Html.ValidationMessageFor(model => model.birthday)
-            </div>
-            <div class="metro-text-date"><img src="~/Images/Date.png" /></div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.birthday) (mm/dd/yyyy)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.birthday)
+				@Html.ValidationMessageFor(model => model.birthday)
+			</div>
+			<div class="metro-text-date"><img src="~/Images/Date.png" /></div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="email">Email</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.email)
-                @Html.ValidationMessageFor(model => model.email)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.email)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.email)
+				@Html.ValidationMessageFor(model => model.email)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="phone">Phone</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.phone)
-                @Html.ValidationMessageFor(model => model.phone)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.phone)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.phone)
+				@Html.ValidationMessageFor(model => model.phone)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="cell">Cell</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.cell)
-                @Html.ValidationMessageFor(model => model.cell)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.cell)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.cell)
+				@Html.ValidationMessageFor(model => model.cell)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="address">Address</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.address)
-                @Html.ValidationMessageFor(model => model.address)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.address)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.address)
+				@Html.ValidationMessageFor(model => model.address)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="city">City</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.city)
-                @Html.ValidationMessageFor(model => model.city)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.city)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.city)
+				@Html.ValidationMessageFor(model => model.city)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="state">State</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.state)
-                @Html.ValidationMessageFor(model => model.state)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.state)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.state)
+				@Html.ValidationMessageFor(model => model.state)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="zipcode">Zipcode</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.zipcode)
-                @Html.ValidationMessageFor(model => model.zipcode)
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.zipcode)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.zipcode)
+				@Html.ValidationMessageFor(model => model.zipcode)
+			</div>
+		</div>
 
-        <div class="metro-form-control">
-            <label for="isPublic">Make Public</label>
-            <div class="metro-text-box">
-                @Html.CheckBoxMetroFor(model => model.isPublic, new { @class = "metro-check" })
-            </div>
-        </div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.isPublic)
+			<div class="metro-text-box">
+				@Html.CheckBoxMetroFor(model => model.isPublic, new { @class = "metro-check" })
+			</div>
+		</div>
 
 
-        @Html.HiddenFor(model => model.datetime)
-        @Html.HiddenFor(model => model.contactId)
+		@Html.HiddenFor(model => model.datetime)
+		@Html.HiddenFor(model => model.contactId)
 
-        <div class="metro-align-right">
-            <input type="button" value="Cancel" class="metro-button" onclick="CancelContact();" />
-            <input type="button" value="Update" class="metro-button" onclick="submitupdateform(this.form);" />
-        </div>
-    </fieldset>
+		<div class="metro-align-right">
+			<input type="button" value="@TextResources.Businesslms.Cancel" class="metro-button" onclick="CancelContact();" />
+			<input type="button" value="@TextResources.Businesslms.Update" class="metro-button" onclick="submitupdateform(this.form);" />
+		</div>
+	</fieldset>
 }
 
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $.validator.unobtrusive.parse("#current_form");
-        $(".date-picker").datepicker({
-            yearRange: "-90:+0",
-            changeMonth: true,
-            changeYear: true
-        });
-    });
+	$(document).ready(function () {
+		$.validator.unobtrusive.parse("#current_form");
+		$(".date-picker").datepicker({
+			yearRange: "-90:+0",
+			changeMonth: true,
+			changeYear: true
+		});
+	});
 </script>

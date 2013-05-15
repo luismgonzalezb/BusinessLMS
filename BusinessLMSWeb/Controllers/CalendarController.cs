@@ -6,6 +6,7 @@ using EventbriteNET.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web.Mvc;
 
 namespace BusinessLMSWeb.Controllers
@@ -13,6 +14,33 @@ namespace BusinessLMSWeb.Controllers
 	[Authorize]
 	public class CalendarController : BaseWebController
 	{
+		private List<CalendarType> _CalendarTypes
+		{
+			get
+			{
+				if (Thread.CurrentThread.CurrentCulture.Name == "en-US")
+				{
+					return new List<CalendarType>() {
+						new CalendarType { id = 0, value = "All" },
+						new CalendarType { id = 1, value = "Dreams" },
+						new CalendarType { id = 2, value = "Followup" },
+						new CalendarType { id = 3, value = "Goals" },
+						new CalendarType { id = 4, value = "Meetings" }
+					};
+				}
+				else
+				{
+					return new List<CalendarType>() {
+						new CalendarType { id = 0, value = "Todos" },
+						new CalendarType { id = 1, value = "Sueños" },
+						new CalendarType { id = 2, value = "Seguimientos" },
+						new CalendarType { id = 3, value = "Metas" },
+						new CalendarType { id = 4, value = "Juntas" }
+					};
+				}
+			}
+		}
+
 		private List<CalendarType> CalendarTypes
 		{
 			get
@@ -29,7 +57,7 @@ namespace BusinessLMSWeb.Controllers
 
 		public ActionResult Index(int id)
 		{
-			ViewBag.CalendarTypes = new SelectList(CalendarTypes, "id", "value");
+			ViewBag.CalendarTypes = new SelectList(_CalendarTypes, "id", "value");
 			CalendarType calendarType = CalendarTypes.Where(ct => ct.id == id).FirstOrDefault();
 			return View(calendarType);
 		}
@@ -61,7 +89,6 @@ namespace BusinessLMSWeb.Controllers
 			}
 			if (toLoad.Count > 0)
 			{
-				BaseClient client;
 				List<CalendarEvent> tempEvents = new List<CalendarEvent>();
 				if (toLoad.Contains("Meetings") == true)
 				{

@@ -1,61 +1,48 @@
 ﻿@model BusinessLMS.Models.Dream
 @using BusinessLMSWeb.Helpers
-
 <div class="metro-container-300">
-
 @using (Html.BeginForm("NewDream", "Dreams", FormMethod.Post, new { @class = "metro-form", id = ViewBag.formName }))
 {
-    
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend></legend>
-
-        <div class="metro-form-control">
-            <label for="dream1">Describe your Dream</label>
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.dream1)
-                @Html.ValidationMessageFor(model => model.dream1)
-            </div>
-        </div>
-
-        <div class="metro-form-control">
-            <label for="areaId">What is your Dream related to</label>
-            <div class="metro-select-box">
-                @Html.DropDownListFor(model => model.areaId, (SelectList)ViewBag.areas)
-                @Html.ValidationMessageFor(model => model.areaId)
-            </div>
-        </div>
-
-        <div class="metro-form-control">
-            <label for="datetime">You will be there before</label> (mm/dd/yyyy)
-            <div class="metro-text-box">
-                @Html.EditorFor(model => model.datetime)
-                @Html.ValidationMessageFor(model => model.datetime)
-            </div>
-            <div class="metro-text-date"><img src="~/Images/Date.png" /></div>
-        </div>
-
-        @Html.HiddenFor(model => model.IBONum)
-        @Html.HiddenFor(model => model.timeframeId)
-        @Html.HiddenFor(model => model.dreamLevel)
-        @Html.HiddenFor(model => model.picture)
-
-    </fieldset>
-    
+	@Html.ValidationSummary(true)
+	<fieldset>
+		<legend></legend>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.dream1)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.dream1)
+				@Html.ValidationMessageFor(model => model.dream1)
+			</div>
+		</div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.areaId)
+			<div class="metro-select-box">
+				@Html.DropDownListFor(model => model.areaId, (SelectList)ViewBag.areas)
+				@Html.ValidationMessageFor(model => model.areaId)
+			</div>
+		</div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.datetime) (mm/dd/yyyy)
+			<div class="metro-text-box">
+				@Html.EditorFor(model => model.datetime)
+				@Html.ValidationMessageFor(model => model.datetime)
+			</div>
+			<div class="metro-text-date"><img src="~/Images/Date.png" /></div>
+		</div>
+		@Html.HiddenFor(model => model.IBONum)
+		@Html.HiddenFor(model => model.timeframeId)
+		@Html.HiddenFor(model => model.dreamLevel)
+		@Html.HiddenFor(model => model.picture)
+	</fieldset>
 }
-
-    Picture
-    <form action="/api/Files" method="post" enctype="multipart/form-data" id="@ViewBag.uploadName" >
-        <div id="filediv" >
-            <input type="file" name="file" />
-            <div id="status"></div>
-        </div>
-        <input type="submit" value="Upload" id="btnUpload" class="metro-button" />
-    </form>
-
-    <div class="metro-align-right">
-        <input type="button" value="Save" class="metro-button" onclick="submitform(this);" />
-    </div>
-
+	@TextResources.Businesslms.picture
+	<form action="/api/Files" method="post" enctype="multipart/form-data" id="@ViewBag.uploadName" >
+		<div id="filediv" >
+			<input type="file" name="file" />
+			<div id="status"></div>
+		</div>
+		<input type="submit" value="@TextResources.Businesslms.Upload" id="btnUpload" class="metro-button" />
+	</form>
+	<div class="metro-align-right">
+		<input type="button" value="@TextResources.Businesslms.Save" class="metro-button" onclick="submitform(this);" />
+	</div>
 </div>

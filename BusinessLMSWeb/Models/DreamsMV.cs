@@ -3,7 +3,6 @@ namespace BusinessLMS.Models
 {
 	public partial class DreamsMV
 	{
-		[Display(Name = "dream MVID")]
 		public int dreamMVId { get; set; }
 
 		[Required]
@@ -12,17 +11,17 @@ namespace BusinessLMS.Models
 
 		[Required]
 		[DataType(DataType.Text)]
-		[Display(Name = "MissionTitle", ResourceType = typeof(TextResources.BusinesslmsHome))]
+		[Display(Name = "mission", ResourceType = typeof(TextResources.Businesslms))]
 		public string mission { get; set; }
 
 		[Required]
 		[DataType(DataType.Text)]
-		[Display(Name = "VisionTitle", ResourceType = typeof(TextResources.BusinesslmsHome))]
+		[Display(Name = "vision", ResourceType = typeof(TextResources.Businesslms))]
 		public string vision { get; set; }
 
 		[Required]
 		[DataType(DataType.Text)]
-		[Display(Name = "PurposeTitle", ResourceType = typeof(TextResources.BusinesslmsHome))]
+		[Display(Name = "purpose", ResourceType = typeof(TextResources.Businesslms))]
 		public string purpose { get; set; }
 	}
 }

@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<BusinessLMS.Models.Goal>
-
 @{
 	ViewBag.Title = "Goals Progress";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,19 +6,17 @@
 <div class="metro-info-icons">
 	<a href="#" class="help-link help-link-action" title="Help">Help</a>
 </div>
-
 <div class="title" style="margin-bottom:40px;">
-	<h2>@ViewBag.Title.</h2>
+	<h2>@TextResources.Businesslms.Index.</h2>
 </div>
-
 <div class="metro-container-990">
 	<table id="goalprogress-table">
 		<thead>
 			<tr>
-				<th>Tool</th>
+				<th>@Html.DisplayNameFor(model => model.toolId)</th>
 				<th>@Html.DisplayNameFor(model => model.goal1)</th>
 				<th>@Html.DisplayNameFor(model => model.datetime)</th>
-				<th>Progress</th>
+				<th>@TextResources.Businesslms.progressId</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -38,7 +35,6 @@
 		}
 		</tbody>
 	</table>
-
 </div>
 <div id="progressInfo"></div>
 <div id="modalWindow"></div>

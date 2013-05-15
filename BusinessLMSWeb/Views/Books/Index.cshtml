@@ -1,21 +1,18 @@
 ﻿@model IEnumerable<BusinessLMS.Models.Book>
-
 @{
 	ViewBag.Title = "Recomended Books";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="title" style="margin-bottom:40px;">
-	<h2>@ViewBag.Title.</h2>
+	<h2>@TextResources.Businesslms.Index.</h2>
 </div>
-
 <div class="metro-container-990">
 	<table id="books-table">
 		<thead>
 			<tr>
 				<th>@Html.DisplayNameFor(model => model.Title)</th>
 				<th>@Html.DisplayNameFor(model => model.Autor)</th>
-				<th>Buy Links</th>
+				<th>@TextResources.Businesslms.Link</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -49,16 +46,14 @@
 	@if (ViewBag.ibolevel >= 25 && ViewBag.BookCount<10)
 	{ 
 		<div class="metro-align-right">
-			<input type="button" value="Add New" class="metro-button" onclick="AddNewBook();" />
+			<input type="button" value="@TextResources.Businesslms.AddNew" class="metro-button" onclick="AddNewBook();" />
 		</div>
 	}
-
 </div>
-
 <div id="booksInfo"></div>
 <div id="modalWindow"></div>
 <div id="delete-dialog" title="Confirmation">
-	<p>Are you sure you want to delete this book?</p>
+	<p>@TextResources.Businesslms.DeleteText @TextResources.Businesslms.BookId?</p>
 </div>
 @section Scripts {
 	@Scripts.Render("~/bundles/jqueryval")

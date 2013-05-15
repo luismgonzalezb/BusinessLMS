@@ -1,24 +1,18 @@
 ﻿@model BusinessLMS.Models.IBO
 @using BusinessLMSWeb.Helpers
-
 @{
 	ViewBag.Title = "IBO Details";
 	Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
-
 <div class="metro-container-300">
-
 	<div class="title" style="margin-bottom:40px;">
 		<h2>@TextResources.Businesslms.IBODetails.</h2>
 	</div>
-
 	@using (Html.BeginForm("AddIBO", "IBO", FormMethod.Post, new { @class = "metro-form", id = "createIBOForm" }))
 	{
 		@Html.ValidationSummary(true)
-
 		<fieldset>
 			<legend></legend>
-
 			<div class="metro-form-control">
 				@Html.LabelFor(model => model.IBONum)
 				<div class="metro-text-box">
@@ -26,7 +20,6 @@
 					@Html.ValidationMessageFor(model => model.IBONum)
 				</div>
 			</div>
-
 			<div class="metro-form-control">
 				@Html.LabelFor(model => model.firstName)
 				<div class="metro-text-box">
@@ -34,7 +27,6 @@
 					@Html.ValidationMessageFor(model => model.firstName)
 				</div>
 			</div>
-
 			<div class="metro-form-control">
 				@Html.LabelFor(model => model.lastName)
 				<div class="metro-text-box">
@@ -42,7 +34,6 @@
 					@Html.ValidationMessageFor(model => model.lastName)
 				</div>
 			</div>
-
 			<div class="metro-form-control">
 				@Html.LabelFor(model => model.languageId)
 				<div class="metro-select-box">
@@ -50,7 +41,6 @@
 					@Html.ValidationMessageFor(model => model.languageId)
 				</div>
 			</div>
-
 			<div class="metro-form-control">
 				@Html.LabelFor(model => model.email)
 				<div class="metro-text-box">
@@ -58,7 +48,6 @@
 					@Html.ValidationMessageFor(model => model.email)
 				</div>
 			</div>
-
 			<div class="metro-form-control">
 					@Html.LabelFor(model => model.phone)
 				<div class="metro-text-box">
@@ -66,7 +55,6 @@
 					@Html.ValidationMessageFor(model => model.phone)
 				</div>
 			</div>
-
 			<div class="metro-form-control">
 					@Html.LabelFor(model => model.birthday)
 				<div class="metro-text-box">
@@ -82,7 +70,6 @@
 					@Html.ValidationMessageFor(model => model.level)
 				</div>
 			</div>
-
 			<div class="metro-form-control">
 				@Html.LabelFor(model => model.twitter)
 				<div class="metro-text-box">
@@ -90,7 +77,6 @@
 					@Html.ValidationMessageFor(model => model.twitter)
 				</div>
 			</div>
-
 			<div class="metro-form-control">
 					@Html.LabelFor(model => model.UPLine)
 				<div class="metro-text-box">
@@ -101,13 +87,9 @@
 			<div class="metro-form-control">
 				@Html.CheckBoxMetroFor(model => model.newsletteroptin, new { @class = "metro-check" })
 			</div>
-
 			@Html.HiddenFor(model => model.picture)
-
 		</fieldset>
-	
 	}
-	
 	@TextResources.Businesslms.IBOpicture
 	<form action="/api/Files" method="post" enctype="multipart/form-data" id="file_upload" >
 		<div id = "filediv">
@@ -116,7 +98,6 @@
 		</div>
 		<input type="submit" value="@TextResources.Businesslms.Upload" id="btnUpload" class="metro-button" />
 	</form>
-
 	<div class="metro-align-right">
 		<input type="button" value="@TextResources.Businesslms.Save" class="metro-button" onclick="submitform();" />
 	</div>
@@ -128,7 +109,6 @@
 		}
 	</div>
 </div>
-
 @section Scripts {
 	@Scripts.Render("~/bundles/jqueryval")
 	@Scripts.Render("~/bundles/jqueryupload")

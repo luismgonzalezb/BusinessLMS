@@ -1,11 +1,9 @@
 @model IEnumerable<BusinessLMS.Models.Alert>
 @using BusinessLMSWeb.Helpers
-
 <ul>
-	<li><a href="@Url.Action("Index", "Calendar", new { id = 2 })" class="ico1">Follow up <span class="num">@ViewBag.FollowupsCount</span></a></li>
-	<li><a href="#" class="ico2" data-dropdown="#dropdownAlert">Alerts <span class="num" id="Cont">@Model.Count()</span></a></li>
+	<li><a href="@Url.Action("Index", "Calendar", new { id = 2 })" class="ico1">@TextResources.Businesslms.Followup<span class="num">@ViewBag.FollowupsCount</span></a></li>
+	<li><a href="#" class="ico2" data-dropdown="#dropdownAlert">@TextResources.Businesslms.alerts <span class="num" id="Cont">@Model.Count()</span></a></li>
 </ul>
-
 <div id="dropdownAlert" class="dropdown-menu has-tip">
 	<ul id="ListAlerts">
 		@foreach (var item in Model)
@@ -16,7 +14,6 @@
 		}
 	</ul>
 </div>
-
 @Html.Script(
 	@<script type="text/javascript">
 		var CountAlert = '@Model.Count()';

@@ -21,7 +21,7 @@ namespace BusinessLMS.Models
 
 		[Required]
 		[DataType(DataType.Text)]
-		[Display(Name = "dreamId", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "dream", ResourceType = typeof(TextResources.Businesslms))]
 		public string dream1 { get; set; }
 
 		[Required]
@@ -33,6 +33,7 @@ namespace BusinessLMS.Models
 
 		[Required]
 		[DataType(DataType.DateTime)]
+		[Display(Name = "datetime", ResourceType = typeof(TextResources.Businesslms))]
 		public System.DateTime datetime { get; set; }
 
 		[DataType(DataType.Text)]

@@ -1,59 +1,49 @@
 ﻿@model BusinessLMS.Models.DreamsMV
 @using BusinessLMSWeb.Helpers
-
 <div class="metro-container-990">
-
 @using (Html.BeginForm("DreamMV", "Dreams", FormMethod.Post, new { @class = "metro-form" }))
 {
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend></legend>
-
-        <div class="metro-form-control">
-            <label for="vision">Vision</label>
-            <div class="metro-text-transbox">
-                @Html.EditorFor(model => model.vision)
-                @Html.ValidationMessageFor(model => model.vision)
-            </div>
-        </div>
-
-        <div class="metro-form-control">
-            <label for="mission">Mission</label>
-            <div class="metro-text-transbox">
-                @Html.EditorFor(model => model.mission)
-                @Html.ValidationMessageFor(model => model.mission)
-            </div>
-        </div>
-
-        <div class="metro-form-control">
-            <label for="purpose">Purpose</label>
-            <div class="metro-text-transbox">
-                @Html.EditorFor(model => model.purpose)
-                @Html.ValidationMessageFor(model => model.purpose)
-            </div>
-        </div>
-
-        @Html.HiddenFor(model => model.dreamMVId)
-
-    </fieldset>
+	@Html.ValidationSummary(true)
+	<fieldset>
+		<legend></legend>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.vision)
+			<div class="metro-text-transbox">
+				@Html.EditorFor(model => model.vision)
+				@Html.ValidationMessageFor(model => model.vision)
+			</div>
+		</div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.mission)
+			<div class="metro-text-transbox">
+				@Html.EditorFor(model => model.mission)
+				@Html.ValidationMessageFor(model => model.mission)
+			</div>
+		</div>
+		<div class="metro-form-control">
+			@Html.LabelFor(model => model.purpose)
+			<div class="metro-text-transbox">
+				@Html.EditorFor(model => model.purpose)
+				@Html.ValidationMessageFor(model => model.purpose)
+			</div>
+		</div>
+		@Html.HiddenFor(model => model.dreamMVId)
+	</fieldset>
 }
-
 </div>
-
 @Html.Script(
-    @<script type="text/javascript">
-         $(document).ready(function () {
-             $("#mission").watermark("Enter your Mission statement");
-             $("#vision").watermark("Enter your Vision statement");
-             $("#purpose").watermark("Enter your Purpose statement");
-             $('#mission,#vision,#purpose').change(function () {
-                 $.post($(this.form).attr("action"), $(this.form).serialize(), function (data) {
-                     if (data.success == true) {
-                         $('#dreamMVId').val(data.id);
-                     }
-                 });
-             });
-         });
-    </script>
+	@<script type="text/javascript">
+		 $(document).ready(function () {
+			 $("#mission").watermark("Enter your Mission statement");
+			 $("#vision").watermark("Enter your Vision statement");
+			 $("#purpose").watermark("Enter your Purpose statement");
+			 $('#mission,#vision,#purpose').change(function () {
+				 $.post($(this.form).attr("action"), $(this.form).serialize(), function (data) {
+					 if (data.success == true) {
+						 $('#dreamMVId').val(data.id);
+					 }
+				 });
+			 });
+		 });
+	</script>
 )

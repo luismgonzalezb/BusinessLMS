@@ -9,7 +9,7 @@ namespace BusinessLMS.Models
 		public int goalId { get; set; }
 
 		[Required]
-		[Display(Name = "dreamId", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "dream", ResourceType = typeof(TextResources.Businesslms))]
 		public int dreamId { get; set; }
 
 		[Required]
@@ -21,7 +21,7 @@ namespace BusinessLMS.Models
 		public int toolId { get; set; }
 
 		[Required]
-		[Display(Name = "goalId", ResourceType = typeof(TextResources.Businesslms))]
+		[Display(Name = "goal", ResourceType = typeof(TextResources.Businesslms))]
 		public decimal goal1 { get; set; }
 
 		[Required]
@@ -33,6 +33,7 @@ namespace BusinessLMS.Models
 
 		[Required]
 		[DataType(DataType.DateTime)]
+		[Display(Name = "datetime", ResourceType = typeof(TextResources.Businesslms))]
 		public System.DateTime datetime { get; set; }
 
 		[Display(Name = "picture", ResourceType = typeof(TextResources.Businesslms))]

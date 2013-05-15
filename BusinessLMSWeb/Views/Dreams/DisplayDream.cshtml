@@ -3,13 +3,13 @@
 <div class="dream-display">
     <div class="text">
         <div style="margin:10px">
-            My @ViewBag.area dream
+            @TextResources.Businesslms.My @ViewBag.area @TextResources.Businesslms.dreamId
         </div>
         <div style="margin:10px">
-            of @Html.DisplayFor(model => model.dream1)
+            @TextResources.Businesslms.Of @Html.DisplayFor(model => model.dream1)
         </div>
         <div style="margin:10px">
-            That I @ViewBag.completed
+            @TextResources.Businesslms.ThatI @ViewBag.completed
         </div>
         <div style="margin:10px">
             @ViewBag.etaMsg @ViewBag.eta
@@ -17,7 +17,7 @@
     </div>
     <div class="actions">
         <div style="margin:10px">
-           <a href="javascript:openEditWindow(@(Model.dreamId))" class="edit-link">Edit</a>
+           <a href="javascript:openEditWindow(@(Model.dreamId))" class="edit-link">@TextResources.Businesslms.Edit</a>
         </div>
         @if ((bool)ViewBag.last == true) {
             <div style="margin:10px">

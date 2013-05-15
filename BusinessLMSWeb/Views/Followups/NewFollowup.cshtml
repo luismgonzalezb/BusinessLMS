@@ -7,7 +7,7 @@
     <fieldset>
         <legend></legend>
         <div class="metro-form-control">
-            Contact
+            @TextResources.Businesslms.contactId
             <div class="metro-text-box">
                 <input type="text" name="contactName" id="contactName" value="" />
                 @Html.ValidationMessageFor(model => model.contactId)
@@ -32,8 +32,8 @@
         @Html.HiddenFor(model => model.IBONum)
         @Html.HiddenFor(model => model.completed)
         <div class="metro-align-right">
-            <input type="button" value="Cancel" class="metro-button" onclick="CancelItem();" />
-            <input type="button" value="Create" class="metro-button" onclick="submitform(this.form);" />
+            <input type="button" value="@TextResources.Businesslms.Cancel" class="metro-button" onclick="CancelItem();" />
+            <input type="button" value="@TextResources.Businesslms.Create" class="metro-button" onclick="submitform(this.form);" />
         </div>
     </fieldset>
 }

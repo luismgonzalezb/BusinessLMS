@@ -1,54 +1,43 @@
 ﻿@model BusinessLMS.Models.Alert
 
 @{
-    ViewBag.Title = "CreateAlert";
-    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+	ViewBag.Title = "CreateAlert";
+	Layout = "~/Views/Shared/_LayoutAccount.cshtml";
 }
-
 <div class="metro">
-    <div class="metro-container-300">
-
-        @using (Html.BeginForm("CreateAlert", "Alerts", FormMethod.Post, new { @class = "metro-form", id = "AlertForm" }))
-        {
-            @Html.ValidationSummary(true)
-
-            <fieldset>
-                <legend></legend>
-
-                <div class="metro-form-control">
-                    <label for="AlertMsg">Alert Message</label>
-                    <div class="metro-text-box">
-                        @Html.EditorFor(model => model.AlertMsg)
-                        @Html.ValidationMessageFor(model => model.AlertMsg)
-                    </div>
-                </div>
-
-                <div class="metro-form-control">
-                    <label for="action">Alert Action</label>
-                    <div class="metro-text-box">
-                        @Html.EditorFor(model => model.action)
-                        @Html.ValidationMessageFor(model => model.action)
-                    </div>
-                </div>
-
-                @Html.HiddenFor(model => model.datetime)
-                <p>
-                    <input type="submit" value="Create" />
-                </p>
-                
-            </fieldset>
-        }
-
-
-        <div>
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    </div>
+	<div class="metro-container-300">
+		@using (Html.BeginForm("CreateAlert", "Alerts", FormMethod.Post, new { @class = "metro-form", id = "AlertForm" }))
+		{
+			@Html.ValidationSummary(true)
+			<fieldset>
+				<legend></legend>
+				<div class="metro-form-control">
+					@Html.LabelFor(model => model.AlertMsg)
+					<div class="metro-text-box">
+						@Html.EditorFor(model => model.AlertMsg)
+						@Html.ValidationMessageFor(model => model.AlertMsg)
+					</div>
+				</div>
+				<div class="metro-form-control">
+					@Html.LabelFor(model => model.action)
+					<div class="metro-text-box">
+						@Html.EditorFor(model => model.action)
+						@Html.ValidationMessageFor(model => model.action)
+					</div>
+				</div>
+				@Html.HiddenFor(model => model.datetime)
+				<p><input type="submit" value="@TextResources.Businesslms.Create" /></p>
+			</fieldset>
+		}
+		<div>
+			@Html.ActionLink(TextResources.Businesslms.BackToList, "Index")
+		</div>
+	</div>
 </div>
 @section Scripts {
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $.validator.unobtrusive.parse("#AlertForm");
-        });
-    </script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$.validator.unobtrusive.parse("#AlertForm");
+		});
+	</script>
 }
