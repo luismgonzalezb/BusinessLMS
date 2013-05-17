@@ -70,7 +70,7 @@ namespace BusinessLMSWeb.Controllers
 			ViewBag.formName = string.Concat("createIBOForm", dreamLevel.ToString(), timeframeId.ToString());
 			ViewBag.uploadName = string.Concat("file_upload", dreamLevel.ToString(), timeframeId.ToString());
 			Dream dream = new Dream();
-			dream.IBONum = IBONum;
+			dream.IBONum = ibo.IBONum;
 			dream.dreamLevel = dreamLevel;
 			dream.timeframeId = timeframeId;
 			dream.datetime = DateTime.Now.AddDays(days);

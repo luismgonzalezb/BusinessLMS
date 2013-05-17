@@ -7,7 +7,7 @@
 	@Html.ValidationSummary(true)
 
 	<fieldset>
-		<legend>@TextResources.Businesslms.contactId</legend>
+		<legend></legend>
 
 		<div class="metro-form-control">
 			@Html.LabelFor(model => model.IBONum)
@@ -139,7 +139,6 @@
 		</div>
 
 		<div class="metro-form-control">
-			@Html.LabelFor(model => model.isPublic)
 			<div class="metro-text-box">
 				@Html.CheckBoxMetroFor(model => model.isPublic, new { @class = "metro-check" })
 			</div>

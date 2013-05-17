@@ -1,13 +1,16 @@
 ﻿
+using BusinessLMS.Helpers;
+using System;
+using System.Text;
 namespace BusinessLMS.ActionFilters
 {
 	public class BasicAuthentication : System.Web.Http.Filters.ActionFilterAttribute
 	{
 		public override void OnActionExecuting(System.Web.Http.Controllers.HttpActionContext actionContext)
 		{
-			base.OnActionExecuting(actionContext); // UN-COMMENT FOR API TESTING WITHOUT WEBSITE
+			//base.OnActionExecuting(actionContext); // UN-COMMENT FOR API TESTING WITHOUT WEBSITE
 			/* COMMENT FOR API TESTING WITHOUT WEBSITE, !!! WARNING THIS DISABLES API SECURITY !!! */
-			/*
+
 			if (actionContext.Request.Headers.Authorization == null)
 			{
 				actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
@@ -27,7 +30,7 @@ namespace BusinessLMS.ActionFilters
 					actionContext.Response = new System.Net.Http.HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
 				}
 			}
-			*/
+
 		}
 	}
 }

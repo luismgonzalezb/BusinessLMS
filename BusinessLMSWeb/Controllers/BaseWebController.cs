@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using WebMatrix.WebData;
@@ -54,19 +53,9 @@ namespace BusinessLMSWeb.Controllers
 			if ((ibo != null) && (ibo.UserId != 0))
 			{
 				string cultureName = CultureHelper.GetCulture(ibo.languageId);
-				Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cultureName);
-				Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
-			}
-			else
-			{
-				string cultureName = null;
-				HttpCookie cultureCookie = Request.Cookies["_ibovirtualculture"];
-				if (cultureCookie != null)
-					cultureName = cultureCookie.Value;
-				else
-					cultureName = Request.UserLanguages[0];
-				Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cultureName);
-				Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
+				HttpCookie cultureCookie = new HttpCookie("_ibovirtualculture", cultureName);
+				cultureCookie.Expires = DateTime.Now.AddDays(300);
+				Response.Cookies.Add(cultureCookie);
 			}
 			base.OnActionExecuting(filterContext);
 		}

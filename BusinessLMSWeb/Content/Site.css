@@ -535,7 +535,7 @@ form, fieldset
 
 .profile ul li a:link, .profile li ul li a:visited {
 	background-color:#FFF;
-	width:150px;
+	width: 161px;
 }
 
 .profile ul li a:hover {
@@ -552,7 +552,7 @@ form, fieldset
 	display:block;
 	text-decoration:none;
 	background-color:#FFF;
-	padding: 0.5em 2em;
+	padding: 0.5em 1.5em;
 	margin:0;
 	border-right: 1px solid #fff;
 	color:#000;

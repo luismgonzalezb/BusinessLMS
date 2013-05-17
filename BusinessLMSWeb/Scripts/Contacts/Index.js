@@ -48,6 +48,7 @@ function CancelContact() {
 
 function submitform(frm) {
 	if (!$(frm).valid()) { return false; }
+	console.log($(frm).serialize());
 	$.post($(frm).attr("action"), $(frm).serialize(), function (data) {
 		console.log(data);
 		if (data.contactId != null) {

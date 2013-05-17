@@ -18,25 +18,25 @@ namespace BusinessLMSWeb.Helpers
 
 		public static T Get<T>(string id)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, string.Concat(typeof(T).ToString(), "s"), string.Concat("Get", typeof(T).ToString()));
+			BaseClient client = new BaseClient(baseApiUrl, string.Concat(typeof(T).Name, "s"), string.Concat("Get", typeof(T).Name));
 			return client.Get<T>(id);
 		}
 
 		public static bool Create<T>(T model)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, string.Concat(typeof(T).ToString(), "s"), string.Concat("Post", typeof(T).ToString()));
+			BaseClient client = new BaseClient(baseApiUrl, string.Concat(typeof(T).Name, "s"), string.Concat("Post", typeof(T).Name));
 			return client.Post<T>(model);
 		}
 
 		public static string Update<T>(string id, T model)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, string.Concat(typeof(T).ToString(), "s"), string.Concat("Put", typeof(T).ToString()));
+			BaseClient client = new BaseClient(baseApiUrl, string.Concat(typeof(T).Name, "s"), string.Concat("Put", typeof(T).Name));
 			return client.Put<T>(id.ToString(), model);
 		}
 
 		public static string Delete<T>(string id)
 		{
-			BaseClient client = new BaseClient(baseApiUrl, string.Concat(typeof(T).ToString(), "s"), string.Concat("Delete", typeof(T).ToString()));
+			BaseClient client = new BaseClient(baseApiUrl, string.Concat(typeof(T).Name, "s"), string.Concat("Delete", typeof(T).Name));
 			return client.Delete(id);
 		}
 

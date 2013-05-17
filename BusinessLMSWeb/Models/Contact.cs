@@ -89,7 +89,6 @@ namespace BusinessLMS.Models
 		[Display(Name = "preferedTime", ResourceType = typeof(TextResources.Businesslms))]
 		public string preferedTime { get; set; }
 
-		[Required]
 		[Display(Name = "newsletteroptin", ResourceType = typeof(TextResources.Businesslms))]
 		public Nullable<bool> newsletteroptin { get; set; }
 

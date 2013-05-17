@@ -8,7 +8,6 @@
 			<fieldset>
 				<legend></legend>
 				<div class="metro-form-control">
-					<label for="toolId">What is your Goal</label>
 					@Html.LabelFor(model => model.toolId)
 					<div class="metro-select-box">
 						@Html.DropDownListFor(model => model.toolId, (SelectList)ViewBag.tools)

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Infrastructure;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -30,12 +31,24 @@ namespace BusinessLMS.Controllers
 					select cf);
 		}
 
-		public IEnumerable<ContactFollowup> GetIBOFollowup(string id, DateTime fromDate, DateTime toDate)
+		public IEnumerable<ContactFollowup> GetIBOFollowup(string id, string fromDate, string toDate)
 		{
+			DateTime fromD;
+			DateTime toD;
+			try
+			{
+				fromD = DateTime.Parse(fromDate, new CultureInfo("en-US"));
+				toD = DateTime.Parse(toDate, new CultureInfo("en-US"));
+			}
+			catch
+			{
+				fromD = DateTime.Parse(fromDate, new CultureInfo("es-MX"));
+				toD = DateTime.Parse(toDate, new CultureInfo("es-MX"));
+			}
 			return (from cf in db.ContactFollowups
 					join c in db.Contacts on cf.contactId equals c.contactId
 					where cf.completed == false && c.IBONum == id &&
-					cf.datetime >= fromDate && cf.datetime <= toDate
+					cf.datetime >= fromD && cf.datetime <= toD
 					select cf);
 		}
 
