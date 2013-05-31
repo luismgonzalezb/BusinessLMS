@@ -1,4 +1,5 @@
-﻿using BusinessLMS.Models;
+﻿using BusinessLMS.ActionFilters;
+using BusinessLMS.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,6 +11,7 @@ using System.Web.Http;
 
 namespace BusinessLMS.Controllers
 {
+	[BasicAuthentication]
 	public class AlertsIBOController : ApiController
 	{
 		private BusinessLMSContext db = new BusinessLMSContext();
