@@ -101,6 +101,9 @@
 	<div class="metro-align-right">
 		<input type="button" value="@TextResources.Businesslms.Update" class="metro-button" onclick="submitform();" />
 	</div>
+	<div class="metro-form-control">
+		@Html.ActionLink(TextResources.Businesslms.terms, "Terms","Home")
+	</div>
 </div>
 @section Scripts {
 	@Scripts.Render("~/bundles/jqueryval")

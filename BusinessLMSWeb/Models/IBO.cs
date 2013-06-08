@@ -56,5 +56,10 @@ namespace BusinessLMS.Models
 		[Required]
 		[Display(Name = "newsletteroptin", ResourceType = typeof(TextResources.Businesslms))]
 		public bool newsletteroptin { get; set; }
+
+		[Required]
+		[Display(Name = "terms", ResourceType = typeof(TextResources.Businesslms))]
+		public bool terms { get; set; }
+
 	}
 }

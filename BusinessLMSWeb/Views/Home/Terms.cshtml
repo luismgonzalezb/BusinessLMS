@@ -1,0 +1,17 @@
+﻿@{
+	ViewBag.Title = "Terms";
+	Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+
+<div class="metro-container-300">
+	<div class="title" style="margin-bottom:40px;">
+		@if (System.Threading.Thread.CurrentThread.CurrentCulture.Name == "en-US")
+		{
+			Html.RenderPartial("_Terms-en");
+		}
+		else
+		{ 
+			Html.RenderPartial("_Terms-es");
+		}
+	</div>
+</div>

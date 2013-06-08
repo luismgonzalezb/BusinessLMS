@@ -65,7 +65,7 @@ namespace BusinessLMSWeb.Controllers
 			try
 			{
 				string result = IBOVirtualAPI.Update<IBO>(model.IBONum, iboUpdate);
-				Cookies.iboCookie.Nullify();
+				Cookies.Nullify();
 			}
 			catch { }
 			return RedirectToAction("Index", "Dashboard");

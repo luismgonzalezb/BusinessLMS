@@ -87,6 +87,9 @@
 			<div class="metro-form-control">
 				@Html.CheckBoxMetroFor(model => model.newsletteroptin, new { @class = "metro-check" })
 			</div>
+			<div class="metro-form-control">
+				@Html.CheckBoxMetroFor(model => model.terms, new { @class = "metro-check" }) @Html.ActionLink(TextResources.Businesslms.terms, "Terms","Home")
+			</div>
 			@Html.HiddenFor(model => model.picture)
 		</fieldset>
 	}

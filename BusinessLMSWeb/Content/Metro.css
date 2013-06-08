@@ -36,10 +36,20 @@
 	font-family: 'Open Sans',sans-serif;
 }
 
-.metro h3
+.metro h3,
+.metro h3 a
 {
 	color: #000000;
 	font-size: 18pt;
+	font-weight: 600;
+	font-family: 'Open Sans',sans-serif;
+}
+
+.metro h5,
+.metro h5 a
+{
+	color: #000000;
+	font-size: 16pt;
 	font-weight: 600;
 	font-family: 'Open Sans',sans-serif;
 }

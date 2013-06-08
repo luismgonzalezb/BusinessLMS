@@ -861,6 +861,9 @@
     <Content Include="Views\Followups\Details.cshtml" />
     <Content Include="Views\MartinUrbano\_Layout.cshtml" />
     <Content Include="Views\MartinUrbano\Index.cshtml" />
+    <Content Include="Views\Home\Terms.cshtml" />
+    <Content Include="Views\Home\_Terms-es.cshtml" />
+    <Content Include="Views\Home\_Terms-en.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

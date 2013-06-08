@@ -155,5 +155,10 @@ namespace BusinessLMSWeb.Controllers
 			return RedirectToAction("Index");
 		}
 
+		public ActionResult Terms()
+		{
+			return View();
+		}
+
 	}
 }

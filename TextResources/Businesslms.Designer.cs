@@ -538,6 +538,15 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to I accept the.
+        /// </summary>
+        public static string iAccept {
+            get {
+                return ResourceManager.GetString("iAccept", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IBO Details.
         /// </summary>
         public static string IBODetails {
@@ -633,6 +642,15 @@ namespace TextResources {
         public static string ManageAccount {
             get {
                 return ResourceManager.GetString("ManageAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This materials are not promoted by AMWAY.
+        /// </summary>
+        public static string materials {
+            get {
+                return ResourceManager.GetString("materials", resourceCulture);
             }
         }
         
@@ -871,6 +889,15 @@ namespace TextResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Terms &amp; Conditions.
+        /// </summary>
+        public static string terms {
+            get {
+                return ResourceManager.GetString("terms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to That I.
         /// </summary>
         public static string ThatI {
@@ -880,7 +907,16 @@ namespace TextResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ticket Type.
+        ///   Looks up a localized string similar to Purchase optional, 100% warranty or your money back..
+        /// </summary>
+        public static string tickets {
+            get {
+                return ResourceManager.GetString("tickets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Issue Type.
         /// </summary>
         public static string TicketType {
             get {

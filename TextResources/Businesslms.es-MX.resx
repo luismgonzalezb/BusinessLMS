@@ -322,7 +322,7 @@
     <value>Sueño</value>
   </data>
   <data name="goalId" xml:space="preserve">
-    <value>Meta</value>
+    <value>Objetivo</value>
   </data>
   <data name="IBOpicture" xml:space="preserve">
     <value>Mi Fotografía</value>
@@ -427,12 +427,24 @@
     <value>Fecha Inicial</value>
   </data>
   <data name="TicketType" xml:space="preserve">
-    <value>Tipo de Asunto</value>
+    <value>Tipo de Problema</value>
   </data>
   <data name="TitleText" xml:space="preserve">
     <value>Titulo</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Bienvenido</value>
+  </data>
+  <data name="iAccept" xml:space="preserve">
+    <value>Yo acepto los</value>
+  </data>
+  <data name="terms" xml:space="preserve">
+    <value>Términos y Condiciones</value>
+  </data>
+  <data name="materials" xml:space="preserve">
+    <value>Estos materiales no son promovidos par AMWAY</value>
+  </data>
+  <data name="tickets" xml:space="preserve">
+    <value>La compra es opcional, sin embargo tiene 100% de garantía o el rembolso de su dinero.</value>
   </data>
 </root>
