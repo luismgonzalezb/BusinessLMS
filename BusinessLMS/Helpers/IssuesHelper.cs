@@ -90,7 +90,7 @@ namespace BusinessLMS.Helpers
 				ProjectPeople = GetProjectPeople(projectId);
 				People resolver = ProjectPeople.Where(p => p.ID == int.Parse(defaultUser)).FirstOrDefault();
 				People tester = ProjectPeople.Where(p => p.ID == int.Parse(defaultUser)).FirstOrDefault();
-				string response = _issueTracker.CreateIssue(projectId, issue.Title, issue.PriorityLevelID.ToString(), resolver.ID.ToString(), tester.ID.ToString(), issue.Title);
+				string response = _issueTracker.CreateIssue(projectId, issue.Title, issue.PriorityLevelID.ToString(), resolver.ID.ToString(), tester.ID.ToString(), string.Concat(issue.Title, " - sent by:", issue.email));
 				return true;
 			}
 			catch

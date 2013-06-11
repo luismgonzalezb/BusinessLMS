@@ -159,7 +159,7 @@ Registrate y deja tus comentarios.
     <value>Telefono</value>
   </data>
   <data name="PurposeText" xml:space="preserve">
-    <value>Enseñar los básicos, principios y valores para desarrollar una organización.</value>
+    <value>Hacer los básicos, principios y valores para desarrollar una organización.</value>
   </data>
   <data name="PurposeTitle" xml:space="preserve">
     <value>PROPOSITO</value>
@@ -177,7 +177,7 @@ Registrate y deja tus comentarios.
     <value>Telefono</value>
   </data>
   <data name="RegisterQuestion" xml:space="preserve">
-    <value>Quien te dijo de nosotros?</value>
+    <value>Quien te hablo de nosotros?</value>
   </data>
   <data name="RegisterSubtitle" xml:space="preserve">
     <value>Unete a nosotros aqui</value>
@@ -207,7 +207,7 @@ Registrate y deja tus comentarios.
     <value>Los principios de nuestros fundadores</value>
   </data>
   <data name="VisionText" xml:space="preserve">
-    <value>Enseñar que es la industria del mercadeo en red y cuales son las mejores compañías.</value>
+    <value>Aprender que es la industria del mercadeo en red y cuales son las mejores compañías.</value>
   </data>
   <data name="VisionTitle" xml:space="preserve">
     <value>VISION</value>

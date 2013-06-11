@@ -14,7 +14,9 @@ namespace BusinessLMSWeb.Controllers
 		{
 			List<PriorityLevel> priorityLevel = IBOVirtualAPI.GetPriorityLevels();
 			ViewBag.PriorityLevel = new SelectList(priorityLevel, "ID", "Name");
-			return PartialView();
+			Ticket ticket = new Ticket();
+			ticket.email = ibo.email;
+			return PartialView(ticket);
 		}
 
 		[HttpPost]

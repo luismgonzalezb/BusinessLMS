@@ -495,6 +495,7 @@ namespace DoneDone
 	public class Ticket
 	{
 		public string Title { get; set; }
+		public string email { get; set; }
 		public int PriorityLevelID { get; set; }
 	}
 

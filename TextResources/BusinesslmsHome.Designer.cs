@@ -124,7 +124,7 @@ namespace TextResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Teach people what a compensation plan is, which different companies use what 	compensation plan and break down ours..
+        ///   Looks up a localized string similar to Teach people what a compensation plan is, which different companies use what  compensation plan and break down ours..
         /// </summary>
         public static string MissionText {
             get {
