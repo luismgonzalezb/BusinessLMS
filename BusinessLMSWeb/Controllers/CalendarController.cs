@@ -97,7 +97,7 @@ namespace BusinessLMSWeb.Controllers
 					Dictionary<long, Event> ebevents = organizer.Events;
 					if (ebevents.Count > 0)
 					{
-						tempEvents = (from e in ebevents where e.Value.StartDateTime >= fromDate && e.Value.EndDateTime <= toDate select new CalendarEvent(e.Value)).ToList();
+						tempEvents = (from e in ebevents where e.Value.StartDateTime >= DateTime.Now && e.Value.EndDateTime <= toDate select new CalendarEvent(e.Value)).ToList();
 						events.AddRange(tempEvents);
 					}
 				}

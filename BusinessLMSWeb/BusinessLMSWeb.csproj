@@ -741,8 +741,6 @@
     <Content Include="Scripts\Plugins\DataTables-1.9.4\extras\Scroller\media\js\dataTables.scroller.min.js.gz" />
     <Content Include="Scripts\Plugins\DataTables-1.9.4\extras\TableTools\media\js\TableTools.min.js.gz" />
     <Content Include="Scripts\Invites\Index.js" />
-    <None Include="Properties\PublishProfiles\businesslmsweb - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\businesslmsweb - Web Deploy.pubxml" />
     <Content Include="Scripts\Plugins\jquery.dropdown.js" />
     <Content Include="Scripts\Plugins\jquery.easing.1.3.js" />
     <Content Include="Scripts\Plugins\jquery.flow.1.2.js" />
@@ -751,6 +749,8 @@
     <Content Include="Scripts\Plugins\jquery.prettyPhoto.js" />
     <Content Include="Scripts\Plugins\jquery.showLoading.js" />
     <Content Include="Scripts\Plugins\jquery.showLoading.min.js" />
+    <None Include="Properties\PublishProfiles\businesslmsweb - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\businesslmsweb - Web Deploy.pubxml" />
     <None Include="Scripts\Plugins\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\Plugins\jquery.simplemodal.js" />
     <Content Include="Scripts\Plugins\jquery.unobtrusive-ajax.js" />
