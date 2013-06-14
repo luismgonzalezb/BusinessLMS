@@ -397,6 +397,7 @@
     <Content Include="Content\arcana\css\style.css" />
     <Content Include="Content\arcana\css\5grid\html5shiv.js" />
     <Content Include="Content\arcana\css\5grid\init.js" />
+    <Content Include="Content\csphotoselector.css" />
     <Content Include="Content\DataTables-1.9.4\docs\media\css\doc.css" />
     <Content Include="Content\DataTables-1.9.4\docs\media\css\shCore.css" />
     <Content Include="Content\DataTables-1.9.4\docs\media\css\shThemeDataTables.css" />
@@ -568,6 +569,7 @@
     <Content Include="Images\checkmark.jpg" />
     <Content Include="Images\confirm\button.gif" />
     <Content Include="Images\confirm\header.gif" />
+    <Content Include="Images\csphotoselector\loader.gif" />
     <Content Include="Images\Date.png" />
     <Content Include="Images\DeleteSmB.png" />
     <Content Include="Images\DeleteSmBS.png" />
@@ -778,8 +780,10 @@
     <Content Include="Scripts\Plugins\noty\layouts\topRight.js" />
     <Content Include="Scripts\Plugins\noty\themes\default.js" />
     <Content Include="Scripts\Progress\Index.js" />
+    <Content Include="Scripts\Shared\csphotoselector.js" />
     <Content Include="Scripts\Shared\_layout.js" />
     <Content Include="Scripts\Tickets\_layout.js" />
+    <Content Include="Images\csphotoselector\csphotoselector-pagination.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -864,6 +868,7 @@
     <Content Include="Views\Home\Terms.cshtml" />
     <Content Include="Views\Home\_Terms-es.cshtml" />
     <Content Include="Views\Home\_Terms-en.cshtml" />
+    <Content Include="Views\Shared\CSPhotoSelector.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

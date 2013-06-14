@@ -1,4 +1,5 @@
 ﻿var CountAlert;
+
 $(document).ready(function () {
 	$.ajaxSetup({
 		cache: false
@@ -19,14 +20,19 @@ $(document).ready(function () {
 			});
 			$("#info-modal").dialog("open");
 		});
+		
 		return false;
 	});
-});
 
-$(document).ready(function(){
 	$(".contAlert .delete").click(function () {
 		$(this).parents(".contAlert").animate({ opacity: 'hide' }, "slow");
 	});
+
+	$('.Count').click(function () {
+		bId = $(this).attr("id")
+		$.post("/Books/UpCount", { id: bId }, function (data) { });
+	});
+
 });
 
 function readedAlert(aId, iId) {
@@ -34,31 +40,3 @@ function readedAlert(aId, iId) {
 	CountAlert -= 1;
 	$("#Cont").html(CountAlert);
 }
-
-$(document).ready(function () {
-	$('.Count').click(function () {
-		bId=$(this).attr("id")
-		$.post("/Books/UpCount", { id:bId }, function (data) { });
-	});
-});
-
-
-//FACEBOOK
-
-$("#btnLogin").click(function (e) {
-    e.preventDefault();
-    FB.login(function (response) {
-        if (response.authResponse) {
-            $("#btnLogin").html("Logged in");
-        } else {
-            $("#btnLogin").html("Not logged in");
-        }
-    }, { scope: 'user_photos, friends_photos' });
-});
-
-$(".photoSelect").click(function (e) {
-    e.preventDefault();
-    id = null;
-    if ($(this).attr('data-id')) id = $(this).attr('data-id');
-    fbphotoSelect(id);
-});

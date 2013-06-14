@@ -86,7 +86,6 @@ namespace BusinessLMSWeb.Controllers
 								ViewBag.MenuItems = menuItems;
 								ViewBag.AlertItems = listAlerts;
 								ViewBag.FollowupsCount = Followups.Count;
-								ViewBag.FacebookAppId = facebookAppId;
 							}
 						}
 						else
@@ -102,6 +101,7 @@ namespace BusinessLMSWeb.Controllers
 			catch { }
 			ViewBag.actionName = actionName;
 			ViewBag.controllerName = controllerName;
+            ViewBag.FacebookAppId = facebookAppId;
 			base.OnActionExecuted(filterContext);
 		}
 

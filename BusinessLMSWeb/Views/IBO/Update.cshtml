@@ -4,6 +4,7 @@
 	ViewBag.Title = "IBO Details";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="metro-container-300">
 	<div class="title" style="margin-bottom:40px;">
 		<h2>@TextResources.Businesslms.IBODetails.</h2>
@@ -96,7 +97,7 @@
 			<div id="status"></div>
 		</div>
 		<input type="submit" value="@TextResources.Businesslms.Upload" id="btnUpload" class="metro-button" />
-		<input value="Facebook" id="btnLogin" class="metro-button" />
+        <a href="#" class="metro-button photoSelect ">Select photo from Facebook</a>
 	</form>
 	<div class="metro-align-right">
 		<input type="button" value="@TextResources.Businesslms.Update" class="metro-button" onclick="submitform();" />
@@ -105,9 +106,26 @@
 		@Html.ActionLink(TextResources.Businesslms.terms, "Terms","Home")
 	</div>
 </div>
+
+@{ Html.RenderPartial("CSPhotoSelector");}
+
+<script type="text/javascript">
+    window.fbAsyncInit = function () {
+        FB.init({ appId: facebookAppId, cookie: true, status: true, xfbml: true, oauth: true });
+    };
+    (function (d) {
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all.js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document));
+</script>
+
 @section Scripts {
 	@Scripts.Render("~/bundles/jqueryval")
 	@Scripts.Render("~/bundles/jqueryupload")
 	@Scripts.Render("~/Scripts/IBO/AddIBO.js")
 	@Scripts.Render("~/Scripts/Shared/_layout.js")
+    @Scripts.Render("~/Scripts/Shared/csphotoselector.js")
 }
