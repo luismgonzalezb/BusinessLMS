@@ -130,7 +130,8 @@ namespace BusinessLMSWeb.Controllers
 			if ((userNames != null) && (userNames.Count > 0))
 			{
 				userNames = (from usr in userNames
-							 where usr.label.ToUpper().Contains(term.ToUpper())
+							 where (usr.label.ToUpper().Contains(term.ToUpper())) ||
+							 (usr.value.ToUpper().Contains(term.ToUpper()))
 							 select usr).ToList();
 			}
 			return Json(userNames, JsonRequestBehavior.AllowGet);

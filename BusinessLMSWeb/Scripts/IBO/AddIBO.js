@@ -25,3 +25,21 @@ $(document).ready(function () {
 function submitform() {
     $("#createIBOForm").submit();
 }
+
+$(function () {
+    $("#iboName").autocomplete({
+        source: "/Home/SearchIBO/",
+        search: function (event, ui) {
+            $("#divLoading").showLoading();
+        },
+        response: function (event, ui) {
+            $("#divLoading").hideLoading();
+        },
+        select: function (event, ui) {
+            $("#iboName").val(ui.item.value);
+            $("#divIboNum").html(ui.item.value);
+            $("#UPLine").val(ui.item.value);
+            return false;
+        }
+    });
+});

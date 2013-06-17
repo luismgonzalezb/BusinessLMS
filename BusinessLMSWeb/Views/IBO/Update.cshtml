@@ -79,15 +79,16 @@
 			</div>
 			<div class="metro-form-control">
 				@Html.LabelFor(model => model.UPLine)
-				<div class="metro-text-box">
-					@Html.EditorFor(model => model.UPLine)
-					@Html.ValidationMessageFor(model => model.UPLine)
-				</div>
+				<div id="divIboName" class="metro-form-control">
+					<input type="text" class="metro-text-box" name="iboName" id="iboName" value="@Model.UPLine" /></div>
+				<div id="divLoading"></div>
 			</div>
+
 			<div class="metro-form-control">
 				@Html.CheckBoxMetroFor(model => model.newsletteroptin, new { @class = "metro-check" })
 			</div>
 			@Html.HiddenFor(model => model.picture)
+			@Html.HiddenFor(model => model.UPLine)
 		</fieldset>
 	}
 	@TextResources.Businesslms.IBOpicture
