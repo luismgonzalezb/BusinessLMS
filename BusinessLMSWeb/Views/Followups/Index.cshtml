@@ -26,6 +26,7 @@
 				<td>@Html.DisplayFor(modelItem => item.Method)</td>
 				<td>@Html.DisplayFor(modelItem => item.datetime)</td>
 				<td>
+					@Html.ActionLink("Done", "CompletFollowup", new { id=item.followupId }, new { @class = "completedlink", title = "Complet Followup", id=item.followupId } )
 					<a href="javascript:EditItem(@(item.followupId));" class = "edit-link-sm-black editlink">Edit</a>
 					@Html.ActionLink("Delete", "DeleteFollowupAjax", new { id=item.followupId }, 
 						new { @class = "del-link-sm-black deletelink", title = "Delete Followup" })
@@ -42,6 +43,9 @@
 <div id="modalWindow"></div>
 <div id="delete-dialog" title="Confirmation">
 	<p>@TextResources.Businesslms.DeleteText @TextResources.Businesslms.followupId?</p>
+</div>
+<div id="completed-dialog" title="Confirmation">
+	<p>@TextResources.Businesslms.CompletedText @TextResources.Businesslms.followupId?</p>
 </div>
 @section Scripts {
 	@Scripts.Render("~/bundles/jqueryval")

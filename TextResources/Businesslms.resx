@@ -447,4 +447,10 @@
   <data name="tickets" xml:space="preserve">
     <value>Purchase optional, 100% warranty or your money back.</value>
   </data>
+  <data name="CompletedFollow" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="CompletedText" xml:space="preserve">
+    <value>Are you sure you finished this </value>
+  </data>
 </root>

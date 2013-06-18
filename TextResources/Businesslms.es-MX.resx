@@ -447,4 +447,10 @@
   <data name="tickets" xml:space="preserve">
     <value>La compra es opcional, sin embargo tiene 100% de garantía o el rembolso de su dinero.</value>
   </data>
+  <data name="CompletedFollow" xml:space="preserve">
+    <value>Hecho</value>
+  </data>
+  <data name="CompletedText" xml:space="preserve">
+    <value>Estas seguro de que terminaste este </value>
+  </data>
 </root>

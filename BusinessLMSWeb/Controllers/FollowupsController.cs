@@ -141,5 +141,20 @@ namespace BusinessLMSWeb.Controllers
 		{
 			return PartialView();
 		}
+
+		public ActionResult CompletFollowup (int id)
+		{
+			try
+			{
+				ContactFollowup followup = IBOVirtualAPI.Get<ContactFollowup>(id.ToString());
+				followup.completed = true;
+				string result = IBOVirtualAPI.Update<ContactFollowup>(followup.followupId.ToString(), followup);
+				return Json(new { success = true });
+			}
+			catch
+			{
+				return Json(new { success = false });
+			}
+		}
 	}
 }

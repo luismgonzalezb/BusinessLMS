@@ -30,6 +30,29 @@ $(document).ready(function () {
 			}
 		}
 	});
+
+	$('.completedlink').click(function () {
+		completedLinkObj = $(this);  //for future use
+		$('#completed-dialog').dialog('open');
+		return false;
+	});
+
+	$('#completed-dialog').dialog({
+		autoOpen: false, width: 400, resizable: false, modal: true, //Dialog options
+		buttons: {
+			"Continue": function () {
+				$.post(completedLinkObj[0].href, function (data) {  //Post to action
+					if (data.success == true) {
+						$("#" + completedLinkObj[0].id).hide("slow")
+					} else { }
+				});
+				$(this).dialog("close");
+			},
+			"Cancel": function () {
+				$(this).dialog("close");
+			}
+		}
+	});
 });
 
 function AddNewItem() {
